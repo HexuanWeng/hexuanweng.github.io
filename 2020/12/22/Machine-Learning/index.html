@@ -22,15 +22,20 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hex.*">
-<meta property="og:url" content="http://hexuanweng.github.io/archives/2020/12/index.html">
+  <meta name="description" content="Learned from StatQuest with Josh Starmer. He makes machine learning concept easy for us to understand~ Hooray~~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Learning">
+<meta property="og:url" content="http://hexuanweng.github.io/2020/12/22/Machine-Learning/index.html">
 <meta property="og:site_name" content="Hex.*">
+<meta property="og:description" content="Learned from StatQuest with Josh Starmer. He makes machine learning concept easy for us to understand~ Hooray~~">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-22T09:50:24.000Z">
+<meta property="article:modified_time" content="2020-12-22T11:22:00.400Z">
 <meta property="article:author" content="Hexuan Weng">
+<meta property="article:tag" content="Machine Learning">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://hexuanweng.github.io/archives/2020/12/">
+<link rel="canonical" href="http://hexuanweng.github.io/2020/12/22/Machine-Learning/">
 
 
 <script id="page-configurations">
@@ -38,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Hex.*</title>
+  <title>Machine-Learning | Hex.*</title>
   
 
 
@@ -177,76 +182,157 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 7 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2020/12/22/Machine-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yourname.jpg">
+      <meta itemprop="name" content="Hexuan Weng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hex.*">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine-Learning
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-22 20:50:24 / Modified: 22:22:00" itemprop="dateCreated datePublished" datetime="2020-12-22T20:50:24+11:00">2020-12-22</time>
+            </span>
+
+          
+            <div class="post-description">Learned from StatQuest with Josh Starmer. He makes machine learning concept easy for us to understand~ Hooray~~</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="A-Gentle-Introduction-to-Machine-Learning"><a href="#A-Gentle-Introduction-to-Machine-Learning" class="headerlink" title="A Gentle Introduction to Machine Learning"></a>A Gentle Introduction to Machine Learning</h2><ul>
+<li>the goal of Machine Learning is to make <ul>
+<li><strong>predictions</strong></li>
+<li><strong>classifications</strong></li>
+</ul>
+</li>
+<li>two main ideas about ML:<ul>
+<li>we use testing data to evaluate Machine Learning methods</li>
+<li>don’t be fooled by how well a Machine Learning method fits the Training Data</li>
+</ul>
+</li>
+<li>Fitting the Training Data well but make poor predictions is called <strong>Bias-Variance Tradeoff</strong></li>
+<li>There are tons of fancy Machine Learning methods, but the most important thing is to know abou them is not what makes them so fancy, it is that we decide which method fits our needs the best by using <strong>Testing Data</strong></li>
+</ul>
+<h2 id="Cross-Validation"><a href="#Cross-Validation" class="headerlink" title="Cross Validation"></a>Cross Validation</h2><ul>
+<li><strong>Cross Validation</strong> allows us to compare different machine learning methods and get a sense of how well they will work in practice</li>
+<li><strong>Four-Fold Cross Validation</strong>: divide the data into 4 blocks (numbers change dynamically). In practice, it is very common to divide the data into 10 blocks–<strong>Ten-Fold-Cross Validation</strong></li>
+<li><strong>Leave One Out Cross Validation</strong>: call each individual patient (or sample) a block</li>
+<li>Using machine learning lingo, we need the data to     <ul>
+<li>train the machine learning methods</li>
+<li>test the machine learning methods</li>
+</ul>
+</li>
+<li>Reusing the same data for both training and testing is a bad idea because we need to know how the method will work on data it was not trained on. </li>
+<li>A slightly better idea would be to use the first 75% of the data for training and the last 25% of the data for testing. </li>
+<li>Rather than worry too much about which block would be best for testing, <strong>cross validation</strong> uses them all, one at a time, and summarizes the results at the end.</li>
+<li><strong>Tuning parameter</strong>: a parameter that is not estimated, but just sort of guessed. Then we could use 10-fold cross validation to help find the best value for that tuning parameter.</li>
+</ul>
+<h2 id="The-Confusion-Matrix"><a href="#The-Confusion-Matrix" class="headerlink" title="The Confusion Matrix"></a>The Confusion Matrix</h2><ul>
+<li>steps:<ul>
+<li>we start by dividing the data into <strong>Training</strong> and <strong>Testing set</strong></li>
+<li>Then we train all of the methods we are interested in with the <strong>Training data</strong></li>
+<li>And then test each method on the <strong>Testing set</strong></li>
+<li>summarize how each method performed on the <strong>Testing data</strong><ul>
+<li>create a <strong>Confusion Matrix</strong> for each method</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Confusion Matrix</strong><ul>
+<li><strong>rows</strong>: what the machine learning algorithm predicted (True/False)</li>
+<li><strong>columns</strong>: the known truth (Positive/Negative)</li>
+</ul>
+</li>
+<li>diagonal<ul>
+<li>the numbers along the diagonal (top-left, right-bottom) tell us how many times the samples were correctly classified</li>
+<li>the number not on the diagonal are samples the algorithm messed up</li>
+</ul>
+</li>
+<li>the size of the confusion matrix is determined by the number of things we want to predict</li>
+<li>a <strong>Confusion Matrix</strong> tells you what your machine learning algorithm did right and what it did wrong</li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-22T20:50:24+11:00"
-              content="2020-12-22">
-          12-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/22/Machine-Learning/" itemprop="url">
-            <span itemprop="name">Machine-Learning</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-21T19:20:11+11:00"
-              content="2020-12-21">
-          12-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/21/Statistics-Fundation/" itemprop="url">
-            <span itemprop="name">Statistics Fundation -- Part1</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Hexuan Weng
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://hexuanweng.github.io/2020/12/22/Machine-Learning/" title="Machine-Learning">http://hexuanweng.github.io/2020/12/22/Machine-Learning/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
 
 
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"> Machine Learning</i> </a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/21/Statistics-Fundation/" rel="next" title="Statistics Fundation -- Part1">
+      Statistics Fundation -- Part1 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -293,6 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Gentle-Introduction-to-Machine-Learning"><span class="nav-text">A Gentle Introduction to Machine Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cross-Validation"><span class="nav-text">Cross Validation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Confusion-Matrix"><span class="nav-text">The Confusion Matrix</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -459,6 +546,25 @@ show_date_time();
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '65a63f39e8f0508fea1e',
+      clientSecret: '19813982f6f78a2d784ef86454a73a778af996fc',
+      repo        : 'hexuanweng.github.io',
+      owner       : 'HexuanWeng',
+      admin       : ['HexuanWeng'],
+      id          : 'c986b715cbb761661d097e93e517be59',
+        language: 'en,zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>

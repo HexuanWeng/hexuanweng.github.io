@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2020-12-22T08:44:31.534Z</updated>
+  <updated>2020-12-22T11:22:00.400Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Machine-Learning</title>
+    <link href="http://hexuanweng.github.io/2020/12/22/Machine-Learning/"/>
+    <id>http://hexuanweng.github.io/2020/12/22/Machine-Learning/</id>
+    <published>2020-12-22T09:50:24.000Z</published>
+    <updated>2020-12-22T11:22:00.400Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="A-Gentle-Introduction-to-Machine-Learning"><a href="#A-Gentle-Introduction-to-Machine-Learning" class="headerlink" title="A Gentle Introduction to Machine Learning"></a>A Gentle Introduction to Machine Learning</h2><ul><li>the goal of Machine Learning is to make <ul><li><strong>predictions</strong></li><li><strong>classifications</strong></li></ul></li><li>two main ideas about ML:<ul><li>we use testing data to evaluate Machine Learning methods</li><li>don’t be fooled by how well a Machine Learning method fits the Training Data</li></ul></li><li>Fitting the Training Data well but make poor predictions is called <strong>Bias-Variance Tradeoff</strong></li><li>There are tons of fancy Machine Learning methods, but the most important thing is to know abou them is not what makes them so fancy, it is that we decide which method fits our needs the best by using <strong>Testing Data</strong></li></ul><h2 id="Cross-Validation"><a href="#Cross-Validation" class="headerlink" title="Cross Validation"></a>Cross Validation</h2><ul><li><strong>Cross Validation</strong> allows us to compare different machine learning methods and get a sense of how well they will work in practice</li><li><strong>Four-Fold Cross Validation</strong>: divide the data into 4 blocks (numbers change dynamically). In practice, it is very common to divide the data into 10 blocks–<strong>Ten-Fold-Cross Validation</strong></li><li><strong>Leave One Out Cross Validation</strong>: call each individual patient (or sample) a block</li><li>Using machine learning lingo, we need the data to     <ul><li>train the machine learning methods</li><li>test the machine learning methods</li></ul></li><li>Reusing the same data for both training and testing is a bad idea because we need to know how the method will work on data it was not trained on. </li><li>A slightly better idea would be to use the first 75% of the data for training and the last 25% of the data for testing. </li><li>Rather than worry too much about which block would be best for testing, <strong>cross validation</strong> uses them all, one at a time, and summarizes the results at the end.</li><li><strong>Tuning parameter</strong>: a parameter that is not estimated, but just sort of guessed. Then we could use 10-fold cross validation to help find the best value for that tuning parameter.</li></ul><h2 id="The-Confusion-Matrix"><a href="#The-Confusion-Matrix" class="headerlink" title="The Confusion Matrix"></a>The Confusion Matrix</h2><ul><li>steps:<ul><li>we start by dividing the data into <strong>Training</strong> and <strong>Testing set</strong></li><li>Then we train all of the methods we are interested in with the <strong>Training data</strong></li><li>And then test each method on the <strong>Testing set</strong></li><li>summarize how each method performed on the <strong>Testing data</strong><ul><li>create a <strong>Confusion Matrix</strong> for each method</li></ul></li></ul></li><li><strong>Confusion Matrix</strong><ul><li><strong>rows</strong>: what the machine learning algorithm predicted (True/False)</li><li><strong>columns</strong>: the known truth (Positive/Negative)</li></ul></li><li>diagonal<ul><li>the numbers along the diagonal (top-left, right-bottom) tell us how many times the samples were correctly classified</li><li>the number not on the diagonal are samples the algorithm messed up</li></ul></li><li>the size of the confusion matrix is determined by the number of things we want to predict</li><li>a <strong>Confusion Matrix</strong> tells you what your machine learning algorithm did right and what it did wrong</li></ul>]]></content>
+    
+    
+    <summary type="html">Learned from StatQuest with Josh Starmer. He makes machine learning concept easy for us to understand~ Hooray~~</summary>
+    
+    
+    
+    
+    <category term="Machine Learning" scheme="http://hexuanweng.github.io/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Statistics Fundation -- Part1</title>
