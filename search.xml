@@ -141,7 +141,7 @@
   <entry>
     <title>Statistics Fundation -- part1</title>
     <url>/2020/12/21/Statistics-Fundation/</url>
-    <content><![CDATA[<h2 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h2><p>Histograms are one of the most basic statistical tools that we have. </p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h2><p>Histograms are one of the most basic statistical tools that we have. </p>
 <ul>
 <li>divide into bins: the taller the stack within a bin, the more measurements we made that fall into that bin. (figure out how wide is the bin is a tricky)</li>
 <li>we can use histogram to predict the probability of getting future measurements</li>
@@ -266,7 +266,7 @@
 <li><p>When we only have two groups of data, the <strong>Alternative Hypothesis</strong> is pretty obvious because it is simply the opposite of the <strong>Null Hypothesis</strong> </p>
 </li>
 </ul>
-]]></content>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">StatQuest with Josh Starmer<a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <tags>
         <tag>Statistics</tag>
       </tags>
