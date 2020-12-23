@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Binary_Gap</title>
-    <url>/2020/10/30/Binary-Gap/</url>
+    <title>DSA - Binary Gap</title>
+    <url>/2020/11/01/Binary-Gap/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Qeustion"><a href="#Qeustion" class="headerlink" title="Qeustion"></a>Qeustion</h2><blockquote>
 <p>A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.<br>For example, number 9 has binary representation 1001 and contains a binary gap of length 2. The number 529 has binary representation 1000010001 and contains two binary gaps: one of length 4 and one of length 3. The number 20 has binary representation 10100 and contains one binary gap of length 1. The number 15 has binary representation 1111 and has no binary gaps. The number 32 has binary representation 100000 and has no binary gaps.<br>Write a function:<br>class Solution { public int solution(int N); }<br>that, given a positive integer N, returns the length of its longest binary gap. The function should return 0 if N doesn’t contain a binary gap.<br>For example, given N = 1041 the function should return 5, because N has binary representation 10000010001 and so its longest binary gap is of length 5. Given N = 32 the function should return 0, because N has binary representation ‘100000’ and thus no binary gaps.<br>Write an efficient algorithm for the following assumptions:<br>N is an integer within the range [1..2,147,483,647].</p>
 </blockquote>
@@ -31,13 +31,14 @@
                 res <span class="token operator">=</span> distance <span class="token operator">-</span><span class="token number">1</span>
     <span class="token keyword">return</span> <span class="token builtin">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><img src="/2020/10/30/Binary-Gap/binarygap_codility.png" class="" title="Binary Gap">
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><img src="/2020/11/01/Binary-Gap/binarygap_codility.png" class="" title="Binary Gap">
 ]]></content>
       <categories>
-        <category>CODALITY</category>
+        <category>Data Structure and Algorithm</category>
       </categories>
       <tags>
-        <tag>EASY</tag>
+        <tag>easy</tag>
+        <tag>array</tag>
       </tags>
   </entry>
   <entry>
@@ -64,6 +65,30 @@
       </categories>
       <tags>
         <tag>Julian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Melbourn Cup! Welcome on Board!</title>
+    <url>/2020/11/03/Induction-Roadmap/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Day-One-Log"><a href="#Day-One-Log" class="headerlink" title="Day One Log"></a>Day One Log</h1><ul>
+<li><del>get your badge from Michelle of Reception</del></li>
+<li><del>Meet and Greet with Nathan / Justin</del></li>
+<li><del>Meet your assigned onboarding</del></li>
+<li><del>Take a tour of the office. Find the toilets, pantry/ lunch room</del></li>
+<li><del>complete the online training from ASI Solution</del></li>
+</ul>
+<p>Today is my first day at ASI Solution. I was too nervous to fall asleep yesterday. I woke up at 7 am which is much earlier than I used to. I arrived at the company around 8:30, waiting for Huy at the cafe. My first day in ASI Solution is also a day of Melbourn Cup. The company has a big BBQ gathering outside of our company.<br>I didn’t know that I am the only employee who has actually no background on Microsoft platform but work as a <strong>Microsoft Surface Specialist &amp; Power Apps Developer</strong>. Justin prefers to hire someone who has 8 years working experience but Huy still decided to hire me because he said he can see the huge potential I possessed. I really appreciate this opportubity and I hope that I can contribute to the company as well.<br>Huy led me to meet everyone in the company. “Welcome on board” is the most frequent statement I heared today. This is such a wonderful experience to work with folks from different backgrounds. Most of them are Aussies and sometimes I could feel the language barriers.<br>Today, I feel sleepy because I could not fall asleep last night until 3 am. I met some intersting and friendly colleagues today, like Alex, Oscar, Andrew~ Hope that I can remember all the names of our company within one month~<br>Tomorrow is another training day. Looking forward to it!</p>
+<h1 id="Day-Two-Log"><a href="#Day-Two-Log" class="headerlink" title="Day Two Log"></a>Day Two Log</h1><p>The second day at ASI Solutions. I feel fulfilled actually. I spent the whole day in learning Power Apps and keeping updated with Justin about the Fulcrum App. This is such a different feeling I have after I join the team. It is quiet laid back and I love our team with wonderful team members. I also feel excited that I will participate in many exams as well as getting Microsoft certificates.<br>Huy treated me an Aussie Burger at lunch to welcome me to join the team. And I also applied for the yoga and bootcamp courses via Michelle. I don’t have any feelings of tireness but I feel happy and positive. I gradually form some good habits after I join the team, for example, I start having breakfast on a daily basis, I try to do more exercises with colleagues four days a week, and I also form a habit of drinking lots of warm water when working at the office.<br>I hope that I can become an asset to the company I work for and I hope that I can fit in earlier~<br>BTW, today is also an important day worldwide because we will see the result of US Election 2020: Donald Trump vs Joe Biden. The election is still in progress. Let’s see the results tomorrow~</p>
+<img src="/2020/11/03/Induction-Roadmap/2020Election.png" class="" title="US Election 2020">
+
+<h1 id="Week-One-Log"><a href="#Week-One-Log" class="headerlink" title="Week One Log"></a>Week One Log</h1><p>It’s been one week since I started at ASI Solution. I feel that I have already fit in. I start to talk with staff from other teams and I will attend the Yoga Class and Bootcamp next week.<br>Talking to people from different backgrounds opened my mind, to be honest. Actually, I keep a close eye on US Election 2020. And the result come out and Joe Biden becomes US president. On Friday, when we met at the lunch room during our break, I ask Oscar about his opinion on US president election. His reply really astonished me, because I have never thought it in that point of view. America is a country that I knew when I was in primary school, but I have never been there. I didn’t notice the problems of the health care system there. And they support Biden for some reason and there are some certain reasons they also want to support Trump. Actually, many people do not like both of them, but they have to pick one.<br>I started a more regular life. This week, I also receive a new Microsoft Surface Laptop 3!! This new gift really made my day!</p>
+<img src="/2020/11/03/Induction-Roadmap/cat.png" class="" title="Old Cat">
+]]></content>
+      <categories>
+        <category>ASI Solution</category>
+      </categories>
+      <tags>
+        <tag>Log</tag>
       </tags>
   </entry>
   <entry>
@@ -104,34 +129,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Melbourn Cup! Welcome on Board!</title>
-    <url>/2020/11/03/Induction-Roadmap/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Day-One-Log"><a href="#Day-One-Log" class="headerlink" title="Day One Log"></a>Day One Log</h1><ul>
-<li><del>get your badge from Michelle of Reception</del></li>
-<li><del>Meet and Greet with Nathan / Justin</del></li>
-<li><del>Meet your assigned onboarding</del></li>
-<li><del>Take a tour of the office. Find the toilets, pantry/ lunch room</del></li>
-<li><del>complete the online training from ASI Solution</del></li>
-</ul>
-<p>Today is my first day at ASI Solution. I was too nervous to fall asleep yesterday. I woke up at 7 am which is much earlier than I used to. I arrived at the company around 8:30, waiting for Huy at the cafe. My first day in ASI Solution is also a day of Melbourn Cup. The company has a big BBQ gathering outside of our company.<br>I didn’t know that I am the only employee who has actually no background on Microsoft platform but work as a <strong>Microsoft Surface Specialist &amp; Power Apps Developer</strong>. Justin prefers to hire someone who has 8 years working experience but Huy still decided to hire me because he said he can see the huge potential I possessed. I really appreciate this opportubity and I hope that I can contribute to the company as well.<br>Huy led me to meet everyone in the company. “Welcome on board” is the most frequent statement I heared today. This is such a wonderful experience to work with folks from different backgrounds. Most of them are Aussies and sometimes I could feel the language barriers.<br>Today, I feel sleepy because I could not fall asleep last night until 3 am. I met some intersting and friendly colleagues today, like Alex, Oscar, Andrew~ Hope that I can remember all the names of our company within one month~<br>Tomorrow is another training day. Looking forward to it!</p>
-<h1 id="Day-Two-Log"><a href="#Day-Two-Log" class="headerlink" title="Day Two Log"></a>Day Two Log</h1><p>The second day at ASI Solutions. I feel fulfilled actually. I spent the whole day in learning Power Apps and keeping updated with Justin about the Fulcrum App. This is such a different feeling I have after I join the team. It is quiet laid back and I love our team with wonderful team members. I also feel excited that I will participate in many exams as well as getting Microsoft certificates.<br>Huy treated me an Aussie Burger at lunch to welcome me to join the team. And I also applied for the yoga and bootcamp courses via Michelle. I don’t have any feelings of tireness but I feel happy and positive. I gradually form some good habits after I join the team, for example, I start having breakfast on a daily basis, I try to do more exercises with colleagues four days a week, and I also form a habit of drinking lots of warm water when working at the office.<br>I hope that I can become an asset to the company I work for and I hope that I can fit in earlier~<br>BTW, today is also an important day worldwide because we will see the result of US Election 2020: Donald Trump vs Joe Biden. The election is still in progress. Let’s see the results tomorrow~</p>
-<img src="/2020/11/03/Induction-Roadmap/2020Election.png" class="" title="US Election 2020">
-
-<h1 id="Week-One-Log"><a href="#Week-One-Log" class="headerlink" title="Week One Log"></a>Week One Log</h1><p>It’s been one week since I started at ASI Solution. I feel that I have already fit in. I start to talk with staff from other teams and I will attend the Yoga Class and Bootcamp next week.<br>Talking to people from different backgrounds opened my mind, to be honest. Actually, I keep a close eye on US Election 2020. And the result come out and Joe Biden becomes US president. On Friday, when we met at the lunch room during our break, I ask Oscar about his opinion on US president election. His reply really astonished me, because I have never thought it in that point of view. America is a country that I knew when I was in primary school, but I have never been there. I didn’t notice the problems of the health care system there. And they support Biden for some reason and there are some certain reasons they also want to support Trump. Actually, many people do not like both of them, but they have to pick one.<br>I started a more regular life. This week, I also receive a new Microsoft Surface Laptop 3!! This new gift really made my day!</p>
-<img src="/2020/11/03/Induction-Roadmap/cat.png" class="" title="Old Cat">
-]]></content>
-      <categories>
-        <category>ASI Solution</category>
-      </categories>
-      <tags>
-        <tag>Log</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mood at the Moment</title>
     <url>/2020/11/13/Mood/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>I planned to study as uasual after work. I just, by accident, randomly opened the url and I was not able to control myself at all. I am too touched and moved. Flows came to my mind and I would think of lots of beautiful memories happened in the past. I have no idea how you are and how you have been recently. </p>
-<p>My depression came to me suddenly and I started crying for no reason. Listening lots of music, I feel that it’s been a long time that I haven’t had such uncontrollable feelings. Mixed feeling~</p>
+<p>My depression came to me suddenly and I started crying for no reason. Listening to lots of music, I feel that it’s been a long time that I haven’t had such uncontrollable feelings. Mixed feeling~</p>
 <img src="/2020/11/13/Mood/hex_os.jpg" class="" title="US HEX OS">
 ]]></content>
       <tags>
@@ -139,7 +140,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Statistics Fundation -- Part1</title>
+    <title>Statistics Foundation Concept</title>
     <url>/2020/12/21/Statistics-Fundation/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h2><p>Histograms are one of the most basic statistical tools that we have. </p>
 <ul>
@@ -269,6 +270,7 @@
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9">StatQuest with Josh Starmer</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>]]></content>
       <tags>
         <tag>Statistics</tag>
+        <tag>video course</tag>
       </tags>
   </entry>
   <entry>
@@ -300,7 +302,9 @@
 <li>Reusing the same data for both training and testing is a bad idea because we need to know how the method will work on data it was not trained on. </li>
 <li>A slightly better idea would be to use the first 75% of the data for training and the last 25% of the data for testing. </li>
 <li>Rather than worry too much about which block would be best for testing, <strong>cross validation</strong> uses them all, one at a time, and summarizes the results at the end.</li>
-<li><strong>Tuning parameter</strong>: a parameter that is not estimated, but just sort of guessed. Then we could use 10-fold cross validation to help find the best value for that tuning parameter.</li>
+<li><strong>Tuning parameter</strong>: a parameter that is not estimated, but just sort of guessed. Then we could use 10-fold cross validation to help find the best value for that tuning parameter.<img src="/2020/12/22/Machine-Learning/K-fold_cross_validation_EN.svg" class="" title="Cross Validation">
+
+</li>
 </ul>
 <h2 id="The-Confusion-Matrix"><a href="#The-Confusion-Matrix" class="headerlink" title="The Confusion Matrix"></a>The Confusion Matrix</h2><ul>
 <li>steps:<ul>
@@ -314,8 +318,9 @@
 </ul>
 </li>
 <li><strong>Confusion Matrix</strong><ul>
-<li><strong>rows</strong>: what the machine learning algorithm predicted (True/False)</li>
-<li><strong>columns</strong>: the known truth (Positive/Negative)</li>
+<li><strong>rows</strong>: what the machine learning algorithm predicted </li>
+<li><strong>columns</strong>: the known truth </li>
+<li>the result is (Positive/Negative) and (True/False) shows whether they predict right or wrong</li>
 </ul>
 </li>
 <li>diagonal<ul>
@@ -324,11 +329,81 @@
 </ul>
 </li>
 <li>the size of the confusion matrix is determined by the number of things we want to predict</li>
-<li>a <strong>Confusion Matrix</strong> tells you what your machine learning algorithm did right and what it did wrong</li>
+<li>a <strong>Confusion Matrix</strong> tells you what your machine learning algorithm did right and what it did wrong<img src="/2020/12/22/Machine-Learning/confusion-matrix.jpg" class="" title="Confusion Matrix">
+
+</li>
 </ul>
+<h2 id="Sensitivity-and-Specificity"><a href="#Sensitivity-and-Specificity" class="headerlink" title="Sensitivity and Specificity"></a>Sensitivity and Specificity</h2><ul>
+<li>2 rows and 2 columns<ul>
+<li><strong>Sensitivity</strong>: tells us what percentage of items with some certain features were correctly identified<ul>
+<li><strong>True Positives / (True Positives + False Negatives)</strong></li>
+</ul>
+</li>
+<li><strong>Specificity</strong>: tells us what percentage of items without some certain features were correctly identified<ul>
+<li><strong>True Negatives / (True Negatives + False Positives)</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>larger confusion matrices<ul>
+<li>the big difference when calculating <strong>Sensitivity</strong> and <strong>Specifity</strong> for larger confusion matrices is that there are no single values that work for the entire matrix, instead we calculate a different <strong>Sensitivity</strong> and <strong>Specificity</strong> for each category</li>
+</ul>
+</li>
+<li>we can use <strong>Sensetivity</strong> and <strong>Specificity</strong> to help us decide which machine learning method would be best for our data<ul>
+<li>If correctly identifying <em>positives</em> is the most important thing to do with the data, we should choose a method with higher <em>sensitivity</em></li>
+<li>If corretly identifying negatives is more important, than we should put more emphasis on <em>specificity</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="SVM-Support-Vector-Machines"><a href="#SVM-Support-Vector-Machines" class="headerlink" title="SVM - Support Vector Machines"></a>SVM - Support Vector Machines</h2><ul>
+<li>The shortest distance between the observations and the threshold is called the <strong>margin</strong>. The distances between the observations and the threshold are the same and both reflect the <strong>margin</strong>. When the threshold is halfway between the two observations, the <strong>margin</strong> is as large as it can be</li>
+<li><strong>Maximal Margin Classifier</strong>: when we use the threshold that gives us the largest <strong>margin</strong> to make classifications<ul>
+<li><strong>Maximal Margin Classifiers</strong> are super sensitive to outliers in the training data and that makes them pretty lame</li>
+</ul>
+</li>
+<li><strong>Soft Margin</strong>: when we allow misclassifications, the distance between the observations and the threshold is called soft margin<ul>
+<li>To make a threshold that is not so sensitive to outliers we must <strong>allow misclassifications</strong></li>
+<li>choosing a threshold that allows a misclassifications is an example of the <strong>Bias/Variance Tradeoff</strong>. </li>
+<li>In other words, before we alloed misclassifications, we picked a threshold that was very sensitive to the training data (low bias) and it performed poorly when we got new data (high variance)</li>
+<li>In contrast, when we picked a threshold that was less sensitive to the training data and allowed misclassifications (higher bias) but it performed better when we got new data (low variance)</li>
+</ul>
+</li>
+<li>How to determin which <strong>Soft Margin</strong><ul>
+<li>we use cross validation to determine how many classifications and observations to allow inside of the <strong>Soft Margin</strong> to get the best classification</li>
+</ul>
+</li>
+<li>when we use a <strong>Soft Margin</strong> to determine the location of a threshold, </li>
+</ul>
+<img src="/2020/12/22/Machine-Learning/SVM.png" class="" title="SVM">
 ]]></content>
+      <categories>
+        <category>Data Science</category>
+      </categories>
       <tags>
+        <tag>video course</tag>
         <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pick-Up Au English</title>
+    <url>/2020/12/23/Daily-English/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Abbrevisation-for-…"><a href="#Abbrevisation-for-…" class="headerlink" title="Abbrevisation for …"></a>Abbrevisation for …</h2><ol>
+<li><strong>aka</strong>: also known as <ul>
+<li>(used when someone has another name)</li>
+<li>“we are using a soft margin classifier aka a support vector classifier to classify observations”</li>
+</ul>
+</li>
+<li><strong>FYI</strong>: for your information <ul>
+<li>(used in emails when you send someone an announcement or tell someone something that you think they should know)</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Languages</category>
+      </categories>
+      <tags>
+        <tag>Daily English</tag>
       </tags>
   </entry>
 </search>
