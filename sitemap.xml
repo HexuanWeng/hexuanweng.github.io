@@ -107,13 +107,6 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/index.html</loc>
-    
-    <lastmod>2021-08-23</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://hexuanweng.github.io/about/index.html</loc>
     
     <lastmod>2021-08-23</lastmod>
@@ -122,6 +115,13 @@
   
   <url>
     <loc>http://hexuanweng.github.io/categories/index.html</loc>
+    
+    <lastmod>2021-08-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/index.html</loc>
     
     <lastmod>2021-08-23</lastmod>
     
@@ -172,48 +172,6 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/hard/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/AlgoExpert/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Leetcode/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/AWS-Lambda/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Google-BigQuery/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Brute-Force/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://hexuanweng.github.io/tags/Statistics/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
@@ -229,6 +187,27 @@
   
   <url>
     <loc>http://hexuanweng.github.io/tags/Machine-Learning/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Daily-English/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Support-Vector-Machine/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Notion/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -263,34 +242,48 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Daily-English/</loc>
+    <loc>http://hexuanweng.github.io/tags/Brute-Force/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Support-Vector-Machine/</loc>
+    <loc>http://hexuanweng.github.io/tags/hard/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Notion/</loc>
+    <loc>http://hexuanweng.github.io/tags/AlgoExpert/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Leetcode/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/AWS-Lambda/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Google-BigQuery/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
 
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Data-Structure-and-Algorithm/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
   <url>
     <loc>http://hexuanweng.github.io/categories/Simple-Life/</loc>
@@ -300,14 +293,7 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/categories/AWS/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/</loc>
+    <loc>http://hexuanweng.github.io/categories/Data-Structure-and-Algorithm/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -328,14 +314,14 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/categories/AWS/GCP/</loc>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC921-930/</loc>
+    <loc>http://hexuanweng.github.io/categories/AWS/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -350,6 +336,20 @@
   
   <url>
     <loc>http://hexuanweng.github.io/categories/Leetcode/LC471-479/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC921-930/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/AWS/GCP/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
