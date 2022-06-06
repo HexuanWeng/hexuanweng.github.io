@@ -22,15 +22,21 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hex.*">
-<meta property="og:url" content="http://hexuanweng.github.io/categories/Leetcode/LC471-479/index.html">
+  <meta name="description" content="Leedcode: 116&#x2F;2658 (51+52+13)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LC1894FindtheStudentthatWillReplacetheChalk">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/06/06/LC1894FindtheStudentthatWillReplacetheChalk/index.html">
 <meta property="og:site_name" content="Hex.*">
+<meta property="og:description" content="Leedcode: 116&#x2F;2658 (51+52+13)">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-06T13:09:24.000Z">
+<meta property="article:modified_time" content="2022-06-06T13:15:54.535Z">
 <meta property="article:author" content="Hexuan Weng">
+<meta property="article:tag" content="Simulation">
+<meta property="article:tag" content="medium">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://hexuanweng.github.io/categories/Leetcode/LC471-479/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/06/06/LC1894FindtheStudentthatWillReplacetheChalk/">
 
 
 <script id="page-configurations">
@@ -38,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Category: LC471-479 | Hex.*</title>
+  <title>LC1894FindtheStudentthatWillReplacetheChalk | Hex.*</title>
   
 
 
@@ -177,57 +183,162 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">LC471-479
-          <small>Category</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/06/LC1894FindtheStudentthatWillReplacetheChalk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yourname.jpg">
+      <meta itemprop="name" content="Hexuan Weng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hex.*">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LC1894FindtheStudentthatWillReplacetheChalk
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-06 23:09:24 / Modified: 23:15:54" itemprop="dateCreated datePublished" datetime="2022-06-06T23:09:24+10:00">2022-06-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/LC1800-1899/" itemprop="url" rel="index"><span itemprop="name">LC1800-1899</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Leedcode: 116/2658 (51+52+13)</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are n students in a class numbered from 0 to n - 1. The teacher will give each student a problem starting with the student number 0, then the student number 1, and so on until the teacher reaches the student number n - 1. After that, the teacher will restart the process, starting with the student number 0 again.</p>
+<p>You are given a 0-indexed integer array chalk and an integer k. There are initially k pieces of chalk. When the student number i is given a problem to solve, they will use chalk[i] pieces of chalk to solve that problem. However, if the current number of chalk pieces is strictly less than chalk[i], then the student number i will be asked to replace the chalk.</p>
+<p>Return the index of the student that will replace the chalk.</p>
+<p>Example 1:</p>
+<p>Input: chalk = [5,1,5], k = 22<br>Output: 0<br>Explanation: The students go in turns as follows:</p>
+<ul>
+<li>Student number 0 uses 5 chalk, so k = 17.</li>
+<li>Student number 1 uses 1 chalk, so k = 16.</li>
+<li>Student number 2 uses 5 chalk, so k = 11.</li>
+<li>Student number 0 uses 5 chalk, so k = 6.</li>
+<li>Student number 1 uses 1 chalk, so k = 5.</li>
+<li>Student number 2 uses 5 chalk, so k = 0.<br>Student number 0 does not have enough chalk, so they will have to replace it.<br>Example 2:</li>
+</ul>
+<p>Input: chalk = [3,4,1,2], k = 25<br>Output: 1<br>Explanation: The students go in turns as follows:</p>
+<ul>
+<li>Student number 0 uses 3 chalk so k = 22.</li>
+<li>Student number 1 uses 4 chalk so k = 18.</li>
+<li>Student number 2 uses 1 chalk so k = 17.</li>
+<li>Student number 3 uses 2 chalk so k = 15.</li>
+<li>Student number 0 uses 3 chalk so k = 12.</li>
+<li>Student number 1 uses 4 chalk so k = 8.</li>
+<li>Student number 2 uses 1 chalk so k = 7.</li>
+<li>Student number 3 uses 2 chalk so k = 5.</li>
+<li>Student number 0 uses 3 chalk so k = 2.<br>Student number 1 does not have enough chalk, so they will have to replace it.</li>
+</ul>
+<p>Constraints:</p>
+<p>chalk.length == n<br>1 &lt;= n &lt;= 105<br>1 &lt;= chalk[i] &lt;= 105<br>1 &lt;= k &lt;= 109</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>Use k to modulo the sum of chalk</li>
+<li>Use the modulo result to compare the elements of chalk. If less than zero, the current student needs to replace the chalk</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">chalkReplacer</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> chalk<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        summ <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>chalk<span class="token punctuation">)</span>
+        k <span class="token operator">%=</span> summ
+        
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>chalk<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> k <span class="token operator">-</span> chalk<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> i
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                k <span class="token operator">-=</span> chalk<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk/">1894. Find the Student that Will Replace the Chalk</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk/discuss/2118464/HexPython-Simulation">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-05T16:03:14+10:00"
-              content="2022-06-05">
-          06-05
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Hexuan Weng
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://hexuanweng.github.io/2022/06/06/LC1894FindtheStudentthatWillReplacetheChalk/" title="LC1894FindtheStudentthatWillReplacetheChalk">http://hexuanweng.github.io/2022/06/06/LC1894FindtheStudentthatWillReplacetheChalk/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/05/LC478GenerateRandomPointinaCircle/" itemprop="url">
-            <span itemprop="name">LC478 - Generate Random Point in a Circle</span>
-          </a>
-      </div>
 
-    </header>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Simulation/" rel="tag"><i class="fa fa-tag"> Simulation</i> </a>
+              <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/06/LC238ProductofArrayExceptSelf/" rel="next" title="LC238 - Product of Array Except Self">
+      LC238 - Product of Array Except Self <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -274,6 +385,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -289,14 +401,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -440,6 +552,25 @@ show_date_time();
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '65a63f39e8f0508fea1e',
+      clientSecret: '19813982f6f78a2d784ef86454a73a778af996fc',
+      repo        : 'hexuanweng.github.io',
+      owner       : 'HexuanWeng',
+      admin       : ['HexuanWeng'],
+      id          : '48f221360845cd295297cdcbbb2a3580',
+        language: 'en,zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
