@@ -30,7 +30,7 @@
 <meta property="og:description" content="Leedcode: 131&#x2F;2658 (54+63+14)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-16T01:22:22.000Z">
-<meta property="article:modified_time" content="2022-06-16T01:33:43.946Z">
+<meta property="article:modified_time" content="2022-06-16T07:54:13.236Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="easy">
 <meta property="article:tag" content="Prefix Sum">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-06-16 11:22:22 / Modified: 11:33:43" itemprop="dateCreated datePublished" datetime="2022-06-16T11:22:22+10:00">2022-06-16</time>
+              <time title="Created: 2022-06-16 11:22:22 / Modified: 17:54:13" itemprop="dateCreated datePublished" datetime="2022-06-16T11:22:22+10:00">2022-06-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,8 +265,6 @@
         <span class="token keyword">return</span> result<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Prefix-Sum"><a href="#Prefix-Sum" class="headerlink" title="Prefix Sum"></a>Prefix Sum</h3><ul>
-<li>前缀和，num[i]表示0 ~ i个数的和，那么num[i] = num[i] + sum(0 ~ i - 1)</li>
-<li>因此只需要找到小于arr数组长度的奇数长度(记为i)，再依次计算长度为num[j + i] - num[j]之间的差值即可</li>
 <li>Prefix sum, num[i] represents the sum of 0 ~ i numbers, then num[i] = num[i] + sum(0 ~ i - 1)</li>
 <li>Therefore, you only need to find the odd length (denoted as i) that is less than the length of the arr array, and then calculate the difference between the lengths num[j + i] - num[j] in turn.</li>
 </ul>
