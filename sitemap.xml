@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/</loc>
+    
+    <lastmod>2022-06-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/</loc>
     
     <lastmod>2022-06-20</lastmod>
@@ -396,13 +403,6 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Brute-Force/</loc>
-    <lastmod>2022-06-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://hexuanweng.github.io/tags/Prefix-Sum/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
@@ -424,6 +424,13 @@
   </url>
   
   <url>
+    <loc>http://hexuanweng.github.io/tags/Brute-Force/</loc>
+    <lastmod>2022-06-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://hexuanweng.github.io/tags/Simulation/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
@@ -431,14 +438,14 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Math/</loc>
+    <loc>http://hexuanweng.github.io/tags/Binary-Search/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Binary-Search/</loc>
+    <loc>http://hexuanweng.github.io/tags/Math/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -488,6 +495,13 @@
   
   <url>
     <loc>http://hexuanweng.github.io/tags/Depth-First-Search/</loc>
+    <lastmod>2022-06-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Kotlin/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -552,7 +566,7 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC900-999/</loc>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC300-399/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -573,13 +587,6 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC300-399/</loc>
-    <lastmod>2022-06-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://hexuanweng.github.io/categories/Leetcode/LC500-599/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
@@ -588,6 +595,13 @@
   
   <url>
     <loc>http://hexuanweng.github.io/categories/Leetcode/LC700-799/</loc>
+    <lastmod>2022-06-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC900-999/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -623,6 +637,13 @@
   
   <url>
     <loc>http://hexuanweng.github.io/categories/Leetcode/LC2000-2099/</loc>
+    <lastmod>2022-06-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Android-Development/</loc>
     <lastmod>2022-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
