@@ -22,24 +22,26 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Leedcode: 133&#x2F;2658 (56+63+14)">
+  <meta name="description" content="Leedcode: 135&#x2F;2658 (57+64+14)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC1089 - Duplicate Zeros">
-<meta property="og:url" content="http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/index.html">
+<meta property="og:title" content="LC1893 - Check if All the Integers in a Range Are Covered">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Leedcode: 133&#x2F;2658 (56+63+14)">
+<meta property="og:description" content="Leedcode: 135&#x2F;2658 (57+64+14)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/1089_Duplicate_Zeros_5.png">
-<meta property="article:published_time" content="2022-06-16T23:56:42.000Z">
-<meta property="article:modified_time" content="2022-06-17T01:33:09.824Z">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-1.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-2.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-3.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-4.png">
+<meta property="article:published_time" content="2022-06-20T12:02:02.000Z">
+<meta property="article:modified_time" content="2022-06-20T12:13:21.194Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="easy">
-<meta property="article:tag" content="Simulation">
-<meta property="article:tag" content="Two Pointers">
+<meta property="article:tag" content="Difference Array">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/1089_Duplicate_Zeros_5.png">
+<meta name="twitter:image" content="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-1.png">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/">
 
 
 <script id="page-configurations">
@@ -52,7 +54,7 @@
   };
 </script>
 
-  <title>LC1089 - Duplicate Zeros | Hex.*</title>
+  <title>LC1893 - Check if All the Integers in a Range Are Covered | Hex.*</title>
   
 
 
@@ -193,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -206,7 +208,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC1089 - Duplicate Zeros
+          LC1893 - Check if All the Integers in a Range Are Covered
         </h1>
 
         <div class="post-meta">
@@ -217,7 +219,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-06-17 09:56:42 / Modified: 11:33:09" itemprop="dateCreated datePublished" datetime="2022-06-17T09:56:42+10:00">2022-06-17</time>
+              <time title="Created: 2022-06-20 22:02:02 / Modified: 22:13:21" itemprop="dateCreated datePublished" datetime="2022-06-20T22:02:02+10:00">2022-06-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,12 +231,12 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/LC1000-1099/" itemprop="url" rel="index"><span itemprop="name">LC1000-1099</span></a>
+                  <a href="/categories/Leetcode/LC1800-1899/" itemprop="url" rel="index"><span itemprop="name">LC1800-1899</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Leedcode: 133/2658 (56+63+14)</div>
+            <div class="post-description">Leedcode: 135/2658 (57+64+14)</div>
 
         </div>
       </header>
@@ -245,99 +247,77 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.</p>
-<p>Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</p>
-<p>Example 1:</p>
-<p>Input: arr = [1,0,2,3,0,4,5,0]<br>Output: [1,0,0,2,3,0,0,4]<br>Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]<br>Example 2:</p>
-<p>Input: arr = [1,2,3]<br>Output: [1,2,3]<br>Explanation: After calling your function, the input array is modified to: [1,2,3]</p>
-<p>Constraints:</p>
-<p>1 &lt;= arr.length &lt;= 104<br>0 &lt;= arr[i] &lt;= 9</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Simulation"><a href="#Simulation" class="headerlink" title="Simulation"></a>Simulation</h3><ul>
-<li><p>A combination of python’s built-in functions pop and insert is used.</p>
-</li>
-<li><p>The time complexity of insert is O(n)</p>
-</li>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a 2D integer array ranges and two integers left and right. Each ranges[i] = [starti, endi] represents an inclusive interval between starti and endi.<br>Return true if each integer in the inclusive range [left, right] is covered by at least one interval in ranges. Return false otherwise.<br>An integer x is covered by an interval ranges[i] = [starti, endi] if starti &lt;= x &lt;= endi.</p>
+<p>Example 1:<br>Input: ranges = [[1,2],[3,4],[5,6]], left = 2, right = 5<br>Output: true<br>Explanation: Every integer between 2 and 5 is covered:</p>
+<ul>
+<li>2 is covered by the first range.</li>
+<li>3 and 4 are covered by the second range.</li>
+<li>5 is covered by the third range.</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">Lists:
-                               Complexity
-Operation     | Example      | Class         | Notes
---------------+--------------+---------------+-------------------------------
-Index         | l[i]         | O(1)          |
-Store         | l[i] &#x3D; 0     | O(1)          |
-Length        | len(l)       | O(1)          |
-Append        | l.append(5)  | O(1)          |
-Clear         | l.clear()    | O(1)          | similar to l &#x3D; []
-
-Slice         | l[a:b]       | O(b-a)        | l[1:5]:O(l)&#x2F;l[:]:O(len(l)-0)&#x3D;O(N)
-Extend        | l.extend(...)| O(len(...))   | depends only on len of extension
-Construction  | list(...)    | len(...)      | depends on lenghth of argument
-
-check &#x3D;&#x3D;, !&#x3D;  | l1 &#x3D;&#x3D; l2     | O(N)          |
-Insert        | l[a:b] &#x3D; ... | O(N)          |
-Delete        | del l[i]     | O(N)          |
-Remove        | l.remove(...)| O(N)          |
-Containment   | x in&#x2F;not in l| O(N)          | searches list
-Copy          | l.copy()     | O(N)          | Same as l[:] which is O(N)
-Pop           | l.pop(...)   | O(N)          |
-Pop           | l.pop()      | O(1)          | same as l.pop(-1), popping at end
-Extreme value | min(l)&#x2F;max(l)| O(N)          |
-Reverse       | l.reverse()  | O(N)          |
-Iteration     | for v in l:  | O(N)          |
-
-Sort          | l.sort()     | O(N Log N)    | key&#x2F;reverse doesn&#39;t change this
-Multiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(1) space</span>
+<p>Example 2:<br>Input: ranges = [[1,10],[10,20]], left = 21, right = 21<br>Output: false<br>Explanation: 21 is not covered by any range.</p>
+<p>Constraints:<br>1 &lt;= ranges.length &lt;= 50<br>1 &lt;= starti &lt;= endi &lt;= 50<br>1 &lt;= left &lt;= right &lt;= 50</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><h3 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h3><p>Store all the numbers that appear in ranges in the set of nums, and then traverse the range from left to right, if the numbers are all in nums, return True, if there are numbers that are not included, return False</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">duplicateZeros</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
-        Do not return anything, modify arr in-place instead.
-        """</span>
-        idx <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">while</span> idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                arr<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                arr<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>idx<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
-                idx<span class="token operator">+=</span><span class="token number">1</span>
-            idx<span class="token operator">+=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        nums <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+                    nums<span class="token punctuation">.</span>add<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
 
-<h3 id="Two-Pointers"><a href="#Two-Pointers" class="headerlink" title="Two Pointers"></a>Two Pointers</h3><p>Traverse the number of zeros and the end position of the data,<br>Imagine that each zero is pushed onto the stack twice, and the traversal ends when the stack is as long as the array. Pops elements from the top of the stack in order.</p>
-<p>A pointer left represents the data position (the top of the stack), and a pointer represents the write position (the current write position of the original array)</p>
-<img src="/2022/06/17/LC1089DuplicateZeros/1089_Duplicate_Zeros_5.png" class="" title="1089_Duplicate_Zeros">
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+                    
+        <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><strong>optimized version</strong></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">duplicateZeros</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
-        Do not return anything, modify arr in-place instead.
-        """</span>
-        left <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
-        top_idx <span class="token operator">=</span> <span class="token number">0</span>
-        
-        <span class="token keyword">while</span> top_idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            left<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                top_idx<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                top_idx<span class="token operator">+=</span><span class="token number">2</span>
-            
-        right <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
-        <span class="token keyword">if</span> top_idx <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span>
-            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
-            right <span class="token operator">-=</span><span class="token number">1</span>
-            left <span class="token operator">-=</span><span class="token number">1</span>
-        
-        <span class="token keyword">while</span> right <span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">:</span>
-            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
-            right <span class="token operator">-=</span><span class="token number">1</span>
-            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
-                right <span class="token operator">-=</span><span class="token number">1</span>
-            left<span class="token operator">-=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            flag <span class="token operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> start <span class="token operator">&lt;=</span> i <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
+                    flag <span class="token operator">=</span> <span class="token number">1</span>
+            <span class="token keyword">if</span> flag <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Difference-Array"><a href="#Difference-Array" class="headerlink" title="Difference Array"></a>Difference Array</h3><p>Traverse ranges, starting from ranges[0] to calculate the covered changes.</p>
+<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-1.png" class="" title="example1-1">
+<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-2.png" class="" title="example1-2">
+<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-3.png" class="" title="example1-3">
+<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-4.png" class="" title="example1-4">
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) time</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        diff <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">52</span>
+        <span class="token comment"># get difference array</span>
+        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
+            diff<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+            diff<span class="token punctuation">[</span>end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-=</span><span class="token number">1</span>
+
+        <span class="token comment"># prefix sum</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">52</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> diff<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+<span class="token comment"># 执行用时：24 ms, 在所有 Python3 提交中击败了98.94%的用户</span>
+<span class="token comment"># 内存消耗：14.7 MB, 在所有 Python3 提交中击败了99.29%的用户</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/duplicate-zeros/">1089. Duplicate Zeros</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/duplicate-zeros/discuss/2160356/HexPython3-Two-Pointers">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/">1893. Check if All the Integers in a Range Are Covered</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/discuss/2174438/HexPython-Brute-Force-Difference-Array">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -352,7 +332,7 @@ Multiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/" title="LC1089 - Duplicate Zeros">http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/</a>
+    <a href="http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/" title="LC1893 - Check if All the Integers in a Range Are Covered">http://hexuanweng.github.io/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -365,8 +345,7 @@ Multiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<
           
           <div class="post-tags">
               <a href="/tags/easy/" rel="tag"><i class="fa fa-tag"> easy</i> </a>
-              <a href="/tags/Simulation/" rel="tag"><i class="fa fa-tag"> Simulation</i> </a>
-              <a href="/tags/Two-Pointers/" rel="tag"><i class="fa fa-tag"> Two Pointers</i> </a>
+              <a href="/tags/Difference-Array/" rel="tag"><i class="fa fa-tag"> Difference Array</i> </a>
           </div>
 
         
@@ -374,13 +353,10 @@ Multiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/06/19/LC508MostFrequentSubtreeSum/" rel="prev" title="LC508 - Most Frequent SubtreeSum">
-      <i class="fa fa-chevron-left"></i> LC508 - Most Frequent SubtreeSum
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/16/LC303RangeSumQuey-Immutable/" rel="next" title="LC303 - Range Sum Quey - Immutable">
-      LC303 - Range Sum Quey - Immutable <i class="fa fa-chevron-right"></i>
+    <a href="/2022/06/19/LC508MostFrequentSubtreeSum/" rel="next" title="LC508 - Most Frequent SubtreeSum">
+      LC508 - Most Frequent SubtreeSum <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -441,7 +417,7 @@ Multiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Simulation"><span class="nav-text">Simulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-Pointers"><span class="nav-text">Two Pointers</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solutions"><span class="nav-text">Solutions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Brute-Force"><span class="nav-text">Brute Force</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Difference-Array"><span class="nav-text">Difference Array</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -619,7 +595,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : 'ee98a23fae9fcaf1487ef1d911e7e7b0',
+      id          : '881df2b0eefed9ca490f0df09b1d8abe',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
