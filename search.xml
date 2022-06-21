@@ -65,17 +65,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Mood at the Moment</title>
-    <url>/2020/11/13/Mood/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>I planned to study as uasual after work. I just, by accident, randomly opened the url and I was not able to control myself at all. I am too touched and moved. Flows came to my mind and I would think of lots of beautiful memories happened in the past. I have no idea how you are and how you have been recently. </p>
-<p>My depression came to me suddenly and I started crying for no reason. Listening to lots of music, I feel that it’s been a long time that I haven’t had such uncontrollable feelings. Mixed feeling~</p>
-<img src="/2020/11/13/Mood/hex_os.jpg" class="" title="US HEX OS">
-]]></content>
-      <categories>
-        <category>Simple Life</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Melbourn Cup! Welcome on Board!</title>
     <url>/2020/11/03/Induction-Roadmap/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Day-One-Log"><a href="#Day-One-Log" class="headerlink" title="Day One Log"></a>Day One Log</h1><ul>
@@ -132,6 +121,17 @@
       <tags>
         <tag>Google</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Mood at the Moment</title>
+    <url>/2020/11/13/Mood/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>I planned to study as uasual after work. I just, by accident, randomly opened the url and I was not able to control myself at all. I am too touched and moved. Flows came to my mind and I would think of lots of beautiful memories happened in the past. I have no idea how you are and how you have been recently. </p>
+<p>My depression came to me suddenly and I started crying for no reason. Listening to lots of music, I feel that it’s been a long time that I haven’t had such uncontrollable feelings. Mixed feeling~</p>
+<img src="/2020/11/13/Mood/hex_os.jpg" class="" title="US HEX OS">
+]]></content>
+      <categories>
+        <category>Simple Life</category>
+      </categories>
   </entry>
   <entry>
     <title>Statistics Foundation Concept</title>
@@ -362,90 +362,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello, Notion!!</title>
-    <url>/2020/12/24/Notion-2021-v1/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Techo"><a href="#Techo" class="headerlink" title="Techo"></a>Techo</h2><p>I am a big fan of kinds of notebooks and I am addicted to taking notes. In November 2019, I spend $50 on Kokuyo Jibun Techo. I got hooked on this type of way to record my daily life. I stick to it during the covid and somehow I gave up after this September. </p>
-<h3 id="Kokuyo-Jibun-Techo"><a href="#Kokuyo-Jibun-Techo" class="headerlink" title="Kokuyo Jibun Techo"></a>Kokuyo Jibun Techo</h3><p>A complete set of Kokuyo Jibun Techo includes three sub-books: <strong><em>Diary, Life and Idea</em></strong>. Diary is a daily account with a timeline as the main body. There are various lists in Life, such as life dreams, travel plans, etc., and Idea is a grid book for recording daily essays and inspirations.</p>
-<img src="/2020/12/24/Notion-2021-v1/Kokuyo.jpg" class="" title="Kokuyo">
-
-<h3 id="Notion"><a href="#Notion" class="headerlink" title="Notion"></a>Notion</h3><p>Notion is my currently favourite note-taking application. From my perspective, it beats Microsoft OneNote and any other note-taking applications. I can do customized design based on my own preference. Due to my previous experience on Kokuyo Jibun Techo, I do have some novel ideas to make an electronical techo for myself and for the coming 2021.</p>
-<h3 id="My-First-Notion"><a href="#My-First-Notion" class="headerlink" title="My First Notion"></a>My First Notion</h3><p>I don’t think I’m naturally intelligent, but I find that I don’t seem to know what renunciation is ~ I hope I never give up on the unknown future.</p>
-<h4 id="Homepage"><a href="#Homepage" class="headerlink" title="Homepage"></a>Homepage</h4><ul>
-<li><strong>HomePage</strong><ul>
-<li><strong>2021 Techo</strong><ul>
-<li>my plan for 2021</li>
-</ul>
-</li>
-<li><strong>Life</strong><ul>
-<li>important events</li>
-<li>yearly goals</li>
-</ul>
-</li>
-<li><strong>Lists</strong><ul>
-<li>reading list</li>
-<li>travel plans</li>
-<li>journeys</li>
-</ul>
-</li>
-<li><strong>Study</strong></li>
-<li><strong>Work</strong></li>
-</ul>
-</li>
-</ul>
-<img src="/2020/12/24/Notion-2021-v1/hana-notion-home.png" class="" title="Hana Homepage">
-<p><em><div align="center">Fig. 1: Hana Notion Homepage</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/my-life-page.png" class="" title="My Life">
-<p><em><div align="center">Fig. 2: Hana Notion My Life Page</div></em></p>
-<h4 id="2021-Techo"><a href="#2021-Techo" class="headerlink" title="2021 Techo"></a>2021 Techo</h4><ul>
-<li><strong>2021 Techo</strong><ul>
-<li><strong>Inbox</strong><ul>
-<li>inspirations</li>
-<li>mood</li>
-<li>favourite paragraphs picked up on a daily basis</li>
-</ul>
-</li>
-<li><strong>Roommate Home</strong></li>
-<li><strong>Motto</strong></li>
-<li><strong>2021 Time Management</strong><ul>
-<li>monthly plan from Jan to Dec</li>
-</ul>
-</li>
-<li><strong>2021 Budget</strong><ul>
-<li>monthly budget from Jan to Dec</li>
-</ul>
-</li>
-<li><strong>2021 Yearly</strong><ul>
-<li>yearly calendar</li>
-<li>my 2021 targets</li>
-<li>the way to hit the targets</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<img src="/2020/12/24/Notion-2021-v1/year-2021.png" class="" width="2021" title="Techo">
-<p><em><div align="center">Fig. 3: Hana Notion 2021 Techo</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/room-home-1.png" class="" title="Roommate Home Page1">
-<p><em><div align="center">Fig. 4: Hana Notion Roommate Home Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/room-home-2.png" class="" title="Roommate Home Page2">
-<p><em><div align="center">Fig. 5: Hana Notion Roommate Home Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/monthly-plan-1.png" class="" title="Monthly Plan Page1">
-<p><em><div align="center">Fig. 6: Hana Notion Monthly Plan Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/monthly-plan-2.png" class="" title="Monthly Plan Page2">
-<p><em><div align="center">Fig. 7: Hana Notion Monthly Plan Page2</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/budget-page.png" class="" title="Budget Plan Page2">
-<p><em><div align="center">Fig. 8: Hana Notion Budget Plan Page</div></em></p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>My younger brother recommended this application to me yesterday and I started using this app after I woke up this morning. It is a little bit hard for me to find my own way to design my own notion. All the color match, layouts and design took me a long time. I suppose to do some study today but I was addicted to notion. I feel satisfied that I have something done at least. I like my current design and I may change all the design one day. Looking forward to my second version of Hana’s Notion~</p>
-<p>By the way, today is Christmas Eve. Julian’s family shouted me a yummy dinner tonight. I appreciate it. Merry Christmas 🎄</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.youtube.com/channel/UCoSvlWS5XcwaSzIcbuJ-Ysg">Notion </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.flaticon.com/packs/peru-48">Peru Icon Pack </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Simple Life</category>
-      </categories>
-      <tags>
-        <tag>Notion</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pick-Up Au English</title>
     <url>/2020/12/23/Daily-English/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Abbrevisation-for-…"><a href="#Abbrevisation-for-…" class="headerlink" title="Abbrevisation for …"></a>Abbrevisation for …</h2><ol>
@@ -627,6 +543,90 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello, Notion!!</title>
+    <url>/2020/12/24/Notion-2021-v1/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Techo"><a href="#Techo" class="headerlink" title="Techo"></a>Techo</h2><p>I am a big fan of kinds of notebooks and I am addicted to taking notes. In November 2019, I spend $50 on Kokuyo Jibun Techo. I got hooked on this type of way to record my daily life. I stick to it during the covid and somehow I gave up after this September. </p>
+<h3 id="Kokuyo-Jibun-Techo"><a href="#Kokuyo-Jibun-Techo" class="headerlink" title="Kokuyo Jibun Techo"></a>Kokuyo Jibun Techo</h3><p>A complete set of Kokuyo Jibun Techo includes three sub-books: <strong><em>Diary, Life and Idea</em></strong>. Diary is a daily account with a timeline as the main body. There are various lists in Life, such as life dreams, travel plans, etc., and Idea is a grid book for recording daily essays and inspirations.</p>
+<img src="/2020/12/24/Notion-2021-v1/Kokuyo.jpg" class="" title="Kokuyo">
+
+<h3 id="Notion"><a href="#Notion" class="headerlink" title="Notion"></a>Notion</h3><p>Notion is my currently favourite note-taking application. From my perspective, it beats Microsoft OneNote and any other note-taking applications. I can do customized design based on my own preference. Due to my previous experience on Kokuyo Jibun Techo, I do have some novel ideas to make an electronical techo for myself and for the coming 2021.</p>
+<h3 id="My-First-Notion"><a href="#My-First-Notion" class="headerlink" title="My First Notion"></a>My First Notion</h3><p>I don’t think I’m naturally intelligent, but I find that I don’t seem to know what renunciation is ~ I hope I never give up on the unknown future.</p>
+<h4 id="Homepage"><a href="#Homepage" class="headerlink" title="Homepage"></a>Homepage</h4><ul>
+<li><strong>HomePage</strong><ul>
+<li><strong>2021 Techo</strong><ul>
+<li>my plan for 2021</li>
+</ul>
+</li>
+<li><strong>Life</strong><ul>
+<li>important events</li>
+<li>yearly goals</li>
+</ul>
+</li>
+<li><strong>Lists</strong><ul>
+<li>reading list</li>
+<li>travel plans</li>
+<li>journeys</li>
+</ul>
+</li>
+<li><strong>Study</strong></li>
+<li><strong>Work</strong></li>
+</ul>
+</li>
+</ul>
+<img src="/2020/12/24/Notion-2021-v1/hana-notion-home.png" class="" title="Hana Homepage">
+<p><em><div align="center">Fig. 1: Hana Notion Homepage</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/my-life-page.png" class="" title="My Life">
+<p><em><div align="center">Fig. 2: Hana Notion My Life Page</div></em></p>
+<h4 id="2021-Techo"><a href="#2021-Techo" class="headerlink" title="2021 Techo"></a>2021 Techo</h4><ul>
+<li><strong>2021 Techo</strong><ul>
+<li><strong>Inbox</strong><ul>
+<li>inspirations</li>
+<li>mood</li>
+<li>favourite paragraphs picked up on a daily basis</li>
+</ul>
+</li>
+<li><strong>Roommate Home</strong></li>
+<li><strong>Motto</strong></li>
+<li><strong>2021 Time Management</strong><ul>
+<li>monthly plan from Jan to Dec</li>
+</ul>
+</li>
+<li><strong>2021 Budget</strong><ul>
+<li>monthly budget from Jan to Dec</li>
+</ul>
+</li>
+<li><strong>2021 Yearly</strong><ul>
+<li>yearly calendar</li>
+<li>my 2021 targets</li>
+<li>the way to hit the targets</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="/2020/12/24/Notion-2021-v1/year-2021.png" class="" width="2021" title="Techo">
+<p><em><div align="center">Fig. 3: Hana Notion 2021 Techo</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/room-home-1.png" class="" title="Roommate Home Page1">
+<p><em><div align="center">Fig. 4: Hana Notion Roommate Home Page1</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/room-home-2.png" class="" title="Roommate Home Page2">
+<p><em><div align="center">Fig. 5: Hana Notion Roommate Home Page1</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/monthly-plan-1.png" class="" title="Monthly Plan Page1">
+<p><em><div align="center">Fig. 6: Hana Notion Monthly Plan Page1</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/monthly-plan-2.png" class="" title="Monthly Plan Page2">
+<p><em><div align="center">Fig. 7: Hana Notion Monthly Plan Page2</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/budget-page.png" class="" title="Budget Plan Page2">
+<p><em><div align="center">Fig. 8: Hana Notion Budget Plan Page</div></em></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>My younger brother recommended this application to me yesterday and I started using this app after I woke up this morning. It is a little bit hard for me to find my own way to design my own notion. All the color match, layouts and design took me a long time. I suppose to do some study today but I was addicted to notion. I feel satisfied that I have something done at least. I like my current design and I may change all the design one day. Looking forward to my second version of Hana’s Notion~</p>
+<p>By the way, today is Christmas Eve. Julian’s family shouted me a yummy dinner tonight. I appreciate it. Merry Christmas 🎄</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.youtube.com/channel/UCoSvlWS5XcwaSzIcbuJ-Ysg">Notion </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.flaticon.com/packs/peru-48">Peru Icon Pack </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Simple Life</category>
+      </categories>
+      <tags>
+        <tag>Notion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algo-MinRewards</title>
     <url>/2021/01/28/Algo-MinRewards/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><blockquote>
@@ -784,6 +784,62 @@ Explanation<span class="token punctuation">:</span> You can allocate to the firs
         <tag>array</tag>
         <tag>hard</tag>
         <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LC929 - Unique Email Address</title>
+    <url>/2022/06/04/LC929UniqueEmailAddress/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Every valid email consists of a local name and a domain name, separated by the ‘@’ sign. Besides lowercase letters, the email may contain one or more ‘.’ or ‘+’.</p>
+<p>For example, in “<a href="mailto:&#97;&#108;&#x69;&#99;&#101;&#64;&#108;&#101;&#x65;&#116;&#99;&#111;&#100;&#x65;&#46;&#x63;&#111;&#109;">&#97;&#108;&#x69;&#99;&#101;&#64;&#108;&#101;&#x65;&#116;&#99;&#111;&#100;&#x65;&#46;&#x63;&#111;&#109;</a>“, “alice” is the local name, and “leetcode.com” is the domain name.<br>If you add periods ‘.’ between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule does not apply to domain names.</p>
+<p>For example, “<a href="mailto:&#97;&#x6c;&#x69;&#99;&#x65;&#46;&#x7a;&#64;&#108;&#101;&#101;&#116;&#99;&#111;&#x64;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#97;&#x6c;&#x69;&#99;&#x65;&#46;&#x7a;&#64;&#108;&#101;&#101;&#116;&#99;&#111;&#x64;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>“ and “<a href="mailto:&#x61;&#x6c;&#105;&#99;&#x65;&#x7a;&#x40;&#108;&#101;&#101;&#x74;&#x63;&#111;&#x64;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#x6c;&#105;&#99;&#x65;&#x7a;&#x40;&#108;&#101;&#101;&#x74;&#x63;&#111;&#x64;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>“ forward to the same email address.<br>If you add a plus ‘+’ in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered. Note that this rule does not apply to domain names.</p>
+<p>For example, “<a href="mailto:&#109;&#46;&#121;&#43;&#110;&#x61;&#109;&#101;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#109;&#46;&#121;&#43;&#110;&#x61;&#109;&#101;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a>“ will be forwarded to “<a href="mailto:&#x6d;&#121;&#64;&#101;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#x6d;&#121;&#64;&#101;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a>“.<br>It is possible to use both of these rules at the same time.</p>
+<p>Given an array of strings emails where we send one email to each emails[i], return the number of different addresses that actually receive mails.</p>
+<p>Example 1:</p>
+<p>Input: emails = [“test.email+alex@leetcode.com”,”<a href="mailto:&#x74;&#101;&#115;&#116;&#x2e;&#101;&#46;&#109;&#97;&#x69;&#108;&#x2b;&#x62;&#111;&#98;&#46;&#99;&#x61;&#116;&#104;&#121;&#64;&#x6c;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#x65;&#46;&#99;&#x6f;&#109;">&#x74;&#101;&#115;&#116;&#x2e;&#101;&#46;&#109;&#97;&#x69;&#108;&#x2b;&#x62;&#111;&#98;&#46;&#99;&#x61;&#116;&#104;&#121;&#64;&#x6c;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#x65;&#46;&#99;&#x6f;&#109;</a>“,”<a href="mailto:&#116;&#x65;&#115;&#116;&#101;&#109;&#x61;&#x69;&#108;&#43;&#100;&#97;&#x76;&#105;&#100;&#x40;&#108;&#101;&#x65;&#46;&#x74;&#x63;&#111;&#100;&#x65;&#46;&#99;&#x6f;&#109;">&#116;&#x65;&#115;&#116;&#101;&#109;&#x61;&#x69;&#108;&#43;&#100;&#97;&#x76;&#105;&#100;&#x40;&#108;&#101;&#x65;&#46;&#x74;&#x63;&#111;&#100;&#x65;&#46;&#99;&#x6f;&#109;</a>“]<br>Output: 2<br>Explanation: “<a href="mailto:&#116;&#x65;&#x73;&#116;&#x65;&#109;&#x61;&#105;&#108;&#64;&#x6c;&#x65;&#x65;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#111;&#109;">&#116;&#x65;&#x73;&#116;&#x65;&#109;&#x61;&#105;&#108;&#64;&#x6c;&#x65;&#x65;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#111;&#109;</a>“ and “<a href="mailto:&#116;&#101;&#115;&#x74;&#101;&#109;&#x61;&#105;&#x6c;&#x40;&#x6c;&#101;&#x65;&#46;&#116;&#99;&#111;&#100;&#101;&#x2e;&#x63;&#111;&#x6d;">&#116;&#101;&#115;&#x74;&#101;&#109;&#x61;&#105;&#x6c;&#x40;&#x6c;&#101;&#x65;&#46;&#116;&#99;&#111;&#100;&#101;&#x2e;&#x63;&#111;&#x6d;</a>“ actually receive mails.<br>Example 2:</p>
+<p>Input: emails = [“a@leetcode.com”,”<a href="mailto:&#x62;&#x40;&#108;&#x65;&#101;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x62;&#x40;&#108;&#x65;&#101;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>“,”<a href="mailto:&#99;&#x40;&#108;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#x65;&#46;&#99;&#111;&#x6d;">&#99;&#x40;&#108;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#x65;&#46;&#99;&#111;&#x6d;</a>“]<br>Output: 3</p>
+<p>Constraints:</p>
+<p>1 &lt;= emails.length &lt;= 100<br>1 &lt;= emails[i].length &lt;= 100<br>emails[i] consist of lowercase English letters, ‘+’, ‘.’ and ‘@’.<br>Each emails[i] contains exactly one ‘@’ character.<br>All local and domain names are non-empty.<br>Local names do not start with a ‘+’ character.<br>Domain names end with the “.com” suffix.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>Based on the description, the rules apply differently for name and domain. Therefore, we split them and use different approaches</li>
+<li>We can either use List or Set to store the data</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(L) time | O(L) space</span>
+
+<span class="token comment"># Use List</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numUniqueEmails</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> emails<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> email <span class="token keyword">in</span> emails<span class="token punctuation">:</span>
+            local<span class="token punctuation">,</span> domain <span class="token operator">=</span> email<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
+            local <span class="token operator">=</span> local<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+            local <span class="token operator">=</span> local<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            merge <span class="token operator">=</span> local<span class="token operator">+</span><span class="token string">"@"</span><span class="token operator">+</span>domain
+            <span class="token keyword">if</span> merge <span class="token keyword">not</span> <span class="token keyword">in</span> res<span class="token punctuation">:</span>
+                res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>merge<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+
+<span class="token comment">#Use Set</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numUniqueEmails</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> emails<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> email <span class="token keyword">in</span> emails<span class="token punctuation">:</span>
+            local<span class="token punctuation">,</span> domain <span class="token operator">=</span> email<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
+            local <span class="token operator">=</span> local<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+            local <span class="token operator">=</span> local<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            merge <span class="token operator">=</span> local<span class="token operator">+</span><span class="token string">"@"</span><span class="token operator">+</span>domain
+            res<span class="token punctuation">.</span>add<span class="token punctuation">(</span>merge<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/unique-email-addresses/">929. Unique Email Addresses</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/unique-email-addresses/discuss/2112763/HexPython-Brute-Force">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC900-999</category>
+      </categories>
+      <tags>
+        <tag>easy</tag>
+        <tag>Brute Force</tag>
       </tags>
   </entry>
   <entry>
@@ -1245,88 +1301,6 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       </tags>
   </entry>
   <entry>
-    <title>LC929 - Unique Email Address</title>
-    <url>/2022/06/04/LC929UniqueEmailAddress/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Every valid email consists of a local name and a domain name, separated by the ‘@’ sign. Besides lowercase letters, the email may contain one or more ‘.’ or ‘+’.</p>
-<p>For example, in “<a href="mailto:&#x61;&#108;&#105;&#99;&#x65;&#64;&#108;&#x65;&#101;&#116;&#x63;&#111;&#x64;&#x65;&#x2e;&#x63;&#111;&#109;">&#x61;&#108;&#105;&#99;&#x65;&#64;&#108;&#x65;&#101;&#116;&#x63;&#111;&#x64;&#x65;&#x2e;&#x63;&#111;&#109;</a>“, “alice” is the local name, and “leetcode.com” is the domain name.<br>If you add periods ‘.’ between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule does not apply to domain names.</p>
-<p>For example, “<a href="mailto:&#x61;&#108;&#x69;&#99;&#101;&#x2e;&#x7a;&#x40;&#108;&#101;&#x65;&#116;&#99;&#x6f;&#100;&#101;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#108;&#x69;&#99;&#101;&#x2e;&#x7a;&#x40;&#108;&#101;&#x65;&#116;&#99;&#x6f;&#100;&#101;&#x2e;&#x63;&#111;&#x6d;</a>“ and “<a href="mailto:&#x61;&#x6c;&#105;&#99;&#101;&#122;&#x40;&#108;&#x65;&#101;&#116;&#99;&#x6f;&#x64;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#x6c;&#105;&#99;&#101;&#122;&#x40;&#108;&#x65;&#101;&#116;&#99;&#x6f;&#x64;&#x65;&#x2e;&#x63;&#111;&#x6d;</a>“ forward to the same email address.<br>If you add a plus ‘+’ in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered. Note that this rule does not apply to domain names.</p>
-<p>For example, “<a href="mailto:&#x6d;&#46;&#x79;&#43;&#x6e;&#97;&#x6d;&#x65;&#x40;&#101;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">&#x6d;&#46;&#x79;&#43;&#x6e;&#97;&#x6d;&#x65;&#x40;&#101;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;</a>“ will be forwarded to “<a href="mailto:&#109;&#x79;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;">&#109;&#x79;&#64;&#x65;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;</a>“.<br>It is possible to use both of these rules at the same time.</p>
-<p>Given an array of strings emails where we send one email to each emails[i], return the number of different addresses that actually receive mails.</p>
-<p>Example 1:</p>
-<p>Input: emails = [“test.email+alex@leetcode.com”,”<a href="mailto:&#116;&#101;&#x73;&#116;&#x2e;&#x65;&#x2e;&#109;&#x61;&#x69;&#x6c;&#x2b;&#x62;&#x6f;&#x62;&#x2e;&#99;&#x61;&#116;&#x68;&#x79;&#x40;&#x6c;&#101;&#x65;&#x74;&#x63;&#x6f;&#100;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#116;&#101;&#x73;&#116;&#x2e;&#x65;&#x2e;&#109;&#x61;&#x69;&#x6c;&#x2b;&#x62;&#x6f;&#x62;&#x2e;&#99;&#x61;&#116;&#x68;&#x79;&#x40;&#x6c;&#101;&#x65;&#x74;&#x63;&#x6f;&#100;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a>“,”<a href="mailto:&#x74;&#101;&#115;&#116;&#101;&#109;&#97;&#x69;&#108;&#x2b;&#100;&#x61;&#x76;&#x69;&#100;&#64;&#x6c;&#101;&#101;&#46;&#116;&#99;&#x6f;&#x64;&#101;&#46;&#99;&#x6f;&#109;">&#x74;&#101;&#115;&#116;&#101;&#109;&#97;&#x69;&#108;&#x2b;&#100;&#x61;&#x76;&#x69;&#100;&#64;&#x6c;&#101;&#101;&#46;&#116;&#99;&#x6f;&#x64;&#101;&#46;&#99;&#x6f;&#109;</a>“]<br>Output: 2<br>Explanation: “<a href="mailto:&#116;&#101;&#115;&#x74;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#108;&#101;&#x65;&#x74;&#x63;&#111;&#100;&#101;&#46;&#x63;&#111;&#x6d;">&#116;&#101;&#115;&#x74;&#101;&#x6d;&#97;&#105;&#108;&#x40;&#108;&#101;&#x65;&#x74;&#x63;&#111;&#100;&#101;&#46;&#x63;&#111;&#x6d;</a>“ and “<a href="mailto:&#116;&#x65;&#x73;&#116;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x6c;&#101;&#x65;&#46;&#x74;&#99;&#111;&#100;&#x65;&#x2e;&#99;&#x6f;&#109;">&#116;&#x65;&#x73;&#116;&#101;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x6c;&#101;&#x65;&#46;&#x74;&#99;&#111;&#100;&#x65;&#x2e;&#99;&#x6f;&#109;</a>“ actually receive mails.<br>Example 2:</p>
-<p>Input: emails = [“a@leetcode.com”,”<a href="mailto:&#x62;&#x40;&#108;&#x65;&#x65;&#116;&#99;&#x6f;&#x64;&#101;&#x2e;&#x63;&#111;&#109;">&#x62;&#x40;&#108;&#x65;&#x65;&#116;&#99;&#x6f;&#x64;&#101;&#x2e;&#x63;&#111;&#109;</a>“,”<a href="mailto:&#x63;&#64;&#x6c;&#101;&#101;&#x74;&#99;&#111;&#x64;&#x65;&#x2e;&#x63;&#111;&#109;">&#x63;&#64;&#x6c;&#101;&#101;&#x74;&#99;&#111;&#x64;&#x65;&#x2e;&#x63;&#111;&#109;</a>“]<br>Output: 3</p>
-<p>Constraints:</p>
-<p>1 &lt;= emails.length &lt;= 100<br>1 &lt;= emails[i].length &lt;= 100<br>emails[i] consist of lowercase English letters, ‘+’, ‘.’ and ‘@’.<br>Each emails[i] contains exactly one ‘@’ character.<br>All local and domain names are non-empty.<br>Local names do not start with a ‘+’ character.<br>Domain names end with the “.com” suffix.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
-<li>Based on the description, the rules apply differently for name and domain. Therefore, we split them and use different approaches</li>
-<li>We can either use List or Set to store the data</li>
-</ol>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(L) time | O(L) space</span>
-
-<span class="token comment"># Use List</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">numUniqueEmails</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> emails<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-        <span class="token keyword">for</span> email <span class="token keyword">in</span> emails<span class="token punctuation">:</span>
-            local<span class="token punctuation">,</span> domain <span class="token operator">=</span> email<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
-            local <span class="token operator">=</span> local<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
-            local <span class="token operator">=</span> local<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-            merge <span class="token operator">=</span> local<span class="token operator">+</span><span class="token string">"@"</span><span class="token operator">+</span>domain
-            <span class="token keyword">if</span> merge <span class="token keyword">not</span> <span class="token keyword">in</span> res<span class="token punctuation">:</span>
-                res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>merge<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-
-<span class="token comment">#Use Set</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">numUniqueEmails</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> emails<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        res <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">for</span> email <span class="token keyword">in</span> emails<span class="token punctuation">:</span>
-            local<span class="token punctuation">,</span> domain <span class="token operator">=</span> email<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
-            local <span class="token operator">=</span> local<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
-            local <span class="token operator">=</span> local<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-            merge <span class="token operator">=</span> local<span class="token operator">+</span><span class="token string">"@"</span><span class="token operator">+</span>domain
-            res<span class="token punctuation">.</span>add<span class="token punctuation">(</span>merge<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/unique-email-addresses/">929. Unique Email Addresses</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/unique-email-addresses/discuss/2112763/HexPython-Brute-Force">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC900-999</category>
-      </categories>
-      <tags>
-        <tag>easy</tag>
-        <tag>Brute Force</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC1037 - Valid Boomerang</title>
-    <url>/2022/06/08/LC1037ValidBoomerang/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array points where points[i] = [xi, yi] represents a point on the X-Y plane, return true if these points are a boomerang.</p>
-<p>A boomerang is a set of three points that are all distinct and not in a straight line.</p>
-<p>Example 1:</p>
-<p>Input: points = [[1,1],[2,3],[3,2]]<br>Output: true<br>Example 2:</p>
-<p>Input: points = [[1,1],[2,2],[3,3]]<br>Output: false</p>
-<p>Constraints:</p>
-<p>points.length == 3<br>points[i].length == 2<br>0 &lt;= xi, yi &lt;= 100</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Formula: (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1)</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isBoomerang</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> points<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-        <span class="token punctuation">(</span>x1<span class="token punctuation">,</span> y1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x2<span class="token punctuation">,</span> y2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x3<span class="token punctuation">,</span> y3<span class="token punctuation">)</span> <span class="token operator">=</span> points
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>y2 <span class="token operator">-</span> y1<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>x3 <span class="token operator">-</span> x2<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token punctuation">(</span>y3 <span class="token operator">-</span> y2<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>x2 <span class="token operator">-</span> x1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/valid-boomerang/">1037. Valid Boomerang</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/valid-boomerang/discuss/2126713/HexPython-Math">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC1000-1099</category>
-      </categories>
-      <tags>
-        <tag>easy</tag>
-        <tag>Math</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LC2055 - Plates Between Candles</title>
     <url>/2022/06/07/LC2055PlatesBetweenCandles/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There is a long table with a line of plates and candles arranged on top of it. You are given a 0-indexed string s consisting of characters ‘*‘ and ‘|’ only, where a ‘*‘ represents a plate and a ‘|’ represents a candle.</p>
@@ -1388,122 +1362,6 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       <tags>
         <tag>Prefix Sum</tag>
         <tag>medium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC475 - Heaters</title>
-    <url>/2022/06/07/LC475Heaters/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.</p>
-<p>Every house can be warmed, as long as the house is within the heater’s warm radius range. </p>
-<p>Given the positions of houses and heaters on a horizontal line, return the minimum radius standard of heaters so that those heaters could cover all houses.</p>
-<p>Notice that all the heaters follow your radius standard, and the warm radius will the same.</p>
-<p>Example 1:</p>
-<p>Input: houses = [1,2,3], heaters = [2]<br>Output: 1<br>Explanation: The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.<br>Example 2:</p>
-<p>Input: houses = [1,2,3,4], heaters = [1,4]<br>Output: 1<br>Explanation: The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.<br>Example 3:</p>
-<p>Input: houses = [1,5], heaters = [2]<br>Output: 3</p>
-<p>Constraints:</p>
-<p>1 &lt;= houses.length, heaters.length &lt;= 3 * 104<br>1 &lt;= houses[i], heaters[i] &lt;= 109</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
-<li>This question is to find the minimum heating radius, then the object divided by two is the radius</li>
-<li>The interval can only be large and not small. The left interval of the dichotomy is 0. When the house and the heater overlap, the interval of the dichotomy is the largest coordinate</li>
-<li>Determine whether the specified radius can cover the front and rear houses:<ul>
-<li>Go through each heater</li>
-<li>Two-point query heater heating radius can cover the leftmost house number</li>
-<li>If the leftmost radius cannot overlap with the last rightmost, it means that the heating cannot be covered</li>
-<li>Update the rightmost house number that the current heater radius can cover</li>
-<li>If the last house can be reached, the coverage is complete</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O((n+m)logn) time | O(logn) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">findRadius</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> houses<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> heaters<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        houses<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        heaters<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-        l<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">(</span>houses<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> heaters<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">while</span> l <span class="token operator">&lt;=</span> r<span class="token punctuation">:</span>
-            mid <span class="token operator">=</span> l <span class="token operator">+</span> <span class="token punctuation">(</span>r<span class="token operator">-</span>l<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
-            <span class="token keyword">if</span> self<span class="token punctuation">.</span>canHeat<span class="token punctuation">(</span>mid<span class="token punctuation">,</span> heaters<span class="token punctuation">,</span> houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                r <span class="token operator">=</span> mid<span class="token operator">-</span><span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                l <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span>
-        <span class="token keyword">return</span> l
-    
-    <span class="token keyword">def</span> <span class="token function">canHeat</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> radius<span class="token punctuation">,</span> heaters<span class="token punctuation">,</span> houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pre_house <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">for</span> heater <span class="token keyword">in</span> heaters<span class="token punctuation">:</span>
-            cover <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>houses<span class="token punctuation">,</span> heater<span class="token operator">-</span>radius<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> cover <span class="token operator">></span> pre_house<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-            pre_house <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_right<span class="token punctuation">(</span>houses<span class="token punctuation">,</span> heater<span class="token operator">+</span>radius<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> pre_house <span class="token operator">>=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/heaters/">475. Heaters</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/heaters/discuss/2124950/HexPython-Binary-Search">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC400-499</category>
-      </categories>
-      <tags>
-        <tag>Prefix Sum</tag>
-        <tag>medium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC1109 - Corporate Flight Bookings</title>
-    <url>/2022/06/10/LC1109CorporateFlightBookings/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are n flights that are labeled from 1 to n.</p>
-<p>You are given an array of flight bookings bookings, where bookings[i] = [firsti, lasti, seatsi] represents a booking for flights firsti through lasti (inclusive) with seatsi seats reserved for each flight in the range.</p>
-<p>Return an array answer of length n, where answer[i] is the total number of seats reserved for flight i.</p>
-<p>Example 1:</p>
-<p>Input: bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5<br>Output: [10,55,45,25,25]<br>Explanation:<br>Flight labels:        1   2   3   4   5<br>Booking 1 reserved:  10  10<br>Booking 2 reserved:      20  20<br>Booking 3 reserved:      25  25  25  25<br>Total seats:         10  55  45  25  25<br>Hence, answer = [10,55,45,25,25]<br>Example 2:</p>
-<p>Input: bookings = [[1,2,10],[2,2,15]], n = 2<br>Output: [10,25]<br>Explanation:<br>Flight labels:        1   2<br>Booking 1 reserved:  10  10<br>Booking 2 reserved:      15<br>Total seats:         10  25<br>Hence, answer = [10,25]</p>
-<p>Constraints:</p>
-<p>1 &lt;= n &lt;= 2 * 104<br>1 &lt;= bookings.length &lt;= 2 * 104<br>bookings[i].length == 3<br>1 &lt;= firsti &lt;= lasti &lt;= n<br>1 &lt;= seatsi &lt;= 104</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><img src="/2022/06/10/LC1109CorporateFlightBookings/prefixsum.png" class="" title="prefixsum">
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#前缀和 O(n^2) time | O(1) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">corpFlightBookings</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bookings<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> value <span class="token keyword">in</span> bookings<span class="token punctuation">:</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                answer<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> value
-        <span class="token keyword">return</span> answer<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>The idea of the difference method:</p>
-<ul>
-<li>Start index first, accumulate the number of seats</li>
-<li>At the end of index last+1, subtract the current number of seats</li>
-<li>Because the flight after the last, there is no current seat</li>
-<li>When subtracting first, and then adding prefixes, they will actually cancel each other out</li>
-<li>It is easy to understand how the idea of difference solves this problem by drawing an array.<img src="/2022/06/10/LC1109CorporateFlightBookings/differencearray.png" class="" title="differencearray">
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#差分 O(n) time | O(n) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">corpFlightBookings</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bookings<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        diff <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> value <span class="token keyword">in</span> bookings<span class="token punctuation">:</span>
-            diff<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span> value
-            <span class="token keyword">if</span> end <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>
-                diff<span class="token punctuation">[</span>end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-=</span> value
-
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            answer<span class="token punctuation">.</span>append<span class="token punctuation">(</span>answer<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> answer<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-</li>
-</ul>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/corporate-flight-bookings/">1109. Corporate Flight Bookings</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/corporate-flight-bookings/discuss/2134803/HexPython-Difference-Array">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC1100-1199</category>
-      </categories>
-      <tags>
-        <tag>medium</tag>
-        <tag>Difference Array</tag>
       </tags>
   </entry>
   <entry>
@@ -1592,6 +1450,92 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       </tags>
   </entry>
   <entry>
+    <title>LC475 - Heaters</title>
+    <url>/2022/06/07/LC475Heaters/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.</p>
+<p>Every house can be warmed, as long as the house is within the heater’s warm radius range. </p>
+<p>Given the positions of houses and heaters on a horizontal line, return the minimum radius standard of heaters so that those heaters could cover all houses.</p>
+<p>Notice that all the heaters follow your radius standard, and the warm radius will the same.</p>
+<p>Example 1:</p>
+<p>Input: houses = [1,2,3], heaters = [2]<br>Output: 1<br>Explanation: The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.<br>Example 2:</p>
+<p>Input: houses = [1,2,3,4], heaters = [1,4]<br>Output: 1<br>Explanation: The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.<br>Example 3:</p>
+<p>Input: houses = [1,5], heaters = [2]<br>Output: 3</p>
+<p>Constraints:</p>
+<p>1 &lt;= houses.length, heaters.length &lt;= 3 * 104<br>1 &lt;= houses[i], heaters[i] &lt;= 109</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>This question is to find the minimum heating radius, then the object divided by two is the radius</li>
+<li>The interval can only be large and not small. The left interval of the dichotomy is 0. When the house and the heater overlap, the interval of the dichotomy is the largest coordinate</li>
+<li>Determine whether the specified radius can cover the front and rear houses:<ul>
+<li>Go through each heater</li>
+<li>Two-point query heater heating radius can cover the leftmost house number</li>
+<li>If the leftmost radius cannot overlap with the last rightmost, it means that the heating cannot be covered</li>
+<li>Update the rightmost house number that the current heater radius can cover</li>
+<li>If the last house can be reached, the coverage is complete</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O((n+m)logn) time | O(logn) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findRadius</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> houses<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> heaters<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        houses<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        heaters<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        l<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">(</span>houses<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> heaters<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">while</span> l <span class="token operator">&lt;=</span> r<span class="token punctuation">:</span>
+            mid <span class="token operator">=</span> l <span class="token operator">+</span> <span class="token punctuation">(</span>r<span class="token operator">-</span>l<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>canHeat<span class="token punctuation">(</span>mid<span class="token punctuation">,</span> heaters<span class="token punctuation">,</span> houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                r <span class="token operator">=</span> mid<span class="token operator">-</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                l <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">return</span> l
+    
+    <span class="token keyword">def</span> <span class="token function">canHeat</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> radius<span class="token punctuation">,</span> heaters<span class="token punctuation">,</span> houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        pre_house <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> heater <span class="token keyword">in</span> heaters<span class="token punctuation">:</span>
+            cover <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>houses<span class="token punctuation">,</span> heater<span class="token operator">-</span>radius<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> cover <span class="token operator">></span> pre_house<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+            pre_house <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_right<span class="token punctuation">(</span>houses<span class="token punctuation">,</span> heater<span class="token operator">+</span>radius<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> pre_house <span class="token operator">>=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/heaters/">475. Heaters</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/heaters/discuss/2124950/HexPython-Binary-Search">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC400-499</category>
+      </categories>
+      <tags>
+        <tag>Prefix Sum</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LC1037 - Valid Boomerang</title>
+    <url>/2022/06/08/LC1037ValidBoomerang/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array points where points[i] = [xi, yi] represents a point on the X-Y plane, return true if these points are a boomerang.</p>
+<p>A boomerang is a set of three points that are all distinct and not in a straight line.</p>
+<p>Example 1:</p>
+<p>Input: points = [[1,1],[2,3],[3,2]]<br>Output: true<br>Example 2:</p>
+<p>Input: points = [[1,1],[2,2],[3,3]]<br>Output: false</p>
+<p>Constraints:</p>
+<p>points.length == 3<br>points[i].length == 2<br>0 &lt;= xi, yi &lt;= 100</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Formula: (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1)</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isBoomerang</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> points<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        <span class="token punctuation">(</span>x1<span class="token punctuation">,</span> y1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x2<span class="token punctuation">,</span> y2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x3<span class="token punctuation">,</span> y3<span class="token punctuation">)</span> <span class="token operator">=</span> points
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>y2 <span class="token operator">-</span> y1<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>x3 <span class="token operator">-</span> x2<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token punctuation">(</span>y3 <span class="token operator">-</span> y2<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>x2 <span class="token operator">-</span> x1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/valid-boomerang/">1037. Valid Boomerang</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/valid-boomerang/discuss/2126713/HexPython-Math">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC1000-1099</category>
+      </categories>
+      <tags>
+        <tag>easy</tag>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LC209 - Minimum Size Subarray Sum</title>
     <url>/2022/06/10/LC209MinimumSizeSubarraySum/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of positive integers nums and a positive integer target, return the minimal length of a contiguous subarray [numsl, numsl+1, …, numsr-1, numsr] of which the sum is greater than or equal to target. If there is no such subarray, return 0 instead.</p>
@@ -1631,6 +1575,122 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       <tags>
         <tag>medium</tag>
         <tag>Sliding Window</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LC1109 - Corporate Flight Bookings</title>
+    <url>/2022/06/10/LC1109CorporateFlightBookings/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are n flights that are labeled from 1 to n.</p>
+<p>You are given an array of flight bookings bookings, where bookings[i] = [firsti, lasti, seatsi] represents a booking for flights firsti through lasti (inclusive) with seatsi seats reserved for each flight in the range.</p>
+<p>Return an array answer of length n, where answer[i] is the total number of seats reserved for flight i.</p>
+<p>Example 1:</p>
+<p>Input: bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5<br>Output: [10,55,45,25,25]<br>Explanation:<br>Flight labels:        1   2   3   4   5<br>Booking 1 reserved:  10  10<br>Booking 2 reserved:      20  20<br>Booking 3 reserved:      25  25  25  25<br>Total seats:         10  55  45  25  25<br>Hence, answer = [10,55,45,25,25]<br>Example 2:</p>
+<p>Input: bookings = [[1,2,10],[2,2,15]], n = 2<br>Output: [10,25]<br>Explanation:<br>Flight labels:        1   2<br>Booking 1 reserved:  10  10<br>Booking 2 reserved:      15<br>Total seats:         10  25<br>Hence, answer = [10,25]</p>
+<p>Constraints:</p>
+<p>1 &lt;= n &lt;= 2 * 104<br>1 &lt;= bookings.length &lt;= 2 * 104<br>bookings[i].length == 3<br>1 &lt;= firsti &lt;= lasti &lt;= n<br>1 &lt;= seatsi &lt;= 104</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><img src="/2022/06/10/LC1109CorporateFlightBookings/prefixsum.png" class="" title="prefixsum">
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#前缀和 O(n^2) time | O(1) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">corpFlightBookings</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bookings<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> value <span class="token keyword">in</span> bookings<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                answer<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> value
+        <span class="token keyword">return</span> answer<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>The idea of the difference method:</p>
+<ul>
+<li>Start index first, accumulate the number of seats</li>
+<li>At the end of index last+1, subtract the current number of seats</li>
+<li>Because the flight after the last, there is no current seat</li>
+<li>When subtracting first, and then adding prefixes, they will actually cancel each other out</li>
+<li>It is easy to understand how the idea of difference solves this problem by drawing an array.<img src="/2022/06/10/LC1109CorporateFlightBookings/differencearray.png" class="" title="differencearray">
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#差分 O(n) time | O(n) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">corpFlightBookings</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bookings<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        diff <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> value <span class="token keyword">in</span> bookings<span class="token punctuation">:</span>
+            diff<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span> value
+            <span class="token keyword">if</span> end <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>
+                diff<span class="token punctuation">[</span>end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-=</span> value
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            answer<span class="token punctuation">.</span>append<span class="token punctuation">(</span>answer<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> answer<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+</li>
+</ul>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/corporate-flight-bookings/">1109. Corporate Flight Bookings</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/corporate-flight-bookings/discuss/2134803/HexPython-Difference-Array">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC1100-1199</category>
+      </categories>
+      <tags>
+        <tag>medium</tag>
+        <tag>Difference Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LC560 - Subarray Sum Equals K</title>
+    <url>/2022/06/10/LC560SubarraySumEqualsK/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.</p>
+<p>A subarray is a contiguous non-empty sequence of elements within an array.</p>
+<p>Example 1:</p>
+<p>Input: nums = [1,1,1], k = 2<br>Output: 2<br>Example 2:</p>
+<p>Input: nums = [1,2,3], k = 3<br>Output: 2</p>
+<p>Constraints:</p>
+<p>1 &lt;= nums.length &lt;= 2 * 104<br>-1000 &lt;= nums[i] &lt;= 1000<br>-107 &lt;= k &lt;= 107</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>Each element corresponds to a “prefix sum”</li>
+<li>Traverse the array to find the historical prefix sum of “subtract it == k” in the map based on the current “prefix sum”</li>
+<li>The difference between the current “prefix sum” and the historical prefix sum is a sub-array. If the historical prefix sum occurs c times, it means that the current item finds c sub-arrays and the sum is equal to k.</li>
+<li>During the traversal process, c is continuously added to count, and finally returns count</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n) space-- Time Out Exceed</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        presum <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            presum<span class="token punctuation">.</span>append<span class="token punctuation">(</span>presum<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> v<span class="token punctuation">)</span>
+
+        cnt <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>presum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>presum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> presum<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> presum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> k<span class="token punctuation">:</span>
+                    cnt<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> cnt
+
+<span class="token comment"># O(n) time | O(n) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        presum <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">&#125;</span>
+        cur <span class="token operator">=</span> <span class="token number">0</span>
+        res <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            cur <span class="token operator">+=</span> v
+            <span class="token keyword">if</span> cur <span class="token operator">-</span> k <span class="token keyword">in</span> presum<span class="token punctuation">:</span>
+                res <span class="token operator">+=</span> presum<span class="token punctuation">[</span>cur<span class="token operator">-</span>k<span class="token punctuation">]</span>
+
+            <span class="token keyword">if</span> cur <span class="token keyword">not</span> <span class="token keyword">in</span> presum<span class="token punctuation">:</span>
+                presum<span class="token punctuation">[</span>cur<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                presum<span class="token punctuation">[</span>cur<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+            
+        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/subarray-sum-equals-k/">560. Subarray Sum Equals K</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/subarray-sum-equals-k/discuss/2134757/HexPython-Prefix-Sum">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC500-599</category>
+      </categories>
+      <tags>
+        <tag>Prefix Sum</tag>
+        <tag>medium</tag>
       </tags>
   </entry>
   <entry>
@@ -1734,66 +1794,6 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       <tags>
         <tag>hard</tag>
         <tag>Difference Array</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC560 - Subarray Sum Equals K</title>
-    <url>/2022/06/10/LC560SubarraySumEqualsK/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.</p>
-<p>A subarray is a contiguous non-empty sequence of elements within an array.</p>
-<p>Example 1:</p>
-<p>Input: nums = [1,1,1], k = 2<br>Output: 2<br>Example 2:</p>
-<p>Input: nums = [1,2,3], k = 3<br>Output: 2</p>
-<p>Constraints:</p>
-<p>1 &lt;= nums.length &lt;= 2 * 104<br>-1000 &lt;= nums[i] &lt;= 1000<br>-107 &lt;= k &lt;= 107</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
-<li>Each element corresponds to a “prefix sum”</li>
-<li>Traverse the array to find the historical prefix sum of “subtract it == k” in the map based on the current “prefix sum”</li>
-<li>The difference between the current “prefix sum” and the historical prefix sum is a sub-array. If the historical prefix sum occurs c times, it means that the current item finds c sub-arrays and the sum is equal to k.</li>
-<li>During the traversal process, c is continuously added to count, and finally returns count</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n) space-- Time Out Exceed</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        presum <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            presum<span class="token punctuation">.</span>append<span class="token punctuation">(</span>presum<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> v<span class="token punctuation">)</span>
-
-        cnt <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>presum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>presum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> presum<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> presum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> k<span class="token punctuation">:</span>
-                    cnt<span class="token operator">+=</span><span class="token number">1</span>
-        <span class="token keyword">return</span> cnt
-
-<span class="token comment"># O(n) time | O(n) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        presum <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">&#125;</span>
-        cur <span class="token operator">=</span> <span class="token number">0</span>
-        res <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            cur <span class="token operator">+=</span> v
-            <span class="token keyword">if</span> cur <span class="token operator">-</span> k <span class="token keyword">in</span> presum<span class="token punctuation">:</span>
-                res <span class="token operator">+=</span> presum<span class="token punctuation">[</span>cur<span class="token operator">-</span>k<span class="token punctuation">]</span>
-
-            <span class="token keyword">if</span> cur <span class="token keyword">not</span> <span class="token keyword">in</span> presum<span class="token punctuation">:</span>
-                presum<span class="token punctuation">[</span>cur<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                presum<span class="token punctuation">[</span>cur<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
-            
-        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/subarray-sum-equals-k/">560. Subarray Sum Equals K</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/subarray-sum-equals-k/discuss/2134757/HexPython-Prefix-Sum">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC500-599</category>
-      </categories>
-      <tags>
-        <tag>Prefix Sum</tag>
-        <tag>medium</tag>
       </tags>
   </entry>
   <entry>
@@ -2298,86 +2298,6 @@ Multiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<
       </tags>
   </entry>
   <entry>
-    <title>LC528 - Random Pick With Weight</title>
-    <url>/2022/06/21/LC528RandomPickwithWeight/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index.<br>You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w).<br>For example, if w = [1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).</p>
-<p>Example 1:<br>Input<br>[“Solution”,”pickIndex”]<br>[[[1]],[]]<br>Output<br>[null,0]<br>Explanation<br>Solution solution = new Solution([1]);<br>solution.pickIndex(); // return 0. The only option is to return 0 since there is only one element in w.</p>
-<p>Example 2:<br>Input<br>[“Solution”,”pickIndex”,”pickIndex”,”pickIndex”,”pickIndex”,”pickIndex”]<br>[[[1,3]],[],[],[],[],[]]<br>Output<br>[null,1,1,1,1,0]<br>Explanation<br>Solution solution = new Solution([1, 3]);<br>solution.pickIndex(); // return 1. It is returning the second element (index = 1) that has a probability of 3/4.<br>solution.pickIndex(); // return 1<br>solution.pickIndex(); // return 1<br>solution.pickIndex(); // return 1<br>solution.pickIndex(); // return 0. It is returning the first element (index = 0) that has a probability of 1/4.<br>Since this is a randomization problem, multiple answers are allowed.<br>All of the following outputs can be considered correct:<br>[null,1,1,1,1,0]<br>[null,1,1,1,1,1]<br>[null,1,1,1,0,0]<br>[null,1,1,1,0,1]<br>[null,1,0,1,0,0]<br>……<br>and so on.</p>
-<p>Constraints:</p>
-<p>1 &lt;= w.length &lt;= 104<br>1 &lt;= w[i] &lt;= 105<br>pickIndex will be called at most 104 times.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><img src="/2022/06/21/LC528RandomPickwithWeight/weight.png" class="" title="weight">
-<p>Selected by weight, here I am directly calling the random.randInt() function of Python. But this will only generate random numbers, not selected by weight. We can record the prefix sum, which is actually the sum of all numbers.</p>
-<p>For example, the prefix sum of [1,3] is [1,4]. That is, if a random number of [1,4] is generated at this time, 1 corresponds to 1, and the random number 2,3,4 corresponds to the prefix and 4, which just satisfies the weight of 1:3.</p>
-<p>And for w = [a,b,c,d] corresponding prefix and ws = [a,a+b,a+b+c,a+b+c+d] we can directly generate 0 to a+b+c +d-1 random number.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
-<span class="token keyword">import</span> random
-
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> w<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>summ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>summ<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">pickIndex</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        val <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        idx <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> v <span class="token operator">>=</span> val<span class="token punctuation">:</span>
-                idx <span class="token operator">=</span> i <span class="token operator">-</span><span class="token number">1</span>
-                <span class="token keyword">break</span>
-        <span class="token keyword">return</span> idx
-
-<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
-<span class="token comment"># obj = Solution(w)</span>
-<span class="token comment"># param_1 = obj.pickIndex()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Bisect-Library"><a href="#Bisect-Library" class="headerlink" title="Bisect Library"></a>Bisect Library</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#import the module</span>
-<span class="token keyword">import</span> bisect
-
-<span class="token comment">#given sorted list of numbers</span>
-nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">49</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">]</span>
-
-<span class="token comment">#given element to be inserted into the list</span>
-ele <span class="token operator">=</span> <span class="token number">26</span>
-
-<span class="token comment">#get index where to insert the element</span>
-idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>nums<span class="token punctuation">,</span> ele<span class="token punctuation">)</span>
-
-<span class="token comment">#print the index</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Insert element </span><span class="token interpolation"><span class="token punctuation">&#123;</span>ele<span class="token punctuation">&#125;</span></span><span class="token string"> at index </span><span class="token interpolation"><span class="token punctuation">&#123;</span>idx<span class="token punctuation">&#125;</span></span><span class="token string"> in nums list to maintain sorted order."</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> w<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>summ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> w<span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>summ<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>i<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">pickIndex</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        num <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">,</span> num<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> idx<span class="token operator">-</span><span class="token number">1</span>
-
-<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
-<span class="token comment"># obj = Solution(w)</span>
-<span class="token comment"># param_1 = obj.pickIndex()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/random-pick-with-weight/">528. Random Pick with Weight</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/random-pick-with-weight/discuss/2177196/HexPython-prefix-Sum">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC500-599</category>
-      </categories>
-      <tags>
-        <tag>Prefix Sum</tag>
-        <tag>medium</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Android Development（Kotlin）- First Android App</title>
     <url>/2022/06/20/AndroidDevelopment-Kotlin/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Day1-Build-Your-First-Android-App"><a href="#Day1-Build-Your-First-Android-App" class="headerlink" title="Day1: Build Your First Android App"></a>Day1: Build Your First Android App</h1><h2 id="Folder-Structure-of-an-Adroid-App"><a href="#Folder-Structure-of-an-Adroid-App" class="headerlink" title="Folder Structure of an Adroid App"></a>Folder Structure of an Adroid App</h2><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-1.png" class="" title="d1-1">
@@ -2689,6 +2609,117 @@ An argument is the value that is sent to the function when it is called
       <tags>
         <tag>easy</tag>
         <tag>Difference Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LC528 - Random Pick With Weight</title>
+    <url>/2022/06/21/LC528RandomPickwithWeight/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index.<br>You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w).<br>For example, if w = [1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).</p>
+<pre class="line-numbers language-none"><code class="language-none">Example 1:
+Input
+[&quot;Solution&quot;,&quot;pickIndex&quot;]
+[[[1]],[]]
+Output
+[null,0]
+Explanation
+Solution solution &#x3D; new Solution([1]);
+solution.pickIndex(); &#x2F;&#x2F; return 0. The only option is to return 0 since there is only one element in w.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">Example 2:
+Input
+[&quot;Solution&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;]
+[[[1,3]],[],[],[],[],[]]
+Output
+[null,1,1,1,1,0]
+Explanation
+Solution solution &#x3D; new Solution([1, 3]);
+solution.pickIndex(); &#x2F;&#x2F; return 1. It is returning the second element (index &#x3D; 1) that has a probability of 3&#x2F;4.
+solution.pickIndex(); &#x2F;&#x2F; return 1
+solution.pickIndex(); &#x2F;&#x2F; return 1
+solution.pickIndex(); &#x2F;&#x2F; return 1
+solution.pickIndex(); &#x2F;&#x2F; return 0. It is returning the first element (index &#x3D; 0) that has a probability of 1&#x2F;4.
+Since this is a randomization problem, multiple answers are allowed.
+All of the following outputs can be considered correct:
+[null,1,1,1,1,0]
+[null,1,1,1,1,1]
+[null,1,1,1,0,0]
+[null,1,1,1,0,1]
+[null,1,0,1,0,0]
+......
+and so on.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Constraints:</p>
+<p>1 &lt;= w.length &lt;= 104<br>1 &lt;= w[i] &lt;= 105<br>pickIndex will be called at most 104 times.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><img src="/2022/06/21/LC528RandomPickwithWeight/weight.png" class="" title="weight">
+<p>Selected by weight, here I am directly calling the random.randInt() function of Python. But this will only generate random numbers, not selected by weight. We can record the prefix sum, which is actually the sum of all numbers.</p>
+<p>For example, the prefix sum of [1,3] is [1,4]. That is, if a random number of [1,4] is generated at this time, 1 corresponds to 1, and the random number 2,3,4 corresponds to the prefix and 4, which just satisfies the weight of 1:3.</p>
+<p>And for w = [a,b,c,d] corresponding prefix and ws = [a,a+b,a+b+c,a+b+c+d] we can directly generate 0 to a+b+c +d-1 random number.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
+<span class="token keyword">import</span> random
+
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> w<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>summ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>summ<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>w<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">pickIndex</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        val <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        idx <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> v <span class="token operator">>=</span> val<span class="token punctuation">:</span>
+                idx <span class="token operator">=</span> i <span class="token operator">-</span><span class="token number">1</span>
+                <span class="token keyword">break</span>
+        <span class="token keyword">return</span> idx
+
+<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
+<span class="token comment"># obj = Solution(w)</span>
+<span class="token comment"># param_1 = obj.pickIndex()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Bisect-Library"><a href="#Bisect-Library" class="headerlink" title="Bisect Library"></a>Bisect Library</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#import the module</span>
+<span class="token keyword">import</span> bisect
+
+<span class="token comment">#given sorted list of numbers</span>
+nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">49</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">]</span>
+
+<span class="token comment">#given element to be inserted into the list</span>
+ele <span class="token operator">=</span> <span class="token number">26</span>
+
+<span class="token comment">#get index where to insert the element</span>
+idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>nums<span class="token punctuation">,</span> ele<span class="token punctuation">)</span>
+
+<span class="token comment">#print the index</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Insert element </span><span class="token interpolation"><span class="token punctuation">&#123;</span>ele<span class="token punctuation">&#125;</span></span><span class="token string"> at index </span><span class="token interpolation"><span class="token punctuation">&#123;</span>idx<span class="token punctuation">&#125;</span></span><span class="token string"> in nums list to maintain sorted order."</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> w<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>summ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> w<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>summ<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">pickIndex</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        num <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">,</span> num<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> idx<span class="token operator">-</span><span class="token number">1</span>
+
+<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
+<span class="token comment"># obj = Solution(w)</span>
+<span class="token comment"># param_1 = obj.pickIndex()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/random-pick-with-weight/">528. Random Pick with Weight</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/random-pick-with-weight/discuss/2177196/HexPython-prefix-Sum">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC500-599</category>
+      </categories>
+      <tags>
+        <tag>Prefix Sum</tag>
+        <tag>medium</tag>
       </tags>
   </entry>
 </search>
