@@ -40,8 +40,10 @@
 <meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-8-2.png">
 <meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-9-1.png">
 <meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-9-2.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-10-1.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-10-2.png">
 <meta property="article:published_time" content="2022-06-20T13:07:15.000Z">
-<meta property="article:modified_time" content="2022-06-21T05:17:25.289Z">
+<meta property="article:modified_time" content="2022-06-21T10:14:04.355Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="video course">
 <meta property="article:tag" content="Kotlin">
@@ -232,7 +234,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 15:17:25" itemprop="dateModified" datetime="2022-06-21T15:17:25+10:00">2022-06-21</time>
+                <time title="Modified: 2022-06-21 20:14:04" itemprop="dateModified" datetime="2022-06-21T20:14:04+10:00">2022-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -473,6 +475,19 @@ An argument is the value that is sent to the function when it is called
   <span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>In general, intents are used to move between some android component like (activity, service, broadcast receivers …etc) some time you need to pass some value between these components so you need to use <strong>putextra</strong> in the sender component and <strong>getextra</strong> in the receiver for example :</p>
+<p>in the sender :</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">val</span> intent <span class="token operator">=</span> <span class="token function">Intent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> MainActivity2<span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">.</span>java<span class="token punctuation">)</span>
+intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token string">"USER"</span><span class="token punctuation">,</span> enteredName<span class="token punctuation">)</span> <span class="token comment">// name, value</span>
+<span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>in the reciver:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">val</span> userName <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getStringExtra</span><span class="token punctuation">(</span><span class="token string">"USER"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>note that you need to pass the same key to retrieve your value</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-10-1.png" class="" title="d1-10-1"></div><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-10-2.png" class="" title="d1-10-2"></div></div></div></div>
+
+
 
 
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=BCSlZIUj18Y">YouTube - Day 01: Build Your First Android App</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
@@ -578,7 +593,7 @@ An argument is the value that is sent to the function when it is called
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day1-Build-Your-First-Android-App"><span class="nav-text">Day1: Build Your First Android App</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Folder-Structure-of-an-Adroid-App"><span class="nav-text">Folder Structure of an Adroid App</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidMainfest-xml"><span class="nav-text">AndroidMainfest.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-folder"><span class="nav-text">Java folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jave-generated"><span class="nav-text">Jave (generated)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-folder"><span class="nav-text">res folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradle"><span class="nav-text">Gradle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Your-First-Android-App"><span class="nav-text">Build Your First Android App</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#activity-main-xml"><span class="nav-text">activity_main.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-Layout-Validation"><span class="nav-text">UI Layout Validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MainActivity-kt"><span class="nav-text">MainActivity.kt</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day1-Build-Your-First-Android-App"><span class="nav-text">Day1: Build Your First Android App</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Folder-Structure-of-an-Adroid-App"><span class="nav-text">Folder Structure of an Adroid App</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidMainfest-xml"><span class="nav-text">AndroidMainfest.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-folder"><span class="nav-text">Java folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jave-generated"><span class="nav-text">Jave (generated)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-folder"><span class="nav-text">res folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradle"><span class="nav-text">Gradle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Your-First-Android-App"><span class="nav-text">Build Your First Android App</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#activity-main-xml"><span class="nav-text">activity_main.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-Layout-Validation"><span class="nav-text">UI Layout Validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MainActivity-kt"><span class="nav-text">MainActivity.kt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent"><span class="nav-text">Intent</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

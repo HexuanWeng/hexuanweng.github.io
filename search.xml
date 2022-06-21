@@ -1,6 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Algo-MinRewards</title>
+    <url>/2021/01/28/Algo-MinRewards/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><blockquote>
+<p>Imagine that you are a teacher who is just graded the final exam in a class. You have a list of student scores on the final exam in a particular order (not necessarily sorted), and you want to reward your students. You decide to do so fairly by giving them arbitrary rewards following two rules:</p>
+<ol>
+<li>All students must receive at least one reward</li>
+<li>Any given student must receive strictly more rewards than an adjacent student (a student immediately to the left or to the right) with a lower score and must receive strictly fewer rewards than an adjacent student with a higher score.<br>Write a function that takes in a list of scores and returns the minimum number of rewards that you must give out to students to satisfy the two rules.<br>You can assume that all students have different scores; in other words, the scores are all unique.</li>
+</ol>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#input</span>
+scores <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
+<span class="token comment">#output</span>
+<span class="token number">25</span> <span class="token comment"># you would give out the following rewards: [4, 3, 2, 1, 2, 3, 4, 5, 1]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Ideas"><a href="#Ideas" class="headerlink" title="Ideas"></a>Ideas</h2><p>I am very happy to pass this question once in 15 minutes. The main personal ideas are as follows:</p>
+<ul>
+<li>For the first traverse, first find out the local minimum and local maximum. The local minimum is directly set to 1, and the local maximum is set to’x’ because I don’t know what it is.</li>
+<li>For the second traverse, expand left to right in the direction of 1, during the process of expanding to the left, if it exceeds the boundary and encounters’x’ and stops, during the process of expanding to the right, if it exceeds the boundary and encounters’x’ stop</li>
+<li>For the third traverse, it stops where it encounters ‘x’, compare the numbers on the left and right, the larger number + 1 is the value of x</li>
+<li>Return sum (rewards)</li>
+</ul>
+<h3 id="Several-key-points"><a href="#Several-key-points" class="headerlink" title="Several key points"></a>Several key points</h3><ul>
+<li>orders matter</li>
+<li>the scores are unique</li>
+<li>all numbers are positive</li>
+</ul>
+<h3 id="Several-methods-given-in-AlgoExpert"><a href="#Several-methods-given-in-AlgoExpert" class="headerlink" title="Several methods given in AlgoExpert:"></a>Several methods given in AlgoExpert:</h3><h4 id="1-naive-algorithm"><a href="#1-naive-algorithm" class="headerlink" title="1. naive algorithm"></a>1. naive algorithm</h4><ul>
+<li>Starting from the first number, the first number is set to 1, from left to right, if it is smaller than the previous number, it is currently changed to 1, and 1 is added to the front</li>
+<li><strong>Disadvantages</strong>: need back tracking/iterate back to the previous one.<br>   Time: O(n^2), Space: O(n)</li>
+</ul>
+<h4 id="2-techniques-peaks-and-valleys-high-points-and-low-points-local-maxes-and-local-mins"><a href="#2-techniques-peaks-and-valleys-high-points-and-low-points-local-maxes-and-local-mins" class="headerlink" title="2. techniques: peaks and valleys/high points and low points/ local maxes and local mins"></a>2. techniques: peaks and valleys/high points and low points/ local maxes and local mins</h4><ul>
+<li>I use this method</li>
+<li>if I am at a local min, start expanding to the left and expanding to the right, until I reach the peaks and incrementing</li>
+<li>stop once I get a peak or boundary</li>
+<li>But unlike my method, I found peaks and valleys, but the video only needs valleys, not peaks</li>
+<li>Time: O(n), Space: O(n)</li>
+<li><strong>Disadvantages</strong>: The code is relatively long, so many edge cases need to be considered</li>
+</ul>
+<h4 id="3-The-best-way-cleverest-solution"><a href="#3-The-best-way-cleverest-solution" class="headerlink" title="3. The best way, cleverest solution"></a>3. The best way, cleverest solution</h4><ul>
+<li>the idea of ​​expanding to left and to right of local mins doesn’t actually have to happen by starting at the local mins</li>
+<li>Just go from left to right, then from right to left, traverse twice, and set all numbers at the beginning to be 1.</li>
+<li>From left to right: start from the second number, compare with the left, if the current number is smaller than the left, skip it, if it is larger, start adding 1</li>
+<li>From right to left: If the current number is smaller than the right, the right starts to add</li>
+<li><strong>Advantages</strong>: There is no need to consider many edge cases, and the code is clearer, but no faster than method two</li>
+<li>Time: O(n), Space: O(n)</li>
+</ul>
+<h2 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h2><h3 id="Peaks-and-Valleys"><a href="#Peaks-and-Valleys" class="headerlink" title="Peaks and Valleys"></a>Peaks and Valleys</h3><p>First solution</p>
+<ul>
+<li>peaks and valleys (original solution without refering to any materials)<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">minRewards</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Write your code here.</span>
+	rewards <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
+	cur <span class="token operator">=</span> <span class="token number">0</span>
+	<span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token number">1</span>
+	<span class="token keyword">if</span> scores<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+		rewards<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+	<span class="token keyword">if</span> scores<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+		rewards<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">if</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">and</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+			rewards<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+		<span class="token keyword">elif</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> scores<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">and</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> scores<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+			rewards<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"x"</span>
+		
+	<span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">if</span> rewards<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+			left <span class="token operator">=</span> j<span class="token operator">-</span><span class="token number">1</span>
+			<span class="token keyword">while</span> left <span class="token operator">>=</span> <span class="token number">0</span> <span class="token keyword">and</span> rewards<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">'x'</span><span class="token punctuation">:</span>
+				rewards<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">+=</span> rewards<span class="token punctuation">[</span>left<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+				left<span class="token operator">-=</span><span class="token number">1</span>
+			right <span class="token operator">=</span> j<span class="token operator">+</span><span class="token number">1</span>
+			<span class="token keyword">while</span> right <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span> <span class="token keyword">and</span> rewards<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">!=</span><span class="token string">'x'</span><span class="token punctuation">:</span>
+				rewards<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> rewards<span class="token punctuation">[</span>right<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+				right<span class="token operator">+=</span><span class="token number">1</span>
+				
+	<span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">if</span> rewards<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'x'</span><span class="token punctuation">:</span>
+			rewards<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>rewards<span class="token punctuation">[</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> rewards<span class="token punctuation">[</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>	
+	<span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+</ul>
+<h3 id="Best-Solution"><a href="#Best-Solution" class="headerlink" title="Best Solution"></a>Best Solution</h3><p>Clean and better solution</p>
+<ul>
+<li>Need to pay attation to researsed traverse.<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#看了视频以后写的代码，比较绕的是reversed traverse</span>
+<span class="token keyword">def</span> <span class="token function">minRewards</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Write your code here.</span>
+    rewards <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
+	<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">if</span> scores<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+			rewards<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span>rewards<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+	<span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">if</span> scores<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> scores<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
+			rewards<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>rewards<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span>rewards<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+</ul>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>my way:</p>
+<ul>
+<li>rewards = [1]*len(scores)<br>better way:</li>
+<li>rewards = [1 for _ in scores]</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Data Structure and Algorithm</category>
+      </categories>
+      <tags>
+        <tag>array</tag>
+        <tag>hard</tag>
+        <tag>AlgoExpert</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode-Candy</title>
+    <url>/2021/01/29/Leetcode-Candy/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><blockquote>
+<p>There are N children standing in a line. Each child is assigned a rating value.<br>You are giving candies to these children subjected to the following requirements:<br>Each child must have at least one candy.<br>Children with a higher rating get more candies than their neighbors.<br>What is the minimum candies you must give?</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Input<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+Output<span class="token punctuation">:</span> <span class="token number">5</span>
+<span class="token comment">#Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.</span>
+
+Input<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+Output<span class="token punctuation">:</span> <span class="token number">4</span>
+Explanation<span class="token punctuation">:</span> You can allocate to the first<span class="token punctuation">,</span> second <span class="token keyword">and</span> third child <span class="token keyword">with</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span> candies respectively<span class="token punctuation">.</span>
+             The third child gets <span class="token number">1</span> candy because it satisfies the above two conditions<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Key-Point"><a href="#Key-Point" class="headerlink" title="Key Point"></a>Key Point</h2><ul>
+<li><p>This question can have the same number in succession. The peaks and valleys method is not very practical for this question. Because there are many situations to consider, there will be many special situations.</p>
+</li>
+<li><p>The more recommended is the left-right, right-left method~</p>
+</li>
+<li><p>It is equivalent to using the Approach3 method in <strong>Min Rewards</strong>.</p>
+</li>
+</ul>
+<h2 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) Space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">candy</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ratings<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        candies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> ratings<span class="token punctuation">]</span>
+        
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>ratings<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> ratings<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> ratings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                candies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> candies<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>ratings<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> ratings<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> ratings<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                candies<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>candies<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> candies<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>candies<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/candy/">Candy-Leetcode challenge question </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/">Similiar Question: Min Rewards </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Data Structure and Algorithm</category>
+      </categories>
+      <tags>
+        <tag>array</tag>
+        <tag>hard</tag>
+        <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Access-Google-BigQuery-Metadata-From-AWS-Lambda</title>
+    <url>/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements:"></a>Requirements:</h1><ul>
+<li>Try to get the Metadata from Google BigQuery by using AWS Lambda function</li>
+<li>Build connection between AWS Lambda and Google BigQuery</li>
+<li>Write Python code to get metadata from Google BigQuery</li>
+<li>format the metadata schema</li>
+</ul>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/architecture.png" class="" title="Solution Architecture">
+
+<h2 id="Get-google-cloud-bigquery-zip-Method-1"><a href="#Get-google-cloud-bigquery-zip-Method-1" class="headerlink" title="Get google-cloud-bigquery.zip Method 1"></a>Get google-cloud-bigquery.zip Method 1</h2><ul>
+<li>Instead of getting the GCP Layer via EC2 and Session, You can also download the zip file locally by running the following code</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">pip install google<span class="token operator">-</span>cloud<span class="token operator">-</span>bigquery <span class="token operator">-</span>t <span class="token punctuation">.</span><span class="token operator">/</span>python<span class="token operator">/</span>
+<span class="token builtin">zip</span> <span class="token operator">-</span>r google<span class="token operator">-</span>cloud<span class="token operator">-</span>bigquery<span class="token punctuation">.</span><span class="token builtin">zip</span> python<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Add the zip file to Lambda function as a layer from your local device</li>
+</ul>
+<h2 id="Get-google-cloud-bigquery-zip-Method-2"><a href="#Get-google-cloud-bigquery-zip-Method-2" class="headerlink" title="Get google-cloud-bigquery.zip Method 2"></a>Get google-cloud-bigquery.zip Method 2</h2><h3 id="Create-EC2-in-AWS"><a href="#Create-EC2-in-AWS" class="headerlink" title="Create EC2 in AWS"></a>Create EC2 in AWS</h3><ul>
+<li>create an EC2</li>
+<li>Amazon Linux 2</li>
+<li>free tier is enough- instance type: t2.micro</li>
+<li>the IAM role grants only “<strong>Amazon EC2Role for SSM</strong>“ so that Session Manager of Systems Manager can connect to this EC2</li>
+<li>leave the other options as default</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/ec2.jpg" class="" title="EC2">
+
+<h3 id="Get-AWS-Access-Key-ID-and-Secret-Access-Key"><a href="#Get-AWS-Access-Key-ID-and-Secret-Access-Key" class="headerlink" title="Get AWS Access Key ID and Secret Access Key"></a>Get AWS Access Key ID and Secret Access Key</h3><ul>
+<li>Go to service “Identity and Access Management”</li>
+<li>click “Users” and find your user name</li>
+<li>click “Security credentials”</li>
+<li>create access key and please remember that you can only view the credential once.</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/iam.jpg" class="" title="IAM">
+
+<h3 id="Start-a-Session-in-AWS"><a href="#Start-a-Session-in-AWS" class="headerlink" title="Start a Session in AWS"></a>Start a Session in AWS</h3><ul>
+<li>go to service “AWS System Manager”</li>
+<li>click the tab “Session Manager”</li>
+<li>click “Start a Session”</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/session.jpg" class="" title="Start a Session">
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ec2-Become a user</span>
+<span class="token function">sudo</span> <span class="token function">su</span> - ec2-user
+<span class="token comment">#pip installation</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> python3 -y
+<span class="token function">curl</span> -O https://bootstrap.pypa.io/get-pip.py
+<span class="token function">sudo</span> python3 get-pip.py
+
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/bin
+<span class="token comment">#sdk installation&amp;Zip</span>
+pip <span class="token function">install</span> google-cloud-bigquery -t ./python/
+<span class="token function">zip</span> -r google-cloud-bigquery.zip python
+<span class="token comment">#Added because protobuf is required</span>
+pip <span class="token function">install</span> protobuf --upgrade -t ./python/
+<span class="token function">zip</span> -r google-cloud-bigquery.zip ./python/google/protobuf
+
+<span class="token comment">#aws cli settings</span>
+aws configure
+<span class="token comment">#Set the following:</span>
+  AWS Access Key ID <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: <span class="token operator">&lt;</span>my-access-key<span class="token operator">></span>
+  AWS Secret Access Key <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: <span class="token operator">&lt;</span>my-secret-key<span class="token operator">></span>
+  Default region name <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: ap-southeast-2
+  Default output <span class="token function">format</span> <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: json
+
+<span class="token comment">#Save to s3</span>
+aws s3 mb s3://<span class="token operator">&lt;</span>my-bucket<span class="token operator">></span>
+aws s3 <span class="token function">cp</span> google-cloud-bigquery.zip s3://<span class="token operator">&lt;</span>my-bucket<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Check-S3-Bucket-in-AWS"><a href="#Check-S3-Bucket-in-AWS" class="headerlink" title="Check S3 Bucket in AWS"></a>Check S3 Bucket in AWS</h3><ul>
+<li>go to the s3 bucket you created just now by using Session Manager</li>
+<li>You should see google-cloud-bigquery.zip should be uploaded</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/gcp-zip.png" class="" title="Environment Layer Zip in S3">
+
+<h2 id="Other-Steps"><a href="#Other-Steps" class="headerlink" title="Other Steps"></a>Other Steps</h2><h3 id="create-a-lambda-function-and-register-the-created-library-in-the-lambda-layer-in-AWS"><a href="#create-a-lambda-function-and-register-the-created-library-in-the-lambda-layer-in-AWS" class="headerlink" title="create a lambda function and register the created library in the lambda layer in AWS"></a>create a lambda function and register the created library in the lambda layer in AWS</h3><ul>
+<li>go to Lambda service</li>
+<li>Click “Function” and “create function”</li>
+<li>changes settings:</li>
+<li>Timeout: 30 seconds</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/timeout.png" class="" title="Timeout Configuration">
+
+<ul>
+<li>create Layer</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/create-layer.png" class="" title="Create Layer">
+
+<ul>
+<li>add Layer: gcp-bigquery</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/add-layer.png" class="" title="Add Layer">
+
+<ul>
+<li>And you should see the data has been created successfully</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/lambda-layer.png" class="" title="Lambda Page">
+
+<h3 id="Get-GCP-certificate-file-in-Google-Cloud-Platform"><a href="#Get-GCP-certificate-file-in-Google-Cloud-Platform" class="headerlink" title="Get GCP certificate file in Google Cloud Platform"></a>Get GCP certificate file in Google Cloud Platform</h3><ul>
+<li>Log into Google Cloud Platform</li>
+<li>go to “IAM&amp;Admin” service and go to “Service Accounts”</li>
+<li>Click “Create Service Account”: please make sure that you choose “BigQuery Admin” as the Role</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/gcp-service-account.png" class="" title="Service Account">
+
+<ul>
+<li>Once you created the account, please click the account and “ADD KEY”</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/service-account-key.png" class="" title="Key">
+
+<ul>
+<li>You are able to download the JSON file in the following format</li>
+</ul>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token property">"project_id"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token property">"private_key_id"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token property">"private_key"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>  
+  <span class="token property">"client_email"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token property">"client_id"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token property">"auth_uri"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token property">"token_uri"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token property">"auth_provider_x509_cert_url"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+  <span class="token property">"client_x509_cert_url"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Add-functions-and-credential-file-in-AWS-Lambda-Function"><a href="#Add-functions-and-credential-file-in-AWS-Lambda-Function" class="headerlink" title="Add functions and credential file in AWS Lambda Function"></a>Add functions and credential file in AWS Lambda Function</h3><ul>
+<li>copy the JSON file into “bq.manager.json”</li>
+</ul>
+
+
+<ul>
+<li>copy the following codes into “lambda_function.py”</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
+<span class="token keyword">from</span> google<span class="token punctuation">.</span>cloud <span class="token keyword">import</span> bigquery
+
+<span class="token keyword">def</span> <span class="token function">lambda_handler</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    client <span class="token operator">=</span> bigquery<span class="token punctuation">.</span>Client<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sql <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+        SELECT *
+        FROM `&lt;project name>.&lt;dataset name>.&lt;table name>`
+    """</span>
+    
+    <span class="token comment"># Run a Standard SQL query using the environment's default project</span>
+    results <span class="token operator">=</span> client<span class="token punctuation">.</span>query<span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    metadata_objects <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> row <span class="token keyword">in</span> results<span class="token punctuation">:</span>
+        id_dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
+        other_dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"metadata"</span><span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
+        metadata_objects<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token operator">**</span>id_dic<span class="token punctuation">,</span> <span class="token operator">**</span>other_dic<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> metadata_objects<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>Add “GOOGLE_APPLICATION_CREDENTIALS: bq-manager.json” as Environment Variables</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/bq-credentials.png" class="" title="Credentials">
+
+<h1 id="Test-Result"><a href="#Test-Result" class="headerlink" title="Test Result"></a>Test Result</h1><p>You should be able to get the JSON result like the format in the BigQuery. </p>
+<p>By default, you should get a SQL table. You can modify the result baesd on your code.</p>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/result.jpg" class="" title="Test Result">
+
+<h1 id="Updated-Solutions"><a href="#Updated-Solutions" class="headerlink" title="Updated Solutions"></a>Updated Solutions</h1><h2 id="AWS-SSM-Parameter-Store"><a href="#AWS-SSM-Parameter-Store" class="headerlink" title="AWS SSM - Parameter Store"></a>AWS SSM - Parameter Store</h2><ul>
+<li>Store the credential paths in the SSM Parameter Store like a Python Dictionary<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/ssm.png" class="" title="Parameter Store">
+
+</li>
+</ul>
+<h2 id="AWS-Lambda-Environment-Variable"><a href="#AWS-Lambda-Environment-Variable" class="headerlink" title="AWS Lambda - Environment Variable"></a>AWS Lambda - Environment Variable</h2><ul>
+<li>Set all the paths as an environment variables<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/var.png" class="" title="Environment Variable">
+
+</li>
+</ul>
+<h2 id="Updated-Lambda-code"><a href="#Updated-Lambda-code" class="headerlink" title="Updated Lambda code"></a>Updated Lambda code</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> google<span class="token punctuation">.</span>cloud <span class="token keyword">import</span> bigquery
+<span class="token keyword">from</span> google<span class="token punctuation">.</span>oauth2 <span class="token keyword">import</span> service_account
+<span class="token keyword">import</span> boto3
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> os
+
+ssm <span class="token operator">=</span> boto3<span class="token punctuation">.</span>client<span class="token punctuation">(</span><span class="token string">'ssm'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">lambda_handler</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+		<span class="token comment">#retrieve parameters from ssm/appconfig and prepare for connection with BigQuery</span>
+		client_email_var <span class="token operator">=</span> ssm<span class="token punctuation">.</span>get_parameter<span class="token punctuation">(</span>Name<span class="token operator">=</span>os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'SSM_BQ_CLIENT_EMAIL'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'Parameter'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'Value'</span><span class="token punctuation">]</span>
+		private_key_var <span class="token operator">=</span> ssm<span class="token punctuation">.</span>get_parameter<span class="token punctuation">(</span>Name<span class="token operator">=</span>os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'SSM_BQ_PRIVATE_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'Parameter'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'Value'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\\n'</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+		token_uri_var <span class="token operator">=</span> os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'SSM_BQ_TOKEN_URI'</span><span class="token punctuation">)</span>
+		credentials <span class="token operator">=</span> service_account<span class="token punctuation">.</span>Credentials<span class="token punctuation">.</span>from_service_account_info<span class="token punctuation">(</span>
+		    <span class="token punctuation">&#123;</span>
+		        <span class="token string">"client_email"</span><span class="token punctuation">:</span> client_email_var<span class="token punctuation">,</span>
+		        <span class="token string">"private_key"</span><span class="token punctuation">:</span> private_key_var<span class="token punctuation">,</span>
+		        <span class="token string">"token_uri"</span><span class="token punctuation">:</span> token_uri_var
+		    <span class="token punctuation">&#125;</span>
+		<span class="token punctuation">)</span>
+		
+		project_id_var <span class="token operator">=</span> os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'BQ_PROJECT_ID'</span><span class="token punctuation">)</span>
+		dataset_name_var <span class="token operator">=</span> os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'BQ_DATASET_NAME'</span><span class="token punctuation">)</span>
+		table_name_var <span class="token operator">=</span> os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'BQ_TABLE_NAME'</span><span class="token punctuation">)</span>
+		<span class="token keyword">if</span> bigquery<span class="token punctuation">.</span>Client<span class="token punctuation">(</span>credentials <span class="token operator">=</span> credentials<span class="token punctuation">,</span>project<span class="token operator">=</span>project_id_var<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		    client <span class="token operator">=</span> bigquery<span class="token punctuation">.</span>Client<span class="token punctuation">(</span>credentials <span class="token operator">=</span> credentials<span class="token punctuation">,</span>project<span class="token operator">=</span>project_id_var<span class="token punctuation">)</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+		    <span class="token keyword">raise</span> GCPConnectionError
+		
+		sql <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
+		    SELECT *
+		    FROM </span><span class="token interpolation"><span class="token punctuation">&#123;</span>project_id_var<span class="token punctuation">&#125;</span></span><span class="token string">.</span><span class="token interpolation"><span class="token punctuation">&#123;</span>dataset_name_var<span class="token punctuation">&#125;</span></span><span class="token string">.</span><span class="token interpolation"><span class="token punctuation">&#123;</span>table_name_var<span class="token punctuation">&#125;</span></span><span class="token string">
+		"""</span></span>
+		
+		<span class="token comment"># Run a Standard SQL query using the environment's default project</span>
+		<span class="token comment">#retrieve metadata from Bigquery and transfer it to JSON</span>
+		results <span class="token operator">=</span> client<span class="token punctuation">.</span>query<span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span>
+		metadata_objects <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+		<span class="token keyword">for</span> row <span class="token keyword">in</span> results<span class="token punctuation">:</span>
+		    id_dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
+		    other_dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"metadata"</span><span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
+		    metadata_objects<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token operator">**</span>id_dic<span class="token punctuation">,</span> <span class="token operator">**</span>other_dic<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> metadata_objects<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.client.Client.html">google-cloud-bigquery</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://cloud.google.com/docs/authentication#oauth-2.0-clients">Authentication overview | Google Cloud</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://linuxtut.com/en/c99c2fba0ebf633cfb0b/">Run BigQuery from Lambda</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>AWS</category>
+        <category>GCP</category>
+      </categories>
+      <tags>
+        <tag>AWS Lambda</tag>
+        <tag>Google BigQuery</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DSA - Binary Gap</title>
     <url>/2020/11/01/Binary-Gap/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Qeustion"><a href="#Qeustion" class="headerlink" title="Qeustion"></a>Qeustion</h2><blockquote>
@@ -37,8 +432,8 @@
         <category>Data Structure and Algorithm</category>
       </categories>
       <tags>
-        <tag>easy</tag>
         <tag>array</tag>
+        <tag>easy</tag>
       </tags>
   </entry>
   <entry>
@@ -397,6 +792,90 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello, Notion!!</title>
+    <url>/2020/12/24/Notion-2021-v1/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Techo"><a href="#Techo" class="headerlink" title="Techo"></a>Techo</h2><p>I am a big fan of kinds of notebooks and I am addicted to taking notes. In November 2019, I spend $50 on Kokuyo Jibun Techo. I got hooked on this type of way to record my daily life. I stick to it during the covid and somehow I gave up after this September. </p>
+<h3 id="Kokuyo-Jibun-Techo"><a href="#Kokuyo-Jibun-Techo" class="headerlink" title="Kokuyo Jibun Techo"></a>Kokuyo Jibun Techo</h3><p>A complete set of Kokuyo Jibun Techo includes three sub-books: <strong><em>Diary, Life and Idea</em></strong>. Diary is a daily account with a timeline as the main body. There are various lists in Life, such as life dreams, travel plans, etc., and Idea is a grid book for recording daily essays and inspirations.</p>
+<img src="/2020/12/24/Notion-2021-v1/Kokuyo.jpg" class="" title="Kokuyo">
+
+<h3 id="Notion"><a href="#Notion" class="headerlink" title="Notion"></a>Notion</h3><p>Notion is my currently favourite note-taking application. From my perspective, it beats Microsoft OneNote and any other note-taking applications. I can do customized design based on my own preference. Due to my previous experience on Kokuyo Jibun Techo, I do have some novel ideas to make an electronical techo for myself and for the coming 2021.</p>
+<h3 id="My-First-Notion"><a href="#My-First-Notion" class="headerlink" title="My First Notion"></a>My First Notion</h3><p>I don’t think I’m naturally intelligent, but I find that I don’t seem to know what renunciation is ~ I hope I never give up on the unknown future.</p>
+<h4 id="Homepage"><a href="#Homepage" class="headerlink" title="Homepage"></a>Homepage</h4><ul>
+<li><strong>HomePage</strong><ul>
+<li><strong>2021 Techo</strong><ul>
+<li>my plan for 2021</li>
+</ul>
+</li>
+<li><strong>Life</strong><ul>
+<li>important events</li>
+<li>yearly goals</li>
+</ul>
+</li>
+<li><strong>Lists</strong><ul>
+<li>reading list</li>
+<li>travel plans</li>
+<li>journeys</li>
+</ul>
+</li>
+<li><strong>Study</strong></li>
+<li><strong>Work</strong></li>
+</ul>
+</li>
+</ul>
+<img src="/2020/12/24/Notion-2021-v1/hana-notion-home.png" class="" title="Hana Homepage">
+<p><em><div align="center">Fig. 1: Hana Notion Homepage</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/my-life-page.png" class="" title="My Life">
+<p><em><div align="center">Fig. 2: Hana Notion My Life Page</div></em></p>
+<h4 id="2021-Techo"><a href="#2021-Techo" class="headerlink" title="2021 Techo"></a>2021 Techo</h4><ul>
+<li><strong>2021 Techo</strong><ul>
+<li><strong>Inbox</strong><ul>
+<li>inspirations</li>
+<li>mood</li>
+<li>favourite paragraphs picked up on a daily basis</li>
+</ul>
+</li>
+<li><strong>Roommate Home</strong></li>
+<li><strong>Motto</strong></li>
+<li><strong>2021 Time Management</strong><ul>
+<li>monthly plan from Jan to Dec</li>
+</ul>
+</li>
+<li><strong>2021 Budget</strong><ul>
+<li>monthly budget from Jan to Dec</li>
+</ul>
+</li>
+<li><strong>2021 Yearly</strong><ul>
+<li>yearly calendar</li>
+<li>my 2021 targets</li>
+<li>the way to hit the targets</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="/2020/12/24/Notion-2021-v1/year-2021.png" class="" width="2021" title="Techo">
+<p><em><div align="center">Fig. 3: Hana Notion 2021 Techo</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/room-home-1.png" class="" title="Roommate Home Page1">
+<p><em><div align="center">Fig. 4: Hana Notion Roommate Home Page1</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/room-home-2.png" class="" title="Roommate Home Page2">
+<p><em><div align="center">Fig. 5: Hana Notion Roommate Home Page1</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/monthly-plan-1.png" class="" title="Monthly Plan Page1">
+<p><em><div align="center">Fig. 6: Hana Notion Monthly Plan Page1</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/monthly-plan-2.png" class="" title="Monthly Plan Page2">
+<p><em><div align="center">Fig. 7: Hana Notion Monthly Plan Page2</div></em></p>
+<img src="/2020/12/24/Notion-2021-v1/budget-page.png" class="" title="Budget Plan Page2">
+<p><em><div align="center">Fig. 8: Hana Notion Budget Plan Page</div></em></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>My younger brother recommended this application to me yesterday and I started using this app after I woke up this morning. It is a little bit hard for me to find my own way to design my own notion. All the color match, layouts and design took me a long time. I suppose to do some study today but I was addicted to notion. I feel satisfied that I have something done at least. I like my current design and I may change all the design one day. Looking forward to my second version of Hana’s Notion~</p>
+<p>By the way, today is Christmas Eve. Julian’s family shouted me a yummy dinner tonight. I appreciate it. Merry Christmas 🎄</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.youtube.com/channel/UCoSvlWS5XcwaSzIcbuJ-Ysg">Notion </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.flaticon.com/packs/peru-48">Peru Icon Pack </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Simple Life</category>
+      </categories>
+      <tags>
+        <tag>Notion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Support Vector Machines Main Idea</title>
     <url>/2020/12/23/SVM-Concept/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="SVM-Support-Vector-Machines"><a href="#SVM-Support-Vector-Machines" class="headerlink" title="SVM - Support Vector Machines"></a>SVM - Support Vector Machines</h2><ul>
@@ -543,260 +1022,16 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello, Notion!!</title>
-    <url>/2020/12/24/Notion-2021-v1/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Techo"><a href="#Techo" class="headerlink" title="Techo"></a>Techo</h2><p>I am a big fan of kinds of notebooks and I am addicted to taking notes. In November 2019, I spend $50 on Kokuyo Jibun Techo. I got hooked on this type of way to record my daily life. I stick to it during the covid and somehow I gave up after this September. </p>
-<h3 id="Kokuyo-Jibun-Techo"><a href="#Kokuyo-Jibun-Techo" class="headerlink" title="Kokuyo Jibun Techo"></a>Kokuyo Jibun Techo</h3><p>A complete set of Kokuyo Jibun Techo includes three sub-books: <strong><em>Diary, Life and Idea</em></strong>. Diary is a daily account with a timeline as the main body. There are various lists in Life, such as life dreams, travel plans, etc., and Idea is a grid book for recording daily essays and inspirations.</p>
-<img src="/2020/12/24/Notion-2021-v1/Kokuyo.jpg" class="" title="Kokuyo">
-
-<h3 id="Notion"><a href="#Notion" class="headerlink" title="Notion"></a>Notion</h3><p>Notion is my currently favourite note-taking application. From my perspective, it beats Microsoft OneNote and any other note-taking applications. I can do customized design based on my own preference. Due to my previous experience on Kokuyo Jibun Techo, I do have some novel ideas to make an electronical techo for myself and for the coming 2021.</p>
-<h3 id="My-First-Notion"><a href="#My-First-Notion" class="headerlink" title="My First Notion"></a>My First Notion</h3><p>I don’t think I’m naturally intelligent, but I find that I don’t seem to know what renunciation is ~ I hope I never give up on the unknown future.</p>
-<h4 id="Homepage"><a href="#Homepage" class="headerlink" title="Homepage"></a>Homepage</h4><ul>
-<li><strong>HomePage</strong><ul>
-<li><strong>2021 Techo</strong><ul>
-<li>my plan for 2021</li>
-</ul>
-</li>
-<li><strong>Life</strong><ul>
-<li>important events</li>
-<li>yearly goals</li>
-</ul>
-</li>
-<li><strong>Lists</strong><ul>
-<li>reading list</li>
-<li>travel plans</li>
-<li>journeys</li>
-</ul>
-</li>
-<li><strong>Study</strong></li>
-<li><strong>Work</strong></li>
-</ul>
-</li>
-</ul>
-<img src="/2020/12/24/Notion-2021-v1/hana-notion-home.png" class="" title="Hana Homepage">
-<p><em><div align="center">Fig. 1: Hana Notion Homepage</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/my-life-page.png" class="" title="My Life">
-<p><em><div align="center">Fig. 2: Hana Notion My Life Page</div></em></p>
-<h4 id="2021-Techo"><a href="#2021-Techo" class="headerlink" title="2021 Techo"></a>2021 Techo</h4><ul>
-<li><strong>2021 Techo</strong><ul>
-<li><strong>Inbox</strong><ul>
-<li>inspirations</li>
-<li>mood</li>
-<li>favourite paragraphs picked up on a daily basis</li>
-</ul>
-</li>
-<li><strong>Roommate Home</strong></li>
-<li><strong>Motto</strong></li>
-<li><strong>2021 Time Management</strong><ul>
-<li>monthly plan from Jan to Dec</li>
-</ul>
-</li>
-<li><strong>2021 Budget</strong><ul>
-<li>monthly budget from Jan to Dec</li>
-</ul>
-</li>
-<li><strong>2021 Yearly</strong><ul>
-<li>yearly calendar</li>
-<li>my 2021 targets</li>
-<li>the way to hit the targets</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<img src="/2020/12/24/Notion-2021-v1/year-2021.png" class="" width="2021" title="Techo">
-<p><em><div align="center">Fig. 3: Hana Notion 2021 Techo</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/room-home-1.png" class="" title="Roommate Home Page1">
-<p><em><div align="center">Fig. 4: Hana Notion Roommate Home Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/room-home-2.png" class="" title="Roommate Home Page2">
-<p><em><div align="center">Fig. 5: Hana Notion Roommate Home Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/monthly-plan-1.png" class="" title="Monthly Plan Page1">
-<p><em><div align="center">Fig. 6: Hana Notion Monthly Plan Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/monthly-plan-2.png" class="" title="Monthly Plan Page2">
-<p><em><div align="center">Fig. 7: Hana Notion Monthly Plan Page2</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/budget-page.png" class="" title="Budget Plan Page2">
-<p><em><div align="center">Fig. 8: Hana Notion Budget Plan Page</div></em></p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>My younger brother recommended this application to me yesterday and I started using this app after I woke up this morning. It is a little bit hard for me to find my own way to design my own notion. All the color match, layouts and design took me a long time. I suppose to do some study today but I was addicted to notion. I feel satisfied that I have something done at least. I like my current design and I may change all the design one day. Looking forward to my second version of Hana’s Notion~</p>
-<p>By the way, today is Christmas Eve. Julian’s family shouted me a yummy dinner tonight. I appreciate it. Merry Christmas 🎄</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.youtube.com/channel/UCoSvlWS5XcwaSzIcbuJ-Ysg">Notion </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.flaticon.com/packs/peru-48">Peru Icon Pack </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Simple Life</category>
-      </categories>
-      <tags>
-        <tag>Notion</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Algo-MinRewards</title>
-    <url>/2021/01/28/Algo-MinRewards/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><blockquote>
-<p>Imagine that you are a teacher who is just graded the final exam in a class. You have a list of student scores on the final exam in a particular order (not necessarily sorted), and you want to reward your students. You decide to do so fairly by giving them arbitrary rewards following two rules:</p>
-<ol>
-<li>All students must receive at least one reward</li>
-<li>Any given student must receive strictly more rewards than an adjacent student (a student immediately to the left or to the right) with a lower score and must receive strictly fewer rewards than an adjacent student with a higher score.<br>Write a function that takes in a list of scores and returns the minimum number of rewards that you must give out to students to satisfy the two rules.<br>You can assume that all students have different scores; in other words, the scores are all unique.</li>
-</ol>
-</blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#input</span>
-scores <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
-<span class="token comment">#output</span>
-<span class="token number">25</span> <span class="token comment"># you would give out the following rewards: [4, 3, 2, 1, 2, 3, 4, 5, 1]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Ideas"><a href="#Ideas" class="headerlink" title="Ideas"></a>Ideas</h2><p>I am very happy to pass this question once in 15 minutes. The main personal ideas are as follows:</p>
-<ul>
-<li>For the first traverse, first find out the local minimum and local maximum. The local minimum is directly set to 1, and the local maximum is set to’x’ because I don’t know what it is.</li>
-<li>For the second traverse, expand left to right in the direction of 1, during the process of expanding to the left, if it exceeds the boundary and encounters’x’ and stops, during the process of expanding to the right, if it exceeds the boundary and encounters’x’ stop</li>
-<li>For the third traverse, it stops where it encounters ‘x’, compare the numbers on the left and right, the larger number + 1 is the value of x</li>
-<li>Return sum (rewards)</li>
-</ul>
-<h3 id="Several-key-points"><a href="#Several-key-points" class="headerlink" title="Several key points"></a>Several key points</h3><ul>
-<li>orders matter</li>
-<li>the scores are unique</li>
-<li>all numbers are positive</li>
-</ul>
-<h3 id="Several-methods-given-in-AlgoExpert"><a href="#Several-methods-given-in-AlgoExpert" class="headerlink" title="Several methods given in AlgoExpert:"></a>Several methods given in AlgoExpert:</h3><h4 id="1-naive-algorithm"><a href="#1-naive-algorithm" class="headerlink" title="1. naive algorithm"></a>1. naive algorithm</h4><ul>
-<li>Starting from the first number, the first number is set to 1, from left to right, if it is smaller than the previous number, it is currently changed to 1, and 1 is added to the front</li>
-<li><strong>Disadvantages</strong>: need back tracking/iterate back to the previous one.<br>   Time: O(n^2), Space: O(n)</li>
-</ul>
-<h4 id="2-techniques-peaks-and-valleys-high-points-and-low-points-local-maxes-and-local-mins"><a href="#2-techniques-peaks-and-valleys-high-points-and-low-points-local-maxes-and-local-mins" class="headerlink" title="2. techniques: peaks and valleys/high points and low points/ local maxes and local mins"></a>2. techniques: peaks and valleys/high points and low points/ local maxes and local mins</h4><ul>
-<li>I use this method</li>
-<li>if I am at a local min, start expanding to the left and expanding to the right, until I reach the peaks and incrementing</li>
-<li>stop once I get a peak or boundary</li>
-<li>But unlike my method, I found peaks and valleys, but the video only needs valleys, not peaks</li>
-<li>Time: O(n), Space: O(n)</li>
-<li><strong>Disadvantages</strong>: The code is relatively long, so many edge cases need to be considered</li>
-</ul>
-<h4 id="3-The-best-way-cleverest-solution"><a href="#3-The-best-way-cleverest-solution" class="headerlink" title="3. The best way, cleverest solution"></a>3. The best way, cleverest solution</h4><ul>
-<li>the idea of ​​expanding to left and to right of local mins doesn’t actually have to happen by starting at the local mins</li>
-<li>Just go from left to right, then from right to left, traverse twice, and set all numbers at the beginning to be 1.</li>
-<li>From left to right: start from the second number, compare with the left, if the current number is smaller than the left, skip it, if it is larger, start adding 1</li>
-<li>From right to left: If the current number is smaller than the right, the right starts to add</li>
-<li><strong>Advantages</strong>: There is no need to consider many edge cases, and the code is clearer, but no faster than method two</li>
-<li>Time: O(n), Space: O(n)</li>
-</ul>
-<h2 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h2><h3 id="Peaks-and-Valleys"><a href="#Peaks-and-Valleys" class="headerlink" title="Peaks and Valleys"></a>Peaks and Valleys</h3><p>First solution</p>
-<ul>
-<li>peaks and valleys (original solution without refering to any materials)<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">minRewards</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment"># Write your code here.</span>
-	rewards <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
-	cur <span class="token operator">=</span> <span class="token number">0</span>
-	<span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-		<span class="token keyword">return</span> <span class="token number">1</span>
-	<span class="token keyword">if</span> scores<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-		rewards<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-	<span class="token keyword">if</span> scores<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-		rewards<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-		<span class="token keyword">if</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">and</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-			rewards<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-		<span class="token keyword">elif</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> scores<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">and</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> scores<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-			rewards<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"x"</span>
-		
-	<span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-		<span class="token keyword">if</span> rewards<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-			left <span class="token operator">=</span> j<span class="token operator">-</span><span class="token number">1</span>
-			<span class="token keyword">while</span> left <span class="token operator">>=</span> <span class="token number">0</span> <span class="token keyword">and</span> rewards<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">'x'</span><span class="token punctuation">:</span>
-				rewards<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">+=</span> rewards<span class="token punctuation">[</span>left<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
-				left<span class="token operator">-=</span><span class="token number">1</span>
-			right <span class="token operator">=</span> j<span class="token operator">+</span><span class="token number">1</span>
-			<span class="token keyword">while</span> right <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span> <span class="token keyword">and</span> rewards<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">!=</span><span class="token string">'x'</span><span class="token punctuation">:</span>
-				rewards<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> rewards<span class="token punctuation">[</span>right<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
-				right<span class="token operator">+=</span><span class="token number">1</span>
-				
-	<span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-		<span class="token keyword">if</span> rewards<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'x'</span><span class="token punctuation">:</span>
-			rewards<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>rewards<span class="token punctuation">[</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> rewards<span class="token punctuation">[</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>	
-	<span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-</li>
-</ul>
-<h3 id="Best-Solution"><a href="#Best-Solution" class="headerlink" title="Best Solution"></a>Best Solution</h3><p>Clean and better solution</p>
-<ul>
-<li>Need to pay attation to researsed traverse.<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#看了视频以后写的代码，比较绕的是reversed traverse</span>
-<span class="token keyword">def</span> <span class="token function">minRewards</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment"># Write your code here.</span>
-    rewards <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
-	<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-		<span class="token keyword">if</span> scores<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
-			rewards<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span>rewards<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-	<span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>scores<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-		<span class="token keyword">if</span> scores<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> scores<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
-			rewards<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>rewards<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">+</span>rewards<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
-	<span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>rewards<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-</li>
-</ul>
-<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>my way:</p>
-<ul>
-<li>rewards = [1]*len(scores)<br>better way:</li>
-<li>rewards = [1 for _ in scores]</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Data Structure and Algorithm</category>
-      </categories>
-      <tags>
-        <tag>array</tag>
-        <tag>hard</tag>
-        <tag>AlgoExpert</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Leetcode-Candy</title>
-    <url>/2021/01/29/Leetcode-Candy/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><blockquote>
-<p>There are N children standing in a line. Each child is assigned a rating value.<br>You are giving candies to these children subjected to the following requirements:<br>Each child must have at least one candy.<br>Children with a higher rating get more candies than their neighbors.<br>What is the minimum candies you must give?</p>
-</blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">Input<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
-Output<span class="token punctuation">:</span> <span class="token number">5</span>
-<span class="token comment">#Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.</span>
-
-Input<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
-Output<span class="token punctuation">:</span> <span class="token number">4</span>
-Explanation<span class="token punctuation">:</span> You can allocate to the first<span class="token punctuation">,</span> second <span class="token keyword">and</span> third child <span class="token keyword">with</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span> candies respectively<span class="token punctuation">.</span>
-             The third child gets <span class="token number">1</span> candy because it satisfies the above two conditions<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Key-Point"><a href="#Key-Point" class="headerlink" title="Key Point"></a>Key Point</h2><ul>
-<li><p>This question can have the same number in succession. The peaks and valleys method is not very practical for this question. Because there are many situations to consider, there will be many special situations.</p>
-</li>
-<li><p>The more recommended is the left-right, right-left method~</p>
-</li>
-<li><p>It is equivalent to using the Approach3 method in <strong>Min Rewards</strong>.</p>
-</li>
-</ul>
-<h2 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) Space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">candy</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ratings<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        candies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> ratings<span class="token punctuation">]</span>
-        
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>ratings<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ratings<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> ratings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                candies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> candies<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>ratings<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ratings<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> ratings<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                candies<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>candies<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> candies<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>candies<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/candy/">Candy-Leetcode challenge question </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/">Similiar Question: Min Rewards </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Data Structure and Algorithm</category>
-      </categories>
-      <tags>
-        <tag>array</tag>
-        <tag>hard</tag>
-        <tag>Leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LC929 - Unique Email Address</title>
     <url>/2022/06/04/LC929UniqueEmailAddress/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Every valid email consists of a local name and a domain name, separated by the ‘@’ sign. Besides lowercase letters, the email may contain one or more ‘.’ or ‘+’.</p>
-<p>For example, in “<a href="mailto:&#97;&#108;&#x69;&#99;&#101;&#64;&#108;&#101;&#x65;&#116;&#99;&#111;&#100;&#x65;&#46;&#x63;&#111;&#109;">&#97;&#108;&#x69;&#99;&#101;&#64;&#108;&#101;&#x65;&#116;&#99;&#111;&#100;&#x65;&#46;&#x63;&#111;&#109;</a>“, “alice” is the local name, and “leetcode.com” is the domain name.<br>If you add periods ‘.’ between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule does not apply to domain names.</p>
-<p>For example, “<a href="mailto:&#97;&#x6c;&#x69;&#99;&#x65;&#46;&#x7a;&#64;&#108;&#101;&#101;&#116;&#99;&#111;&#x64;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#97;&#x6c;&#x69;&#99;&#x65;&#46;&#x7a;&#64;&#108;&#101;&#101;&#116;&#99;&#111;&#x64;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>“ and “<a href="mailto:&#x61;&#x6c;&#105;&#99;&#x65;&#x7a;&#x40;&#108;&#101;&#101;&#x74;&#x63;&#111;&#x64;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#x6c;&#105;&#99;&#x65;&#x7a;&#x40;&#108;&#101;&#101;&#x74;&#x63;&#111;&#x64;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>“ forward to the same email address.<br>If you add a plus ‘+’ in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered. Note that this rule does not apply to domain names.</p>
-<p>For example, “<a href="mailto:&#109;&#46;&#121;&#43;&#110;&#x61;&#109;&#101;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#109;&#46;&#121;&#43;&#110;&#x61;&#109;&#101;&#x40;&#101;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a>“ will be forwarded to “<a href="mailto:&#x6d;&#121;&#64;&#101;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#x6d;&#121;&#64;&#101;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a>“.<br>It is possible to use both of these rules at the same time.</p>
+<p>For example, in “<a href="mailto:&#97;&#x6c;&#x69;&#x63;&#101;&#x40;&#108;&#x65;&#x65;&#x74;&#x63;&#111;&#100;&#x65;&#x2e;&#99;&#x6f;&#109;">&#97;&#x6c;&#x69;&#x63;&#101;&#x40;&#108;&#x65;&#x65;&#x74;&#x63;&#111;&#100;&#x65;&#x2e;&#99;&#x6f;&#109;</a>“, “alice” is the local name, and “leetcode.com” is the domain name.<br>If you add periods ‘.’ between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule does not apply to domain names.</p>
+<p>For example, “<a href="mailto:&#97;&#x6c;&#x69;&#x63;&#x65;&#x2e;&#x7a;&#64;&#108;&#101;&#101;&#x74;&#99;&#111;&#x64;&#101;&#46;&#99;&#111;&#x6d;">&#97;&#x6c;&#x69;&#x63;&#x65;&#x2e;&#x7a;&#64;&#108;&#101;&#101;&#x74;&#99;&#111;&#x64;&#101;&#46;&#99;&#111;&#x6d;</a>“ and “<a href="mailto:&#97;&#x6c;&#105;&#x63;&#x65;&#x7a;&#64;&#x6c;&#101;&#x65;&#x74;&#x63;&#x6f;&#100;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#97;&#x6c;&#105;&#x63;&#x65;&#x7a;&#64;&#x6c;&#101;&#x65;&#x74;&#x63;&#x6f;&#100;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>“ forward to the same email address.<br>If you add a plus ‘+’ in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered. Note that this rule does not apply to domain names.</p>
+<p>For example, “<a href="mailto:&#x6d;&#46;&#x79;&#x2b;&#x6e;&#97;&#109;&#x65;&#x40;&#101;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;">&#x6d;&#46;&#x79;&#x2b;&#x6e;&#97;&#109;&#x65;&#x40;&#101;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;</a>“ will be forwarded to “<a href="mailto:&#109;&#121;&#64;&#101;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#109;&#121;&#64;&#101;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a>“.<br>It is possible to use both of these rules at the same time.</p>
 <p>Given an array of strings emails where we send one email to each emails[i], return the number of different addresses that actually receive mails.</p>
 <p>Example 1:</p>
-<p>Input: emails = [“test.email+alex@leetcode.com”,”<a href="mailto:&#x74;&#101;&#115;&#116;&#x2e;&#101;&#46;&#109;&#97;&#x69;&#108;&#x2b;&#x62;&#111;&#98;&#46;&#99;&#x61;&#116;&#104;&#121;&#64;&#x6c;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#x65;&#46;&#99;&#x6f;&#109;">&#x74;&#101;&#115;&#116;&#x2e;&#101;&#46;&#109;&#97;&#x69;&#108;&#x2b;&#x62;&#111;&#98;&#46;&#99;&#x61;&#116;&#104;&#121;&#64;&#x6c;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#x65;&#46;&#99;&#x6f;&#109;</a>“,”<a href="mailto:&#116;&#x65;&#115;&#116;&#101;&#109;&#x61;&#x69;&#108;&#43;&#100;&#97;&#x76;&#105;&#100;&#x40;&#108;&#101;&#x65;&#46;&#x74;&#x63;&#111;&#100;&#x65;&#46;&#99;&#x6f;&#109;">&#116;&#x65;&#115;&#116;&#101;&#109;&#x61;&#x69;&#108;&#43;&#100;&#97;&#x76;&#105;&#100;&#x40;&#108;&#101;&#x65;&#46;&#x74;&#x63;&#111;&#100;&#x65;&#46;&#99;&#x6f;&#109;</a>“]<br>Output: 2<br>Explanation: “<a href="mailto:&#116;&#x65;&#x73;&#116;&#x65;&#109;&#x61;&#105;&#108;&#64;&#x6c;&#x65;&#x65;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#111;&#109;">&#116;&#x65;&#x73;&#116;&#x65;&#109;&#x61;&#105;&#108;&#64;&#x6c;&#x65;&#x65;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#111;&#109;</a>“ and “<a href="mailto:&#116;&#101;&#115;&#x74;&#101;&#109;&#x61;&#105;&#x6c;&#x40;&#x6c;&#101;&#x65;&#46;&#116;&#99;&#111;&#100;&#101;&#x2e;&#x63;&#111;&#x6d;">&#116;&#101;&#115;&#x74;&#101;&#109;&#x61;&#105;&#x6c;&#x40;&#x6c;&#101;&#x65;&#46;&#116;&#99;&#111;&#100;&#101;&#x2e;&#x63;&#111;&#x6d;</a>“ actually receive mails.<br>Example 2:</p>
-<p>Input: emails = [“a@leetcode.com”,”<a href="mailto:&#x62;&#x40;&#108;&#x65;&#101;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x62;&#x40;&#108;&#x65;&#101;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>“,”<a href="mailto:&#99;&#x40;&#108;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#x65;&#46;&#99;&#111;&#x6d;">&#99;&#x40;&#108;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#x65;&#46;&#99;&#111;&#x6d;</a>“]<br>Output: 3</p>
+<p>Input: emails = [“test.email+alex@leetcode.com”,”<a href="mailto:&#116;&#x65;&#115;&#116;&#x2e;&#x65;&#x2e;&#109;&#x61;&#105;&#x6c;&#x2b;&#x62;&#111;&#x62;&#46;&#99;&#97;&#116;&#104;&#121;&#x40;&#108;&#x65;&#x65;&#116;&#x63;&#111;&#x64;&#101;&#46;&#99;&#111;&#109;">&#116;&#x65;&#115;&#116;&#x2e;&#x65;&#x2e;&#109;&#x61;&#105;&#x6c;&#x2b;&#x62;&#111;&#x62;&#46;&#99;&#97;&#116;&#104;&#121;&#x40;&#108;&#x65;&#x65;&#116;&#x63;&#111;&#x64;&#101;&#46;&#99;&#111;&#109;</a>“,”<a href="mailto:&#116;&#101;&#115;&#116;&#101;&#109;&#97;&#105;&#108;&#43;&#100;&#97;&#118;&#105;&#100;&#64;&#x6c;&#x65;&#101;&#46;&#116;&#x63;&#x6f;&#x64;&#101;&#46;&#x63;&#x6f;&#x6d;">&#116;&#101;&#115;&#116;&#101;&#109;&#97;&#105;&#108;&#43;&#100;&#97;&#118;&#105;&#100;&#64;&#x6c;&#x65;&#101;&#46;&#116;&#x63;&#x6f;&#x64;&#101;&#46;&#x63;&#x6f;&#x6d;</a>“]<br>Output: 2<br>Explanation: “<a href="mailto:&#x74;&#101;&#115;&#x74;&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x6c;&#101;&#x65;&#x74;&#99;&#111;&#100;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x74;&#101;&#115;&#x74;&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x6c;&#101;&#x65;&#x74;&#99;&#111;&#100;&#x65;&#x2e;&#x63;&#111;&#x6d;</a>“ and “<a href="mailto:&#x74;&#x65;&#115;&#116;&#x65;&#109;&#97;&#105;&#108;&#x40;&#x6c;&#101;&#x65;&#x2e;&#116;&#99;&#111;&#100;&#x65;&#46;&#99;&#111;&#109;">&#x74;&#x65;&#115;&#116;&#x65;&#109;&#97;&#105;&#108;&#x40;&#x6c;&#101;&#x65;&#x2e;&#116;&#99;&#111;&#100;&#x65;&#46;&#99;&#111;&#109;</a>“ actually receive mails.<br>Example 2:</p>
+<p>Input: emails = [“a@leetcode.com”,”<a href="mailto:&#98;&#x40;&#x6c;&#101;&#x65;&#x74;&#x63;&#111;&#100;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#98;&#x40;&#x6c;&#101;&#x65;&#x74;&#x63;&#111;&#100;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a>“,”<a href="mailto:&#99;&#64;&#x6c;&#101;&#101;&#116;&#x63;&#x6f;&#100;&#101;&#46;&#x63;&#111;&#109;">&#99;&#64;&#x6c;&#101;&#101;&#116;&#x63;&#x6f;&#100;&#101;&#46;&#x63;&#111;&#109;</a>“]<br>Output: 3</p>
 <p>Constraints:</p>
 <p>1 &lt;= emails.length &lt;= 100<br>1 &lt;= emails[i].length &lt;= 100<br>emails[i] consist of lowercase English letters, ‘+’, ‘.’ and ‘@’.<br>Each emails[i] contains exactly one ‘@’ character.<br>All local and domain names are non-empty.<br>Local names do not start with a ‘+’ character.<br>Domain names end with the “.com” suffix.</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
@@ -840,241 +1075,6 @@ Explanation<span class="token punctuation">:</span> You can allocate to the firs
       <tags>
         <tag>easy</tag>
         <tag>Brute Force</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Access-Google-BigQuery-Metadata-From-AWS-Lambda</title>
-    <url>/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements:"></a>Requirements:</h1><ul>
-<li>Try to get the Metadata from Google BigQuery by using AWS Lambda function</li>
-<li>Build connection between AWS Lambda and Google BigQuery</li>
-<li>Write Python code to get metadata from Google BigQuery</li>
-<li>format the metadata schema</li>
-</ul>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/architecture.png" class="" title="Solution Architecture">
-
-<h2 id="Get-google-cloud-bigquery-zip-Method-1"><a href="#Get-google-cloud-bigquery-zip-Method-1" class="headerlink" title="Get google-cloud-bigquery.zip Method 1"></a>Get google-cloud-bigquery.zip Method 1</h2><ul>
-<li>Instead of getting the GCP Layer via EC2 and Session, You can also download the zip file locally by running the following code</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">pip install google<span class="token operator">-</span>cloud<span class="token operator">-</span>bigquery <span class="token operator">-</span>t <span class="token punctuation">.</span><span class="token operator">/</span>python<span class="token operator">/</span>
-<span class="token builtin">zip</span> <span class="token operator">-</span>r google<span class="token operator">-</span>cloud<span class="token operator">-</span>bigquery<span class="token punctuation">.</span><span class="token builtin">zip</span> python<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<ul>
-<li>Add the zip file to Lambda function as a layer from your local device</li>
-</ul>
-<h2 id="Get-google-cloud-bigquery-zip-Method-2"><a href="#Get-google-cloud-bigquery-zip-Method-2" class="headerlink" title="Get google-cloud-bigquery.zip Method 2"></a>Get google-cloud-bigquery.zip Method 2</h2><h3 id="Create-EC2-in-AWS"><a href="#Create-EC2-in-AWS" class="headerlink" title="Create EC2 in AWS"></a>Create EC2 in AWS</h3><ul>
-<li>create an EC2</li>
-<li>Amazon Linux 2</li>
-<li>free tier is enough- instance type: t2.micro</li>
-<li>the IAM role grants only “<strong>Amazon EC2Role for SSM</strong>“ so that Session Manager of Systems Manager can connect to this EC2</li>
-<li>leave the other options as default</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/ec2.jpg" class="" title="EC2">
-
-<h3 id="Get-AWS-Access-Key-ID-and-Secret-Access-Key"><a href="#Get-AWS-Access-Key-ID-and-Secret-Access-Key" class="headerlink" title="Get AWS Access Key ID and Secret Access Key"></a>Get AWS Access Key ID and Secret Access Key</h3><ul>
-<li>Go to service “Identity and Access Management”</li>
-<li>click “Users” and find your user name</li>
-<li>click “Security credentials”</li>
-<li>create access key and please remember that you can only view the credential once.</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/iam.jpg" class="" title="IAM">
-
-<h3 id="Start-a-Session-in-AWS"><a href="#Start-a-Session-in-AWS" class="headerlink" title="Start a Session in AWS"></a>Start a Session in AWS</h3><ul>
-<li>go to service “AWS System Manager”</li>
-<li>click the tab “Session Manager”</li>
-<li>click “Start a Session”</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/session.jpg" class="" title="Start a Session">
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ec2-Become a user</span>
-<span class="token function">sudo</span> <span class="token function">su</span> - ec2-user
-<span class="token comment">#pip installation</span>
-<span class="token function">sudo</span> yum <span class="token function">install</span> python3 -y
-<span class="token function">curl</span> -O https://bootstrap.pypa.io/get-pip.py
-<span class="token function">sudo</span> python3 get-pip.py
-
-<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/bin
-<span class="token comment">#sdk installation&amp;Zip</span>
-pip <span class="token function">install</span> google-cloud-bigquery -t ./python/
-<span class="token function">zip</span> -r google-cloud-bigquery.zip python
-<span class="token comment">#Added because protobuf is required</span>
-pip <span class="token function">install</span> protobuf --upgrade -t ./python/
-<span class="token function">zip</span> -r google-cloud-bigquery.zip ./python/google/protobuf
-
-<span class="token comment">#aws cli settings</span>
-aws configure
-<span class="token comment">#Set the following:</span>
-  AWS Access Key ID <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: <span class="token operator">&lt;</span>my-access-key<span class="token operator">></span>
-  AWS Secret Access Key <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: <span class="token operator">&lt;</span>my-secret-key<span class="token operator">></span>
-  Default region name <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: ap-southeast-2
-  Default output <span class="token function">format</span> <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: json
-
-<span class="token comment">#Save to s3</span>
-aws s3 mb s3://<span class="token operator">&lt;</span>my-bucket<span class="token operator">></span>
-aws s3 <span class="token function">cp</span> google-cloud-bigquery.zip s3://<span class="token operator">&lt;</span>my-bucket<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Check-S3-Bucket-in-AWS"><a href="#Check-S3-Bucket-in-AWS" class="headerlink" title="Check S3 Bucket in AWS"></a>Check S3 Bucket in AWS</h3><ul>
-<li>go to the s3 bucket you created just now by using Session Manager</li>
-<li>You should see google-cloud-bigquery.zip should be uploaded</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/gcp-zip.png" class="" title="Environment Layer Zip in S3">
-
-<h2 id="Other-Steps"><a href="#Other-Steps" class="headerlink" title="Other Steps"></a>Other Steps</h2><h3 id="create-a-lambda-function-and-register-the-created-library-in-the-lambda-layer-in-AWS"><a href="#create-a-lambda-function-and-register-the-created-library-in-the-lambda-layer-in-AWS" class="headerlink" title="create a lambda function and register the created library in the lambda layer in AWS"></a>create a lambda function and register the created library in the lambda layer in AWS</h3><ul>
-<li>go to Lambda service</li>
-<li>Click “Function” and “create function”</li>
-<li>changes settings:</li>
-<li>Timeout: 30 seconds</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/timeout.png" class="" title="Timeout Configuration">
-
-<ul>
-<li>create Layer</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/create-layer.png" class="" title="Create Layer">
-
-<ul>
-<li>add Layer: gcp-bigquery</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/add-layer.png" class="" title="Add Layer">
-
-<ul>
-<li>And you should see the data has been created successfully</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/lambda-layer.png" class="" title="Lambda Page">
-
-<h3 id="Get-GCP-certificate-file-in-Google-Cloud-Platform"><a href="#Get-GCP-certificate-file-in-Google-Cloud-Platform" class="headerlink" title="Get GCP certificate file in Google Cloud Platform"></a>Get GCP certificate file in Google Cloud Platform</h3><ul>
-<li>Log into Google Cloud Platform</li>
-<li>go to “IAM&amp;Admin” service and go to “Service Accounts”</li>
-<li>Click “Create Service Account”: please make sure that you choose “BigQuery Admin” as the Role</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/gcp-service-account.png" class="" title="Service Account">
-
-<ul>
-<li>Once you created the account, please click the account and “ADD KEY”</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/service-account-key.png" class="" title="Key">
-
-<ul>
-<li>You are able to download the JSON file in the following format</li>
-</ul>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
-  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-  <span class="token property">"project_id"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-  <span class="token property">"private_key_id"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-  <span class="token property">"private_key"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>  
-  <span class="token property">"client_email"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-  <span class="token property">"client_id"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-  <span class="token property">"auth_uri"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-  <span class="token property">"token_uri"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-  <span class="token property">"auth_provider_x509_cert_url"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-  <span class="token property">"client_x509_cert_url"</span><span class="token operator">:</span> <span class="token string">"xxx"</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Add-functions-and-credential-file-in-AWS-Lambda-Function"><a href="#Add-functions-and-credential-file-in-AWS-Lambda-Function" class="headerlink" title="Add functions and credential file in AWS Lambda Function"></a>Add functions and credential file in AWS Lambda Function</h3><ul>
-<li>copy the JSON file into “bq.manager.json”</li>
-</ul>
-
-
-<ul>
-<li>copy the following codes into “lambda_function.py”</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> json
-<span class="token keyword">from</span> google<span class="token punctuation">.</span>cloud <span class="token keyword">import</span> bigquery
-
-<span class="token keyword">def</span> <span class="token function">lambda_handler</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    client <span class="token operator">=</span> bigquery<span class="token punctuation">.</span>Client<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    sql <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
-        SELECT *
-        FROM `&lt;project name>.&lt;dataset name>.&lt;table name>`
-    """</span>
-    
-    <span class="token comment"># Run a Standard SQL query using the environment's default project</span>
-    results <span class="token operator">=</span> client<span class="token punctuation">.</span>query<span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    metadata_objects <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> row <span class="token keyword">in</span> results<span class="token punctuation">:</span>
-        id_dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
-        other_dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"metadata"</span><span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
-        metadata_objects<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token operator">**</span>id_dic<span class="token punctuation">,</span> <span class="token operator">**</span>other_dic<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">return</span> metadata_objects<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>Add “GOOGLE_APPLICATION_CREDENTIALS: bq-manager.json” as Environment Variables</li>
-</ul>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/bq-credentials.png" class="" title="Credentials">
-
-<h1 id="Test-Result"><a href="#Test-Result" class="headerlink" title="Test Result"></a>Test Result</h1><p>You should be able to get the JSON result like the format in the BigQuery. </p>
-<p>By default, you should get a SQL table. You can modify the result baesd on your code.</p>
-<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/result.jpg" class="" title="Test Result">
-
-<h1 id="Updated-Solutions"><a href="#Updated-Solutions" class="headerlink" title="Updated Solutions"></a>Updated Solutions</h1><h2 id="AWS-SSM-Parameter-Store"><a href="#AWS-SSM-Parameter-Store" class="headerlink" title="AWS SSM - Parameter Store"></a>AWS SSM - Parameter Store</h2><ul>
-<li>Store the credential paths in the SSM Parameter Store like a Python Dictionary<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/ssm.png" class="" title="Parameter Store">
-
-</li>
-</ul>
-<h2 id="AWS-Lambda-Environment-Variable"><a href="#AWS-Lambda-Environment-Variable" class="headerlink" title="AWS Lambda - Environment Variable"></a>AWS Lambda - Environment Variable</h2><ul>
-<li>Set all the paths as an environment variables<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/var.png" class="" title="Environment Variable">
-
-</li>
-</ul>
-<h2 id="Updated-Lambda-code"><a href="#Updated-Lambda-code" class="headerlink" title="Updated Lambda code"></a>Updated Lambda code</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> google<span class="token punctuation">.</span>cloud <span class="token keyword">import</span> bigquery
-<span class="token keyword">from</span> google<span class="token punctuation">.</span>oauth2 <span class="token keyword">import</span> service_account
-<span class="token keyword">import</span> boto3
-<span class="token keyword">import</span> json
-<span class="token keyword">import</span> os
-
-ssm <span class="token operator">=</span> boto3<span class="token punctuation">.</span>client<span class="token punctuation">(</span><span class="token string">'ssm'</span><span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">lambda_handler</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-		<span class="token comment">#retrieve parameters from ssm/appconfig and prepare for connection with BigQuery</span>
-		client_email_var <span class="token operator">=</span> ssm<span class="token punctuation">.</span>get_parameter<span class="token punctuation">(</span>Name<span class="token operator">=</span>os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'SSM_BQ_CLIENT_EMAIL'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'Parameter'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'Value'</span><span class="token punctuation">]</span>
-		private_key_var <span class="token operator">=</span> ssm<span class="token punctuation">.</span>get_parameter<span class="token punctuation">(</span>Name<span class="token operator">=</span>os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'SSM_BQ_PRIVATE_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'Parameter'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'Value'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\\n'</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
-		token_uri_var <span class="token operator">=</span> os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'SSM_BQ_TOKEN_URI'</span><span class="token punctuation">)</span>
-		credentials <span class="token operator">=</span> service_account<span class="token punctuation">.</span>Credentials<span class="token punctuation">.</span>from_service_account_info<span class="token punctuation">(</span>
-		    <span class="token punctuation">&#123;</span>
-		        <span class="token string">"client_email"</span><span class="token punctuation">:</span> client_email_var<span class="token punctuation">,</span>
-		        <span class="token string">"private_key"</span><span class="token punctuation">:</span> private_key_var<span class="token punctuation">,</span>
-		        <span class="token string">"token_uri"</span><span class="token punctuation">:</span> token_uri_var
-		    <span class="token punctuation">&#125;</span>
-		<span class="token punctuation">)</span>
-		
-		project_id_var <span class="token operator">=</span> os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'BQ_PROJECT_ID'</span><span class="token punctuation">)</span>
-		dataset_name_var <span class="token operator">=</span> os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'BQ_DATASET_NAME'</span><span class="token punctuation">)</span>
-		table_name_var <span class="token operator">=</span> os<span class="token punctuation">.</span>getenv<span class="token punctuation">(</span><span class="token string">'BQ_TABLE_NAME'</span><span class="token punctuation">)</span>
-		<span class="token keyword">if</span> bigquery<span class="token punctuation">.</span>Client<span class="token punctuation">(</span>credentials <span class="token operator">=</span> credentials<span class="token punctuation">,</span>project<span class="token operator">=</span>project_id_var<span class="token punctuation">)</span><span class="token punctuation">:</span>
-		    client <span class="token operator">=</span> bigquery<span class="token punctuation">.</span>Client<span class="token punctuation">(</span>credentials <span class="token operator">=</span> credentials<span class="token punctuation">,</span>project<span class="token operator">=</span>project_id_var<span class="token punctuation">)</span>
-		<span class="token keyword">else</span><span class="token punctuation">:</span>
-		    <span class="token keyword">raise</span> GCPConnectionError
-		
-		sql <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"""
-		    SELECT *
-		    FROM </span><span class="token interpolation"><span class="token punctuation">&#123;</span>project_id_var<span class="token punctuation">&#125;</span></span><span class="token string">.</span><span class="token interpolation"><span class="token punctuation">&#123;</span>dataset_name_var<span class="token punctuation">&#125;</span></span><span class="token string">.</span><span class="token interpolation"><span class="token punctuation">&#123;</span>table_name_var<span class="token punctuation">&#125;</span></span><span class="token string">
-		"""</span></span>
-		
-		<span class="token comment"># Run a Standard SQL query using the environment's default project</span>
-		<span class="token comment">#retrieve metadata from Bigquery and transfer it to JSON</span>
-		results <span class="token operator">=</span> client<span class="token punctuation">.</span>query<span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">.</span>result<span class="token punctuation">(</span><span class="token punctuation">)</span>
-		metadata_objects <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-		<span class="token keyword">for</span> row <span class="token keyword">in</span> results<span class="token punctuation">:</span>
-		    id_dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
-		    other_dic <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"metadata"</span><span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
-		    metadata_objects<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token operator">**</span>id_dic<span class="token punctuation">,</span> <span class="token operator">**</span>other_dic<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> metadata_objects<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.client.Client.html">google-cloud-bigquery</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://cloud.google.com/docs/authentication#oauth-2.0-clients">Authentication overview | Google Cloud</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://linuxtut.com/en/c99c2fba0ebf633cfb0b/">Run BigQuery from Lambda</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>AWS</category>
-        <category>GCP</category>
-      </categories>
-      <tags>
-        <tag>AWS Lambda</tag>
-        <tag>Google BigQuery</tag>
       </tags>
   </entry>
   <entry>
@@ -1365,6 +1365,66 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       </tags>
   </entry>
   <entry>
+    <title>LC475 - Heaters</title>
+    <url>/2022/06/07/LC475Heaters/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.</p>
+<p>Every house can be warmed, as long as the house is within the heater’s warm radius range. </p>
+<p>Given the positions of houses and heaters on a horizontal line, return the minimum radius standard of heaters so that those heaters could cover all houses.</p>
+<p>Notice that all the heaters follow your radius standard, and the warm radius will the same.</p>
+<p>Example 1:</p>
+<p>Input: houses = [1,2,3], heaters = [2]<br>Output: 1<br>Explanation: The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.<br>Example 2:</p>
+<p>Input: houses = [1,2,3,4], heaters = [1,4]<br>Output: 1<br>Explanation: The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.<br>Example 3:</p>
+<p>Input: houses = [1,5], heaters = [2]<br>Output: 3</p>
+<p>Constraints:</p>
+<p>1 &lt;= houses.length, heaters.length &lt;= 3 * 104<br>1 &lt;= houses[i], heaters[i] &lt;= 109</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>This question is to find the minimum heating radius, then the object divided by two is the radius</li>
+<li>The interval can only be large and not small. The left interval of the dichotomy is 0. When the house and the heater overlap, the interval of the dichotomy is the largest coordinate</li>
+<li>Determine whether the specified radius can cover the front and rear houses:<ul>
+<li>Go through each heater</li>
+<li>Two-point query heater heating radius can cover the leftmost house number</li>
+<li>If the leftmost radius cannot overlap with the last rightmost, it means that the heating cannot be covered</li>
+<li>Update the rightmost house number that the current heater radius can cover</li>
+<li>If the last house can be reached, the coverage is complete</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O((n+m)logn) time | O(logn) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findRadius</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> houses<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> heaters<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        houses<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        heaters<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        l<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">(</span>houses<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> heaters<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">while</span> l <span class="token operator">&lt;=</span> r<span class="token punctuation">:</span>
+            mid <span class="token operator">=</span> l <span class="token operator">+</span> <span class="token punctuation">(</span>r<span class="token operator">-</span>l<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>canHeat<span class="token punctuation">(</span>mid<span class="token punctuation">,</span> heaters<span class="token punctuation">,</span> houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                r <span class="token operator">=</span> mid<span class="token operator">-</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                l <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">return</span> l
+    
+    <span class="token keyword">def</span> <span class="token function">canHeat</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> radius<span class="token punctuation">,</span> heaters<span class="token punctuation">,</span> houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        pre_house <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> heater <span class="token keyword">in</span> heaters<span class="token punctuation">:</span>
+            cover <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>houses<span class="token punctuation">,</span> heater<span class="token operator">-</span>radius<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> cover <span class="token operator">></span> pre_house<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+            pre_house <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_right<span class="token punctuation">(</span>houses<span class="token punctuation">,</span> heater<span class="token operator">+</span>radius<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> pre_house <span class="token operator">>=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/heaters/">475. Heaters</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/heaters/discuss/2124950/HexPython-Binary-Search">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC400-499</category>
+      </categories>
+      <tags>
+        <tag>Prefix Sum</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LC875 - Koko Eating Bananas</title>
     <url>/2022/06/07/LC875KokoEatingBananas/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.</p>
@@ -1447,66 +1507,6 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       <tags>
         <tag>medium</tag>
         <tag>Binary Search</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC475 - Heaters</title>
-    <url>/2022/06/07/LC475Heaters/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.</p>
-<p>Every house can be warmed, as long as the house is within the heater’s warm radius range. </p>
-<p>Given the positions of houses and heaters on a horizontal line, return the minimum radius standard of heaters so that those heaters could cover all houses.</p>
-<p>Notice that all the heaters follow your radius standard, and the warm radius will the same.</p>
-<p>Example 1:</p>
-<p>Input: houses = [1,2,3], heaters = [2]<br>Output: 1<br>Explanation: The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.<br>Example 2:</p>
-<p>Input: houses = [1,2,3,4], heaters = [1,4]<br>Output: 1<br>Explanation: The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.<br>Example 3:</p>
-<p>Input: houses = [1,5], heaters = [2]<br>Output: 3</p>
-<p>Constraints:</p>
-<p>1 &lt;= houses.length, heaters.length &lt;= 3 * 104<br>1 &lt;= houses[i], heaters[i] &lt;= 109</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
-<li>This question is to find the minimum heating radius, then the object divided by two is the radius</li>
-<li>The interval can only be large and not small. The left interval of the dichotomy is 0. When the house and the heater overlap, the interval of the dichotomy is the largest coordinate</li>
-<li>Determine whether the specified radius can cover the front and rear houses:<ul>
-<li>Go through each heater</li>
-<li>Two-point query heater heating radius can cover the leftmost house number</li>
-<li>If the leftmost radius cannot overlap with the last rightmost, it means that the heating cannot be covered</li>
-<li>Update the rightmost house number that the current heater radius can cover</li>
-<li>If the last house can be reached, the coverage is complete</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O((n+m)logn) time | O(logn) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">findRadius</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> houses<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> heaters<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        houses<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        heaters<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-        l<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">(</span>houses<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> heaters<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">while</span> l <span class="token operator">&lt;=</span> r<span class="token punctuation">:</span>
-            mid <span class="token operator">=</span> l <span class="token operator">+</span> <span class="token punctuation">(</span>r<span class="token operator">-</span>l<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
-            <span class="token keyword">if</span> self<span class="token punctuation">.</span>canHeat<span class="token punctuation">(</span>mid<span class="token punctuation">,</span> heaters<span class="token punctuation">,</span> houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                r <span class="token operator">=</span> mid<span class="token operator">-</span><span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                l <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span>
-        <span class="token keyword">return</span> l
-    
-    <span class="token keyword">def</span> <span class="token function">canHeat</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> radius<span class="token punctuation">,</span> heaters<span class="token punctuation">,</span> houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        pre_house <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">for</span> heater <span class="token keyword">in</span> heaters<span class="token punctuation">:</span>
-            cover <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>houses<span class="token punctuation">,</span> heater<span class="token operator">-</span>radius<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> cover <span class="token operator">></span> pre_house<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-            pre_house <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_right<span class="token punctuation">(</span>houses<span class="token punctuation">,</span> heater<span class="token operator">+</span>radius<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> pre_house <span class="token operator">>=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>houses<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">True</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/heaters/">475. Heaters</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/heaters/discuss/2124950/HexPython-Binary-Search">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC400-499</category>
-      </categories>
-      <tags>
-        <tag>Prefix Sum</tag>
-        <tag>medium</tag>
       </tags>
   </entry>
   <entry>
@@ -1634,6 +1634,55 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       </tags>
   </entry>
   <entry>
+    <title>LC497 - Random Pointin Non-Overlapping Rectangles</title>
+    <url>/2022/06/10/LC497RandomPointinNon-overlappingRectangles/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array of non-overlapping axis-aligned rectangles rects where rects[i] = [ai, bi, xi, yi] indicates that (ai, bi) is the bottom-left corner point of the ith rectangle and (xi, yi) is the top-right corner point of the ith rectangle. Design an algorithm to pick a random integer point inside the space covered by one of the given rectangles. A point on the perimeter of a rectangle is included in the space covered by the rectangle.</p>
+<p>Any integer point inside the space covered by one of the given rectangles should be equally likely to be returned.</p>
+<p>Note that an integer point is a point that has integer coordinates.</p>
+<p>Implement the Solution class:</p>
+<p>Solution(int[][] rects) Initializes the object with the given rectangles rects.<br>int[] pick() Returns a random integer point [u, v] inside the space covered by one of the given rectangles.</p>
+<img src="/2022/06/10/LC497RandomPointinNon-overlappingRectangles/lc-pickrandomrec.jpg" class="" title="lc-pickrandomrec">
+
+<p>Example 1:</p>
+<p>Input<br>[“Solution”, “pick”, “pick”, “pick”, “pick”, “pick”]<br>[[[[-2, -2, 1, 1], [2, 2, 4, 6]]], [], [], [], [], []]<br>Output<br>[null, [1, -2], [1, -1], [-1, -2], [-2, -2], [0, 0]]</p>
+<p>Explanation<br>Solution solution = new Solution([[-2, -2, 1, 1], [2, 2, 4, 6]]);<br>solution.pick(); // return [1, -2]<br>solution.pick(); // return [1, -1]<br>solution.pick(); // return [-1, -2]<br>solution.pick(); // return [-2, -2]<br>solution.pick(); // return [0, 0]</p>
+<p>Constraints:</p>
+<p>1 &lt;= rects.length &lt;= 100<br>rects[i].length == 4<br>-109 &lt;= ai &lt; xi &lt;= 109<br>-109 &lt;= bi &lt; yi &lt;= 109<br>xi - ai &lt;= 2000<br>yi - bi &lt;= 2000<br>All the rectangles do not overlap.<br>At most 104 calls will be made to pick.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>Calculate prefixes and arrays.</li>
+<li>The last bit in the prefix sum array stores the total number of coordinate points at this time, so we choose a random number within this range.</li>
+<li>See which interval the number is in the prefix and array, each interval represents a different rectangle. Since their weights are different, the subscript of each rectangle is selected according to its prefix and the number in the array. As shown in the figure below, the probability of selecting rectangle one is 9/37, the probability of selecting rectangle two is 12/37, and the probability of selecting square three is 16/37.</li>
+<li>When a rectangle has been selected fairly after the above process is completed, we then randomly return a point in its rectangle according to the method in step disassembly</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> rects<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>rects <span class="token operator">=</span> rects
+        self<span class="token punctuation">.</span>presum <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> ai<span class="token punctuation">,</span> bi<span class="token punctuation">,</span> xi<span class="token punctuation">,</span> yi <span class="token keyword">in</span> rects<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>presum<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>presum<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">(</span>xi<span class="token operator">-</span>ai<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>yi<span class="token operator">-</span>bi<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">pick</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        val <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>presum<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>self<span class="token punctuation">.</span>presum<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span>
+        ai<span class="token punctuation">,</span> bi<span class="token punctuation">,</span> xi<span class="token punctuation">,</span> yi <span class="token operator">=</span> self<span class="token punctuation">.</span>rects<span class="token punctuation">[</span>idx<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>ai<span class="token punctuation">,</span> xi<span class="token punctuation">)</span><span class="token punctuation">,</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>bi<span class="token punctuation">,</span> yi<span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
+<span class="token comment"># obj = Solution(rects)</span>
+<span class="token comment"># param_1 = obj.pick()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/">497. Random Point in Non-overlapping Rectangles</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/discuss/2133116/HexPython-Prefix-Sum">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC400-499</category>
+      </categories>
+      <tags>
+        <tag>Prefix Sum</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LC560 - Subarray Sum Equals K</title>
     <url>/2022/06/10/LC560SubarraySumEqualsK/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.</p>
@@ -1687,55 +1736,6 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       <categories>
         <category>Leetcode</category>
         <category>LC500-599</category>
-      </categories>
-      <tags>
-        <tag>Prefix Sum</tag>
-        <tag>medium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC497 - Random Pointin Non-Overlapping Rectangles</title>
-    <url>/2022/06/10/LC497RandomPointinNon-overlappingRectangles/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array of non-overlapping axis-aligned rectangles rects where rects[i] = [ai, bi, xi, yi] indicates that (ai, bi) is the bottom-left corner point of the ith rectangle and (xi, yi) is the top-right corner point of the ith rectangle. Design an algorithm to pick a random integer point inside the space covered by one of the given rectangles. A point on the perimeter of a rectangle is included in the space covered by the rectangle.</p>
-<p>Any integer point inside the space covered by one of the given rectangles should be equally likely to be returned.</p>
-<p>Note that an integer point is a point that has integer coordinates.</p>
-<p>Implement the Solution class:</p>
-<p>Solution(int[][] rects) Initializes the object with the given rectangles rects.<br>int[] pick() Returns a random integer point [u, v] inside the space covered by one of the given rectangles.</p>
-<img src="/2022/06/10/LC497RandomPointinNon-overlappingRectangles/lc-pickrandomrec.jpg" class="" title="lc-pickrandomrec">
-
-<p>Example 1:</p>
-<p>Input<br>[“Solution”, “pick”, “pick”, “pick”, “pick”, “pick”]<br>[[[[-2, -2, 1, 1], [2, 2, 4, 6]]], [], [], [], [], []]<br>Output<br>[null, [1, -2], [1, -1], [-1, -2], [-2, -2], [0, 0]]</p>
-<p>Explanation<br>Solution solution = new Solution([[-2, -2, 1, 1], [2, 2, 4, 6]]);<br>solution.pick(); // return [1, -2]<br>solution.pick(); // return [1, -1]<br>solution.pick(); // return [-1, -2]<br>solution.pick(); // return [-2, -2]<br>solution.pick(); // return [0, 0]</p>
-<p>Constraints:</p>
-<p>1 &lt;= rects.length &lt;= 100<br>rects[i].length == 4<br>-109 &lt;= ai &lt; xi &lt;= 109<br>-109 &lt;= bi &lt; yi &lt;= 109<br>xi - ai &lt;= 2000<br>yi - bi &lt;= 2000<br>All the rectangles do not overlap.<br>At most 104 calls will be made to pick.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
-<li>Calculate prefixes and arrays.</li>
-<li>The last bit in the prefix sum array stores the total number of coordinate points at this time, so we choose a random number within this range.</li>
-<li>See which interval the number is in the prefix and array, each interval represents a different rectangle. Since their weights are different, the subscript of each rectangle is selected according to its prefix and the number in the array. As shown in the figure below, the probability of selecting rectangle one is 9/37, the probability of selecting rectangle two is 12/37, and the probability of selecting square three is 16/37.</li>
-<li>When a rectangle has been selected fairly after the above process is completed, we then randomly return a point in its rectangle according to the method in step disassembly</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> rects<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>rects <span class="token operator">=</span> rects
-        self<span class="token punctuation">.</span>presum <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> ai<span class="token punctuation">,</span> bi<span class="token punctuation">,</span> xi<span class="token punctuation">,</span> yi <span class="token keyword">in</span> rects<span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>presum<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>presum<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">(</span>xi<span class="token operator">-</span>ai<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>yi<span class="token operator">-</span>bi<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">pick</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        val <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>presum<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>self<span class="token punctuation">.</span>presum<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span>
-        ai<span class="token punctuation">,</span> bi<span class="token punctuation">,</span> xi<span class="token punctuation">,</span> yi <span class="token operator">=</span> self<span class="token punctuation">.</span>rects<span class="token punctuation">[</span>idx<span class="token punctuation">]</span>
-        <span class="token keyword">return</span> <span class="token punctuation">[</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>ai<span class="token punctuation">,</span> xi<span class="token punctuation">)</span><span class="token punctuation">,</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>bi<span class="token punctuation">,</span> yi<span class="token punctuation">)</span><span class="token punctuation">]</span>
-
-<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
-<span class="token comment"># obj = Solution(rects)</span>
-<span class="token comment"># param_1 = obj.pick()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/">497. Random Point in Non-overlapping Rectangles</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/discuss/2133116/HexPython-Prefix-Sum">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC400-499</category>
       </categories>
       <tags>
         <tag>Prefix Sum</tag>
@@ -1983,6 +1983,112 @@ ans<span class="token punctuation">[</span>i<span class="token punctuation">[</s
       </tags>
   </entry>
   <entry>
+    <title>LC1089 - Duplicate Zeros</title>
+    <url>/2022/06/17/LC1089DuplicateZeros/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.</p>
+<p>Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</p>
+<p>Example 1:</p>
+<p>Input: arr = [1,0,2,3,0,4,5,0]<br>Output: [1,0,0,2,3,0,0,4]<br>Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]<br>Example 2:</p>
+<p>Input: arr = [1,2,3]<br>Output: [1,2,3]<br>Explanation: After calling your function, the input array is modified to: [1,2,3]</p>
+<p>Constraints:</p>
+<p>1 &lt;= arr.length &lt;= 104<br>0 &lt;= arr[i] &lt;= 9</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Simulation"><a href="#Simulation" class="headerlink" title="Simulation"></a>Simulation</h3><ul>
+<li><p>A combination of python’s built-in functions pop and insert is used.</p>
+</li>
+<li><p>The time complexity of insert is O(n)</p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">Lists:
+                               Complexity
+Operation     | Example      | Class         | Notes
+--------------+--------------+---------------+-------------------------------
+Index         | l[i]         | O(1)          |
+Store         | l[i] &#x3D; 0     | O(1)          |
+Length        | len(l)       | O(1)          |
+Append        | l.append(5)  | O(1)          |
+Clear         | l.clear()    | O(1)          | similar to l &#x3D; []
+
+Slice         | l[a:b]       | O(b-a)        | l[1:5]:O(l)&#x2F;l[:]:O(len(l)-0)&#x3D;O(N)
+Extend        | l.extend(...)| O(len(...))   | depends only on len of extension
+Construction  | list(...)    | len(...)      | depends on lenghth of argument
+
+check &#x3D;&#x3D;, !&#x3D;  | l1 &#x3D;&#x3D; l2     | O(N)          |
+Insert        | l[a:b] &#x3D; ... | O(N)          |
+Delete        | del l[i]     | O(N)          |
+Remove        | l.remove(...)| O(N)          |
+Containment   | x in&#x2F;not in l| O(N)          | searches list
+Copy          | l.copy()     | O(N)          | Same as l[:] which is O(N)
+Pop           | l.pop(...)   | O(N)          |
+Pop           | l.pop()      | O(1)          | same as l.pop(-1), popping at end
+Extreme value | min(l)&#x2F;max(l)| O(N)          |
+Reverse       | l.reverse()  | O(N)          |
+Iteration     | for v in l:  | O(N)          |
+
+Sort          | l.sort()     | O(N Log N)    | key&#x2F;reverse doesn&#39;t change this
+Multiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(1) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">duplicateZeros</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Do not return anything, modify arr in-place instead.
+        """</span>
+        idx <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">while</span> idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                arr<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                arr<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>idx<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                idx<span class="token operator">+=</span><span class="token number">1</span>
+            idx<span class="token operator">+=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Two-Pointers"><a href="#Two-Pointers" class="headerlink" title="Two Pointers"></a>Two Pointers</h3><p>Traverse the number of zeros and the end position of the data,<br>Imagine that each zero is pushed onto the stack twice, and the traversal ends when the stack is as long as the array. Pops elements from the top of the stack in order.</p>
+<p>A pointer left represents the data position (the top of the stack), and a pointer represents the write position (the current write position of the original array)</p>
+<img src="/2022/06/17/LC1089DuplicateZeros/1089_Duplicate_Zeros_5.png" class="" title="1089_Duplicate_Zeros">
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">duplicateZeros</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Do not return anything, modify arr in-place instead.
+        """</span>
+        left <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+        top_idx <span class="token operator">=</span> <span class="token number">0</span>
+        
+        <span class="token keyword">while</span> top_idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            left<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                top_idx<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                top_idx<span class="token operator">+=</span><span class="token number">2</span>
+            
+        right <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">if</span> top_idx <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span>
+            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+            right <span class="token operator">-=</span><span class="token number">1</span>
+            left <span class="token operator">-=</span><span class="token number">1</span>
+        
+        <span class="token keyword">while</span> right <span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">:</span>
+            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
+            right <span class="token operator">-=</span><span class="token number">1</span>
+            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
+                right <span class="token operator">-=</span><span class="token number">1</span>
+            left<span class="token operator">-=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/duplicate-zeros/">1089. Duplicate Zeros</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/duplicate-zeros/discuss/2160356/HexPython3-Two-Pointers">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC1000-1099</category>
+      </categories>
+      <tags>
+        <tag>easy</tag>
+        <tag>Simulation</tag>
+        <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LC1588 - Sum of All Odd Length Subarrays</title>
     <url>/2022/06/16/LC1588SumofAllOddLengthSubarrays/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.</p>
@@ -2118,112 +2224,6 @@ ans<span class="token punctuation">[</span>i<span class="token punctuation">[</s
       <tags>
         <tag>medium</tag>
         <tag>Sorting</tag>
-        <tag>Two Pointers</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC1089 - Duplicate Zeros</title>
-    <url>/2022/06/17/LC1089DuplicateZeros/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.</p>
-<p>Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</p>
-<p>Example 1:</p>
-<p>Input: arr = [1,0,2,3,0,4,5,0]<br>Output: [1,0,0,2,3,0,0,4]<br>Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]<br>Example 2:</p>
-<p>Input: arr = [1,2,3]<br>Output: [1,2,3]<br>Explanation: After calling your function, the input array is modified to: [1,2,3]</p>
-<p>Constraints:</p>
-<p>1 &lt;= arr.length &lt;= 104<br>0 &lt;= arr[i] &lt;= 9</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Simulation"><a href="#Simulation" class="headerlink" title="Simulation"></a>Simulation</h3><ul>
-<li><p>A combination of python’s built-in functions pop and insert is used.</p>
-</li>
-<li><p>The time complexity of insert is O(n)</p>
-</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">Lists:
-                               Complexity
-Operation     | Example      | Class         | Notes
---------------+--------------+---------------+-------------------------------
-Index         | l[i]         | O(1)          |
-Store         | l[i] &#x3D; 0     | O(1)          |
-Length        | len(l)       | O(1)          |
-Append        | l.append(5)  | O(1)          |
-Clear         | l.clear()    | O(1)          | similar to l &#x3D; []
-
-Slice         | l[a:b]       | O(b-a)        | l[1:5]:O(l)&#x2F;l[:]:O(len(l)-0)&#x3D;O(N)
-Extend        | l.extend(...)| O(len(...))   | depends only on len of extension
-Construction  | list(...)    | len(...)      | depends on lenghth of argument
-
-check &#x3D;&#x3D;, !&#x3D;  | l1 &#x3D;&#x3D; l2     | O(N)          |
-Insert        | l[a:b] &#x3D; ... | O(N)          |
-Delete        | del l[i]     | O(N)          |
-Remove        | l.remove(...)| O(N)          |
-Containment   | x in&#x2F;not in l| O(N)          | searches list
-Copy          | l.copy()     | O(N)          | Same as l[:] which is O(N)
-Pop           | l.pop(...)   | O(N)          |
-Pop           | l.pop()      | O(1)          | same as l.pop(-1), popping at end
-Extreme value | min(l)&#x2F;max(l)| O(N)          |
-Reverse       | l.reverse()  | O(N)          |
-Iteration     | for v in l:  | O(N)          |
-
-Sort          | l.sort()     | O(N Log N)    | key&#x2F;reverse doesn&#39;t change this
-Multiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(1) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">duplicateZeros</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
-        Do not return anything, modify arr in-place instead.
-        """</span>
-        idx <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">while</span> idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                arr<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                arr<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>idx<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
-                idx<span class="token operator">+=</span><span class="token number">1</span>
-            idx<span class="token operator">+=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Two-Pointers"><a href="#Two-Pointers" class="headerlink" title="Two Pointers"></a>Two Pointers</h3><p>Traverse the number of zeros and the end position of the data,<br>Imagine that each zero is pushed onto the stack twice, and the traversal ends when the stack is as long as the array. Pops elements from the top of the stack in order.</p>
-<p>A pointer left represents the data position (the top of the stack), and a pointer represents the write position (the current write position of the original array)</p>
-<img src="/2022/06/17/LC1089DuplicateZeros/1089_Duplicate_Zeros_5.png" class="" title="1089_Duplicate_Zeros">
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">duplicateZeros</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""
-        Do not return anything, modify arr in-place instead.
-        """</span>
-        left <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
-        top_idx <span class="token operator">=</span> <span class="token number">0</span>
-        
-        <span class="token keyword">while</span> top_idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            left<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                top_idx<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                top_idx<span class="token operator">+=</span><span class="token number">2</span>
-            
-        right <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
-        <span class="token keyword">if</span> top_idx <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span>
-            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
-            right <span class="token operator">-=</span><span class="token number">1</span>
-            left <span class="token operator">-=</span><span class="token number">1</span>
-        
-        <span class="token keyword">while</span> right <span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">:</span>
-            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
-            right <span class="token operator">-=</span><span class="token number">1</span>
-            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
-                right <span class="token operator">-=</span><span class="token number">1</span>
-            left<span class="token operator">-=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/duplicate-zeros/">1089. Duplicate Zeros</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/duplicate-zeros/discuss/2160356/HexPython3-Two-Pointers">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC1000-1099</category>
-      </categories>
-      <tags>
-        <tag>easy</tag>
-        <tag>Simulation</tag>
         <tag>Two Pointers</tag>
       </tags>
   </entry>
@@ -2516,6 +2516,19 @@ An argument is the value that is sent to the function when it is called
   <span class="token keyword">val</span> intent <span class="token operator">=</span> <span class="token function">Intent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> MainActivity2<span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">.</span>java<span class="token punctuation">)</span>
   <span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>In general, intents are used to move between some android component like (activity, service, broadcast receivers …etc) some time you need to pass some value between these components so you need to use <strong>putextra</strong> in the sender component and <strong>getextra</strong> in the receiver for example :</p>
+<p>in the sender :</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">val</span> intent <span class="token operator">=</span> <span class="token function">Intent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> MainActivity2<span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">.</span>java<span class="token punctuation">)</span>
+intent<span class="token punctuation">.</span><span class="token function">putExtra</span><span class="token punctuation">(</span><span class="token string">"USER"</span><span class="token punctuation">,</span> enteredName<span class="token punctuation">)</span> <span class="token comment">// name, value</span>
+<span class="token function">startActivity</span><span class="token punctuation">(</span>intent<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>in the reciver:</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin"><span class="token keyword">val</span> userName <span class="token operator">=</span> intent<span class="token punctuation">.</span><span class="token function">getStringExtra</span><span class="token punctuation">(</span><span class="token string">"USER"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>note that you need to pass the same key to retrieve your value</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-10-1.png" class="" title="d1-10-1"></div><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-10-2.png" class="" title="d1-10-2"></div></div></div></div>
+
 
 
 
