@@ -362,41 +362,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Pick-Up Au English</title>
-    <url>/2020/12/23/Daily-English/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Abbrevisation-for-…"><a href="#Abbrevisation-for-…" class="headerlink" title="Abbrevisation for …"></a>Abbrevisation for …</h2><ol>
-<li><strong>aka</strong>: also known as <ul>
-<li>(used when someone has another name)</li>
-<li>“we are using a soft margin classifier aka a support vector classifier to classify observations”</li>
-</ul>
-</li>
-<li><strong>FYI</strong>: for your information <ul>
-<li>(used in emails when you send someone an announcement or tell someone something that you think they should know)</li>
-</ul>
-</li>
-</ol>
-<h2 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a>Expressions</h2><ol>
-<li><strong>Crikey</strong>: An expression of mild disbelief in an enthusiastic manner<ul>
-<li>Hooray</li>
-</ul>
-</li>
-<li><strong>Caveat</strong>: A caveat is like an exception, a small part of something<ul>
-<li>“I really like this house, the <strong>caveat</strong> is it has one too few bedrooms”</li>
-</ul>
-</li>
-</ol>
-<h2 id="Australian-colloquial"><a href="#Australian-colloquial" class="headerlink" title="Australian colloquial"></a>Australian colloquial</h2><ul>
-<li>Dunny</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Languages</category>
-      </categories>
-      <tags>
-        <tag>Daily English</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Support Vector Machines Main Idea</title>
     <url>/2020/12/23/SVM-Concept/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="SVM-Support-Vector-Machines"><a href="#SVM-Support-Vector-Machines" class="headerlink" title="SVM - Support Vector Machines"></a>SVM - Support Vector Machines</h2><ul>
@@ -540,6 +505,41 @@
         <tag>video course</tag>
         <tag>Machine Learning</tag>
         <tag>Support Vector Machine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pick-Up Au English</title>
+    <url>/2020/12/23/Daily-English/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Abbrevisation-for-…"><a href="#Abbrevisation-for-…" class="headerlink" title="Abbrevisation for …"></a>Abbrevisation for …</h2><ol>
+<li><strong>aka</strong>: also known as <ul>
+<li>(used when someone has another name)</li>
+<li>“we are using a soft margin classifier aka a support vector classifier to classify observations”</li>
+</ul>
+</li>
+<li><strong>FYI</strong>: for your information <ul>
+<li>(used in emails when you send someone an announcement or tell someone something that you think they should know)</li>
+</ul>
+</li>
+</ol>
+<h2 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a>Expressions</h2><ol>
+<li><strong>Crikey</strong>: An expression of mild disbelief in an enthusiastic manner<ul>
+<li>Hooray</li>
+</ul>
+</li>
+<li><strong>Caveat</strong>: A caveat is like an exception, a small part of something<ul>
+<li>“I really like this house, the <strong>caveat</strong> is it has one too few bedrooms”</li>
+</ul>
+</li>
+</ol>
+<h2 id="Australian-colloquial"><a href="#Australian-colloquial" class="headerlink" title="Australian colloquial"></a>Australian colloquial</h2><ul>
+<li>Dunny</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Languages</category>
+      </categories>
+      <tags>
+        <tag>Daily English</tag>
       </tags>
   </entry>
   <entry>
@@ -738,6 +738,52 @@ scores <span class="token operator">=</span> <span class="token punctuation">[</
         <tag>array</tag>
         <tag>hard</tag>
         <tag>AlgoExpert</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode-Candy</title>
+    <url>/2021/01/29/Leetcode-Candy/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><blockquote>
+<p>There are N children standing in a line. Each child is assigned a rating value.<br>You are giving candies to these children subjected to the following requirements:<br>Each child must have at least one candy.<br>Children with a higher rating get more candies than their neighbors.<br>What is the minimum candies you must give?</p>
+</blockquote>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">Input<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+Output<span class="token punctuation">:</span> <span class="token number">5</span>
+<span class="token comment">#Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.</span>
+
+Input<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+Output<span class="token punctuation">:</span> <span class="token number">4</span>
+Explanation<span class="token punctuation">:</span> You can allocate to the first<span class="token punctuation">,</span> second <span class="token keyword">and</span> third child <span class="token keyword">with</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span> candies respectively<span class="token punctuation">.</span>
+             The third child gets <span class="token number">1</span> candy because it satisfies the above two conditions<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Key-Point"><a href="#Key-Point" class="headerlink" title="Key Point"></a>Key Point</h2><ul>
+<li><p>This question can have the same number in succession. The peaks and valleys method is not very practical for this question. Because there are many situations to consider, there will be many special situations.</p>
+</li>
+<li><p>The more recommended is the left-right, right-left method~</p>
+</li>
+<li><p>It is equivalent to using the Approach3 method in <strong>Min Rewards</strong>.</p>
+</li>
+</ul>
+<h2 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) Space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">candy</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ratings<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        candies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> ratings<span class="token punctuation">]</span>
+        
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>ratings<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> ratings<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> ratings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                candies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> candies<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>ratings<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> ratings<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> ratings<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                candies<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>candies<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> candies<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>candies<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/candy/">Candy-Leetcode challenge question </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/">Similiar Question: Min Rewards </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Data Structure and Algorithm</category>
+      </categories>
+      <tags>
+        <tag>array</tag>
+        <tag>hard</tag>
+        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -976,49 +1022,59 @@ ssm <span class="token operator">=</span> boto3<span class="token punctuation">.
       </tags>
   </entry>
   <entry>
-    <title>Leetcode-Candy</title>
-    <url>/2021/01/29/Leetcode-Candy/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><blockquote>
-<p>There are N children standing in a line. Each child is assigned a rating value.<br>You are giving candies to these children subjected to the following requirements:<br>Each child must have at least one candy.<br>Children with a higher rating get more candies than their neighbors.<br>What is the minimum candies you must give?</p>
-</blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">Input<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
-Output<span class="token punctuation">:</span> <span class="token number">5</span>
-<span class="token comment">#Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.</span>
+    <title>LC929 - Unique Email Address</title>
+    <url>/2022/06/04/LC929UniqueEmailAddress/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Every valid email consists of a local name and a domain name, separated by the ‘@’ sign. Besides lowercase letters, the email may contain one or more ‘.’ or ‘+’.</p>
+<p>For example, in “<a href="mailto:&#97;&#108;&#x69;&#x63;&#x65;&#x40;&#x6c;&#101;&#x65;&#x74;&#x63;&#111;&#100;&#101;&#46;&#99;&#111;&#x6d;">&#97;&#108;&#x69;&#x63;&#x65;&#x40;&#x6c;&#101;&#x65;&#x74;&#x63;&#111;&#100;&#101;&#46;&#99;&#111;&#x6d;</a>“, “alice” is the local name, and “leetcode.com” is the domain name.<br>If you add periods ‘.’ between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule does not apply to domain names.</p>
+<p>For example, “<a href="mailto:&#x61;&#108;&#x69;&#x63;&#x65;&#x2e;&#x7a;&#x40;&#x6c;&#101;&#x65;&#116;&#99;&#x6f;&#100;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x61;&#108;&#x69;&#x63;&#x65;&#x2e;&#x7a;&#x40;&#x6c;&#101;&#x65;&#116;&#99;&#x6f;&#100;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a>“ and “<a href="mailto:&#97;&#x6c;&#105;&#99;&#x65;&#x7a;&#x40;&#x6c;&#x65;&#101;&#116;&#99;&#x6f;&#x64;&#x65;&#x2e;&#99;&#111;&#109;">&#97;&#x6c;&#105;&#99;&#x65;&#x7a;&#x40;&#x6c;&#x65;&#101;&#116;&#99;&#x6f;&#x64;&#x65;&#x2e;&#99;&#111;&#109;</a>“ forward to the same email address.<br>If you add a plus ‘+’ in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered. Note that this rule does not apply to domain names.</p>
+<p>For example, “<a href="mailto:&#109;&#x2e;&#x79;&#43;&#110;&#97;&#109;&#x65;&#64;&#101;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#109;&#x2e;&#x79;&#43;&#110;&#97;&#109;&#x65;&#64;&#101;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>“ will be forwarded to “<a href="mailto:&#x6d;&#x79;&#x40;&#x65;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x6d;&#x79;&#x40;&#x65;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;</a>“.<br>It is possible to use both of these rules at the same time.</p>
+<p>Given an array of strings emails where we send one email to each emails[i], return the number of different addresses that actually receive mails.</p>
+<p>Example 1:</p>
+<p>Input: emails = [“test.email+alex@leetcode.com”,”<a href="mailto:&#x74;&#x65;&#115;&#x74;&#46;&#x65;&#x2e;&#x6d;&#x61;&#105;&#108;&#43;&#98;&#111;&#x62;&#x2e;&#x63;&#x61;&#116;&#x68;&#121;&#x40;&#108;&#101;&#101;&#116;&#99;&#x6f;&#100;&#x65;&#46;&#x63;&#x6f;&#109;">&#x74;&#x65;&#115;&#x74;&#46;&#x65;&#x2e;&#x6d;&#x61;&#105;&#108;&#43;&#98;&#111;&#x62;&#x2e;&#x63;&#x61;&#116;&#x68;&#121;&#x40;&#108;&#101;&#101;&#116;&#99;&#x6f;&#100;&#x65;&#46;&#x63;&#x6f;&#109;</a>“,”<a href="mailto:&#116;&#101;&#x73;&#x74;&#101;&#x6d;&#x61;&#105;&#x6c;&#x2b;&#100;&#97;&#x76;&#105;&#x64;&#64;&#108;&#101;&#x65;&#46;&#116;&#99;&#111;&#100;&#x65;&#46;&#99;&#x6f;&#109;">&#116;&#101;&#x73;&#x74;&#101;&#x6d;&#x61;&#105;&#x6c;&#x2b;&#100;&#97;&#x76;&#105;&#x64;&#64;&#108;&#101;&#x65;&#46;&#116;&#99;&#111;&#100;&#x65;&#46;&#99;&#x6f;&#109;</a>“]<br>Output: 2<br>Explanation: “<a href="mailto:&#116;&#101;&#x73;&#116;&#x65;&#109;&#97;&#105;&#108;&#64;&#x6c;&#x65;&#101;&#x74;&#99;&#111;&#x64;&#101;&#46;&#99;&#x6f;&#x6d;">&#116;&#101;&#x73;&#116;&#x65;&#109;&#97;&#105;&#108;&#64;&#x6c;&#x65;&#101;&#x74;&#99;&#111;&#x64;&#101;&#46;&#99;&#x6f;&#x6d;</a>“ and “<a href="mailto:&#116;&#x65;&#115;&#x74;&#101;&#x6d;&#97;&#x69;&#x6c;&#64;&#x6c;&#x65;&#101;&#46;&#116;&#99;&#111;&#x64;&#101;&#x2e;&#99;&#111;&#109;">&#116;&#x65;&#115;&#x74;&#101;&#x6d;&#97;&#x69;&#x6c;&#64;&#x6c;&#x65;&#101;&#46;&#116;&#99;&#111;&#x64;&#101;&#x2e;&#99;&#111;&#109;</a>“ actually receive mails.<br>Example 2:</p>
+<p>Input: emails = [“a@leetcode.com”,”<a href="mailto:&#x62;&#x40;&#108;&#x65;&#x65;&#x74;&#99;&#x6f;&#x64;&#x65;&#46;&#x63;&#x6f;&#x6d;">&#x62;&#x40;&#108;&#x65;&#x65;&#x74;&#99;&#x6f;&#x64;&#x65;&#46;&#x63;&#x6f;&#x6d;</a>“,”<a href="mailto:&#x63;&#x40;&#108;&#101;&#101;&#116;&#x63;&#x6f;&#x64;&#x65;&#x2e;&#x63;&#111;&#109;">&#x63;&#x40;&#108;&#101;&#101;&#116;&#x63;&#x6f;&#x64;&#x65;&#x2e;&#x63;&#111;&#109;</a>“]<br>Output: 3</p>
+<p>Constraints:</p>
+<p>1 &lt;= emails.length &lt;= 100<br>1 &lt;= emails[i].length &lt;= 100<br>emails[i] consist of lowercase English letters, ‘+’, ‘.’ and ‘@’.<br>Each emails[i] contains exactly one ‘@’ character.<br>All local and domain names are non-empty.<br>Local names do not start with a ‘+’ character.<br>Domain names end with the “.com” suffix.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>Based on the description, the rules apply differently for name and domain. Therefore, we split them and use different approaches</li>
+<li>We can either use List or Set to store the data</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(L) time | O(L) space</span>
 
-Input<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
-Output<span class="token punctuation">:</span> <span class="token number">4</span>
-Explanation<span class="token punctuation">:</span> You can allocate to the first<span class="token punctuation">,</span> second <span class="token keyword">and</span> third child <span class="token keyword">with</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span> candies respectively<span class="token punctuation">.</span>
-             The third child gets <span class="token number">1</span> candy because it satisfies the above two conditions<span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Key-Point"><a href="#Key-Point" class="headerlink" title="Key Point"></a>Key Point</h2><ul>
-<li><p>This question can have the same number in succession. The peaks and valleys method is not very practical for this question. Because there are many situations to consider, there will be many special situations.</p>
-</li>
-<li><p>The more recommended is the left-right, right-left method~</p>
-</li>
-<li><p>It is equivalent to using the Approach3 method in <strong>Min Rewards</strong>.</p>
-</li>
-</ul>
-<h2 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) Space</span>
+<span class="token comment"># Use List</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">candy</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ratings<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        candies <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> ratings<span class="token punctuation">]</span>
-        
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>ratings<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ratings<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> ratings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                candies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> candies<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>
-        <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>ratings<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> ratings<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> ratings<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                candies<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>candies<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> candies<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>candies<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">def</span> <span class="token function">numUniqueEmails</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> emails<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/candy/">Candy-Leetcode challenge question </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/">Similiar Question: Min Rewards </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+        <span class="token keyword">for</span> email <span class="token keyword">in</span> emails<span class="token punctuation">:</span>
+            local<span class="token punctuation">,</span> domain <span class="token operator">=</span> email<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
+            local <span class="token operator">=</span> local<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+            local <span class="token operator">=</span> local<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            merge <span class="token operator">=</span> local<span class="token operator">+</span><span class="token string">"@"</span><span class="token operator">+</span>domain
+            <span class="token keyword">if</span> merge <span class="token keyword">not</span> <span class="token keyword">in</span> res<span class="token punctuation">:</span>
+                res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>merge<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+
+<span class="token comment">#Use Set</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numUniqueEmails</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> emails<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> email <span class="token keyword">in</span> emails<span class="token punctuation">:</span>
+            local<span class="token punctuation">,</span> domain <span class="token operator">=</span> email<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
+            local <span class="token operator">=</span> local<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+            local <span class="token operator">=</span> local<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            merge <span class="token operator">=</span> local<span class="token operator">+</span><span class="token string">"@"</span><span class="token operator">+</span>domain
+            res<span class="token punctuation">.</span>add<span class="token punctuation">(</span>merge<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/unique-email-addresses/">929. Unique Email Addresses</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/unique-email-addresses/discuss/2112763/HexPython-Brute-Force">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
       <categories>
-        <category>Data Structure and Algorithm</category>
+        <category>Leetcode</category>
+        <category>LC900-999</category>
       </categories>
       <tags>
-        <tag>array</tag>
-        <tag>hard</tag>
-        <tag>Leetcode</tag>
+        <tag>easy</tag>
+        <tag>Brute Force</tag>
       </tags>
   </entry>
   <entry>
@@ -1080,115 +1136,53 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       </tags>
   </entry>
   <entry>
-    <title>LC929 - Unique Email Address</title>
-    <url>/2022/06/04/LC929UniqueEmailAddress/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Every valid email consists of a local name and a domain name, separated by the ‘@’ sign. Besides lowercase letters, the email may contain one or more ‘.’ or ‘+’.</p>
-<p>For example, in “<a href="mailto:&#97;&#x6c;&#105;&#99;&#x65;&#64;&#108;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#101;&#x2e;&#99;&#x6f;&#109;">&#97;&#x6c;&#105;&#99;&#x65;&#64;&#108;&#101;&#101;&#x74;&#x63;&#x6f;&#100;&#101;&#x2e;&#99;&#x6f;&#109;</a>“, “alice” is the local name, and “leetcode.com” is the domain name.<br>If you add periods ‘.’ between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule does not apply to domain names.</p>
-<p>For example, “<a href="mailto:&#x61;&#x6c;&#105;&#x63;&#x65;&#x2e;&#x7a;&#64;&#108;&#x65;&#101;&#116;&#x63;&#x6f;&#100;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x61;&#x6c;&#105;&#x63;&#x65;&#x2e;&#x7a;&#64;&#108;&#x65;&#101;&#116;&#x63;&#x6f;&#100;&#101;&#46;&#x63;&#x6f;&#x6d;</a>“ and “<a href="mailto:&#x61;&#108;&#105;&#x63;&#101;&#122;&#64;&#108;&#101;&#101;&#x74;&#x63;&#x6f;&#x64;&#x65;&#46;&#x63;&#x6f;&#109;">&#x61;&#108;&#105;&#x63;&#101;&#122;&#64;&#108;&#101;&#101;&#x74;&#x63;&#x6f;&#x64;&#x65;&#46;&#x63;&#x6f;&#109;</a>“ forward to the same email address.<br>If you add a plus ‘+’ in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered. Note that this rule does not apply to domain names.</p>
-<p>For example, “<a href="mailto:&#x6d;&#x2e;&#x79;&#43;&#x6e;&#97;&#109;&#101;&#x40;&#x65;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#x6d;">&#x6d;&#x2e;&#x79;&#43;&#x6e;&#97;&#109;&#101;&#x40;&#x65;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#111;&#x6d;</a>“ will be forwarded to “<a href="mailto:&#x6d;&#x79;&#x40;&#x65;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;">&#x6d;&#x79;&#x40;&#x65;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#109;</a>“.<br>It is possible to use both of these rules at the same time.</p>
-<p>Given an array of strings emails where we send one email to each emails[i], return the number of different addresses that actually receive mails.</p>
+    <title>LC478 - Generate Random Point in a Circle</title>
+    <url>/2022/06/05/LC478GenerateRandomPointinaCircle/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the radius and the position of the center of a circle, implement the function randPoint which generates a uniform random point inside the circle.</p>
+<p>Implement the Solution class:</p>
+<p>Solution(double radius, double x_center, double y_center) initializes the object with the radius of the circle radius and the position of the center (x_center, y_center).<br>randPoint() returns a random point inside the circle. A point on the circumference of the circle is considered to be in the circle. The answer is returned as an array [x, y].</p>
 <p>Example 1:</p>
-<p>Input: emails = [“test.email+alex@leetcode.com”,”<a href="mailto:&#x74;&#101;&#x73;&#116;&#46;&#101;&#46;&#x6d;&#97;&#105;&#108;&#43;&#x62;&#111;&#98;&#46;&#x63;&#97;&#x74;&#x68;&#121;&#x40;&#x6c;&#x65;&#x65;&#x74;&#x63;&#x6f;&#x64;&#x65;&#46;&#99;&#111;&#x6d;">&#x74;&#101;&#x73;&#116;&#46;&#101;&#46;&#x6d;&#97;&#105;&#108;&#43;&#x62;&#111;&#98;&#46;&#x63;&#97;&#x74;&#x68;&#121;&#x40;&#x6c;&#x65;&#x65;&#x74;&#x63;&#x6f;&#x64;&#x65;&#46;&#99;&#111;&#x6d;</a>“,”<a href="mailto:&#x74;&#x65;&#x73;&#x74;&#101;&#109;&#97;&#105;&#x6c;&#x2b;&#100;&#97;&#x76;&#x69;&#x64;&#64;&#x6c;&#101;&#101;&#46;&#x74;&#x63;&#x6f;&#100;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x74;&#x65;&#x73;&#x74;&#101;&#109;&#97;&#105;&#x6c;&#x2b;&#100;&#97;&#x76;&#x69;&#x64;&#64;&#x6c;&#101;&#101;&#46;&#x74;&#x63;&#x6f;&#100;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>“]<br>Output: 2<br>Explanation: “<a href="mailto:&#x74;&#101;&#x73;&#116;&#101;&#x6d;&#97;&#105;&#x6c;&#64;&#x6c;&#x65;&#x65;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x74;&#101;&#x73;&#116;&#101;&#x6d;&#97;&#105;&#x6c;&#64;&#x6c;&#x65;&#x65;&#x74;&#99;&#111;&#x64;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>“ and “<a href="mailto:&#x74;&#x65;&#115;&#116;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x6c;&#101;&#x65;&#46;&#116;&#99;&#x6f;&#100;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x74;&#x65;&#115;&#116;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x6c;&#101;&#x65;&#46;&#116;&#99;&#x6f;&#100;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a>“ actually receive mails.<br>Example 2:</p>
-<p>Input: emails = [“a@leetcode.com”,”<a href="mailto:&#98;&#64;&#x6c;&#x65;&#101;&#116;&#x63;&#x6f;&#x64;&#x65;&#x2e;&#99;&#111;&#x6d;">&#98;&#64;&#x6c;&#x65;&#101;&#116;&#x63;&#x6f;&#x64;&#x65;&#x2e;&#99;&#111;&#x6d;</a>“,”<a href="mailto:&#x63;&#64;&#x6c;&#101;&#x65;&#116;&#99;&#111;&#x64;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x63;&#64;&#x6c;&#101;&#x65;&#116;&#99;&#111;&#x64;&#x65;&#46;&#99;&#x6f;&#x6d;</a>“]<br>Output: 3</p>
+<p>Input<br>[“Solution”, “randPoint”, “randPoint”, “randPoint”]<br>[[1.0, 0.0, 0.0], [], [], []]<br>Output<br>[null, [-0.02493, -0.38077], [0.82314, 0.38945], [0.36572, 0.17248]]</p>
+<p>Explanation<br>Solution solution = new Solution(1.0, 0.0, 0.0);<br>solution.randPoint(); // return [-0.02493, -0.38077]<br>solution.randPoint(); // return [0.82314, 0.38945]<br>solution.randPoint(); // return [0.36572, 0.17248]</p>
 <p>Constraints:</p>
-<p>1 &lt;= emails.length &lt;= 100<br>1 &lt;= emails[i].length &lt;= 100<br>emails[i] consist of lowercase English letters, ‘+’, ‘.’ and ‘@’.<br>Each emails[i] contains exactly one ‘@’ character.<br>All local and domain names are non-empty.<br>Local names do not start with a ‘+’ character.<br>Domain names end with the “.com” suffix.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
-<li>Based on the description, the rules apply differently for name and domain. Therefore, we split them and use different approaches</li>
-<li>We can either use List or Set to store the data</li>
-</ol>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(L) time | O(L) space</span>
-
-<span class="token comment"># Use List</span>
+<p>0 &lt; radius &lt;= 108<br>-107 &lt;= x_center, y_center &lt;= 107<br>At most 3 * 104 calls will be made to randPoint.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The x-axis and y-axis correspond to uniform pixels, but such numbers will be inside the circle, as shown in the figure below, and may appear in blue.</p>
+<img src="/2022/06/05/LC478GenerateRandomPointinaCircle/blue.png" class="" title="Circle">
+<p>The easiest way to deal with it is to use Pythagorean theorem check whether the random point is in the circle, and if it is not, resample it again until the result is randomly generated.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(1) time | O(1) space</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">numUniqueEmails</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> emails<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 
-        <span class="token keyword">for</span> email <span class="token keyword">in</span> emails<span class="token punctuation">:</span>
-            local<span class="token punctuation">,</span> domain <span class="token operator">=</span> email<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
-            local <span class="token operator">=</span> local<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
-            local <span class="token operator">=</span> local<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-            merge <span class="token operator">=</span> local<span class="token operator">+</span><span class="token string">"@"</span><span class="token operator">+</span>domain
-            <span class="token keyword">if</span> merge <span class="token keyword">not</span> <span class="token keyword">in</span> res<span class="token punctuation">:</span>
-                res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>merge<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-
-<span class="token comment">#Use Set</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">numUniqueEmails</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> emails<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        res <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">for</span> email <span class="token keyword">in</span> emails<span class="token punctuation">:</span>
-            local<span class="token punctuation">,</span> domain <span class="token operator">=</span> email<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span>
-            local <span class="token operator">=</span> local<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
-            local <span class="token operator">=</span> local<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-            merge <span class="token operator">=</span> local<span class="token operator">+</span><span class="token string">"@"</span><span class="token operator">+</span>domain
-            res<span class="token punctuation">.</span>add<span class="token punctuation">(</span>merge<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/unique-email-addresses/">929. Unique Email Addresses</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/unique-email-addresses/discuss/2112763/HexPython-Brute-Force">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC900-999</category>
-      </categories>
-      <tags>
-        <tag>easy</tag>
-        <tag>Brute Force</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC1894 - Find the Student That Will Replace the Chalk</title>
-    <url>/2022/06/06/LC1894FindtheStudentthatWillReplacetheChalk/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are n students in a class numbered from 0 to n - 1. The teacher will give each student a problem starting with the student number 0, then the student number 1, and so on until the teacher reaches the student number n - 1. After that, the teacher will restart the process, starting with the student number 0 again.</p>
-<p>You are given a 0-indexed integer array chalk and an integer k. There are initially k pieces of chalk. When the student number i is given a problem to solve, they will use chalk[i] pieces of chalk to solve that problem. However, if the current number of chalk pieces is strictly less than chalk[i], then the student number i will be asked to replace the chalk.</p>
-<p>Return the index of the student that will replace the chalk.</p>
-<p>Example 1:</p>
-<p>Input: chalk = [5,1,5], k = 22<br>Output: 0<br>Explanation: The students go in turns as follows:</p>
-<ul>
-<li>Student number 0 uses 5 chalk, so k = 17.</li>
-<li>Student number 1 uses 1 chalk, so k = 16.</li>
-<li>Student number 2 uses 5 chalk, so k = 11.</li>
-<li>Student number 0 uses 5 chalk, so k = 6.</li>
-<li>Student number 1 uses 1 chalk, so k = 5.</li>
-<li>Student number 2 uses 5 chalk, so k = 0.<br>Student number 0 does not have enough chalk, so they will have to replace it.<br>Example 2:</li>
-</ul>
-<p>Input: chalk = [3,4,1,2], k = 25<br>Output: 1<br>Explanation: The students go in turns as follows:</p>
-<ul>
-<li>Student number 0 uses 3 chalk so k = 22.</li>
-<li>Student number 1 uses 4 chalk so k = 18.</li>
-<li>Student number 2 uses 1 chalk so k = 17.</li>
-<li>Student number 3 uses 2 chalk so k = 15.</li>
-<li>Student number 0 uses 3 chalk so k = 12.</li>
-<li>Student number 1 uses 4 chalk so k = 8.</li>
-<li>Student number 2 uses 1 chalk so k = 7.</li>
-<li>Student number 3 uses 2 chalk so k = 5.</li>
-<li>Student number 0 uses 3 chalk so k = 2.<br>Student number 1 does not have enough chalk, so they will have to replace it.</li>
-</ul>
-<p>Constraints:</p>
-<p>chalk.length == n<br>1 &lt;= n &lt;= 105<br>1 &lt;= chalk[i] &lt;= 105<br>1 &lt;= k &lt;= 109</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
-<li>Use k to modulo the sum of chalk</li>
-<li>Use the modulo result to compare the elements of chalk. If less than zero, the current student needs to replace the chalk</li>
-</ol>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">chalkReplacer</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> chalk<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        summ <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>chalk<span class="token punctuation">)</span>
-        k <span class="token operator">%=</span> summ
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> radius<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">,</span> x_center<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">,</span> y_center<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>r <span class="token operator">=</span> radius
+        self<span class="token punctuation">.</span>x <span class="token operator">=</span> x_center
+        self<span class="token punctuation">.</span>y <span class="token operator">=</span> y_center
         
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>chalk<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> k <span class="token operator">-</span> chalk<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> i
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                k <span class="token operator">-=</span> chalk<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk/">1894. Find the Student that Will Replace the Chalk</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk/discuss/2118464/HexPython-Simulation">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    <span class="token keyword">def</span> <span class="token function">randPoint</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">float</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            x<span class="token punctuation">,</span> y <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token operator">-</span>self<span class="token punctuation">.</span>r<span class="token punctuation">,</span> self<span class="token punctuation">.</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token operator">-</span>self<span class="token punctuation">.</span>r<span class="token punctuation">,</span> self<span class="token punctuation">.</span>r<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> x<span class="token operator">*</span>x <span class="token operator">+</span> y<span class="token operator">*</span>y <span class="token operator">&lt;=</span> self<span class="token punctuation">.</span>r <span class="token operator">*</span> self<span class="token punctuation">.</span>r<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token punctuation">[</span>self<span class="token punctuation">.</span>x<span class="token operator">+</span>x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y<span class="token operator">+</span>y<span class="token punctuation">]</span>
+        
+
+<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
+<span class="token comment"># obj = Solution(radius, x_center, y_center)</span>
+<span class="token comment"># param_1 = obj.randPoint()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Random-Usage"><a href="#Random-Usage" class="headerlink" title="Random Usage"></a>Random Usage</h2><ol>
+<li>uniform(): Returns a random float number between two given parameters</li>
+<li>randint(): Returns a random number between the given range</li>
+<li>choice(): Returns a random element from the given sequence</li>
+<li>random(): Returns a random float number between 0 and 1</li>
+</ol>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/generate-random-point-in-a-circle/">478. Generate Random Point in a Circle</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/2112983/HexPython-Rejection-Sampling">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
       <categories>
         <category>Leetcode</category>
-        <category>LC1800-1899</category>
+        <category>LC400-499</category>
       </categories>
       <tags>
         <tag>medium</tag>
-        <tag>Simulation</tag>
+        <tag>Rejection Sampling</tag>
       </tags>
   </entry>
   <entry>
@@ -1251,53 +1245,59 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       </tags>
   </entry>
   <entry>
-    <title>LC478 - Generate Random Point in a Circle</title>
-    <url>/2022/06/05/LC478GenerateRandomPointinaCircle/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the radius and the position of the center of a circle, implement the function randPoint which generates a uniform random point inside the circle.</p>
-<p>Implement the Solution class:</p>
-<p>Solution(double radius, double x_center, double y_center) initializes the object with the radius of the circle radius and the position of the center (x_center, y_center).<br>randPoint() returns a random point inside the circle. A point on the circumference of the circle is considered to be in the circle. The answer is returned as an array [x, y].</p>
+    <title>LC1894 - Find the Student That Will Replace the Chalk</title>
+    <url>/2022/06/06/LC1894FindtheStudentthatWillReplacetheChalk/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are n students in a class numbered from 0 to n - 1. The teacher will give each student a problem starting with the student number 0, then the student number 1, and so on until the teacher reaches the student number n - 1. After that, the teacher will restart the process, starting with the student number 0 again.</p>
+<p>You are given a 0-indexed integer array chalk and an integer k. There are initially k pieces of chalk. When the student number i is given a problem to solve, they will use chalk[i] pieces of chalk to solve that problem. However, if the current number of chalk pieces is strictly less than chalk[i], then the student number i will be asked to replace the chalk.</p>
+<p>Return the index of the student that will replace the chalk.</p>
 <p>Example 1:</p>
-<p>Input<br>[“Solution”, “randPoint”, “randPoint”, “randPoint”]<br>[[1.0, 0.0, 0.0], [], [], []]<br>Output<br>[null, [-0.02493, -0.38077], [0.82314, 0.38945], [0.36572, 0.17248]]</p>
-<p>Explanation<br>Solution solution = new Solution(1.0, 0.0, 0.0);<br>solution.randPoint(); // return [-0.02493, -0.38077]<br>solution.randPoint(); // return [0.82314, 0.38945]<br>solution.randPoint(); // return [0.36572, 0.17248]</p>
+<p>Input: chalk = [5,1,5], k = 22<br>Output: 0<br>Explanation: The students go in turns as follows:</p>
+<ul>
+<li>Student number 0 uses 5 chalk, so k = 17.</li>
+<li>Student number 1 uses 1 chalk, so k = 16.</li>
+<li>Student number 2 uses 5 chalk, so k = 11.</li>
+<li>Student number 0 uses 5 chalk, so k = 6.</li>
+<li>Student number 1 uses 1 chalk, so k = 5.</li>
+<li>Student number 2 uses 5 chalk, so k = 0.<br>Student number 0 does not have enough chalk, so they will have to replace it.<br>Example 2:</li>
+</ul>
+<p>Input: chalk = [3,4,1,2], k = 25<br>Output: 1<br>Explanation: The students go in turns as follows:</p>
+<ul>
+<li>Student number 0 uses 3 chalk so k = 22.</li>
+<li>Student number 1 uses 4 chalk so k = 18.</li>
+<li>Student number 2 uses 1 chalk so k = 17.</li>
+<li>Student number 3 uses 2 chalk so k = 15.</li>
+<li>Student number 0 uses 3 chalk so k = 12.</li>
+<li>Student number 1 uses 4 chalk so k = 8.</li>
+<li>Student number 2 uses 1 chalk so k = 7.</li>
+<li>Student number 3 uses 2 chalk so k = 5.</li>
+<li>Student number 0 uses 3 chalk so k = 2.<br>Student number 1 does not have enough chalk, so they will have to replace it.</li>
+</ul>
 <p>Constraints:</p>
-<p>0 &lt; radius &lt;= 108<br>-107 &lt;= x_center, y_center &lt;= 107<br>At most 3 * 104 calls will be made to randPoint.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The x-axis and y-axis correspond to uniform pixels, but such numbers will be inside the circle, as shown in the figure below, and may appear in blue.</p>
-<img src="/2022/06/05/LC478GenerateRandomPointinaCircle/blue.png" class="" title="Circle">
-<p>The easiest way to deal with it is to use Pythagorean theorem check whether the random point is in the circle, and if it is not, resample it again until the result is randomly generated.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(1) time | O(1) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> radius<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">,</span> x_center<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">,</span> y_center<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>r <span class="token operator">=</span> radius
-        self<span class="token punctuation">.</span>x <span class="token operator">=</span> x_center
-        self<span class="token punctuation">.</span>y <span class="token operator">=</span> y_center
-        
-
-    <span class="token keyword">def</span> <span class="token function">randPoint</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">float</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-            x<span class="token punctuation">,</span> y <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token operator">-</span>self<span class="token punctuation">.</span>r<span class="token punctuation">,</span> self<span class="token punctuation">.</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token operator">-</span>self<span class="token punctuation">.</span>r<span class="token punctuation">,</span> self<span class="token punctuation">.</span>r<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> x<span class="token operator">*</span>x <span class="token operator">+</span> y<span class="token operator">*</span>y <span class="token operator">&lt;=</span> self<span class="token punctuation">.</span>r <span class="token operator">*</span> self<span class="token punctuation">.</span>r<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token punctuation">[</span>self<span class="token punctuation">.</span>x<span class="token operator">+</span>x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y<span class="token operator">+</span>y<span class="token punctuation">]</span>
-        
-
-<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
-<span class="token comment"># obj = Solution(radius, x_center, y_center)</span>
-<span class="token comment"># param_1 = obj.randPoint()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Random-Usage"><a href="#Random-Usage" class="headerlink" title="Random Usage"></a>Random Usage</h2><ol>
-<li>uniform(): Returns a random float number between two given parameters</li>
-<li>randint(): Returns a random number between the given range</li>
-<li>choice(): Returns a random element from the given sequence</li>
-<li>random(): Returns a random float number between 0 and 1</li>
+<p>chalk.length == n<br>1 &lt;= n &lt;= 105<br>1 &lt;= chalk[i] &lt;= 105<br>1 &lt;= k &lt;= 109</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>Use k to modulo the sum of chalk</li>
+<li>Use the modulo result to compare the elements of chalk. If less than zero, the current student needs to replace the chalk</li>
 </ol>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/generate-random-point-in-a-circle/">478. Generate Random Point in a Circle</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/2112983/HexPython-Rejection-Sampling">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">chalkReplacer</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> chalk<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        summ <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>chalk<span class="token punctuation">)</span>
+        k <span class="token operator">%=</span> summ
+        
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>chalk<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> k <span class="token operator">-</span> chalk<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> i
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                k <span class="token operator">-=</span> chalk<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk/">1894. Find the Student that Will Replace the Chalk</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk/discuss/2118464/HexPython-Simulation">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
       <categories>
         <category>Leetcode</category>
-        <category>LC400-499</category>
+        <category>LC1800-1899</category>
       </categories>
       <tags>
         <tag>medium</tag>
-        <tag>Rejection Sampling</tag>
+        <tag>Simulation</tag>
       </tags>
   </entry>
   <entry>
@@ -1743,6 +1743,89 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       </tags>
   </entry>
   <entry>
+    <title>LC890 - Find and Replace Pattern</title>
+    <url>/2022/06/12/LC890FindandReplacePattern/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a list of strings words and a string pattern, return a list of words[i] that match pattern. You may return the answer in any order.</p>
+<p>A word matches the pattern if there exists a permutation of letters p so that after replacing every letter x in the pattern with p(x), we get the desired word.</p>
+<p>Recall that a permutation of letters is a bijection from letters to letters: every letter maps to another letter, and no two letters map to the same letter.</p>
+<p>Example 1:</p>
+<p>Input: words = [“abc”,”deq”,”mee”,”aqq”,”dkd”,”ccc”], pattern = “abb”<br>Output: [“mee”,”aqq”]<br>Explanation: “mee” matches the pattern because there is a permutation {a -&gt; m, b -&gt; e, …}.<br>“ccc” does not match the pattern because {a -&gt; c, b -&gt; c, …} is not a permutation, since a and b map to the same letter.<br>Example 2:</p>
+<p>Input: words = [“a”,”b”,”c”], pattern = “a”<br>Output: [“a”,”b”,”c”]</p>
+<p>Constraints:</p>
+<p>1 &lt;= pattern.length &lt;= 20<br>1 &lt;= words.length &lt;= 50<br>words[i].length == pattern.length<br>pattern and words[i] are lowercase English letters.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>According to the topic of the use rule, traverse each word, check all the words existing in each word one by one, and determine whether the mapping is satisfied.</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(nm) time | O(n) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findAndReplacePattern</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> words<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pattern<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> word <span class="token keyword">in</span> words<span class="token punctuation">:</span>
+            dic_pattern <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+            dic_words <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+            
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">not</span> <span class="token keyword">in</span> dic_pattern<span class="token punctuation">:</span>
+                    dic_pattern<span class="token punctuation">[</span>pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> word<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> dic_pattern<span class="token punctuation">[</span>pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">!=</span> word<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                        <span class="token keyword">break</span>
+                
+                <span class="token keyword">if</span> word<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">not</span> <span class="token keyword">in</span> dic_words<span class="token punctuation">:</span>
+                    dic_words<span class="token punctuation">[</span>word<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> dic_words<span class="token punctuation">[</span>word<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">!=</span> pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                        <span class="token keyword">break</span>
+                
+                <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-and-replace-pattern/">890. Find and Replace Pattern</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-and-replace-pattern/discuss/2140722/HexPython-Hashmap">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC800-899</category>
+      </categories>
+      <tags>
+        <tag>medium</tag>
+        <tag>Hashmap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LC1051 - Height Checker</title>
+    <url>/2022/06/14/LC1051HeightChecker/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in non-decreasing order by height. Let this ordering be represented by the integer array expected where expected[i] is the expected height of the ith student in line.</p>
+<p>You are given an integer array heights representing the current order that the students are standing in. Each heights[i] is the height of the ith student in line (0-indexed).</p>
+<p>Return the number of indices where heights[i] != expected[i].</p>
+<p>Example 1:</p>
+<p>Input: heights = [1,1,4,2,1,3]<br>Output: 3<br>Explanation:<br>heights:  [1,1,4,2,1,3]<br>expected: [1,1,1,2,3,4]<br>Indices 2, 4, and 5 do not match.<br>Example 2:</p>
+<p>Input: heights = [5,1,2,3,4]<br>Output: 5<br>Explanation:<br>heights:  [5,1,2,3,4]<br>expected: [1,2,3,4,5]<br>All indices do not match.<br>Example 3:</p>
+<p>Input: heights = [1,2,3,4,5]<br>Output: 0<br>Explanation:<br>heights:  [1,2,3,4,5]<br>expected: [1,2,3,4,5]<br>All indices match.</p>
+<p>Constraints:</p>
+<p>1 &lt;= heights.length &lt;= 100<br>1 &lt;= heights[i] &lt;= 100</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>Sort the array heights and store it in the variable expected</li>
+<li>Count the number of heights[i] ≠ expected[i]</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(nlogn) time | O(1) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">heightChecker</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> heights<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        expected <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>heights<span class="token punctuation">)</span>
+        cnt <span class="token operator">=</span><span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>heights<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> expected<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> heights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                cnt<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> cnt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/height-checker/">1051. Height Checker</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/height-checker/discuss/2148931/HexPython-Sorting">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC1000-1099</category>
+      </categories>
+      <tags>
+        <tag>easy</tag>
+        <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LC798 - Smallest Rotation With Highest Score</title>
     <url>/2022/06/10/LC798SmallestRotationwithHighestScore/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Discription"><a href="#Discription" class="headerlink" title="Discription"></a>Discription</h2><p>You are given an array nums. You can rotate it by a non-negative integer k so that the array becomes [nums[k], nums[k + 1], … nums[nums.length - 1], nums[0], nums[1], …, nums[k-1]]. Afterward, any entries that are less than or equal to their index are worth one point.</p>
@@ -1794,101 +1877,6 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       <tags>
         <tag>hard</tag>
         <tag>Difference Array</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC890 - Find and Replace Pattern</title>
-    <url>/2022/06/12/LC890FindandReplacePattern/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a list of strings words and a string pattern, return a list of words[i] that match pattern. You may return the answer in any order.</p>
-<p>A word matches the pattern if there exists a permutation of letters p so that after replacing every letter x in the pattern with p(x), we get the desired word.</p>
-<p>Recall that a permutation of letters is a bijection from letters to letters: every letter maps to another letter, and no two letters map to the same letter.</p>
-<p>Example 1:</p>
-<p>Input: words = [“abc”,”deq”,”mee”,”aqq”,”dkd”,”ccc”], pattern = “abb”<br>Output: [“mee”,”aqq”]<br>Explanation: “mee” matches the pattern because there is a permutation {a -&gt; m, b -&gt; e, …}.<br>“ccc” does not match the pattern because {a -&gt; c, b -&gt; c, …} is not a permutation, since a and b map to the same letter.<br>Example 2:</p>
-<p>Input: words = [“a”,”b”,”c”], pattern = “a”<br>Output: [“a”,”b”,”c”]</p>
-<p>Constraints:</p>
-<p>1 &lt;= pattern.length &lt;= 20<br>1 &lt;= words.length &lt;= 50<br>words[i].length == pattern.length<br>pattern and words[i] are lowercase English letters.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>According to the topic of the use rule, traverse each word, check all the words existing in each word one by one, and determine whether the mapping is satisfied.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(nm) time | O(n) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">findAndReplacePattern</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> words<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pattern<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> word <span class="token keyword">in</span> words<span class="token punctuation">:</span>
-            dic_pattern <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-            dic_words <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-            
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">not</span> <span class="token keyword">in</span> dic_pattern<span class="token punctuation">:</span>
-                    dic_pattern<span class="token punctuation">[</span>pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> word<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    <span class="token keyword">if</span> dic_pattern<span class="token punctuation">[</span>pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">!=</span> word<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                        <span class="token keyword">break</span>
-                
-                <span class="token keyword">if</span> word<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token keyword">not</span> <span class="token keyword">in</span> dic_words<span class="token punctuation">:</span>
-                    dic_words<span class="token punctuation">[</span>word<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    <span class="token keyword">if</span> dic_words<span class="token punctuation">[</span>word<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">!=</span> pattern<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                        <span class="token keyword">break</span>
-                
-                <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
-                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>word<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-and-replace-pattern/">890. Find and Replace Pattern</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-and-replace-pattern/discuss/2140722/HexPython-Hashmap">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC800-899</category>
-      </categories>
-      <tags>
-        <tag>medium</tag>
-        <tag>Hashmap</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC498 - Diagonal Traverse</title>
-    <url>/2022/06/14/LC498DiagonalTraverse/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.</p>
-<p>Example 1:</p>
-
-
-<p>Input: mat = [[1,2,3],[4,5,6],[7,8,9]]<br>Output: [1,2,4,7,5,3,6,8,9]<br>Example 2:</p>
-<p>Input: mat = [[1,2],[3,4]]<br>Output: [1,2,3,4]</p>
-<p>Constraints:</p>
-<p>m == mat.length<br>n == mat[i].length<br>1 &lt;= m, n &lt;= 104<br>1 &lt;= m * n &lt;= 104<br>-105 &lt;= mat[i][j] &lt;= 105</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Assuming n = row, m = column, the current point is (i,j), since each traversal is on the line i+j=z, so write (i,z-i), z is from 0 to m+n-2</p>
-<p>Use i to traverse, the point of each traversal is (i, z-i), there are two inequalities<br><strong>0&lt;=i&lt;=n-1</strong><br><strong>0&lt;=z-i&lt;=m-1, that is, z-m+1&lt;=i&lt;=z</strong></p>
-<p>So the lower bound is: max(0,z-m+1)<br>The upper bound is: min(n-1,z)</p>
-<p>Then traverse from the upper bound to the lower bound, and from the next to the upper bound, and both the upper and lower bounds can be obtained.</p>
-<img src="/2022/06/14/LC498DiagonalTraverse/diagonal.png" class="" title="diagonal">
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(nm) time | O(n) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">findDiagonalOrder</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mat<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        row <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mat<span class="token punctuation">)</span>
-        col <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token comment"># 0: bottom to top, 1: top to bottom</span>
-        direction <span class="token operator">=</span> <span class="token number">0</span> 
-        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-        <span class="token keyword">for</span> line <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>row<span class="token operator">+</span>col<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> direction<span class="token punctuation">:</span>
-                <span class="token keyword">for</span> item <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> line <span class="token operator">-</span> col <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">min</span><span class="token punctuation">(</span>row<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mat<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">[</span>line<span class="token operator">-</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span>
-                direction <span class="token operator">=</span> <span class="token number">0</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                <span class="token keyword">for</span> item <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">min</span><span class="token punctuation">(</span>row<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> line<span class="token operator">-</span>col<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mat<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">[</span>line<span class="token operator">-</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span>
-                direction <span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/diagonal-traverse/">498. Diagonal Traverse</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/diagonal-traverse/discuss/2149383/HexPython-Math-Simulation">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC400-499</category>
-      </categories>
-      <tags>
-        <tag>medium</tag>
-        <tag>Simulation</tag>
-        <tag>Math</tag>
       </tags>
   </entry>
   <entry>
@@ -1947,6 +1935,54 @@ ans<span class="token punctuation">[</span>i<span class="token punctuation">[</s
       </tags>
   </entry>
   <entry>
+    <title>LC498 - Diagonal Traverse</title>
+    <url>/2022/06/14/LC498DiagonalTraverse/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.</p>
+<p>Example 1:</p>
+
+
+<p>Input: mat = [[1,2,3],[4,5,6],[7,8,9]]<br>Output: [1,2,4,7,5,3,6,8,9]<br>Example 2:</p>
+<p>Input: mat = [[1,2],[3,4]]<br>Output: [1,2,3,4]</p>
+<p>Constraints:</p>
+<p>m == mat.length<br>n == mat[i].length<br>1 &lt;= m, n &lt;= 104<br>1 &lt;= m * n &lt;= 104<br>-105 &lt;= mat[i][j] &lt;= 105</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Assuming n = row, m = column, the current point is (i,j), since each traversal is on the line i+j=z, so write (i,z-i), z is from 0 to m+n-2</p>
+<p>Use i to traverse, the point of each traversal is (i, z-i), there are two inequalities<br><strong>0&lt;=i&lt;=n-1</strong><br><strong>0&lt;=z-i&lt;=m-1, that is, z-m+1&lt;=i&lt;=z</strong></p>
+<p>So the lower bound is: max(0,z-m+1)<br>The upper bound is: min(n-1,z)</p>
+<p>Then traverse from the upper bound to the lower bound, and from the next to the upper bound, and both the upper and lower bounds can be obtained.</p>
+<img src="/2022/06/14/LC498DiagonalTraverse/diagonal.png" class="" title="diagonal">
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(nm) time | O(n) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findDiagonalOrder</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mat<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        row <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mat<span class="token punctuation">)</span>
+        col <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token comment"># 0: bottom to top, 1: top to bottom</span>
+        direction <span class="token operator">=</span> <span class="token number">0</span> 
+        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> line <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>row<span class="token operator">+</span>col<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> direction<span class="token punctuation">:</span>
+                <span class="token keyword">for</span> item <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> line <span class="token operator">-</span> col <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">min</span><span class="token punctuation">(</span>row<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mat<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">[</span>line<span class="token operator">-</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                direction <span class="token operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">for</span> item <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">min</span><span class="token punctuation">(</span>row<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> line<span class="token operator">-</span>col<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mat<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">[</span>line<span class="token operator">-</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                direction <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/diagonal-traverse/">498. Diagonal Traverse</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/diagonal-traverse/discuss/2149383/HexPython-Math-Simulation">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC400-499</category>
+      </categories>
+      <tags>
+        <tag>medium</tag>
+        <tag>Simulation</tag>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LC1588 - Sum of All Odd Length Subarrays</title>
     <url>/2022/06/16/LC1588SumofAllOddLengthSubarrays/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.</p>
@@ -1999,42 +2035,6 @@ ans<span class="token punctuation">[</span>i<span class="token punctuation">[</s
       <tags>
         <tag>easy</tag>
         <tag>Prefix Sum</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC1051 - Height Checker</title>
-    <url>/2022/06/14/LC1051HeightChecker/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in non-decreasing order by height. Let this ordering be represented by the integer array expected where expected[i] is the expected height of the ith student in line.</p>
-<p>You are given an integer array heights representing the current order that the students are standing in. Each heights[i] is the height of the ith student in line (0-indexed).</p>
-<p>Return the number of indices where heights[i] != expected[i].</p>
-<p>Example 1:</p>
-<p>Input: heights = [1,1,4,2,1,3]<br>Output: 3<br>Explanation:<br>heights:  [1,1,4,2,1,3]<br>expected: [1,1,1,2,3,4]<br>Indices 2, 4, and 5 do not match.<br>Example 2:</p>
-<p>Input: heights = [5,1,2,3,4]<br>Output: 5<br>Explanation:<br>heights:  [5,1,2,3,4]<br>expected: [1,2,3,4,5]<br>All indices do not match.<br>Example 3:</p>
-<p>Input: heights = [1,2,3,4,5]<br>Output: 0<br>Explanation:<br>heights:  [1,2,3,4,5]<br>expected: [1,2,3,4,5]<br>All indices match.</p>
-<p>Constraints:</p>
-<p>1 &lt;= heights.length &lt;= 100<br>1 &lt;= heights[i] &lt;= 100</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
-<li>Sort the array heights and store it in the variable expected</li>
-<li>Count the number of heights[i] ≠ expected[i]</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(nlogn) time | O(1) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">heightChecker</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> heights<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        expected <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>heights<span class="token punctuation">)</span>
-        cnt <span class="token operator">=</span><span class="token number">0</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>heights<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> expected<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> heights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                cnt<span class="token operator">+=</span><span class="token number">1</span>
-        <span class="token keyword">return</span> cnt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/height-checker/">1051. Height Checker</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/height-checker/discuss/2148931/HexPython-Sorting">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC1000-1099</category>
-      </categories>
-      <tags>
-        <tag>easy</tag>
-        <tag>Sorting</tag>
       </tags>
   </entry>
   <entry>
@@ -2542,6 +2542,89 @@ intent<span class="token punctuation">.</span><span class="token function">putEx
       </tags>
   </entry>
   <entry>
+    <title>LC1893 - Check if All the Integers in a Range Are Covered</title>
+    <url>/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a 2D integer array ranges and two integers left and right. Each ranges[i] = [starti, endi] represents an inclusive interval between starti and endi.<br>Return true if each integer in the inclusive range [left, right] is covered by at least one interval in ranges. Return false otherwise.<br>An integer x is covered by an interval ranges[i] = [starti, endi] if starti &lt;= x &lt;= endi.</p>
+<p>Example 1:<br>Input: ranges = [[1,2],[3,4],[5,6]], left = 2, right = 5<br>Output: true<br>Explanation: Every integer between 2 and 5 is covered:</p>
+<ul>
+<li>2 is covered by the first range.</li>
+<li>3 and 4 are covered by the second range.</li>
+<li>5 is covered by the third range.</li>
+</ul>
+<p>Example 2:<br>Input: ranges = [[1,10],[10,20]], left = 21, right = 21<br>Output: false<br>Explanation: 21 is not covered by any range.</p>
+<p>Constraints:<br>1 &lt;= ranges.length &lt;= 50<br>1 &lt;= starti &lt;= endi &lt;= 50<br>1 &lt;= left &lt;= right &lt;= 50</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><h3 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h3><p>Store all the numbers that appear in ranges in the set of nums, and then traverse the range from left to right, if the numbers are all in nums, return True, if there are numbers that are not included, return False</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        nums <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+                    nums<span class="token punctuation">.</span>add<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+                    
+        <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>optimized version</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            flag <span class="token operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> start <span class="token operator">&lt;=</span> i <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
+                    flag <span class="token operator">=</span> <span class="token number">1</span>
+            <span class="token keyword">if</span> flag <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Difference-Array"><a href="#Difference-Array" class="headerlink" title="Difference Array"></a>Difference Array</h3><p>Traverse ranges, starting from ranges[0] to calculate the covered changes.</p>
+<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-1.png" class="" title="example1-1">
+<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-2.png" class="" title="example1-2">
+<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-3.png" class="" title="example1-3">
+<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-4.png" class="" title="example1-4">
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) time</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        diff <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">52</span>
+        <span class="token comment"># get difference array</span>
+        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
+            diff<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+            diff<span class="token punctuation">[</span>end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-=</span><span class="token number">1</span>
+
+        <span class="token comment"># prefix sum</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">52</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> diff<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+<span class="token comment"># 执行用时：24 ms, 在所有 Python3 提交中击败了98.94%的用户</span>
+<span class="token comment"># 内存消耗：14.7 MB, 在所有 Python3 提交中击败了99.29%的用户</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/">1893. Check if All the Integers in a Range Are Covered</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/discuss/2174438/HexPython-Brute-Force-Difference-Array">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+      <categories>
+        <category>Leetcode</category>
+        <category>LC1800-1899</category>
+      </categories>
+      <tags>
+        <tag>easy</tag>
+        <tag>Difference Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LC528 - Random Pick With Weight</title>
     <url>/2022/06/21/LC528RandomPickwithWeight/</url>
     <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index.<br>You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w).<br>For example, if w = [1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).</p>
@@ -2650,89 +2733,6 @@ idx <span class="token operator">=</span> bisect<span class="token punctuation">
       <tags>
         <tag>Prefix Sum</tag>
         <tag>medium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LC1893 - Check if All the Integers in a Range Are Covered</title>
-    <url>/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a 2D integer array ranges and two integers left and right. Each ranges[i] = [starti, endi] represents an inclusive interval between starti and endi.<br>Return true if each integer in the inclusive range [left, right] is covered by at least one interval in ranges. Return false otherwise.<br>An integer x is covered by an interval ranges[i] = [starti, endi] if starti &lt;= x &lt;= endi.</p>
-<p>Example 1:<br>Input: ranges = [[1,2],[3,4],[5,6]], left = 2, right = 5<br>Output: true<br>Explanation: Every integer between 2 and 5 is covered:</p>
-<ul>
-<li>2 is covered by the first range.</li>
-<li>3 and 4 are covered by the second range.</li>
-<li>5 is covered by the third range.</li>
-</ul>
-<p>Example 2:<br>Input: ranges = [[1,10],[10,20]], left = 21, right = 21<br>Output: false<br>Explanation: 21 is not covered by any range.</p>
-<p>Constraints:<br>1 &lt;= ranges.length &lt;= 50<br>1 &lt;= starti &lt;= endi &lt;= 50<br>1 &lt;= left &lt;= right &lt;= 50</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><h3 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h3><p>Store all the numbers that appear in ranges in the set of nums, and then traverse the range from left to right, if the numbers are all in nums, return True, if there are numbers that are not included, return False</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-        nums <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
-                    nums<span class="token punctuation">.</span>add<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-                    
-        <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>optimized version</strong></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            flag <span class="token operator">=</span> <span class="token number">0</span>
-            <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> start <span class="token operator">&lt;=</span> i <span class="token operator">&lt;=</span> end<span class="token punctuation">:</span>
-                    flag <span class="token operator">=</span> <span class="token number">1</span>
-            <span class="token keyword">if</span> flag <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-
-        <span class="token keyword">return</span> <span class="token boolean">True</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Difference-Array"><a href="#Difference-Array" class="headerlink" title="Difference Array"></a>Difference Array</h3><p>Traverse ranges, starting from ranges[0] to calculate the covered changes.</p>
-<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-1.png" class="" title="example1-1">
-<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-2.png" class="" title="example1-2">
-<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-3.png" class="" title="example1-3">
-<img src="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/example1-4.png" class="" title="example1-4">
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) time</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isCovered</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ranges<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-        diff <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">52</span>
-        <span class="token comment"># get difference array</span>
-        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end <span class="token keyword">in</span> ranges<span class="token punctuation">:</span>
-            diff<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
-            diff<span class="token punctuation">[</span>end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-=</span><span class="token number">1</span>
-
-        <span class="token comment"># prefix sum</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">52</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> diff<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-
-<span class="token comment"># 执行用时：24 ms, 在所有 Python3 提交中击败了98.94%的用户</span>
-<span class="token comment"># 内存消耗：14.7 MB, 在所有 Python3 提交中击败了99.29%的用户</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/">1893. Check if All the Integers in a Range Are Covered</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered/discuss/2174438/HexPython-Brute-Force-Difference-Array">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-      <categories>
-        <category>Leetcode</category>
-        <category>LC1800-1899</category>
-      </categories>
-      <tags>
-        <tag>easy</tag>
-        <tag>Difference Array</tag>
       </tags>
   </entry>
   <entry>
