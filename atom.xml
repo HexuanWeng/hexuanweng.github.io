@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-06-22T12:15:10.549Z</updated>
+  <updated>2022-06-23T11:31:24.993Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC1537 - Get the Maximum Score</title>
+    <link href="http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/"/>
+    <id>http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/</id>
+    <published>2022-06-23T11:11:15.000Z</published>
+    <updated>2022-06-23T11:31:24.993Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given two sorted arrays of distinct integers nums1 and nums2.<br>A valid path is defined as follows:</p><ul><li>Choose array nums1 or nums2 to traverse (from index-0).</li><li>Traverse the current array from left to right.</li><li>If you are reading any value that is present in nums1 and nums2 you are allowed to change your path to the other array. (Only one repeated value is considered in the valid path).</li><li>The score is defined as the sum of uniques values in a valid path.<br>Return the maximum score you can obtain of all possible valid paths. Since the answer may be too large, return it modulo 10^9 + 7.</li></ul><p>Example 1:</p><img src="/2022/06/23/LC1537GettheMaximumScore/sample_1_1893.png" class="" title="sample_1_1893"><p>Input: nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]<br>Output: 30<br>Explanation: Valid paths:<br>[2,4,5,8,10], [2,4,5,8,9], [2,4,6,8,9], [2,4,6,8,10],  (starting from nums1)<br>[4,6,8,9], [4,5,8,10], [4,5,8,9], [4,6,8,10]    (starting from nums2)<br>The maximum is obtained with the path in green [2,4,6,8,10].</p><p>Example 2:<br>Input: nums1 = [1,3,5,7,9], nums2 = [3,5,100]<br>Output: 109<br>Explanation: Maximum sum is obtained with the path [1,3,5,100].</p><p>Example 3:<br>Input: nums1 = [1,2,3,4,5], nums2 = [6,7,8,9,10]<br>Output: 40<br>Explanation: There are no common elements between nums1 and nums2.<br>Maximum sum is obtained with the path [6,7,8,9,10].</p><p>Constraints:<br>1 &lt;= nums1.length, nums2.length &lt;= 105<br>1 &lt;= nums1[i], nums2[i] &lt;= 107<br>nums1 and nums2 are strictly increasing.</p><h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><img src="/2022/06/23/LC1537GettheMaximumScore/twopointers.jpg" class="" title="twopointers"><p>Definition: “fork” – encountered a value that exists in both nums1 and nums2</p><ul><li>Use two pointers i, j to traverse the arrays nums1 and nums2 from the beginning, respectively, the current sum is recorded as sum1, sum2</li><li>In order for the two pointers to meet at the fork, we take advantage of the ordering of the array and move the pointer with the smaller value forward one step at a time.</li><li>At the fork, we assign sum1 and sum2 to the larger of the two (greedy), plus the value of the current fork, so that both pointers move forward (it can be understood that this fork is the new starting point) , and update the base value to the larger sum of the previous two paths, and start again).</li><li>Repeat this cycle until a path comes to an end.</li><li>Two paths, one of which may not be completed, so we add the remaining numbers in the array to it.</li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">maxSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums1<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> nums2<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> sum1<span class="token punctuation">,</span> sum2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>        mod <span class="token operator">=</span> <span class="token number">1000000007</span>        len1 <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums1<span class="token punctuation">)</span>        len2 <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums2<span class="token punctuation">)</span>                <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len1 <span class="token keyword">and</span> j <span class="token operator">&lt;</span> len2<span class="token punctuation">:</span>            num1 <span class="token operator">=</span> nums1<span class="token punctuation">[</span>i<span class="token punctuation">]</span>            num2 <span class="token operator">=</span> nums2<span class="token punctuation">[</span>j<span class="token punctuation">]</span>            <span class="token keyword">if</span> num1 <span class="token operator">&lt;</span> num2<span class="token punctuation">:</span>                sum1 <span class="token operator">+=</span> num1                i<span class="token operator">+=</span><span class="token number">1</span>            <span class="token keyword">elif</span> num1 <span class="token operator">></span> num2<span class="token punctuation">:</span>                sum2 <span class="token operator">+=</span> num2                j<span class="token operator">+=</span><span class="token number">1</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                sum1 <span class="token operator">=</span> sum2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>sum1<span class="token punctuation">,</span> sum2<span class="token punctuation">)</span> <span class="token operator">+</span> num1<span class="token punctuation">)</span> <span class="token operator">%</span> mod                i<span class="token operator">+=</span><span class="token number">1</span>                j<span class="token operator">+=</span><span class="token number">1</span>        <span class="token keyword">if</span> i <span class="token operator">&lt;</span> len1<span class="token punctuation">:</span>            sum1<span class="token operator">+=</span><span class="token builtin">sum</span><span class="token punctuation">(</span>nums1<span class="token punctuation">[</span>i<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token keyword">if</span> j <span class="token operator">&lt;</span> len2<span class="token punctuation">:</span>            sum2<span class="token operator">+=</span><span class="token builtin">sum</span><span class="token punctuation">(</span>nums2<span class="token punctuation">[</span>j<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token keyword">return</span> <span class="token builtin">max</span><span class="token punctuation">(</span>sum1<span class="token punctuation">,</span> sum2<span class="token punctuation">)</span><span class="token operator">%</span>mod<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>In most programming competitions, we are required to answer the result in 10^9+7 modulo. The reason behind this is, if problem constraints are large integers, only efficient algorithms can solve them in an allowed limited time.</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">mod <span class="token operator">=</span> <span class="token number">1000000007</span>mod <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token builtin">pow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/get-the-maximum-score/">1537. Get the Maximum Score</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/get-the-maximum-score/discuss/2187134/PythonTwo-Pointers">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Leedcode: 138/2658 (57+66+15)</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC1500-1599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1500-1599/"/>
+    
+    
+    <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
+    
+    <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
+    
+    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
+    
+  </entry>
   
   <entry>
     <title>Android Development（Kotlin）- Kotlin Language Fundamentals &amp; Activity Life Cycle</title>
@@ -260,9 +287,9 @@
     
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
-    <category term="Sorting" scheme="http://hexuanweng.github.io/tags/Sorting/"/>
-    
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
+    
+    <category term="Sorting" scheme="http://hexuanweng.github.io/tags/Sorting/"/>
     
   </entry>
   
@@ -492,31 +519,6 @@
     <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
     
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC1037 - Valid Boomerang</title>
-    <link href="http://hexuanweng.github.io/2022/06/08/LC1037ValidBoomerang/"/>
-    <id>http://hexuanweng.github.io/2022/06/08/LC1037ValidBoomerang/</id>
-    <published>2022-06-08T12:56:00.000Z</published>
-    <updated>2022-06-08T13:06:10.981Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array points where points[i] = [xi, yi] represents a point on the X-Y plane, return true if these points are a boomerang.</p><p>A boomerang is a set of three points that are all distinct and not in a straight line.</p><p>Example 1:</p><p>Input: points = [[1,1],[2,3],[3,2]]<br>Output: true<br>Example 2:</p><p>Input: points = [[1,1],[2,2],[3,3]]<br>Output: false</p><p>Constraints:</p><p>points.length == 3<br>points[i].length == 2<br>0 &lt;= xi, yi &lt;= 100</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Formula: (y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1)</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">isBoomerang</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> points<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>        <span class="token punctuation">(</span>x1<span class="token punctuation">,</span> y1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x2<span class="token punctuation">,</span> y2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>x3<span class="token punctuation">,</span> y3<span class="token punctuation">)</span> <span class="token operator">=</span> points        <span class="token keyword">return</span> <span class="token punctuation">(</span>y2 <span class="token operator">-</span> y1<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>x3 <span class="token operator">-</span> x2<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token punctuation">(</span>y3 <span class="token operator">-</span> y2<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>x2 <span class="token operator">-</span> x1<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/valid-boomerang/">1037. Valid Boomerang</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/valid-boomerang/discuss/2126713/HexPython-Math">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 120/2658 (52+55+13)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC1000-1099" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1000-1099/"/>
-    
-    
-    <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
-    
-    <category term="Math" scheme="http://hexuanweng.github.io/tags/Math/"/>
     
   </entry>
   
