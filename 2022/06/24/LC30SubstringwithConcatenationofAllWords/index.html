@@ -22,25 +22,23 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Leedcode: 138&#x2F;2658 (57+66+15)">
+  <meta name="description" content="Leedcode: 139&#x2F;2658 (57+66+16)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC1537 - Get the Maximum Score">
-<meta property="og:url" content="http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/index.html">
+<meta property="og:title" content="LC30 - Substring With Concatenation of All Words">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/06/24/LC30SubstringwithConcatenationofAllWords/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Leedcode: 138&#x2F;2658 (57+66+15)">
+<meta property="og:description" content="Leedcode: 139&#x2F;2658 (57+66+16)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/sample_1_1893.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/twopointers.jpg">
-<meta property="article:published_time" content="2022-06-23T11:11:15.000Z">
-<meta property="article:modified_time" content="2022-06-23T11:31:24.993Z">
+<meta property="article:published_time" content="2022-06-24T01:11:16.000Z">
+<meta property="article:modified_time" content="2022-06-24T01:20:33.098Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="hard">
-<meta property="article:tag" content="Greedy">
+<meta property="article:tag" content="Sliding Window">
+<meta property="article:tag" content="Hashmap">
 <meta property="article:tag" content="Two Pointers">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/sample_1_1893.png">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/06/24/LC30SubstringwithConcatenationofAllWords/">
 
 
 <script id="page-configurations">
@@ -53,7 +51,7 @@
   };
 </script>
 
-  <title>LC1537 - Get the Maximum Score | Hex.*</title>
+  <title>LC30 - Substring With Concatenation of All Words | Hex.*</title>
   
 
 
@@ -194,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/24/LC30SubstringwithConcatenationofAllWords/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -207,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC1537 - Get the Maximum Score
+          LC30 - Substring With Concatenation of All Words
         </h1>
 
         <div class="post-meta">
@@ -218,7 +216,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-06-23 21:11:15 / Modified: 21:31:24" itemprop="dateCreated datePublished" datetime="2022-06-23T21:11:15+10:00">2022-06-23</time>
+              <time title="Created: 2022-06-24 11:11:16 / Modified: 11:20:33" itemprop="dateCreated datePublished" datetime="2022-06-24T11:11:16+10:00">2022-06-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -230,12 +228,12 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/LC1500-1599/" itemprop="url" rel="index"><span itemprop="name">LC1500-1599</span></a>
+                  <a href="/categories/Leetcode/LC00-99/" itemprop="url" rel="index"><span itemprop="name">LC00-99</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Leedcode: 138/2658 (57+66+15)</div>
+            <div class="post-description">Leedcode: 139/2658 (57+66+16)</div>
 
         </div>
       </header>
@@ -246,61 +244,84 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given two sorted arrays of distinct integers nums1 and nums2.<br>A valid path is defined as follows:</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a string s and an array of strings words of the same length. Return all starting indices of substring(s) in s that is a concatenation of each word in words exactly once, in any order, and without any intervening characters.<br>You can return the answer in any order.</p>
+<p>Example 1:<br>Input: s = “barfoothefoobarman”, words = [“foo”,”bar”]<br>Output: [0,9]<br>Explanation: Substrings starting at index 0 and 9 are “barfoo” and “foobar” respectively.<br>The output order does not matter, returning [9,0] is fine too.</p>
+<p>Example 2:<br>Input: s = “wordgoodgoodgoodbestword”, words = [“word”,”good”,”best”,”word”]<br>Output: []</p>
+<p>Example 3:<br>Input: s = “barfoofoobarthefoobarman”, words = [“bar”,”foo”,”the”]<br>Output: [6,9,12]</p>
+<p>Constraints:<br>1 &lt;= s.length &lt;= 104<br>s consists of lower-case English letters.<br>1 &lt;= words.length &lt;= 5000<br>1 &lt;= words[i].length &lt;= 30<br>words[i] consists of lower-case English letters.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><p>Solved with a sliding window and two HashMaps.</p>
 <ul>
-<li>Choose array nums1 or nums2 to traverse (from index-0).</li>
-<li>Traverse the current array from left to right.</li>
-<li>If you are reading any value that is present in nums1 and nums2 you are allowed to change your path to the other array. (Only one repeated value is considered in the valid path).</li>
-<li>The score is defined as the sum of uniques values in a valid path.<br>Return the maximum score you can obtain of all possible valid paths. Since the answer may be too large, return it modulo 10^9 + 7.</li>
+<li>We store all the words in the HashMap, the key directly stores the word, and the value stores the number of occurrences of the word (because the given word may be repeated, so it may be 1 or 2 or other).</li>
+<li>Scan the words of the substring, if the word currently scanned is in the previous HashMap, store the word in the new HashMap</li>
+<li>The substring scan ends, if all the words of the substring match, then the substring is one of the ones we are looking for</li>
 </ul>
-<p>Example 1:</p>
-<img src="/2022/06/23/LC1537GettheMaximumScore/sample_1_1893.png" class="" title="sample_1_1893">
-<p>Input: nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]<br>Output: 30<br>Explanation: Valid paths:<br>[2,4,5,8,10], [2,4,5,8,9], [2,4,6,8,9], [2,4,6,8,10],  (starting from nums1)<br>[4,6,8,9], [4,5,8,10], [4,5,8,9], [4,6,8,10]    (starting from nums2)<br>The maximum is obtained with the path in green [2,4,6,8,10].</p>
-<p>Example 2:<br>Input: nums1 = [1,3,5,7,9], nums2 = [3,5,100]<br>Output: 109<br>Explanation: Maximum sum is obtained with the path [1,3,5,100].</p>
-<p>Example 3:<br>Input: nums1 = [1,2,3,4,5], nums2 = [6,7,8,9,10]<br>Output: 40<br>Explanation: There are no common elements between nums1 and nums2.<br>Maximum sum is obtained with the path [6,7,8,9,10].</p>
-<p>Constraints:<br>1 &lt;= nums1.length, nums2.length &lt;= 105<br>1 &lt;= nums1[i], nums2[i] &lt;= 107<br>nums1 and nums2 are strictly increasing.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><img src="/2022/06/23/LC1537GettheMaximumScore/twopointers.jpg" class="" title="twopointers">
-
-<p>Definition: “fork” – encountered a value that exists in both nums1 and nums2</p>
-<ul>
-<li>Use two pointers i, j to traverse the arrays nums1 and nums2 from the beginning, respectively, the current sum is recorded as sum1, sum2</li>
-<li>In order for the two pointers to meet at the fork, we take advantage of the ordering of the array and move the pointer with the smaller value forward one step at a time.</li>
-<li>At the fork, we assign sum1 and sum2 to the larger of the two (greedy), plus the value of the current fork, so that both pointers move forward (it can be understood that this fork is the new starting point) , and update the base value to the larger sum of the previous two paths, and start again).</li>
-<li>Repeat this cycle until a path comes to an end.</li>
-<li>Two paths, one of which may not be completed, so we add the remaining numbers in the array to it.</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums1<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> nums2<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> sum1<span class="token punctuation">,</span> sum2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
-        mod <span class="token operator">=</span> <span class="token number">1000000007</span>
-        len1 <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums1<span class="token punctuation">)</span>
-        len2 <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums2<span class="token punctuation">)</span>
-        
-        <span class="token keyword">while</span> i <span class="token operator">&lt;</span> len1 <span class="token keyword">and</span> j <span class="token operator">&lt;</span> len2<span class="token punctuation">:</span>
-            num1 <span class="token operator">=</span> nums1<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-            num2 <span class="token operator">=</span> nums2<span class="token punctuation">[</span>j<span class="token punctuation">]</span>
-            <span class="token keyword">if</span> num1 <span class="token operator">&lt;</span> num2<span class="token punctuation">:</span>
-                sum1 <span class="token operator">+=</span> num1
-                i<span class="token operator">+=</span><span class="token number">1</span>
-            <span class="token keyword">elif</span> num1 <span class="token operator">></span> num2<span class="token punctuation">:</span>
-                sum2 <span class="token operator">+=</span> num2
-                j<span class="token operator">+=</span><span class="token number">1</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findSubstring</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> words<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        hashWords <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span> word <span class="token keyword">in</span> words<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> word <span class="token keyword">not</span> <span class="token keyword">in</span> hashWords<span class="token punctuation">:</span>
+                hashWords<span class="token punctuation">[</span>word<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
             <span class="token keyword">else</span><span class="token punctuation">:</span>
-                sum1 <span class="token operator">=</span> sum2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span>sum1<span class="token punctuation">,</span> sum2<span class="token punctuation">)</span> <span class="token operator">+</span> num1<span class="token punctuation">)</span> <span class="token operator">%</span> mod
-                i<span class="token operator">+=</span><span class="token number">1</span>
-                j<span class="token operator">+=</span><span class="token number">1</span>
-        <span class="token keyword">if</span> i <span class="token operator">&lt;</span> len1<span class="token punctuation">:</span>
-            sum1<span class="token operator">+=</span><span class="token builtin">sum</span><span class="token punctuation">(</span>nums1<span class="token punctuation">[</span>i<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> j <span class="token operator">&lt;</span> len2<span class="token punctuation">:</span>
-            sum2<span class="token operator">+=</span><span class="token builtin">sum</span><span class="token punctuation">(</span>nums2<span class="token punctuation">[</span>j<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token builtin">max</span><span class="token punctuation">(</span>sum1<span class="token punctuation">,</span> sum2<span class="token punctuation">)</span><span class="token operator">%</span>mod<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                hashWords<span class="token punctuation">[</span>word<span class="token punctuation">]</span> <span class="token operator">+=</span><span class="token number">1</span>
+        
+        i<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token operator">*</span><span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>
+        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> j <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            sub <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">:</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span>
+            temp <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> j<span class="token operator">-</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                cur <span class="token operator">=</span> sub<span class="token punctuation">[</span>k<span class="token punctuation">:</span>k<span class="token operator">+</span><span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+                <span class="token keyword">if</span> cur <span class="token keyword">not</span> <span class="token keyword">in</span> temp<span class="token punctuation">:</span>
+                    temp<span class="token punctuation">[</span>cur<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token number">1</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    temp<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span>
+                
+            <span class="token keyword">if</span> temp <span class="token operator">==</span> hashWords<span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            i<span class="token operator">+=</span><span class="token number">1</span>
+            j<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>In most programming competitions, we are required to answer the result in 10^9+7 modulo. The reason behind this is, if problem constraints are large integers, only efficient algorithms can solve them in an allowed limited time.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">mod <span class="token operator">=</span> <span class="token number">1000000007</span>
-mod <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token builtin">pow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>use libraray <strong>collections.Counter</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">findSubstring</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> words<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        wl<span class="token punctuation">,</span> wsl <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">)</span>
+        i<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> wl<span class="token operator">*</span>wsl <span class="token operator">-</span><span class="token number">1</span>
+        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        
+        wordsHash <span class="token operator">=</span> collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span>words<span class="token punctuation">)</span>
+        
+        <span class="token keyword">while</span> j <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            sub <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">:</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span>
+            subs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> j<span class="token operator">-</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> wl<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                subs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>sub<span class="token punctuation">[</span>k<span class="token punctuation">:</span>k<span class="token operator">+</span>wl<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            
+            subsHash <span class="token operator">=</span> collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span>subs<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> wordsHash <span class="token operator">==</span> subsHash<span class="token punctuation">:</span>
+                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+            i<span class="token operator">+=</span><span class="token number">1</span>
+            j<span class="token operator">+=</span><span class="token number">1</span>
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/get-the-maximum-score/">1537. Get the Maximum Score</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/get-the-maximum-score/discuss/2187134/PythonTwo-Pointers">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><pre class="line-numbers language-none"><code class="language-none">&gt;&gt;&gt; from collections import Counter
+&gt;&gt;&gt;
+&gt;&gt;&gt; myList &#x3D; [1,1,2,3,4,5,3,2,3,4,2,1,2,3]
+&gt;&gt;&gt; print Counter(myList)
+Counter(&#123;2: 4, 3: 4, 1: 3, 4: 2, 5: 1&#125;)
+&gt;&gt;&gt;
+&gt;&gt;&gt; print Counter(myList).items()
+[(1, 3), (2, 4), (3, 4), (4, 2), (5, 1)]
+&gt;&gt;&gt;
+&gt;&gt;&gt; print Counter(myList).keys()
+[1, 2, 3, 4, 5]
+&gt;&gt;&gt;
+&gt;&gt;&gt; print Counter(myList).values()
+[3, 4, 4, 2, 1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/substring-with-concatenation-of-all-words/">30. Substring with Concatenation of All Words</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -315,7 +336,7 @@ mod <span class="token operator">=</span> <span class="token builtin">int</span>
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/" title="LC1537 - Get the Maximum Score">http://hexuanweng.github.io/2022/06/23/LC1537GettheMaximumScore/</a>
+    <a href="http://hexuanweng.github.io/2022/06/24/LC30SubstringwithConcatenationofAllWords/" title="LC30 - Substring With Concatenation of All Words">http://hexuanweng.github.io/2022/06/24/LC30SubstringwithConcatenationofAllWords/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -328,7 +349,8 @@ mod <span class="token operator">=</span> <span class="token builtin">int</span>
           
           <div class="post-tags">
               <a href="/tags/hard/" rel="tag"><i class="fa fa-tag"> hard</i> </a>
-              <a href="/tags/Greedy/" rel="tag"><i class="fa fa-tag"> Greedy</i> </a>
+              <a href="/tags/Sliding-Window/" rel="tag"><i class="fa fa-tag"> Sliding Window</i> </a>
+              <a href="/tags/Hashmap/" rel="tag"><i class="fa fa-tag"> Hashmap</i> </a>
               <a href="/tags/Two-Pointers/" rel="tag"><i class="fa fa-tag"> Two Pointers</i> </a>
           </div>
 
@@ -337,13 +359,10 @@ mod <span class="token operator">=</span> <span class="token builtin">int</span>
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/06/24/LC30SubstringwithConcatenationofAllWords/" rel="prev" title="LC30 - Substring With Concatenation of All Words">
-      <i class="fa fa-chevron-left"></i> LC30 - Substring With Concatenation of All Words
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/22/AndroidDevelopmentDay2/" rel="next" title="Android Development（Kotlin）- Kotlin Language Fundamentals & Activity Life Cycle">
-      Android Development（Kotlin）- Kotlin Language Fundamentals & Activity Life Cycle <i class="fa fa-chevron-right"></i>
+    <a href="/2022/06/23/LC1537GettheMaximumScore/" rel="next" title="LC1537 - Get the Maximum Score">
+      LC1537 - Get the Maximum Score <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -582,7 +601,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : '113a6760afaf4d955e17777c80b60a9b',
+      id          : 'a540e24cec92d9734a309956604d8c0b',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
