@@ -62,11 +62,11 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
+    <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
+    
     <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
-    
-    <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
     
   </entry>
   
@@ -164,9 +164,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
     
   </entry>
   
@@ -366,11 +366,11 @@
     <category term="LC400-499" scheme="http://hexuanweng.github.io/categories/Leetcode/LC400-499/"/>
     
     
+    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
+    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
     <category term="Math" scheme="http://hexuanweng.github.io/tags/Math/"/>
-    
-    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
     
   </entry>
   
@@ -520,9 +520,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
     
   </entry>
   

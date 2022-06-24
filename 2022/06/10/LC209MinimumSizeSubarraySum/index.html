@@ -30,9 +30,10 @@
 <meta property="og:description" content="Leedcode: 122&#x2F;2658 (52+57+13)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-10T03:34:35.000Z">
-<meta property="article:modified_time" content="2022-06-10T03:51:10.272Z">
+<meta property="article:modified_time" content="2022-06-24T05:00:54.044Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="medium">
+<meta property="article:tag" content="Prefix Sum">
 <meta property="article:tag" content="Sliding Window">
 <meta name="twitter:card" content="summary">
 
@@ -212,10 +213,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-06-10 13:34:35 / Modified: 13:51:10" itemprop="dateCreated datePublished" datetime="2022-06-10T13:34:35+10:00">2022-06-10</time>
+              <time title="Created: 2022-06-10 13:34:35" itemprop="dateCreated datePublished" datetime="2022-06-10T13:34:35+10:00">2022-06-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-24 15:00:54" itemprop="dateModified" datetime="2022-06-24T15:00:54+10:00">2022-06-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -256,6 +263,24 @@
 <li>At the same time, each time left is increased, a round of results must be recorded.</li>
 <li>Repeat steps until right reaches the end of the string.</li>
 </ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) sapce</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">minSubArrayLen</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        summ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+            summ<span class="token punctuation">.</span>append<span class="token punctuation">(</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>i<span class="token punctuation">)</span>
+        i<span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span>
+        ans <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">while</span> j <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>summ<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> summ<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> summ<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> target<span class="token punctuation">:</span>
+                j<span class="token operator">+=</span><span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                ans <span class="token operator">=</span> <span class="token builtin">min</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> j<span class="token operator">-</span>i<span class="token punctuation">)</span>
+                i<span class="token operator">+=</span><span class="token number">1</span>
+            
+        <span class="token keyword">return</span> <span class="token number">0</span> <span class="token keyword">if</span> ans <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">else</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>optimize the complexity of space from linear to to constant.</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">minSubArrayLen</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
@@ -299,6 +324,7 @@
           
           <div class="post-tags">
               <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
+              <a href="/tags/Prefix-Sum/" rel="tag"><i class="fa fa-tag"> Prefix Sum</i> </a>
               <a href="/tags/Sliding-Window/" rel="tag"><i class="fa fa-tag"> Sliding Window</i> </a>
           </div>
 
