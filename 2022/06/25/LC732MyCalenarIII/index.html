@@ -30,7 +30,7 @@
 <meta property="og:description" content="Leedcode: 143&#x2F;2658 (57+69+17)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-25T10:36:18.000Z">
-<meta property="article:modified_time" content="2022-06-25T10:43:13.525Z">
+<meta property="article:modified_time" content="2022-06-25T10:48:44.983Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="medium">
 <meta property="article:tag" content="Difference Array">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-06-25 20:36:18 / Modified: 20:43:13" itemprop="dateCreated datePublished" datetime="2022-06-25T20:36:18+10:00">2022-06-25</time>
+              <time title="Created: 2022-06-25 20:36:18 / Modified: 20:48:44" itemprop="dateCreated datePublished" datetime="2022-06-25T20:36:18+10:00">2022-06-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,36 +251,33 @@
 <li>In differential thinking, we only need to maintain start and end (end is not included). Just set start +=1, end -=1</li>
 <li>Then add them one by one using the prefix sum, so you can know how many times this schedule overlaps. According to the meaning of the question, keep the maximum value and return the maximum value.</li>
 </ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(n^2) time | O(n) space</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n) space</span>
 <span class="token keyword">from</span> sortedcontainers <span class="token keyword">import</span> SortedDict
-<span class="token keyword">class</span> <span class="token class-name">MyCalendarTwo</span><span class="token punctuation">:</span>
-
+<span class="token keyword">class</span> <span class="token class-name">MyCalendarThree</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>booking <span class="token operator">=</span> SortedDict<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-    <span class="token keyword">def</span> <span class="token function">book</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> start<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> end<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> start <span class="token keyword">in</span> self<span class="token punctuation">.</span>booking<span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>booking<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span><span class="token number">1</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">book</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> start<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> end<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> start <span class="token keyword">not</span> <span class="token keyword">in</span> self<span class="token punctuation">.</span>booking<span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>booking<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
-        
-        <span class="token keyword">if</span> end <span class="token keyword">in</span> self<span class="token punctuation">.</span>booking<span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>booking<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token operator">-=</span><span class="token number">1</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>booking<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span><span class="token number">1</span>
+        
+        <span class="token keyword">if</span> end <span class="token keyword">not</span> <span class="token keyword">in</span> self<span class="token punctuation">.</span>booking<span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>booking<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>booking<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token operator">-=</span><span class="token number">1</span>
         
         presum <span class="token operator">=</span> <span class="token number">0</span>
+        ans <span class="token operator">=</span> <span class="token number">0</span>
         <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> self<span class="token punctuation">.</span>booking<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            presum<span class="token operator">+=</span>v
-            <span class="token keyword">if</span> presum <span class="token operator">></span><span class="token number">2</span><span class="token punctuation">:</span>
-                self<span class="token punctuation">.</span>booking<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">-=</span><span class="token number">1</span>
-                self<span class="token punctuation">.</span>booking<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token operator">+=</span><span class="token number">1</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
+            presum <span class="token operator">+=</span> v
+            ans <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> presum<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ans
 
-<span class="token comment"># Your MyCalendarTwo object will be instantiated and called as such:</span>
-<span class="token comment"># obj = MyCalendarTwo()</span>
-<span class="token comment"># param_1 = obj.book(start,end)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># Your MyCalendarThree object will be instantiated and called as such:</span>
+<span class="token comment"># obj = MyCalendarThree()</span>
+<span class="token comment"># param_1 = obj.book(start,end)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
