@@ -30,7 +30,7 @@
 <meta property="og:description" content="Leedcode: 141&#x2F;2658 (57+68+16)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-25T10:13:36.000Z">
-<meta property="article:modified_time" content="2022-06-25T10:43:08.113Z">
+<meta property="article:modified_time" content="2022-06-25T10:50:27.433Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="Brute Force">
 <meta property="article:tag" content="medium">
@@ -215,7 +215,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-06-25 20:13:36 / Modified: 20:43:08" itemprop="dateCreated datePublished" datetime="2022-06-25T20:13:36+10:00">2022-06-25</time>
+              <time title="Created: 2022-06-25 20:13:36 / Modified: 20:50:27" itemprop="dateCreated datePublished" datetime="2022-06-25T20:13:36+10:00">2022-06-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,7 +249,11 @@
 <h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><h3 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h3><ul>
 <li>Check whether [start, end] can be added to MyCalendar, which can be compared by comparing the relationship between [s,e] and [start, end]<ul>
 <li>e ≤ start or end ≤ s are all satisfied</li>
-<li>That is, e &gt; start and end &gt; s, there is overlap<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(n^2) time | O(n) space</span>
+<li>That is, e &gt; start and end &gt; s, there is overlap</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(n^2) time | O(n) space</span>
 <span class="token keyword">class</span> <span class="token class-name">MyCalendar</span><span class="token punctuation">:</span>
 
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -269,10 +273,7 @@
 <span class="token comment"># Your MyCalendar object will be instantiated and called as such:</span>
 <span class="token comment"># obj = MyCalendar()</span>
 <span class="token comment"># param_1 = obj.book(start,end)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="SortedDict"><a href="#SortedDict" class="headerlink" title="SortedDict"></a>SortedDict</h3>Similar to the first method, but this method uses a SortedDict to store the data. This ordered dictionary is useful for handling boundaries in the next method.</li>
-</ul>
-</li>
-</ul>
+<h3 id="SortedDict"><a href="#SortedDict" class="headerlink" title="SortedDict"></a>SortedDict</h3><p>Similar to the first method, but this method uses a SortedDict to store the data. This ordered dictionary is useful for handling boundaries in the next method.</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n) space</span>
 <span class="token keyword">from</span> sortedcontainers <span class="token keyword">import</span> SortedDict
 <span class="token keyword">class</span> <span class="token class-name">MyCalendar</span><span class="token punctuation">:</span>
