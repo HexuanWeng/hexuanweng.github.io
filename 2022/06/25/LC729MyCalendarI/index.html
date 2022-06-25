@@ -30,7 +30,7 @@
 <meta property="og:description" content="Leedcode: 141&#x2F;2658 (57+68+16)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-25T10:13:36.000Z">
-<meta property="article:modified_time" content="2022-06-25T10:50:27.433Z">
+<meta property="article:modified_time" content="2022-06-25T10:50:57.092Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="Brute Force">
 <meta property="article:tag" content="medium">
@@ -215,7 +215,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-06-25 20:13:36 / Modified: 20:50:27" itemprop="dateCreated datePublished" datetime="2022-06-25T20:13:36+10:00">2022-06-25</time>
+              <time title="Created: 2022-06-25 20:13:36 / Modified: 20:50:57" itemprop="dateCreated datePublished" datetime="2022-06-25T20:13:36+10:00">2022-06-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -303,6 +303,8 @@
 <li><p>In differential thinking, we only need to maintain start and end (end is not included). Just set start +=1, end -=1</p>
 </li>
 <li><p>Then add them one by one using the prefix sum, so you can know how many times this schedule overlaps. According to the meaning of the question, if there is overlap, return False</p>
+</li>
+</ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n) space</span>
 <span class="token keyword">from</span> sortedcontainers <span class="token keyword">import</span> SortedDict
 <span class="token keyword">class</span> <span class="token class-name">MyCalendar</span><span class="token punctuation">:</span>
@@ -335,8 +337,6 @@
 <span class="token comment"># obj = MyCalendar()</span>
 <span class="token comment"># param_1 = obj.book(start,end)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-</li>
-</ul>
 <div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/my-calendar-i/">729. My Calendar I</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/my-calendar-ii/">731. My Calendar II</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/my-calendar-iii/">732. My Calendar III</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
