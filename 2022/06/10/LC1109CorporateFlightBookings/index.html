@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/prefixsum.png">
 <meta property="og:image" content="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/differencearray.png">
 <meta property="article:published_time" content="2022-06-10T11:41:20.000Z">
-<meta property="article:modified_time" content="2022-06-10T11:53:08.829Z">
+<meta property="article:modified_time" content="2022-06-29T12:48:22.171Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="medium">
 <meta property="article:tag" content="Difference Array">
@@ -215,10 +215,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-06-10 21:41:20 / Modified: 21:53:08" itemprop="dateCreated datePublished" datetime="2022-06-10T21:41:20+10:00">2022-06-10</time>
+              <time title="Created: 2022-06-10 21:41:20" itemprop="dateCreated datePublished" datetime="2022-06-10T21:41:20+10:00">2022-06-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-29 22:48:22" itemprop="dateModified" datetime="2022-06-29T22:48:22+10:00">2022-06-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -270,19 +276,19 @@
 <li>Because the flight after the last, there is no current seat</li>
 <li>When subtracting first, and then adding prefixes, they will actually cancel each other out</li>
 <li>It is easy to understand how the idea of difference solves this problem by drawing an array.<img src="/2022/06/10/LC1109CorporateFlightBookings/differencearray.png" class="" title="differencearray">
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#差分 O(n) time | O(n) space</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(n) time | O(n) space</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">corpFlightBookings</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bookings<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
         diff <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
         <span class="token keyword">for</span> start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> value <span class="token keyword">in</span> bookings<span class="token punctuation">:</span>
             diff<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span> value
             <span class="token keyword">if</span> end <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>
                 diff<span class="token punctuation">[</span>end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-=</span> value
 
         <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            answer<span class="token punctuation">.</span>append<span class="token punctuation">(</span>answer<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> answer<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> diff<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> 
+        <span class="token keyword">return</span> diff<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 

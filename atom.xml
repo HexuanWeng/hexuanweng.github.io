@@ -135,9 +135,9 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
-    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
     
@@ -218,9 +218,9 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
-    
     <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
+    
+    <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
   </entry>
   
