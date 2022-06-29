@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-06-26T09:43:31.026Z</updated>
+  <updated>2022-06-29T12:37:27.053Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC535 - Encode and Decode TinyURL</title>
+    <link href="http://hexuanweng.github.io/2022/06/29/LC535EndoceandDecodeTinyURL/"/>
+    <id>http://hexuanweng.github.io/2022/06/29/LC535EndoceandDecodeTinyURL/</id>
+    <published>2022-06-29T12:28:20.000Z</published>
+    <updated>2022-06-29T12:37:27.053Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Note: This is a companion problem to the System Design problem: Design TinyURL.<br>TinyURL is a URL shortening service where you enter a URL such as <a href="https://leetcode.com/problems/design-tinyurl">https://leetcode.com/problems/design-tinyurl</a> and it returns a short URL such as <a href="http://tinyurl.com/4e9iAk">http://tinyurl.com/4e9iAk</a>. Design a class to encode a URL and decode a tiny URL.<br>There is no restriction on how your encode/decode algorithm should work. You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.<br>Implement the Solution class:<br>Solution() Initializes the object of the system.<br>String encode(String longUrl) Returns a tiny URL for the given longUrl.<br>String decode(String shortUrl) Returns the original long URL for the given shortUrl. It is guaranteed that the given shortUrl was encoded by the same object.</p><p>Example 1:<br>Input: url = “<a href="https://leetcode.com/problems/design-tinyurl&quot;">https://leetcode.com/problems/design-tinyurl&quot;</a><br>Output: “<a href="https://leetcode.com/problems/design-tinyurl&quot;">https://leetcode.com/problems/design-tinyurl&quot;</a><br>Explanation:<br>Solution obj = new Solution();<br>string tiny = obj.encode(url); // returns the encoded tiny url.<br>string ans = obj.decode(tiny); // returns the original url after deconding it.</p><p>Constraints:<br>1 &lt;= url.length &lt;= 104<br>url is guranteed to be a valid URL.</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul><li>Hash algorithm, accepts incoming content, and obtains a string of hash values after operation<ul><li>As long as the incoming content is the same, the obtained hash value must be the same</li><li>Cannot be converted into content by hash value</li><li>As long as the hash algorithm used remains the same, the length of the obtained hash value is fixed no matter how large the content to be verified is</li></ul></li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hashlib<span class="token keyword">class</span> <span class="token class-name">Codec</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>        self<span class="token punctuation">.</span><span class="token builtin">map</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>    <span class="token keyword">def</span> <span class="token function">encode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> longUrl<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>        <span class="token triple-quoted-string string">"""Encodes a URL to a shortened URL.        """</span>        message <span class="token operator">=</span> longUrl<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span>        en <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>        self<span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">[</span>en<span class="token punctuation">]</span> <span class="token operator">=</span> longUrl        <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f"https://hex.com/</span><span class="token interpolation"><span class="token punctuation">&#123;</span>en<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>            <span class="token keyword">def</span> <span class="token function">decode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> shortUrl<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>        <span class="token triple-quoted-string string">"""Decodes a shortened URL to its original URL.        """</span>        key <span class="token operator">=</span> shortUrl<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>        <span class="token keyword">return</span> self<span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token comment"># Your Codec object will be instantiated and called as such:</span><span class="token comment"># codec = Codec()</span><span class="token comment"># codec.decode(codec.encode(url))</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> hashlib<span class="token comment"># encode it to bytes using UTF-8 encoding</span>message <span class="token operator">=</span> <span class="token string">"Some text to hash"</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment"># hash with MD5 (not recommended)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"MD5:"</span><span class="token punctuation">,</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># hash with SHA-2 (SHA-256 &amp; SHA-512)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"SHA-256:"</span><span class="token punctuation">,</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"SHA-512:"</span><span class="token punctuation">,</span> hashlib<span class="token punctuation">.</span>sha512<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># hash with SHA-3</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"SHA-3-256:"</span><span class="token punctuation">,</span> hashlib<span class="token punctuation">.</span>sha3_256<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"SHA-3-512:"</span><span class="token punctuation">,</span> hashlib<span class="token punctuation">.</span>sha3_512<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># hash with BLAKE2</span><span class="token comment"># 256-bit BLAKE2 (or BLAKE2s)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"BLAKE2c:"</span><span class="token punctuation">,</span> hashlib<span class="token punctuation">.</span>blake2s<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment"># 512-bit BLAKE2 (or BLAKE2b)</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"BLAKE2b:"</span><span class="token punctuation">,</span> hashlib<span class="token punctuation">.</span>blake2b<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/encode-and-decode-tinyurl/">535. Encode and Decode TinyURL</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://www.thepythoncode.com/article/hashing-functions-in-python-using-hashlib">How to Use Hashing Algorithms in Python using hashlib</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Leedcode: 145/2658 (57+70+18)</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
+    
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
+    
+  </entry>
   
   <entry>
     <title>LC710 - Random Pick With Blacklist</title>
@@ -110,9 +135,9 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
     
@@ -193,9 +218,9 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
-    
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
+    
+    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
     
   </entry>
   
@@ -500,31 +525,6 @@
     <category term="Sorting" scheme="http://hexuanweng.github.io/tags/Sorting/"/>
     
     <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC1051 - Height Checker</title>
-    <link href="http://hexuanweng.github.io/2022/06/14/LC1051HeightChecker/"/>
-    <id>http://hexuanweng.github.io/2022/06/14/LC1051HeightChecker/</id>
-    <published>2022-06-14T00:06:36.000Z</published>
-    <updated>2022-06-14T01:10:36.168Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in non-decreasing order by height. Let this ordering be represented by the integer array expected where expected[i] is the expected height of the ith student in line.</p><p>You are given an integer array heights representing the current order that the students are standing in. Each heights[i] is the height of the ith student in line (0-indexed).</p><p>Return the number of indices where heights[i] != expected[i].</p><p>Example 1:</p><p>Input: heights = [1,1,4,2,1,3]<br>Output: 3<br>Explanation:<br>heights:  [1,1,4,2,1,3]<br>expected: [1,1,1,2,3,4]<br>Indices 2, 4, and 5 do not match.<br>Example 2:</p><p>Input: heights = [5,1,2,3,4]<br>Output: 5<br>Explanation:<br>heights:  [5,1,2,3,4]<br>expected: [1,2,3,4,5]<br>All indices do not match.<br>Example 3:</p><p>Input: heights = [1,2,3,4,5]<br>Output: 0<br>Explanation:<br>heights:  [1,2,3,4,5]<br>expected: [1,2,3,4,5]<br>All indices match.</p><p>Constraints:</p><p>1 &lt;= heights.length &lt;= 100<br>1 &lt;= heights[i] &lt;= 100</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul><li>Sort the array heights and store it in the variable expected</li><li>Count the number of heights[i] ≠ expected[i]</li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(nlogn) time | O(1) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">heightChecker</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> heights<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        expected <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>heights<span class="token punctuation">)</span>        cnt <span class="token operator">=</span><span class="token number">0</span>        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>heights<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> expected<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> heights<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>                cnt<span class="token operator">+=</span><span class="token number">1</span>        <span class="token keyword">return</span> cnt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/height-checker/">1051. Height Checker</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/height-checker/discuss/2148931/HexPython-Sorting">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 127/2658 (53+60+14)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC1000-1099" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1000-1099/"/>
-    
-    
-    <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
-    
-    <category term="Sorting" scheme="http://hexuanweng.github.io/tags/Sorting/"/>
     
   </entry>
   
