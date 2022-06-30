@@ -22,20 +22,21 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Don&#39;t be afraid to make mistakes. Surround yourself in English. Practise every day.">
+  <meta name="description" content="Leedcode: 146&#x2F;2658 (58+70+18)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pick-Up Au English">
-<meta property="og:url" content="http://hexuanweng.github.io/2020/12/23/Daily-English/index.html">
+<meta property="og:title" content="LC1175 - Prime Arrangements">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/06/30/LC1175PrimeArrangements/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Don&#39;t be afraid to make mistakes. Surround yourself in English. Practise every day.">
+<meta property="og:description" content="Leedcode: 146&#x2F;2658 (58+70+18)">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-23T01:07:56.000Z">
-<meta property="article:modified_time" content="2021-10-04T11:09:54.569Z">
+<meta property="article:published_time" content="2022-06-30T00:52:41.000Z">
+<meta property="article:modified_time" content="2022-06-30T01:20:58.418Z">
 <meta property="article:author" content="Hexuan Weng">
-<meta property="article:tag" content="Daily English">
+<meta property="article:tag" content="easy">
+<meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2020/12/23/Daily-English/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/06/30/LC1175PrimeArrangements/">
 
 
 <script id="page-configurations">
@@ -48,7 +49,7 @@
   };
 </script>
 
-  <title>Pick-Up Au English | Hex.*</title>
+  <title>LC1175 - Prime Arrangements | Hex.*</title>
   
 
 
@@ -189,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2020/12/23/Daily-English/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/30/LC1175PrimeArrangements/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -202,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Pick-Up Au English
+          LC1175 - Prime Arrangements
         </h1>
 
         <div class="post-meta">
@@ -211,28 +212,26 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-12-23 12:07:56" itemprop="dateCreated datePublished" datetime="2020-12-23T12:07:56+11:00">2020-12-23</time>
+              <time title="Created: 2022-06-30 10:52:41 / Modified: 11:20:58" itemprop="dateCreated datePublished" datetime="2022-06-30T10:52:41+10:00">2022-06-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-04 22:09:54" itemprop="dateModified" datetime="2021-10-04T22:09:54+11:00">2021-10-04</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Languages/" itemprop="url" rel="index"><span itemprop="name">Languages</span></a>
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/LC1100-1199/" itemprop="url" rel="index"><span itemprop="name">LC1100-1199</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Don't be afraid to make mistakes. Surround yourself in English. Practise every day.</div>
+            <div class="post-description">Leedcode: 146/2658 (58+70+18)</div>
 
         </div>
       </header>
@@ -243,31 +242,74 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Abbrevisation-for-…"><a href="#Abbrevisation-for-…" class="headerlink" title="Abbrevisation for …"></a>Abbrevisation for …</h2><ol>
-<li><strong>aka</strong>: also known as <ul>
-<li>(used when someone has another name)</li>
-<li>“we are using a soft margin classifier aka a support vector classifier to classify observations”</li>
-</ul>
-</li>
-<li><strong>FYI</strong>: for your information <ul>
-<li>(used in emails when you send someone an announcement or tell someone something that you think they should know)</li>
-</ul>
-</li>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Return the number of permutations of 1 to n so that prime numbers are at prime indices (1-indexed.)<br>(Recall that an integer is prime if and only if it is greater than 1, and cannot be written as a product of two positive integers both smaller than it.)<br>Since the answer may be large, return the answer modulo 10^9 + 7.</p>
+<p>Example 1:<br>Input: n = 5<br>Output: 12<br>Explanation: For example [1,2,5,4,3] is a valid permutation, but [5,2,3,4,1] is not because the prime number 5 is at index 1.</p>
+<p>Example 2:<br>Input: n = 100<br>Output: 682289015</p>
+<p>Constraints:<br>1 &lt;= n &lt;= 100</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>First get the number of prime numbers in n numbers</li>
+<li>Then get the number of non-prime numbers = n - the number of prime numbers</li>
+<li>The answer is obtained by multiplying the number of permutations of prime numbers by the number of permutations of non-primes.</li>
 </ol>
-<h2 id="Expressions"><a href="#Expressions" class="headerlink" title="Expressions"></a>Expressions</h2><ol>
-<li><strong>Crikey</strong>: An expression of mild disbelief in an enthusiastic manner<ul>
-<li>Hooray</li>
-</ul>
-</li>
-<li><strong>Caveat</strong>: A caveat is like an exception, a small part of something<ul>
-<li>“I really like this house, the <strong>caveat</strong> is it has one too few bedrooms”</li>
-</ul>
-</li>
-</ol>
-<h2 id="Australian-colloquial"><a href="#Australian-colloquial" class="headerlink" title="Australian colloquial"></a>Australian colloquial</h2><ul>
-<li>Dunny</li>
-</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">numPrimeArrangements</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        primecnt <span class="token operator">=</span> <span class="token number">0</span>
+        mod <span class="token operator">=</span> <span class="token number">1e9</span><span class="token operator">+</span><span class="token number">7</span>
+        ans <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i <span class="token operator">%</span> j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                    <span class="token keyword">break</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                primecnt<span class="token operator">+=</span><span class="token number">1</span>
+        
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> primecnt<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ans <span class="token operator">*=</span> i
+            ans <span class="token operator">%=</span> mod
+        
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token operator">-</span>primecnt<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ans <span class="token operator">*=</span> i 
+            ans <span class="token operator">%=</span> mod
+        <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="How-to-find-prime-numbers-in-a-range"><a href="#How-to-find-prime-numbers-in-a-range" class="headerlink" title="How to find prime numbers in a range"></a>How to find prime numbers in a range</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">num <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+n <span class="token operator">=</span> <span class="token number">100</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">%</span> j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+		<span class="token comment"># This else executes only if break is NEVER reached and loop terminated after all iterations.</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        num<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Factorial"><a href="#Factorial" class="headerlink" title="Factorial"></a>Factorial</h2><h3 id="For-Loop"><a href="#For-Loop" class="headerlink" title="For Loop"></a>For Loop</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">ans <span class="token operator">=</span> <span class="token number">1</span>
+mod <span class="token operator">=</span> <span class="token number">1e9</span><span class="token operator">+</span><span class="token number">7</span>
+n <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		ans <span class="token operator">*=</span> i
+		<span class="token comment"># if the number is too large</span>
+		ans <span class="token operator">%=</span> mod
+<span class="token keyword">print</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Reduce-Function"><a href="#Reduce-Function" class="headerlink" title="Reduce Function"></a>Reduce Function</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> <span class="token builtin">reduce</span>
+n <span class="token operator">=</span> <span class="token number">10</span>
+ans <span class="token operator">=</span> <span class="token builtin">reduce</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> x<span class="token operator">*</span>y<span class="token punctuation">,</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">factorial</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">or</span> n <span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+				<span class="token keyword">return</span> <span class="token number">1</span>
+		<span class="token keyword">else</span><span class="token punctuation">:</span>
+				<span class="token keyword">return</span> <span class="token punctuation">(</span>n<span class="token operator">*</span>factorial<span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+ans <span class="token operator">=</span> factorial<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/prime-arrangements/">1175. Prime Arrangements</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/using-else-conditional-statement-with-for-loop-in-python/">Using else conditional statement with for loop in python</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -282,7 +324,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2020/12/23/Daily-English/" title="Pick-Up Au English">http://hexuanweng.github.io/2020/12/23/Daily-English/</a>
+    <a href="http://hexuanweng.github.io/2022/06/30/LC1175PrimeArrangements/" title="LC1175 - Prime Arrangements">http://hexuanweng.github.io/2022/06/30/LC1175PrimeArrangements/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -294,7 +336,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Daily-English/" rel="tag"><i class="fa fa-tag"> Daily English</i> </a>
+              <a href="/tags/easy/" rel="tag"><i class="fa fa-tag"> easy</i> </a>
+              <a href="/tags/Math/" rel="tag"><i class="fa fa-tag"> Math</i> </a>
           </div>
 
         
@@ -302,13 +345,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/12/23/SVM-Concept/" rel="prev" title="Support Vector Machines Main Idea">
-      <i class="fa fa-chevron-left"></i> Support Vector Machines Main Idea
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/12/22/Machine-Learning/" rel="next" title="Machine Learning Foundation Concept">
-      Machine Learning Foundation Concept <i class="fa fa-chevron-right"></i>
+    <a href="/2022/06/29/LC535EndoceandDecodeTinyURL/" rel="next" title="LC535 - Encode and Decode TinyURL">
+      LC535 - Encode and Decode TinyURL <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -369,7 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abbrevisation-for-%E2%80%A6"><span class="nav-text">Abbrevisation for …</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expressions"><span class="nav-text">Expressions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Australian-colloquial"><span class="nav-text">Australian colloquial</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-find-prime-numbers-in-a-range"><span class="nav-text">How to find prime numbers in a range</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Factorial"><span class="nav-text">Factorial</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-Loop"><span class="nav-text">For Loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reduce-Function"><span class="nav-text">Reduce Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion"><span class="nav-text">Recursion</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -547,7 +587,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : '60bc9ba8a4713145c96c8eaf4c8380b3',
+      id          : '5c8d266b15d13b4e7f3aaab2c21efc08',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
