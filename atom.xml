@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-06-30T01:20:58.418Z</updated>
+  <updated>2022-07-02T14:13:41.986Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC871 - Minimum Number of Refueling Stops</title>
+    <link href="http://hexuanweng.github.io/2022/07/03/LC871MinimumNumberofRefuelingStops/"/>
+    <id>http://hexuanweng.github.io/2022/07/03/LC871MinimumNumberofRefuelingStops/</id>
+    <published>2022-07-02T14:04:58.000Z</published>
+    <updated>2022-07-02T14:13:41.986Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A car travels from a starting position to a destination which is target miles east of the starting position.<br>There are gas stations along the way. The gas stations are represented as an array stations where stations[i] = [positioni, fueli] indicates that the ith gas station is positioni miles east of the starting position and has fueli liters of gas.<br>The car starts with an infinite tank of gas, which initially has startFuel liters of fuel in it. It uses one liter of gas per one mile that it drives. When the car reaches a gas station, it may stop and refuel, transferring all the gas from the station into the car.<br>Return the minimum number of refueling stops the car must make in order to reach its destination. If it cannot reach the destination, return -1.<br>Note that if the car reaches a gas station with 0 fuel left, the car can still refuel there. If the car reaches the destination with 0 fuel left, it is still considered to have arrived.</p><p>Example 1:<br>Input: target = 1, startFuel = 1, stations = []<br>Output: 0<br>Explanation: We can reach the target without refueling.</p><p>Example 2:<br>Input: target = 100, startFuel = 1, stations = [[10,100]]<br>Output: -1<br>Explanation: We can not reach the target (or even the first gas station).</p><p>Example 3:<br>Input: target = 100, startFuel = 10, stations = [[10,60],[20,30],[30,30],[60,40]]<br>Output: 2<br>Explanation: We start with 10 liters of fuel.<br>We drive to position 10, expending 10 liters of fuel.  We refuel from 0 liters to 60 liters of gas.<br>Then, we drive from position 10 to position 60 (expending 50 liters of fuel),<br>and refuel from 10 liters to 50 liters of gas.  We then drive to and reach the target.<br>We made 2 refueling stops along the way, so we return 2.</p><p>Constraints:<br>1 &lt;= target, startFuel &lt;= 109<br>0 &lt;= stations.length &lt;= 500<br>0 &lt;= positioni &lt;= positioni+1 &lt; target<br>1 &lt;= fueli &lt; 109</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>You can think of passing the gas station equivalent as an opportunity to refuel at any time<br>The problem is transformed into when the gas in the car is 0, select the largest gas station (implemented with a large top stack) from the gas stations that have passed by to achieve the goal of passing the least gas station<br>Unreachable if oil is 0 and the big top stack is empty and the current position is not at the target point</p><p>Heapify in python is the smallest heap stored, so store negative numbers when storing, and then add a negative sign when fetching</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">minRefuelStops</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> startFuel<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> stations<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        ans <span class="token operator">=</span> <span class="token number">0</span>        curFuel <span class="token operator">=</span> startFuel        heap <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>        stations<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>target<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>                <span class="token keyword">for</span> distance<span class="token punctuation">,</span> fuel <span class="token keyword">in</span> stations<span class="token punctuation">:</span>            <span class="token keyword">while</span> curFuel <span class="token operator">&lt;</span> distance<span class="token punctuation">:</span>                <span class="token keyword">if</span> <span class="token keyword">not</span> heap<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>                curFuel <span class="token operator">+=</span> <span class="token operator">-</span>heappop<span class="token punctuation">(</span>heap<span class="token punctuation">)</span>                ans<span class="token operator">+=</span><span class="token number">1</span>            heappush<span class="token punctuation">(</span>heap<span class="token punctuation">,</span> <span class="token operator">-</span>fuel<span class="token punctuation">)</span>                    <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/minimum-number-of-refueling-stops/">871. Minimum Number of Refueling Stops</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Leedcode: 147/2658 (58+70+19)</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC800-899" scheme="http://hexuanweng.github.io/categories/Leetcode/LC800-899/"/>
+    
+    
+    <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
+    
+    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
+    
+    <category term="Heap" scheme="http://hexuanweng.github.io/tags/Heap/"/>
+    
+  </entry>
   
   <entry>
     <title>LC1175 - Prime Arrangements</title>
@@ -160,9 +187,9 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
-    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
     
@@ -214,11 +241,11 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
-    
     <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
+    
+    <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
     
   </entry>
   
@@ -496,33 +523,6 @@
     <category term="Sorting" scheme="http://hexuanweng.github.io/tags/Sorting/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC498 - Diagonal Traverse</title>
-    <link href="http://hexuanweng.github.io/2022/06/14/LC498DiagonalTraverse/"/>
-    <id>http://hexuanweng.github.io/2022/06/14/LC498DiagonalTraverse/</id>
-    <published>2022-06-14T02:16:08.000Z</published>
-    <updated>2022-06-14T03:36:35.756Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.</p><p>Example 1:</p><p>Input: mat = [[1,2,3],[4,5,6],[7,8,9]]<br>Output: [1,2,4,7,5,3,6,8,9]<br>Example 2:</p><p>Input: mat = [[1,2],[3,4]]<br>Output: [1,2,3,4]</p><p>Constraints:</p><p>m == mat.length<br>n == mat[i].length<br>1 &lt;= m, n &lt;= 104<br>1 &lt;= m * n &lt;= 104<br>-105 &lt;= mat[i][j] &lt;= 105</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Assuming n = row, m = column, the current point is (i,j), since each traversal is on the line i+j=z, so write (i,z-i), z is from 0 to m+n-2</p><p>Use i to traverse, the point of each traversal is (i, z-i), there are two inequalities<br><strong>0&lt;=i&lt;=n-1</strong><br><strong>0&lt;=z-i&lt;=m-1, that is, z-m+1&lt;=i&lt;=z</strong></p><p>So the lower bound is: max(0,z-m+1)<br>The upper bound is: min(n-1,z)</p><p>Then traverse from the upper bound to the lower bound, and from the next to the upper bound, and both the upper and lower bounds can be obtained.</p><img src="/2022/06/14/LC498DiagonalTraverse/diagonal.png" class="" title="diagonal"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(nm) time | O(n) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">findDiagonalOrder</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mat<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>        row <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mat<span class="token punctuation">)</span>        col <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>mat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token comment"># 0: bottom to top, 1: top to bottom</span>        direction <span class="token operator">=</span> <span class="token number">0</span>         res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>        <span class="token keyword">for</span> line <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>row<span class="token operator">+</span>col<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> direction<span class="token punctuation">:</span>                <span class="token keyword">for</span> item <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> line <span class="token operator">-</span> col <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">min</span><span class="token punctuation">(</span>row<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mat<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">[</span>line<span class="token operator">-</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span>                direction <span class="token operator">=</span> <span class="token number">0</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                <span class="token keyword">for</span> item <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">min</span><span class="token punctuation">(</span>row<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> line<span class="token operator">-</span>col<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mat<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">[</span>line<span class="token operator">-</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span>                direction <span class="token operator">=</span> <span class="token number">1</span>        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/diagonal-traverse/">498. Diagonal Traverse</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/diagonal-traverse/discuss/2149383/HexPython-Math-Simulation">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 129/2658 (53+62+14)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC400-499" scheme="http://hexuanweng.github.io/categories/Leetcode/LC400-499/"/>
-    
-    
-    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
-    
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
-    <category term="Math" scheme="http://hexuanweng.github.io/tags/Math/"/>
     
   </entry>
   
