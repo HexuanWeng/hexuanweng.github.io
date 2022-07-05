@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-05T10:30:44.907Z</updated>
+  <updated>2022-07-05T10:36:56.025Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>LC1765MapofHighestPeak</title>
+    <title>LC1765 - Map of Highest Peak</title>
     <link href="http://hexuanweng.github.io/2022/07/05/LC1765MapofHighestPeak/"/>
     <id>http://hexuanweng.github.io/2022/07/05/LC1765MapofHighestPeak/</id>
     <published>2022-07-05T10:21:34.000Z</published>
-    <updated>2022-07-05T10:30:44.907Z</updated>
+    <updated>2022-07-05T10:36:56.025Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an integer matrix isWater of size m x n that represents a map of land and water cells.<br>If isWater[i][j] == 0, cell (i, j) is a land cell.<br>If isWater[i][j] == 1, cell (i, j) is a water cell.<br>You must assign each cell a height in a way that follows these rules:<br>The height of each cell must be non-negative.<br>If the cell is a water cell, its height must be 0.<br>Any two adjacent cells must have an absolute height difference of at most 1. A cell is adjacent to another cell if the former is directly north, east, south, or west of the latter (i.e., their sides are touching).<br>Find an assignment of heights such that the maximum height in the matrix is maximized.<br>Return an integer matrix height of size m x n where height[i][j] is cell (i, j)’s height. If there are multiple solutions, return any of them.</p><p>Example 1:</p><img src="/2022/07/05/LC1765MapofHighestPeak/example1.png" class="" title="example1"><p>Input: isWater = [[0,1],[0,0]]<br>Output: [[1,0],[2,1]]<br>Explanation: The image shows the assigned heights of each cell.<br>The blue cell is the water cell, and the green cells are the land cells.</p><p>Example 2:</p><img src="/2022/07/05/LC1765MapofHighestPeak/example2.png" class="" title="example2"><p>Input: isWater = [[0,0,1],[1,0,0],[0,0,0]]<br>Output: [[1,1,0],[0,1,1],[1,2,2]]<br>Explanation: A height of 2 is the maximum possible height of any assignment.<br>Any height assignment that has a maximum height of 2 while still meeting the rules will also be accepted.</p><p>Constraints:<br>m == isWater.length<br>n == isWater[i].length<br>1 &lt;= m, n &lt;= 1000<br>isWater[i][j] is 0 or 1.<br>There is at least one water cell.</p><h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ol><li>First store the iswater value of 1 (water area) in the queue</li><li>Perform a breadth-first search on the queue</li></ol><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(mn) time | O(mn) space</span><span class="token keyword">from</span> collections <span class="token keyword">import</span> deque<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">highestPeak</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> isWater<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>        m<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>isWater<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>isWater<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>val <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">for</span> val <span class="token keyword">in</span> row<span class="token punctuation">]</span> <span class="token keyword">for</span> row <span class="token keyword">in</span> isWater<span class="token punctuation">]</span>        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token comment"># store all the water area into the queue</span>        <span class="token keyword">for</span> row <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">for</span> col <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token keyword">if</span> isWater<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>row<span class="token punctuation">,</span> col<span class="token punctuation">)</span><span class="token punctuation">)</span>                <span class="token comment"># bfs</span>        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>            r<span class="token punctuation">,</span> c <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>            <span class="token keyword">for</span> dx<span class="token punctuation">,</span> dy <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                nx<span class="token punctuation">,</span> ny <span class="token operator">=</span> r<span class="token operator">+</span>dx<span class="token punctuation">,</span> c<span class="token operator">+</span>dy                <span class="token keyword">if</span> <span class="token number">0</span><span class="token operator">&lt;=</span> nx <span class="token operator">&lt;</span> m <span class="token keyword">and</span> <span class="token number">0</span> <span class="token operator">&lt;=</span> ny <span class="token operator">&lt;</span> n <span class="token keyword">and</span> ans<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>                    ans<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">=</span> ans<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>nx<span class="token punctuation">,</span>ny<span class="token punctuation">)</span><span class="token punctuation">)</span>        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/map-of-highest-peak/">1765. Map of Highest Peak</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
     
@@ -35,9 +35,9 @@
     <category term="LC1600-1799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1600-1799/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -237,9 +237,9 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
     
@@ -264,9 +264,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -291,9 +291,9 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
-    
     <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
+    
+    <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
@@ -320,9 +320,9 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
-    
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
+    
+    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
     
   </entry>
   
@@ -368,9 +368,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
