@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-05T10:36:56.025Z</updated>
+  <updated>2022-07-06T12:02:33.818Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC1162 - as Far From Land as Possible</title>
+    <link href="http://hexuanweng.github.io/2022/07/06/LC1162AsFarFromLandAsPossible/"/>
+    <id>http://hexuanweng.github.io/2022/07/06/LC1162AsFarFromLandAsPossible/</id>
+    <published>2022-07-06T11:56:14.000Z</published>
+    <updated>2022-07-06T12:02:33.818Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an n x n grid containing only values 0 and 1, where 0 represents water and 1 represents land, find a water cell such that its distance to the nearest land cell is maximized, and return the distance. If no land or water exists in the grid, return -1.<br>The distance used in this problem is the Manhattan distance: the distance between two cells (x0, y0) and (x1, y1) is |x0 - x1| + |y0 - y1|.</p><p>Example 1:</p><img src="/2022/07/06/LC1162AsFarFromLandAsPossible/example1.png" class="" title="example1"><p>Input: grid = [[1,0,1],[0,0,0],[1,0,1]]<br>Output: 2<br>Explanation: The cell (1, 1) is as far as possible from all the land with distance 2.</p><p>Example 2:</p><img src="/2022/07/06/LC1162AsFarFromLandAsPossible/example2.png" class="" title="example2"><p>Input: grid = [[1,0,0],[0,0,0],[0,0,0]]<br>Output: 4<br>Explanation: The cell (2, 2) is as far as possible from all the land with distance 4.</p><p>Constraints:<br>n == grid.length<br>n == grid[i].length<br>1 &lt;= n &lt;= 100<br>grid[i][j] is 0 or 1</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This question can be done using the multi-source breadth-first search method I did yesterday</p><ol><li>First save the coordinates of the current land to the queue</li><li>Then start the breadth-first search through these coordinates</li><li>In the process of traversing, the distance should be reduced by 1</li></ol><p>Note: because if it is all land or all water, it returns -1</p><img src="/2022/07/06/LC1162AsFarFromLandAsPossible/bfs.png" class="" title="bfs"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n^2) space </span><span class="token keyword">from</span> collections <span class="token keyword">import</span> deque<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">maxDistance</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> grid<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        n <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">)</span>        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token keyword">for</span> r <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">for</span> c <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token keyword">if</span> grid<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span>        maxi <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>            row<span class="token punctuation">,</span> col <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>            <span class="token keyword">for</span> dx<span class="token punctuation">,</span> dy <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                nx<span class="token punctuation">,</span> ny <span class="token operator">=</span> row<span class="token operator">+</span>dx<span class="token punctuation">,</span> col<span class="token operator">+</span>dy                <span class="token keyword">if</span> <span class="token number">0</span><span class="token operator">&lt;=</span> nx <span class="token operator">&lt;</span> n <span class="token keyword">and</span> <span class="token number">0</span><span class="token operator">&lt;=</span>ny<span class="token operator">&lt;</span>n <span class="token keyword">and</span> grid<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                    grid<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">=</span> grid<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token number">1</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>nx<span class="token punctuation">,</span>ny<span class="token punctuation">)</span><span class="token punctuation">)</span>                    <span class="token keyword">if</span> grid<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">></span> maxi<span class="token punctuation">:</span>                        maxi <span class="token operator">=</span> grid<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">-</span><span class="token number">1</span>        <span class="token keyword">return</span> maxi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/as-far-from-land-as-possible/">1162. As Far from Land as Possible</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/map-of-highest-peak/">1765. Map of Highest Peak</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;"><a href="https://hexuanweng.github.io/2022/07/05/LC1765MapofHighestPeak/">1765. Solutions</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Leedcode: 149/2658 (59+71+19)</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC1100-1199" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1100-1199/"/>
+    
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
+    
+  </entry>
   
   <entry>
     <title>LC1765 - Map of Highest Peak</title>
@@ -320,9 +345,9 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
-    
     <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
+    
+    <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
   </entry>
   
@@ -393,9 +418,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
@@ -496,31 +521,6 @@
     <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC303 - Range Sum Quey - Immutable</title>
-    <link href="http://hexuanweng.github.io/2022/06/16/LC303RangeSumQuey-Immutable/"/>
-    <id>http://hexuanweng.github.io/2022/06/16/LC303RangeSumQuey-Immutable/</id>
-    <published>2022-06-16T01:38:35.000Z</published>
-    <updated>2022-06-16T02:19:58.611Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an integer array nums, handle multiple queries of the following type:</p><p>Calculate the sum of the elements of nums between indices left and right inclusive where left &lt;= right.<br>Implement the NumArray class:</p><p>NumArray(int[] nums) Initializes the object with the integer array nums.<br>int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + … + nums[right]).</p><p>Example 1:</p><p>Input<br>[“NumArray”, “sumRange”, “sumRange”, “sumRange”]<br>[[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]<br>Output<br>[null, 1, -1, -3]</p><p>Explanation<br>NumArray numArray = new NumArray([-2, 0, 3, -5, 2, -1]);<br>numArray.sumRange(0, 2); // return (-2) + 0 + 3 = 1<br>numArray.sumRange(2, 5); // return 3 + (-5) + 2 + (-1) = -1<br>numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3</p><p>Constraints:</p><p>1 &lt;= nums.length &lt;= 104<br>-105 &lt;= nums[i] &lt;= 105<br>0 &lt;= left &lt;= right &lt; nums.length<br>At most 104 calls will be made to sumRange.</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Basic Prefix sum problem<br>Many other prefix sum problems can be solved according to this logic</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">NumArray</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        self<span class="token punctuation">.</span>summ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>        <span class="token keyword">for</span> i <span class="token keyword">in</span> nums<span class="token punctuation">:</span>            self<span class="token punctuation">.</span>summ<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> i<span class="token punctuation">)</span>    <span class="token keyword">def</span> <span class="token function">sumRange</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> left<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> right<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        <span class="token keyword">return</span> self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span>right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> self<span class="token punctuation">.</span>summ<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token comment"># Your NumArray object will be instantiated and called as such:</span><span class="token comment"># obj = NumArray(nums)</span><span class="token comment"># param_1 = obj.sumRange(left,right)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/range-sum-query-immutable/">303. Range Sum Query - Immutable</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/range-sum-query-immutable/discuss/2156748/HexPrefix-Sum">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 132/2658 (55+63+14)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC300-399" scheme="http://hexuanweng.github.io/categories/Leetcode/LC300-399/"/>
-    
-    
-    <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
-    
-    <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
     
   </entry>
   
