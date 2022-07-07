@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-07T01:03:46.190Z</updated>
+  <updated>2022-07-07T01:08:35.365Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>LC648 - ReplaceWords</title>
+    <title>LC648 - Replace Words</title>
     <link href="http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/"/>
     <id>http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/</id>
     <published>2022-07-07T00:57:48.000Z</published>
-    <updated>2022-07-07T01:03:46.190Z</updated>
+    <updated>2022-07-07T01:08:35.365Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>In English, we have a concept called root, which can be followed by some other word to form another longer word - let’s call this word successor. For example, when the root “an” is followed by the successor word “other”, we can form a new word “another”.<br>Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the successors in the sentence with the root forming it. If a successor can be replaced by more than one root, replace it with the root that has the shortest length.<br>Return the sentence after the replacement.</p><p>Example 1:<br>Input: dictionary = [“cat”,”bat”,”rat”], sentence = “the cattle was rattled by the battery”<br>Output: “the cat was rat by the bat”</p><p>Example 2:<br>Input: dictionary = [“a”,”b”,”c”], sentence = “aadsfasf absbs bbab cadsfafs”<br>Output: “a a b c”</p><p>Constraints:<br>1 &lt;= dictionary.length &lt;= 1000<br>1 &lt;= dictionary[i].length &lt;= 100<br>dictionary[i] consists of only lower-case letters.<br>1 &lt;= sentence.length &lt;= 106<br>sentence consists of only lower-case letters and spaces.<br>The number of words in sentence is in the range [1, 1000]<br>The length of each word in sentence is in the range [1, 1000]<br>Every two consecutive words in sentence will be separated by exactly one space.<br>sentence does not have leading or trailing spaces.</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol><li>Put all the words in the dictionary into the hash set (<strong>word in dictionary</strong> is faster in the hash set, if it is a list, it will require O(n) complexity)</li><li>Split the sentence into several words according to spaces</li><li>Traverse each word, if the current word appears in the hash set, replace the word and break the loop</li></ol><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">replaceWords</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> dictionary<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sentence<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>        words <span class="token operator">=</span> sentence<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>        dictionary <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>dictionary<span class="token punctuation">)</span>        <span class="token keyword">for</span> w <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token keyword">if</span> words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span> <span class="token keyword">in</span> dictionary<span class="token punctuation">:</span>                    words<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span>                    <span class="token keyword">break</span>        <span class="token keyword">return</span> <span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token comment">#Runtime: 206 ms, faster than 52.69% of Python3 online submissions for Replace Words.</span><span class="token comment">#Memory Usage: 18.3 MB, less than 98.64% of Python3 online submissions for Replace Words.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>To-do: Trie </p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/replace-words/">648. Replace Words</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
     
@@ -60,9 +60,9 @@
     <category term="LC1100-1199" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1100-1199/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
@@ -85,9 +85,9 @@
     <category term="LC1600-1799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1600-1799/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
@@ -287,9 +287,9 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
-    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
     
@@ -314,9 +314,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
@@ -339,9 +339,9 @@
     <category term="LC00-99" scheme="http://hexuanweng.github.io/categories/Leetcode/LC00-99/"/>
     
     
-    <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
-    
     <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
+    
+    <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
@@ -368,9 +368,9 @@
     <category term="LC1500-1599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1500-1599/"/>
     
     
-    <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
-    
     <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
+    
+    <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
@@ -418,9 +418,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
@@ -443,9 +443,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
     
   </entry>
   
