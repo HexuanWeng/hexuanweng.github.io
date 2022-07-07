@@ -22,23 +22,21 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Leedcode: 121&#x2F;2658 (52+56+13)">
+  <meta name="description" content="Leedcode: 151&#x2F;2658 (59+73+19)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC497 - Random Pointin Non-Overlapping Rectangles">
-<meta property="og:url" content="http://hexuanweng.github.io/2022/06/10/LC497RandomPointinNon-overlappingRectangles/index.html">
+<meta property="og:title" content="LC648 - ReplaceWords">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Leedcode: 121&#x2F;2658 (52+56+13)">
+<meta property="og:description" content="Leedcode: 151&#x2F;2658 (59+73+19)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://hexuanweng.github.io/2022/06/10/LC497RandomPointinNon-overlappingRectangles/lc-pickrandomrec.jpg">
-<meta property="article:published_time" content="2022-06-10T01:53:32.000Z">
-<meta property="article:modified_time" content="2022-06-10T03:46:58.409Z">
+<meta property="article:published_time" content="2022-07-07T00:57:48.000Z">
+<meta property="article:modified_time" content="2022-07-07T01:03:11.970Z">
 <meta property="article:author" content="Hexuan Weng">
-<meta property="article:tag" content="Prefix Sum">
 <meta property="article:tag" content="medium">
+<meta property="article:tag" content="Hashmap">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hexuanweng.github.io/2022/06/10/LC497RandomPointinNon-overlappingRectangles/lc-pickrandomrec.jpg">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2022/06/10/LC497RandomPointinNon-overlappingRectangles/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/">
 
 
 <script id="page-configurations">
@@ -51,7 +49,7 @@
   };
 </script>
 
-  <title>LC497 - Random Pointin Non-Overlapping Rectangles | Hex.*</title>
+  <title>LC648 - ReplaceWords | Hex.*</title>
   
 
 
@@ -192,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/10/LC497RandomPointinNon-overlappingRectangles/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -205,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC497 - Random Pointin Non-Overlapping Rectangles
+          LC648 - ReplaceWords
         </h1>
 
         <div class="post-meta">
@@ -216,7 +214,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-06-10 11:53:32 / Modified: 13:46:58" itemprop="dateCreated datePublished" datetime="2022-06-10T11:53:32+10:00">2022-06-10</time>
+              <time title="Created: 2022-07-07 10:57:48 / Modified: 11:03:11" itemprop="dateCreated datePublished" datetime="2022-07-07T10:57:48+10:00">2022-07-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,12 +226,12 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/LC400-499/" itemprop="url" rel="index"><span itemprop="name">LC400-499</span></a>
+                  <a href="/categories/Leetcode/LC600-699/" itemprop="url" rel="index"><span itemprop="name">LC600-699</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Leedcode: 121/2658 (52+56+13)</div>
+            <div class="post-description">Leedcode: 151/2658 (59+73+19)</div>
 
         </div>
       </header>
@@ -244,43 +242,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array of non-overlapping axis-aligned rectangles rects where rects[i] = [ai, bi, xi, yi] indicates that (ai, bi) is the bottom-left corner point of the ith rectangle and (xi, yi) is the top-right corner point of the ith rectangle. Design an algorithm to pick a random integer point inside the space covered by one of the given rectangles. A point on the perimeter of a rectangle is included in the space covered by the rectangle.</p>
-<p>Any integer point inside the space covered by one of the given rectangles should be equally likely to be returned.</p>
-<p>Note that an integer point is a point that has integer coordinates.</p>
-<p>Implement the Solution class:</p>
-<p>Solution(int[][] rects) Initializes the object with the given rectangles rects.<br>int[] pick() Returns a random integer point [u, v] inside the space covered by one of the given rectangles.</p>
-<img src="/2022/06/10/LC497RandomPointinNon-overlappingRectangles/lc-pickrandomrec.jpg" class="" title="lc-pickrandomrec">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>In English, we have a concept called root, which can be followed by some other word to form another longer word - let’s call this word successor. For example, when the root “an” is followed by the successor word “other”, we can form a new word “another”.<br>Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the successors in the sentence with the root forming it. If a successor can be replaced by more than one root, replace it with the root that has the shortest length.<br>Return the sentence after the replacement.</p>
+<p>Example 1:<br>Input: dictionary = [“cat”,”bat”,”rat”], sentence = “the cattle was rattled by the battery”<br>Output: “the cat was rat by the bat”</p>
+<p>Example 2:<br>Input: dictionary = [“a”,”b”,”c”], sentence = “aadsfasf absbs bbab cadsfafs”<br>Output: “a a b c”</p>
+<p>Constraints:<br>1 &lt;= dictionary.length &lt;= 1000<br>1 &lt;= dictionary[i].length &lt;= 100<br>dictionary[i] consists of only lower-case letters.<br>1 &lt;= sentence.length &lt;= 106<br>sentence consists of only lower-case letters and spaces.<br>The number of words in sentence is in the range [1, 1000]<br>The length of each word in sentence is in the range [1, 1000]<br>Every two consecutive words in sentence will be separated by exactly one space.<br>sentence does not have leading or trailing spaces.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>Put all the words in the dictionary into the hash set (<strong>word in dictionary</strong> is faster in the hash set, if it is a list, it will require O(n) complexity)</li>
+<li>Split the sentence into several words according to spaces</li>
+<li>Traverse each word, if the current word appears in the hash set, replace the word and break the loop</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n) space</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">replaceWords</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> dictionary<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sentence<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        words <span class="token operator">=</span> sentence<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        dictionary <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>dictionary<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> w <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span> <span class="token keyword">in</span> dictionary<span class="token punctuation">:</span>
+                    words<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span>
+                    <span class="token keyword">break</span>
+        <span class="token keyword">return</span> <span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>words<span class="token punctuation">)</span>
 
-<p>Example 1:</p>
-<p>Input<br>[“Solution”, “pick”, “pick”, “pick”, “pick”, “pick”]<br>[[[[-2, -2, 1, 1], [2, 2, 4, 6]]], [], [], [], [], []]<br>Output<br>[null, [1, -2], [1, -1], [-1, -2], [-2, -2], [0, 0]]</p>
-<p>Explanation<br>Solution solution = new Solution([[-2, -2, 1, 1], [2, 2, 4, 6]]);<br>solution.pick(); // return [1, -2]<br>solution.pick(); // return [1, -1]<br>solution.pick(); // return [-1, -2]<br>solution.pick(); // return [-2, -2]<br>solution.pick(); // return [0, 0]</p>
-<p>Constraints:</p>
-<p>1 &lt;= rects.length &lt;= 100<br>rects[i].length == 4<br>-109 &lt;= ai &lt; xi &lt;= 109<br>-109 &lt;= bi &lt; yi &lt;= 109<br>xi - ai &lt;= 2000<br>yi - bi &lt;= 2000<br>All the rectangles do not overlap.<br>At most 104 calls will be made to pick.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
-<li>Calculate prefixes and arrays.</li>
-<li>The last bit in the prefix sum array stores the total number of coordinate points at this time, so we choose a random number within this range.</li>
-<li>See which interval the number is in the prefix and array, each interval represents a different rectangle. Since their weights are different, the subscript of each rectangle is selected according to its prefix and the number in the array. As shown in the figure below, the probability of selecting rectangle one is 9/37, the probability of selecting rectangle two is 12/37, and the probability of selecting square three is 16/37.</li>
-<li>When a rectangle has been selected fairly after the above process is completed, we then randomly return a point in its rectangle according to the method in step disassembly</li>
-</ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+<span class="token comment">#Runtime: 206 ms, faster than 52.69% of Python3 online submissions for Replace Words.</span>
+<span class="token comment">#Memory Usage: 18.3 MB, less than 98.64% of Python3 online submissions for Replace Words.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> rects<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>rects <span class="token operator">=</span> rects
-        self<span class="token punctuation">.</span>presum <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> ai<span class="token punctuation">,</span> bi<span class="token punctuation">,</span> xi<span class="token punctuation">,</span> yi <span class="token keyword">in</span> rects<span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>presum<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>presum<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">(</span>xi<span class="token operator">-</span>ai<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>yi<span class="token operator">-</span>bi<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    <span class="token keyword">def</span> <span class="token function">pick</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        val <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>presum<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        idx <span class="token operator">=</span> bisect<span class="token punctuation">.</span>bisect_left<span class="token punctuation">(</span>self<span class="token punctuation">.</span>presum<span class="token punctuation">,</span> val<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span>
-        ai<span class="token punctuation">,</span> bi<span class="token punctuation">,</span> xi<span class="token punctuation">,</span> yi <span class="token operator">=</span> self<span class="token punctuation">.</span>rects<span class="token punctuation">[</span>idx<span class="token punctuation">]</span>
-        <span class="token keyword">return</span> <span class="token punctuation">[</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>ai<span class="token punctuation">,</span> xi<span class="token punctuation">)</span><span class="token punctuation">,</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>bi<span class="token punctuation">,</span> yi<span class="token punctuation">)</span><span class="token punctuation">]</span>
 
-<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
-<span class="token comment"># obj = Solution(rects)</span>
-<span class="token comment"># param_1 = obj.pick()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/">497. Random Point in Non-overlapping Rectangles</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/discuss/2133116/HexPython-Prefix-Sum">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/replace-words/">648. Replace Words</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -295,7 +284,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2022/06/10/LC497RandomPointinNon-overlappingRectangles/" title="LC497 - Random Pointin Non-Overlapping Rectangles">http://hexuanweng.github.io/2022/06/10/LC497RandomPointinNon-overlappingRectangles/</a>
+    <a href="http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/" title="LC648 - ReplaceWords">http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -307,8 +296,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Prefix-Sum/" rel="tag"><i class="fa fa-tag"> Prefix Sum</i> </a>
               <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
+              <a href="/tags/Hashmap/" rel="tag"><i class="fa fa-tag"> Hashmap</i> </a>
           </div>
 
         
@@ -316,13 +305,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/06/10/LC209MinimumSizeSubarraySum/" rel="prev" title="LC209 - Minimum Size Subarray Sum">
-      <i class="fa fa-chevron-left"></i> LC209 - Minimum Size Subarray Sum
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/08/LC1037ValidBoomerang/" rel="next" title="LC1037 - Valid Boomerang">
-      LC1037 - Valid Boomerang <i class="fa fa-chevron-right"></i>
+    <a href="/2022/07/06/LC1162AsFarFromLandAsPossible/" rel="next" title="LC1162 - as Far From Land as Possible">
+      LC1162 - as Far From Land as Possible <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -561,7 +547,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : 'e56e4bf908dd95bdd5565a1c38efed6a',
+      id          : '64dc2fe16a7e4597105cefd35bc9c8e3',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });

@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-06T13:21:32.773Z</updated>
+  <updated>2022-07-07T01:03:11.970Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC648 - ReplaceWords</title>
+    <link href="http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/"/>
+    <id>http://hexuanweng.github.io/2022/07/07/LC648ReplaceWords/</id>
+    <published>2022-07-07T00:57:48.000Z</published>
+    <updated>2022-07-07T01:03:11.970Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>In English, we have a concept called root, which can be followed by some other word to form another longer word - let’s call this word successor. For example, when the root “an” is followed by the successor word “other”, we can form a new word “another”.<br>Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the successors in the sentence with the root forming it. If a successor can be replaced by more than one root, replace it with the root that has the shortest length.<br>Return the sentence after the replacement.</p><p>Example 1:<br>Input: dictionary = [“cat”,”bat”,”rat”], sentence = “the cattle was rattled by the battery”<br>Output: “the cat was rat by the bat”</p><p>Example 2:<br>Input: dictionary = [“a”,”b”,”c”], sentence = “aadsfasf absbs bbab cadsfafs”<br>Output: “a a b c”</p><p>Constraints:<br>1 &lt;= dictionary.length &lt;= 1000<br>1 &lt;= dictionary[i].length &lt;= 100<br>dictionary[i] consists of only lower-case letters.<br>1 &lt;= sentence.length &lt;= 106<br>sentence consists of only lower-case letters and spaces.<br>The number of words in sentence is in the range [1, 1000]<br>The length of each word in sentence is in the range [1, 1000]<br>Every two consecutive words in sentence will be separated by exactly one space.<br>sentence does not have leading or trailing spaces.</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol><li>Put all the words in the dictionary into the hash set (<strong>word in dictionary</strong> is faster in the hash set, if it is a list, it will require O(n) complexity)</li><li>Split the sentence into several words according to spaces</li><li>Traverse each word, if the current word appears in the hash set, replace the word and break the loop</li></ol><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(n) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">replaceWords</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> dictionary<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sentence<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>        words <span class="token operator">=</span> sentence<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>        dictionary <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>dictionary<span class="token punctuation">)</span>        <span class="token keyword">for</span> w <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token keyword">if</span> words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span> <span class="token keyword">in</span> dictionary<span class="token punctuation">:</span>                    words<span class="token punctuation">[</span>w<span class="token punctuation">]</span> <span class="token operator">=</span> words<span class="token punctuation">[</span>w<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span>                    <span class="token keyword">break</span>        <span class="token keyword">return</span> <span class="token string">' '</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>words<span class="token punctuation">)</span><span class="token comment">#Runtime: 206 ms, faster than 52.69% of Python3 online submissions for Replace Words.</span><span class="token comment">#Memory Usage: 18.3 MB, less than 98.64% of Python3 online submissions for Replace Words.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/replace-words/">648. Replace Words</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Leedcode: 151/2658 (59+73+19)</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC600-699" scheme="http://hexuanweng.github.io/categories/Leetcode/LC600-699/"/>
+    
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
+    
+  </entry>
   
   <entry>
     <title>LC1162 - as Far From Land as Possible</title>
@@ -262,9 +287,9 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
-    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
     
@@ -318,9 +343,9 @@
     
     <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
     
-    <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
-    
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
+    
+    <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
     
   </entry>
   
@@ -345,9 +370,9 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
-    
     <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
+    
+    <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
   </entry>
   
@@ -494,33 +519,6 @@
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
     <category term="Depth First Search" scheme="http://hexuanweng.github.io/tags/Depth-First-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC1089 - Duplicate Zeros</title>
-    <link href="http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/"/>
-    <id>http://hexuanweng.github.io/2022/06/17/LC1089DuplicateZeros/</id>
-    <published>2022-06-16T23:56:42.000Z</published>
-    <updated>2022-06-17T01:33:09.824Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.</p><p>Note that elements beyond the length of the original array are not written. Do the above modifications to the input array in place and do not return anything.</p><p>Example 1:</p><p>Input: arr = [1,0,2,3,0,4,5,0]<br>Output: [1,0,0,2,3,0,0,4]<br>Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]<br>Example 2:</p><p>Input: arr = [1,2,3]<br>Output: [1,2,3]<br>Explanation: After calling your function, the input array is modified to: [1,2,3]</p><p>Constraints:</p><p>1 &lt;= arr.length &lt;= 104<br>0 &lt;= arr[i] &lt;= 9</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Simulation"><a href="#Simulation" class="headerlink" title="Simulation"></a>Simulation</h3><ul><li><p>A combination of python’s built-in functions pop and insert is used.</p></li><li><p>The time complexity of insert is O(n)</p></li></ul><pre class="line-numbers language-none"><code class="language-none">Lists:                               ComplexityOperation     | Example      | Class         | Notes--------------+--------------+---------------+-------------------------------Index         | l[i]         | O(1)          |Store         | l[i] &#x3D; 0     | O(1)          |Length        | len(l)       | O(1)          |Append        | l.append(5)  | O(1)          |Clear         | l.clear()    | O(1)          | similar to l &#x3D; []Slice         | l[a:b]       | O(b-a)        | l[1:5]:O(l)&#x2F;l[:]:O(len(l)-0)&#x3D;O(N)Extend        | l.extend(...)| O(len(...))   | depends only on len of extensionConstruction  | list(...)    | len(...)      | depends on lenghth of argumentcheck &#x3D;&#x3D;, !&#x3D;  | l1 &#x3D;&#x3D; l2     | O(N)          |Insert        | l[a:b] &#x3D; ... | O(N)          |Delete        | del l[i]     | O(N)          |Remove        | l.remove(...)| O(N)          |Containment   | x in&#x2F;not in l| O(N)          | searches listCopy          | l.copy()     | O(N)          | Same as l[:] which is O(N)Pop           | l.pop(...)   | O(N)          |Pop           | l.pop()      | O(1)          | same as l.pop(-1), popping at endExtreme value | min(l)&#x2F;max(l)| O(N)          |Reverse       | l.reverse()  | O(N)          |Iteration     | for v in l:  | O(N)          |Sort          | l.sort()     | O(N Log N)    | key&#x2F;reverse doesn&#39;t change thisMultiply      | k*l          | O(k N)        | 5*l is O(N): len(l)*l is O(N**2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n^2) time | O(1) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">duplicateZeros</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>        <span class="token triple-quoted-string string">"""        Do not return anything, modify arr in-place instead.        """</span>        idx <span class="token operator">=</span> <span class="token number">0</span>        <span class="token keyword">while</span> idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                arr<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>                arr<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>idx<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>                idx<span class="token operator">+=</span><span class="token number">1</span>            idx<span class="token operator">+=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="Two-Pointers"><a href="#Two-Pointers" class="headerlink" title="Two Pointers"></a>Two Pointers</h3><p>Traverse the number of zeros and the end position of the data,<br>Imagine that each zero is pushed onto the stack twice, and the traversal ends when the stack is as long as the array. Pops elements from the top of the stack in order.</p><p>A pointer left represents the data position (the top of the stack), and a pointer represents the write position (the current write position of the original array)</p><img src="/2022/06/17/LC1089DuplicateZeros/1089_Duplicate_Zeros_5.png" class="" title="1089_Duplicate_Zeros"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">duplicateZeros</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>        <span class="token triple-quoted-string string">"""        Do not return anything, modify arr in-place instead.        """</span>        left <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>        top_idx <span class="token operator">=</span> <span class="token number">0</span>                <span class="token keyword">while</span> top_idx <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>            left<span class="token operator">+=</span><span class="token number">1</span>            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">:</span>                top_idx<span class="token operator">+=</span><span class="token number">1</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                top_idx<span class="token operator">+=</span><span class="token number">2</span>                    right <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span>        <span class="token keyword">if</span> top_idx <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">:</span>            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>            right <span class="token operator">-=</span><span class="token number">1</span>            left <span class="token operator">-=</span><span class="token number">1</span>                <span class="token keyword">while</span> right <span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">:</span>            arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span>            right <span class="token operator">-=</span><span class="token number">1</span>            <span class="token keyword">if</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span>                right <span class="token operator">-=</span><span class="token number">1</span>            left<span class="token operator">-=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/duplicate-zeros/">1089. Duplicate Zeros</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/duplicate-zeros/discuss/2160356/HexPython3-Two-Pointers">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 133/2658 (56+63+14)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC1000-1099" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1000-1099/"/>
-    
-    
-    <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
-    
-    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
-    
-    <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
   </entry>
   
