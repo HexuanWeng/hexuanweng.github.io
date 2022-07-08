@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-07T01:08:35.365Z</updated>
+  <updated>2022-07-08T00:59:33.804Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC1217MinimumCosttoMoveChipstoTheSamePosition</title>
+    <link href="http://hexuanweng.github.io/2022/07/08/LC1217MinimumCosttoMoveChipstoTheSamePosition/"/>
+    <id>http://hexuanweng.github.io/2022/07/08/LC1217MinimumCosttoMoveChipstoTheSamePosition/</id>
+    <published>2022-07-08T00:50:15.000Z</published>
+    <updated>2022-07-08T00:59:33.804Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>We have n chips, where the position of the ith chip is position[i].<br>We need to move all the chips to the same position. In one step, we can change the position of the ith chip from position[i] to:<br>position[i] + 2 or position[i] - 2 with cost = 0.<br>position[i] + 1 or position[i] - 1 with cost = 1.<br>Return the minimum cost needed to move all the chips to the same position.</p><p>Example 1:</p><img src="/2022/07/08/LC1217MinimumCosttoMoveChipstoTheSamePosition/chips_e1.jpg" class="" title="chips_e1"><p>Input: position = [1,2,3]<br>Output: 1<br>Explanation: First step: Move the chip at position 3 to position 1 with cost = 0.<br>Second step: Move the chip at position 2 to position 1 with cost = 1.<br>Total cost is 1.</p><p>Example 2:</p><p>Input: position = [2,2,2,3,3]<br>Output: 2<br>Explanation: We can move the two chips at position  3 to position 2. Each move has cost = 1. The total cost = 2.</p><p>Example 3:<br>Input: position = [1,1000000000]<br>Output: 1 </p><p>Constraints:<br>1 &lt;= position.length &lt;= 100<br>1 &lt;= position[i] &lt;= 10^9</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is a greedy problem, you need to realize that the cost is not related to the specific location, only the parity of the location<br>The cost for each chip move is:</p><ul><li>Move <strong>two locations</strong> with 0 cost</li><li>Moving <strong>one position</strong> has a cost of 1 easy to get: the cost of moving from odd-numbered bits to odd-numbered bits is always 0, and the cost of moving from even-numbered bits to even-numbered bits is always 0.</li></ul><h3 id="Method1"><a href="#Method1" class="headerlink" title="Method1"></a>Method1</h3><p>Use a dictionary to store the number of times the coin appears at each position, then iterate over the dictionary and sum the parity separately.<br>Returns the smaller of two odd and even numbers.</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">minCostToMoveChips</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> position<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        coins <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>        <span class="token keyword">for</span> coin <span class="token keyword">in</span> position<span class="token punctuation">:</span>            <span class="token keyword">if</span> coin <span class="token keyword">not</span> <span class="token keyword">in</span> coins<span class="token punctuation">:</span>                coins<span class="token punctuation">[</span>coin<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                coins<span class="token punctuation">[</span>coin<span class="token punctuation">]</span> <span class="token operator">+=</span><span class="token number">1</span>                odd<span class="token punctuation">,</span> even <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>        <span class="token keyword">for</span> key<span class="token punctuation">,</span> val <span class="token keyword">in</span> coins<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> key <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                even <span class="token operator">+=</span> val            <span class="token keyword">else</span><span class="token punctuation">:</span>                odd <span class="token operator">+=</span> val        <span class="token keyword">return</span> <span class="token builtin">min</span><span class="token punctuation">(</span>even<span class="token punctuation">,</span> odd<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="Optimize-space-complexity"><a href="#Optimize-space-complexity" class="headerlink" title="Optimize space complexity"></a>Optimize space complexity</h3><p>Determine the parity directly when traversing the input, and then add 1 to the result of the parity</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">minCostToMoveChips</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> position<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>                odd<span class="token punctuation">,</span> even <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>        <span class="token keyword">for</span> val <span class="token keyword">in</span> position<span class="token punctuation">:</span>            <span class="token keyword">if</span> val <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                even <span class="token operator">+=</span> <span class="token number">1</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                odd <span class="token operator">+=</span> <span class="token number">1</span>        <span class="token keyword">return</span> <span class="token builtin">min</span><span class="token punctuation">(</span>even<span class="token punctuation">,</span> odd<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="Pythonic-Version"><a href="#Pythonic-Version" class="headerlink" title="Pythonic Version"></a>Pythonic Version</h3><p>Determine if it is odd:</p><ol><li>cur % 2 == 1</li><li>cur &amp; 1</li></ol><h4 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h4><p>It is a bitwise AND operation. In bitwise binary operations, the two numbers in their binary form are processed by their corresponding bits. So 1 is only one bit. It will be compared to last bit of a number. So a&amp;1 will return 1 if last bit of 1 is 1 and zero otherwise.</p><h4 id=""><a href="#" class="headerlink" title=":="></a>:=</h4><p><a href="https://docs.python.org/3/whatsnew/3.8.html#assignment-expressions">starting in Python 3.8</a>, <code>:=</code> is actually a valid operator that allows for assignment of variables within expressions</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">minCostToMoveChips</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> position<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        <span class="token keyword">return</span> <span class="token builtin">min</span><span class="token punctuation">(</span>odds <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>p <span class="token operator">&amp;</span> <span class="token number">1</span> <span class="token keyword">for</span> p <span class="token keyword">in</span> position<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>position<span class="token punctuation">)</span> <span class="token operator">-</span> odds<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/">1217. Minimum Cost to Move Chips to The Same Position</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Leedcode: 152/2658 (59+74+19)</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC1200-1499" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1200-1499/"/>
+    
+    
+    <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
+    
+    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
+    
+  </entry>
   
   <entry>
     <title>LC648 - Replace Words</title>
@@ -60,9 +85,9 @@
     <category term="LC1100-1199" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1100-1199/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -85,9 +110,9 @@
     <category term="LC1600-1799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1600-1799/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -287,9 +312,9 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
     
@@ -314,9 +339,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -339,11 +364,11 @@
     <category term="LC00-99" scheme="http://hexuanweng.github.io/categories/Leetcode/LC00-99/"/>
     
     
-    <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
+    <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
     <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
     
-    <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
+    <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
@@ -368,9 +393,9 @@
     <category term="LC1500-1599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1500-1599/"/>
     
     
-    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
-    
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
+    
+    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
@@ -418,9 +443,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -443,9 +468,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Prefix Sum" scheme="http://hexuanweng.github.io/tags/Prefix-Sum/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
@@ -494,31 +519,6 @@
     <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC508 - Most Frequent SubtreeSum</title>
-    <link href="http://hexuanweng.github.io/2022/06/19/LC508MostFrequentSubtreeSum/"/>
-    <id>http://hexuanweng.github.io/2022/06/19/LC508MostFrequentSubtreeSum/</id>
-    <published>2022-06-19T12:15:46.000Z</published>
-    <updated>2022-06-19T12:23:16.423Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the root of a binary tree, return the most frequent subtree sum. If there is a tie, return all the values with the highest frequency in any order.<br>The subtree sum of a node is defined as the sum of all the node values formed by the subtree rooted at that node (including the node itself).</p><p>Example 1:</p><img src="/2022/06/19/LC508MostFrequentSubtreeSum/freq1-tree.jpg" class="" title="freq1-tree"><p>Input: root = [5,2,-3]<br>Output: [2,-3,4]</p><p>Example 2:</p><img src="/2022/06/19/LC508MostFrequentSubtreeSum/freq1-tree.jpg" class="" title="freq1-tree"><p>Input: root = [5,2,-5]<br>Output: [2]</p><p>Constraints:<br>The number of nodes in the tree is in the range [1, 104].<br>-105 &lt;= Node.val &lt;= 105</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The case means:</p><p>example 1: Input [5,2,-3], then the subtree sum is 5 + 2 - 3 = 4, subtree 2, subtree -3, so the number of occurrences of each is equal, and directly returns [2,- 3,4].</p><p>example 2: Input [5,2,-5], subtree 2, subtree-5, and subtree and 5 + 2 - 5 = 2, so the maximum number of occurrences is 2.</p><ul><li>Traverse Order: left -&gt; right -&gt; root.</li><li>The value of the update root is the sum of the left subtree and right subtree.</li><li>Store the number of occurrences of the sum in the dictionary</li><li>Use max() to find the number with the largest value in the dictionary, traverse the dictionary, store the value and the key of the largest number in ans, and return ans</li></ul><img src="/2022/06/19/LC508MostFrequentSubtreeSum/dfs.png" class="" title="dfs"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span><span class="token comment"># Definition for a binary tree node.</span><span class="token comment"># class TreeNode:</span><span class="token comment">#     def __init__(self, val=0, left=None, right=None):</span><span class="token comment">#         self.val = val</span><span class="token comment">#         self.left = left</span><span class="token comment">#         self.right = right</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">findFrequentTreeSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> TreeNode<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>        summ <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>        self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">,</span> summ<span class="token punctuation">)</span>        maxVal <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>summ<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>        <span class="token keyword">for</span> key<span class="token punctuation">,</span> val <span class="token keyword">in</span> summ<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> val <span class="token operator">==</span> maxVal<span class="token punctuation">:</span>                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>key<span class="token punctuation">)</span>        <span class="token keyword">return</span> ans                <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">,</span> summ<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">if</span> root <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>            <span class="token keyword">return</span>         self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> summ<span class="token punctuation">)</span>        self<span class="token punctuation">.</span>dfs<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> summ<span class="token punctuation">)</span>        <span class="token keyword">if</span> root<span class="token punctuation">.</span>left<span class="token punctuation">:</span>            root<span class="token punctuation">.</span>val <span class="token operator">+=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">.</span>val        <span class="token keyword">if</span> root<span class="token punctuation">.</span>right<span class="token punctuation">:</span>            root<span class="token punctuation">.</span>val <span class="token operator">+=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">.</span>val        <span class="token keyword">if</span> root<span class="token punctuation">.</span>val <span class="token keyword">not</span> <span class="token keyword">in</span> summ<span class="token punctuation">:</span>            summ<span class="token punctuation">[</span>root<span class="token punctuation">.</span>val<span class="token punctuation">]</span> <span class="token operator">=</span><span class="token number">1</span>        <span class="token keyword">else</span><span class="token punctuation">:</span>            summ<span class="token punctuation">[</span>root<span class="token punctuation">.</span>val<span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/most-frequent-subtree-sum/">508. Most Frequent Subtree Sum</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/most-frequent-subtree-sum/discuss/2170382/HexPython-DFS">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 134/2658 (56+64+14)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
-    
-    
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
-    <category term="Depth First Search" scheme="http://hexuanweng.github.io/tags/Depth-First-Search/"/>
     
   </entry>
   
