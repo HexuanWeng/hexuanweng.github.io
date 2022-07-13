@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-12T11:39:46.350Z</updated>
+  <updated>2022-07-13T12:26:06.568Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC735AsteroidCollision</title>
+    <link href="http://hexuanweng.github.io/2022/07/13/LC735AsteroidCollision/"/>
+    <id>http://hexuanweng.github.io/2022/07/13/LC735AsteroidCollision/</id>
+    <published>2022-07-13T12:22:36.000Z</published>
+    <updated>2022-07-13T12:26:06.568Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>We are given an array asteroids of integers representing asteroids in a row.<br>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.<br>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</p><p>Example 1:<br>Input: asteroids = [5,10,-5]<br>Output: [5,10]<br>Explanation: The 10 and -5 collide resulting in 10. The 5 and 10 never collide.</p><p>Example 2:<br>Input: asteroids = [8,-8]<br>Output: []<br>Explanation: The 8 and -8 collide exploding each other.</p><p>Example 3:<br>Input: asteroids = [10,2,-5]<br>Output: [10]<br>Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10.</p><p>Constraints:<br>2 &lt;= asteroids.length &lt;= 104<br>-1000 &lt;= asteroids[i] &lt;= 1000<br>asteroids[i] != 0</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Since collision cancellation always occurs between adjacent planets, we can use “stacks” to simulate this process.</p><p>Process all the ats[i] from the front to the back, and use the stack to store the planets that are not currently offset. When the direction of the top element of the stack is to the right, and the current ats[i]ats[i] direction is to the left, the offset will occur. Operation, the offset process can be carried out according to the rules.</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">asteroidCollision</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> asteroids<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>        <span class="token keyword">for</span> star <span class="token keyword">in</span> asteroids<span class="token punctuation">:</span>            <span class="token keyword">while</span> ans <span class="token keyword">and</span> ans<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">and</span> star <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>                pre<span class="token punctuation">,</span> cur <span class="token operator">=</span> ans<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">-</span>star                <span class="token keyword">if</span> pre <span class="token operator">&lt;=</span> cur<span class="token punctuation">:</span>                    ans<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>                <span class="token keyword">if</span> pre <span class="token operator">>=</span> cur<span class="token punctuation">:</span>                    <span class="token keyword">break</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>star<span class="token punctuation">)</span>        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/asteroid-collision/">735. Asteroid Collision</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Leedcode: 155/2658 (59+76+20)</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
+    
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Stack" scheme="http://hexuanweng.github.io/tags/Stack/"/>
+    
+  </entry>
   
   <entry>
     <title>PyTorch Tutorial - Linear Model</title>
@@ -156,9 +181,9 @@
     <category term="LC1100-1199" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1100-1199/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -181,9 +206,9 @@
     <category term="LC1600-1799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1600-1799/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -383,9 +408,9 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
     
@@ -410,9 +435,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -437,9 +462,9 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
-    
     <category term="Sliding Window" scheme="http://hexuanweng.github.io/tags/Sliding-Window/"/>
+    
+    <category term="Hashmap" scheme="http://hexuanweng.github.io/tags/Hashmap/"/>
     
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
     
@@ -466,9 +491,9 @@
     
     <category term="hard" scheme="http://hexuanweng.github.io/tags/hard/"/>
     
-    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
-    
     <category term="Two Pointers" scheme="http://hexuanweng.github.io/tags/Two-Pointers/"/>
+    
+    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
     
   </entry>
   
@@ -492,31 +517,6 @@
     <category term="video course" scheme="http://hexuanweng.github.io/tags/video-course/"/>
     
     <category term="Kotlin" scheme="http://hexuanweng.github.io/tags/Kotlin/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC513 - Find Bottom Left Tree Value</title>
-    <link href="http://hexuanweng.github.io/2022/06/22/LC513FindBottomLeftTreeValue/"/>
-    <id>http://hexuanweng.github.io/2022/06/22/LC513FindBottomLeftTreeValue/</id>
-    <published>2022-06-21T22:58:37.000Z</published>
-    <updated>2022-06-21T23:52:26.380Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the root of a binary tree, return the leftmost value in the last row of the tree.</p><p>Example 1:</p><img src="/2022/06/22/LC513FindBottomLeftTreeValue/tree1.jpg" class="" title="tree1"><p>Input: root = [2,1,3]<br>Output: 1</p><p>Example 2:</p><img src="/2022/06/22/LC513FindBottomLeftTreeValue/tree2.jpg" class="" title="tree2"><p>Input: root = [1,2,3,4,null,5,6,null,null,7]<br>Output: 7</p><p>Constraints:<br>The number of nodes in the tree is in the range [1, 104].<br>-231 &lt;= Node.val &lt;= 231 - 1</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><ul><li>Traverse the tree from left to right, level by level</li><li>Save the first node of each layer</li><li>The answer saved by traversing to the bottom layer is the value in the lower left corner of the tree</li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(nm) time | O(n) space</span><span class="token comment"># Definition for a binary tree node.</span><span class="token comment"># class TreeNode:</span><span class="token comment">#     def __init__(self, val=0, left=None, right=None):</span><span class="token comment">#         self.val = val</span><span class="token comment">#         self.left = left</span><span class="token comment">#         self.right = right</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">findBottomLeftValue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>TreeNode<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        <span class="token keyword">if</span> root <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>            <span class="token keyword">return</span>         queue <span class="token operator">=</span> <span class="token punctuation">[</span>root<span class="token punctuation">]</span>        ans <span class="token operator">=</span> <span class="token number">0</span>        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>            level_len <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span>            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>level_len<span class="token punctuation">)</span><span class="token punctuation">:</span>                pop_node <span class="token operator">=</span> queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>                <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                    ans <span class="token operator">=</span> pop_node<span class="token punctuation">.</span>val                <span class="token keyword">if</span> pop_node<span class="token punctuation">.</span>left<span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pop_node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>                <span class="token keyword">if</span> pop_node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pop_node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>Traverse the tree from right to left, level by level</li><li>The last node traversed is the leftmost value of the tree</li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span><span class="token comment"># Definition for a binary tree node.</span><span class="token comment"># class TreeNode:</span><span class="token comment">#     def __init__(self, val=0, left=None, right=None):</span><span class="token comment">#         self.val = val</span><span class="token comment">#         self.left = left</span><span class="token comment">#         self.right = right</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">findBottomLeftValue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>TreeNode<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        <span class="token keyword">if</span> root <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>            <span class="token keyword">return</span>         queue <span class="token operator">=</span> <span class="token punctuation">[</span>root<span class="token punctuation">]</span>        ans <span class="token operator">=</span> <span class="token number">0</span>        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>            pop_node <span class="token operator">=</span> queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>            ans <span class="token operator">=</span> pop_node<span class="token punctuation">.</span>val            <span class="token keyword">if</span> pop_node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pop_node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>            <span class="token keyword">if</span> pop_node<span class="token punctuation">.</span>left<span class="token punctuation">:</span>                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pop_node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>        <span class="token keyword">return</span> ans<span class="token comment">#Runtime: 41 ms, faster than 97.73% of Python3 online submissions for Find Bottom Left Tree Value.</span><span class="token comment">#Memory Usage: 16.3 MB, less than 62.72% of Python3 online submissions for Find Bottom Left Tree Value.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-bottom-left-tree-value/">513. Find Bottom Left Tree Value</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-bottom-left-tree-value/discuss/2180416/HexPython-BFS">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 137/2658 (57+66+14)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
-    
-    
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
