@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-17T07:55:44.839Z</updated>
+  <updated>2022-07-17T10:32:01.950Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC565 - Array Nesting</title>
+    <link href="http://hexuanweng.github.io/2022/07/17/LC565ArrayNesting/"/>
+    <id>http://hexuanweng.github.io/2022/07/17/LC565ArrayNesting/</id>
+    <published>2022-07-17T10:23:32.000Z</published>
+    <updated>2022-07-17T10:32:01.950Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an integer array nums of length n where nums is a permutation of the numbers in the range [0, n - 1].<br>You should build a set s[k] = {nums[k], nums[nums[k]], nums[nums[nums[k]]], … } subjected to the following rule:<br>The first element in s[k] starts with the selection of the element nums[k] of index = k.<br>The next element in s[k] should be nums[nums[k]], and then nums[nums[nums[k]]], and so on.<br>We stop adding right before a duplicate element occurs in s[k].<br>Return the longest length of a set s[k].</p><p>Example 1:<br>Input: nums = [5,4,0,3,1,6,2]<br>Output: 4<br>Explanation:<br>nums[0] = 5, nums[1] = 4, nums[2] = 0, nums[3] = 3, nums[4] = 1, nums[5] = 6, nums[6] = 2.<br>One of the longest sets s[k]:<br>s[0] = {nums[0], nums[5], nums[6], nums[2]} = {5, 6, 2, 0}</p><p>Example 2:<br>Input: nums = [0,1,2]<br>Output: 1<br>Constraints:<br>1 &lt;= nums.length &lt;= 105<br>0 &lt;= nums[i] &lt; nums.length<br>All the values of nums are unique.</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>You can simulate directly according to the meaning of the question.</p><ul><li>traverse each nums[i] from front to back</li><li>in order to prevent some rings from being repeated Processing, for the current passing nums[i] is marked as −1, so that each number is accessed no more than 3 times, and the overall complexity is O(n).<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">arrayNesting</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        n <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>        ans <span class="token operator">=</span> <span class="token number">0</span>        <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> v <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>                <span class="token keyword">continue</span>                        c<span class="token punctuation">,</span> cur <span class="token operator">=</span> i<span class="token punctuation">,</span> v            cnt <span class="token operator">=</span> <span class="token number">0</span>            <span class="token keyword">while</span> cur <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>                nums<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>                c<span class="token punctuation">,</span> cur <span class="token operator">=</span> cur<span class="token punctuation">,</span> nums<span class="token punctuation">[</span>cur<span class="token punctuation">]</span>                cnt <span class="token operator">+=</span><span class="token number">1</span>            ans <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> cnt<span class="token punctuation">)</span>        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/array-nesting/">565. Array Nesting</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Datastructure and Algorithm: DAY 47. Leedcode: 201/2658</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
+    
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
+    
+  </entry>
   
   <entry>
     <title>LC - Weekly Contest 302</title>
@@ -473,36 +498,11 @@
     <category term="LC700-799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC700-799/"/>
     
     
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
     <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Difference Array" scheme="http://hexuanweng.github.io/tags/Difference-Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC515 - Find Largest Value in Each TreeRow</title>
-    <link href="http://hexuanweng.github.io/2022/06/24/LC515FindLargestValueinEachTreeRow/"/>
-    <id>http://hexuanweng.github.io/2022/06/24/LC515FindLargestValueinEachTreeRow/</id>
-    <published>2022-06-24T02:28:54.000Z</published>
-    <updated>2022-06-24T02:35:04.097Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the root of a binary tree, return an array of the largest value in each row of the tree (0-indexed).<br>Example 1:</p><img src="/2022/06/24/LC515FindLargestValueinEachTreeRow/e1.jpg" class="" title="e1"><p>Input: root = [1,3,2,5,3,null,9]<br>Output: [1,3,9]</p><p>Example 2:<br>Input: root = [1,2,3]<br>Output: [1,3]</p><p>Constraints:<br>The number of nodes in the tree will be in the range [0, 104].<br>-231 &lt;= Node.val &lt;= 231 - 1</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><img src="/2022/06/24/LC515FindLargestValueinEachTreeRow/bfs.png" class="" title="bfs"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span><span class="token comment"># Definition for a binary tree node.</span><span class="token comment"># class TreeNode:</span><span class="token comment">#     def __init__(self, val=0, left=None, right=None):</span><span class="token comment">#         self.val = val</span><span class="token comment">#         self.left = left</span><span class="token comment">#         self.right = right</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">largestValues</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>TreeNode<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>        <span class="token keyword">if</span> root <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>                queue <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">)</span>        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>            l <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span>            maxi <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">:</span>                pop_node <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>                maxi <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>maxi<span class="token punctuation">,</span> pop_node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>                <span class="token keyword">if</span> pop_node<span class="token punctuation">.</span>left<span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pop_node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>                <span class="token keyword">if</span> pop_node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>pop_node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>            ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>maxi<span class="token punctuation">)</span>        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/find-largest-value-in-each-tree-row/">515. Find Largest Value in Each Tree Row</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 140/2658 (57+67+16)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
-    
-    
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
