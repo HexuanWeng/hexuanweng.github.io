@@ -22,23 +22,21 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Leedcode: 115&#x2F;2658 (51+51+13)">
+  <meta name="description" content="Datastructure and Algorithm: DAY 48. Leedcode: 203&#x2F;2658">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC478 - Generate Random Point in a Circle">
-<meta property="og:url" content="http://hexuanweng.github.io/2022/06/05/LC478GenerateRandomPointinaCircle/index.html">
+<meta property="og:title" content="LC815 - Bus Routes">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Leedcode: 115&#x2F;2658 (51+51+13)">
+<meta property="og:description" content="Datastructure and Algorithm: DAY 48. Leedcode: 203&#x2F;2658">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://hexuanweng.github.io/2022/06/05/LC478GenerateRandomPointinaCircle/blue.png">
-<meta property="article:published_time" content="2022-06-05T06:03:14.000Z">
-<meta property="article:modified_time" content="2022-06-06T13:16:16.481Z">
+<meta property="article:published_time" content="2022-07-18T01:43:56.000Z">
+<meta property="article:modified_time" content="2022-07-18T01:51:27.379Z">
 <meta property="article:author" content="Hexuan Weng">
-<meta property="article:tag" content="medium">
-<meta property="article:tag" content="Rejection Sampling">
+<meta property="article:tag" content="hard">
+<meta property="article:tag" content="BreastFirstSearch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hexuanweng.github.io/2022/06/05/LC478GenerateRandomPointinaCircle/blue.png">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2022/06/05/LC478GenerateRandomPointinaCircle/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/">
 
 
 <script id="page-configurations">
@@ -51,7 +49,7 @@
   };
 </script>
 
-  <title>LC478 - Generate Random Point in a Circle | Hex.*</title>
+  <title>LC815 - Bus Routes | Hex.*</title>
   
 
 
@@ -192,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/05/LC478GenerateRandomPointinaCircle/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -205,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC478 - Generate Random Point in a Circle
+          LC815 - Bus Routes
         </h1>
 
         <div class="post-meta">
@@ -214,16 +212,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-06-05 16:03:14" itemprop="dateCreated datePublished" datetime="2022-06-05T16:03:14+10:00">2022-06-05</time>
+              <time title="Created: 2022-07-18 11:43:56 / Modified: 11:51:27" itemprop="dateCreated datePublished" datetime="2022-07-18T11:43:56+10:00">2022-07-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 23:16:16" itemprop="dateModified" datetime="2022-06-06T23:16:16+10:00">2022-06-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -234,12 +226,12 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/LC400-499/" itemprop="url" rel="index"><span itemprop="name">LC400-499</span></a>
+                  <a href="/categories/Leetcode/LC800-899/" itemprop="url" rel="index"><span itemprop="name">LC800-899</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Leedcode: 115/2658 (51+51+13)</div>
+            <div class="post-description">Datastructure and Algorithm: DAY 48. Leedcode: 203/2658</div>
 
         </div>
       </header>
@@ -250,44 +242,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the radius and the position of the center of a circle, implement the function randPoint which generates a uniform random point inside the circle.</p>
-<p>Implement the Solution class:</p>
-<p>Solution(double radius, double x_center, double y_center) initializes the object with the radius of the circle radius and the position of the center (x_center, y_center).<br>randPoint() returns a random point inside the circle. A point on the circumference of the circle is considered to be in the circle. The answer is returned as an array [x, y].</p>
-<p>Example 1:</p>
-<p>Input<br>[“Solution”, “randPoint”, “randPoint”, “randPoint”]<br>[[1.0, 0.0, 0.0], [], [], []]<br>Output<br>[null, [-0.02493, -0.38077], [0.82314, 0.38945], [0.36572, 0.17248]]</p>
-<p>Explanation<br>Solution solution = new Solution(1.0, 0.0, 0.0);<br>solution.randPoint(); // return [-0.02493, -0.38077]<br>solution.randPoint(); // return [0.82314, 0.38945]<br>solution.randPoint(); // return [0.36572, 0.17248]</p>
-<p>Constraints:</p>
-<p>0 &lt; radius &lt;= 108<br>-107 &lt;= x_center, y_center &lt;= 107<br>At most 3 * 104 calls will be made to randPoint.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The x-axis and y-axis correspond to uniform pixels, but such numbers will be inside the circle, as shown in the figure below, and may appear in blue.</p>
-<img src="/2022/06/05/LC478GenerateRandomPointinaCircle/blue.png" class="" title="Circle">
-<p>The easiest way to deal with it is to use Pythagorean theorem check whether the random point is in the circle, and if it is not, resample it again until the result is randomly generated.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(1) time | O(1) space</span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array routes representing bus routes where routes[i] is a bus route that the ith bus repeats forever.<br>For example, if routes[0] = [1, 5, 7], this means that the 0th bus travels in the sequence 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; … forever.<br>You will start at the bus stop source (You are not on any bus initially), and you want to go to the bus stop target. You can travel between bus stops by buses only.<br>Return the least number of buses you must take to travel from source to target. Return -1 if it is not possible.</p>
+<p>Example 1:<br>Input: routes = [[1,2,7],[3,6,7]], source = 1, target = 6<br>Output: 2<br>Explanation: The best strategy is take the first bus to the bus stop 7, then take the second bus to the bus stop 6.</p>
+<p>Example 2:<br>Input: routes = [[7,12],[4,5,15],[6],[15,19],[9,12,13]], source = 15, target = 12<br>Output: -1<br>Constraints:<br>1 &lt;= routes.length &lt;= 500.<br>1 &lt;= routes[i].length &lt;= 105<br>All the values of routes[i] are unique.<br>sum(routes[i].length) &lt;= 105<br>0 &lt;= routes[i][j] &lt; 106<br>0 &lt;= source, target &lt; 106</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>HashSet + BFS</li>
+<li>we consider the index of the routes as the bus number, for each bus, we have several stops</li>
+<li>we store the stops as the key, and the bus number as the value into the <strong>stops_hash</strong>. We also make each bus’ stops into a set as <strong>bus_set</strong></li>
+<li>for the stops in one bus, we don’t need to worry about how many buses we need to transit. Therefore, we append the unvisited stops into the bus and the step +1. In this case, all the stops in one bus will have the same steps.</li>
+<li>when the current stop equals target, we return steps. </li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> deque
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> radius<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">,</span> x_center<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">,</span> y_center<span class="token punctuation">:</span> <span class="token builtin">float</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>r <span class="token operator">=</span> radius
-        self<span class="token punctuation">.</span>x <span class="token operator">=</span> x_center
-        self<span class="token punctuation">.</span>y <span class="token operator">=</span> y_center
+    <span class="token keyword">def</span> <span class="token function">numBusesToDestination</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> routes<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> source<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        stops_hash <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+        buses_set <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> idx<span class="token punctuation">,</span> value <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>routes<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            buses_set<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> v <span class="token keyword">in</span> value<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> v <span class="token keyword">not</span> <span class="token keyword">in</span> stops_hash<span class="token punctuation">:</span>
+                    stops_hash<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>idx<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    stops_hash<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
+				<span class="token comment"># &#123;1: &#123;0&#125;, 2: &#123;0&#125;, 7: &#123;0, 1&#125;, 3: &#123;1&#125;, 6: &#123;1&#125;&#125; </span>
+				<span class="token comment"># [&#123;1, 2, 7&#125;, &#123;3, 6, 7&#125;]</span>
         
+        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        bus_visited <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        stop_visited <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>source<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+            cur_stop<span class="token punctuation">,</span> step <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> cur_stop <span class="token operator">==</span> target<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> step
+            
+            <span class="token keyword">for</span> bus <span class="token keyword">in</span> stops_hash<span class="token punctuation">[</span>cur_stop<span class="token punctuation">]</span> <span class="token operator">-</span> bus_visited<span class="token punctuation">:</span>
+                <span class="token keyword">for</span> stop <span class="token keyword">in</span> buses_set<span class="token punctuation">[</span>bus<span class="token punctuation">]</span> <span class="token operator">-</span> stop_visited<span class="token punctuation">:</span>
+                    bus_visited<span class="token punctuation">.</span>add<span class="token punctuation">(</span>bus<span class="token punctuation">)</span>
+                    stop_visited<span class="token punctuation">.</span>add<span class="token punctuation">(</span>stop<span class="token punctuation">)</span>
+                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>stop<span class="token punctuation">,</span> step<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    <span class="token keyword">def</span> <span class="token function">randPoint</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">float</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-            x<span class="token punctuation">,</span> y <span class="token operator">=</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token operator">-</span>self<span class="token punctuation">.</span>r<span class="token punctuation">,</span> self<span class="token punctuation">.</span>r<span class="token punctuation">)</span><span class="token punctuation">,</span> random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token operator">-</span>self<span class="token punctuation">.</span>r<span class="token punctuation">,</span> self<span class="token punctuation">.</span>r<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> x<span class="token operator">*</span>x <span class="token operator">+</span> y<span class="token operator">*</span>y <span class="token operator">&lt;=</span> self<span class="token punctuation">.</span>r <span class="token operator">*</span> self<span class="token punctuation">.</span>r<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token punctuation">[</span>self<span class="token punctuation">.</span>x<span class="token operator">+</span>x<span class="token punctuation">,</span> self<span class="token punctuation">.</span>y<span class="token operator">+</span>y<span class="token punctuation">]</span>
-        
-
-<span class="token comment"># Your Solution object will be instantiated and called as such:</span>
-<span class="token comment"># obj = Solution(radius, x_center, y_center)</span>
-<span class="token comment"># param_1 = obj.randPoint()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Random-Usage"><a href="#Random-Usage" class="headerlink" title="Random Usage"></a>Random Usage</h2><ol>
-<li>uniform(): Returns a random float number between two given parameters</li>
-<li>randint(): Returns a random number between the given range</li>
-<li>choice(): Returns a random element from the given sequence</li>
-<li>random(): Returns a random float number between 0 and 1</li>
-</ol>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/generate-random-point-in-a-circle/">478. Generate Random Point in a Circle</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/2112983/HexPython-Rejection-Sampling">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/bus-routes/">815. Bus Routes</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -302,7 +297,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2022/06/05/LC478GenerateRandomPointinaCircle/" title="LC478 - Generate Random Point in a Circle">http://hexuanweng.github.io/2022/06/05/LC478GenerateRandomPointinaCircle/</a>
+    <a href="http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/" title="LC815 - Bus Routes">http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -314,8 +309,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
-              <a href="/tags/Rejection-Sampling/" rel="tag"><i class="fa fa-tag"> Rejection Sampling</i> </a>
+              <a href="/tags/hard/" rel="tag"><i class="fa fa-tag"> hard</i> </a>
+              <a href="/tags/BreastFirstSearch/" rel="tag"><i class="fa fa-tag"> BreastFirstSearch</i> </a>
           </div>
 
         
@@ -323,13 +318,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/06/06/LC238ProductofArrayExceptSelf/" rel="prev" title="LC238 - Product of Array Except Self">
-      <i class="fa fa-chevron-left"></i> LC238 - Product of Array Except Self
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/05/LC396RorateFunction/" rel="next" title="LC396 - Rorate Function">
-      LC396 - Rorate Function <i class="fa fa-chevron-right"></i>
+    <a href="/2022/07/17/LC565ArrayNesting/" rel="next" title="LC565 - Array Nesting">
+      LC565 - Array Nesting <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -390,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Usage"><span class="nav-text">Random Usage</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -568,7 +560,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : 'a5628ff0f1ae077b4f0b5d94d3175926',
+      id          : 'c8e3a43961a4c96abb3b15df3173d520',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
