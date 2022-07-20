@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Datastructure and Algorithm: DAY 48. Leedcode: 203&#x2F;2658">
+  <meta name="description" content="Datastructure and Algorithm: DAY 50. Leedcode: 203&#x2F;2710">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC815 - Bus Routes">
-<meta property="og:url" content="http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/index.html">
+<meta property="og:title" content="LC1034 - Coloring a Border">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/07/20/LC1034ColoringABorder/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Datastructure and Algorithm: DAY 48. Leedcode: 203&#x2F;2658">
+<meta property="og:description" content="Datastructure and Algorithm: DAY 50. Leedcode: 203&#x2F;2710">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-18T01:43:56.000Z">
-<meta property="article:modified_time" content="2022-07-18T01:56:22.111Z">
+<meta property="article:published_time" content="2022-07-20T03:43:13.000Z">
+<meta property="article:modified_time" content="2022-07-20T04:28:24.491Z">
 <meta property="article:author" content="Hexuan Weng">
-<meta property="article:tag" content="hard">
 <meta property="article:tag" content="Breadth First Search">
+<meta property="article:tag" content="medium">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/07/20/LC1034ColoringABorder/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>LC815 - Bus Routes | Hex.*</title>
+  <title>LC1034 - Coloring a Border | Hex.*</title>
   
 
 
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/07/20/LC1034ColoringABorder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -203,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC815 - Bus Routes
+          LC1034 - Coloring a Border
         </h1>
 
         <div class="post-meta">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-18 11:43:56 / Modified: 11:56:22" itemprop="dateCreated datePublished" datetime="2022-07-18T11:43:56+10:00">2022-07-18</time>
+              <time title="Created: 2022-07-20 13:43:13 / Modified: 14:28:24" itemprop="dateCreated datePublished" datetime="2022-07-20T13:43:13+10:00">2022-07-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,12 +226,12 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/LC800-899/" itemprop="url" rel="index"><span itemprop="name">LC800-899</span></a>
+                  <a href="/categories/Leetcode/LC1000-1099/" itemprop="url" rel="index"><span itemprop="name">LC1000-1099</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Datastructure and Algorithm: DAY 48. Leedcode: 203/2658</div>
+            <div class="post-description">Datastructure and Algorithm: DAY 50. Leedcode: 203/2710</div>
 
         </div>
       </header>
@@ -242,47 +242,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array routes representing bus routes where routes[i] is a bus route that the ith bus repeats forever.<br>For example, if routes[0] = [1, 5, 7], this means that the 0th bus travels in the sequence 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; 5 -&gt; 7 -&gt; 1 -&gt; … forever.<br>You will start at the bus stop source (You are not on any bus initially), and you want to go to the bus stop target. You can travel between bus stops by buses only.<br>Return the least number of buses you must take to travel from source to target. Return -1 if it is not possible.</p>
-<p>Example 1:<br>Input: routes = [[1,2,7],[3,6,7]], source = 1, target = 6<br>Output: 2<br>Explanation: The best strategy is take the first bus to the bus stop 7, then take the second bus to the bus stop 6.</p>
-<p>Example 2:<br>Input: routes = [[7,12],[4,5,15],[6],[15,19],[9,12,13]], source = 15, target = 12<br>Output: -1<br>Constraints:<br>1 &lt;= routes.length &lt;= 500.<br>1 &lt;= routes[i].length &lt;= 105<br>All the values of routes[i] are unique.<br>sum(routes[i].length) &lt;= 105<br>0 &lt;= routes[i][j] &lt; 106<br>0 &lt;= source, target &lt; 106</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
-<li>HashSet + BFS</li>
-<li>we consider the index of the routes as the bus number, for each bus, we have several stops</li>
-<li>we store the stops as the key, and the bus number as the value into the <strong>stops_hash</strong>. We also make each bus’ stops into a set as <strong>bus_set</strong></li>
-<li>for the stops in one bus, we don’t need to worry about how many buses we need to transit. Therefore, we append the unvisited stops into the bus and the step +1. In this case, all the stops in one bus will have the same steps.</li>
-<li>when the current stop equals target, we return steps. </li>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an m x n integer matrix grid, and three integers row, col, and color. Each value in the grid represents the color of the grid square at that location.<br>Two squares belong to the same connected component if they have the same color and are next to each other in any of the 4 directions.<br>The border of a connected component is all the squares in the connected component that are either 4-directionally adjacent to a square not in the component, or on the boundary of the grid (the first or last row or column).<br>You should color the border of the connected component that contains the square grid[row][col] with color.<br>Return the final grid.</p>
+<p>Example 1:<br>Input: grid = [[1,1],[1,2]], row = 0, col = 0, color = 3<br>Output: [[3,3],[3,2]]</p>
+<p>Example 2:<br>Input: grid = [[1,2,2],[2,3,2]], row = 0, col = 1, color = 3<br>Output: [[1,3,3],[2,3,3]]</p>
+<p>Example 3:<br>Input: grid = [[1,1,1],[1,1,1],[1,1,1]], row = 1, col = 1, color = 2<br>Output: [[2,2,2],[2,1,2],[2,2,2]]</p>
+<p>Constraints:<br>m == grid.length<br>n == grid[i].length<br>1 &lt;= m, n &lt;= 50<br>1 &lt;= grid[i][j], color &lt;= 1000<br>0 &lt;= row &lt; m<br>0 &lt;= col &lt; n</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><p>How to define connected component boundaries?</p>
+<ol>
+<li>The color is the same as grid[row][col] and connected to the connected component. These two conditions must be met</li>
+<li>When a point that satisfies the above conditions appears in the outermost circle, it must be a boundary.</li>
+<li>When a point that meets the above conditions appears in the inner circle, if there is a point around it with a different color than grid[row][col], it is the boundary.</li>
+</ol>
+<p>So…</p>
+<ul>
+<li>we should find out all the connected components and set the value to -1</li>
+<li>then we should found all the boundaries and add them to a set.</li>
+<li>convert components equal to -1 to color if they are in boundaries, otherwise, convert them back to the original color.</li>
 </ul>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> deque
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">numBusesToDestination</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> routes<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> source<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        stops_hash <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-        buses_set <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> idx<span class="token punctuation">,</span> value <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>routes<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            buses_set<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">for</span> v <span class="token keyword">in</span> value<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> v <span class="token keyword">not</span> <span class="token keyword">in</span> stops_hash<span class="token punctuation">:</span>
-                    stops_hash<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>idx<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    stops_hash<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
-        <span class="token comment"># &#123;1: &#123;0&#125;, 2: &#123;0&#125;, 7: &#123;0, 1&#125;, 3: &#123;1&#125;, 6: &#123;1&#125;&#125; </span>
-        <span class="token comment"># [&#123;1, 2, 7&#125;, &#123;3, 6, 7&#125;]</span>
-        
-        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        bus_visited <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        stop_visited <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>source<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">colorBorder</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> grid<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> row<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> col<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        m<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>row<span class="token punctuation">,</span> col<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        ori <span class="token operator">=</span> grid<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span>
+        grid<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
         <span class="token keyword">while</span> queue<span class="token punctuation">:</span>
-            cur_stop<span class="token punctuation">,</span> step <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> cur_stop <span class="token operator">==</span> target<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> step
-            
-            <span class="token keyword">for</span> bus <span class="token keyword">in</span> stops_hash<span class="token punctuation">[</span>cur_stop<span class="token punctuation">]</span> <span class="token operator">-</span> bus_visited<span class="token punctuation">:</span>
-                <span class="token keyword">for</span> stop <span class="token keyword">in</span> buses_set<span class="token punctuation">[</span>bus<span class="token punctuation">]</span> <span class="token operator">-</span> stop_visited<span class="token punctuation">:</span>
-                    bus_visited<span class="token punctuation">.</span>add<span class="token punctuation">(</span>bus<span class="token punctuation">)</span>
-                    stop_visited<span class="token punctuation">.</span>add<span class="token punctuation">(</span>stop<span class="token punctuation">)</span>
-                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>stop<span class="token punctuation">,</span> step<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            r<span class="token punctuation">,</span> c <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> dx<span class="token punctuation">,</span> dy <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                nx<span class="token punctuation">,</span> ny <span class="token operator">=</span> r<span class="token operator">+</span>dx<span class="token punctuation">,</span> c<span class="token operator">+</span>dy
+                <span class="token keyword">if</span> <span class="token number">0</span><span class="token operator">&lt;=</span>nx<span class="token operator">&lt;</span>m <span class="token keyword">and</span> <span class="token number">0</span><span class="token operator">&lt;=</span>ny<span class="token operator">&lt;</span>n <span class="token keyword">and</span> grid<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">==</span> ori<span class="token punctuation">:</span>
+                    grid<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>nx<span class="token punctuation">,</span>ny<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># find boarders</span>
+        edge <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> r <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> c <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">for</span> dx<span class="token punctuation">,</span> dy <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    nx<span class="token punctuation">,</span> ny <span class="token operator">=</span> r<span class="token operator">+</span>dx<span class="token punctuation">,</span> c<span class="token operator">+</span>dy
+                    <span class="token keyword">if</span> nx <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">or</span> nx <span class="token operator">>=</span> m <span class="token keyword">or</span> ny <span class="token operator">&lt;</span><span class="token number">0</span> <span class="token keyword">or</span> ny <span class="token operator">>=</span> n <span class="token keyword">or</span> grid<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                        edge<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                        <span class="token keyword">break</span>
+        
+        <span class="token comment"># color the item in edge and revert the other -1 back to original color</span>
+        <span class="token keyword">for</span> r <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> c <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> grid<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>r<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token keyword">in</span> edge<span class="token punctuation">:</span>
+                        grid<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> color
+                    <span class="token keyword">else</span><span class="token punctuation">:</span>
+                        grid<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> ori
+        <span class="token keyword">return</span> grid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/bus-routes/">815. Bus Routes</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/coloring-a-border/">1034. Coloring A Border</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -297,7 +309,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/" title="LC815 - Bus Routes">http://hexuanweng.github.io/2022/07/18/LC815BusRoutes/</a>
+    <a href="http://hexuanweng.github.io/2022/07/20/LC1034ColoringABorder/" title="LC1034 - Coloring a Border">http://hexuanweng.github.io/2022/07/20/LC1034ColoringABorder/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -309,8 +321,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/hard/" rel="tag"><i class="fa fa-tag"> hard</i> </a>
               <a href="/tags/Breadth-First-Search/" rel="tag"><i class="fa fa-tag"> Breadth First Search</i> </a>
+              <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
           </div>
 
         
@@ -318,13 +330,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/07/20/LC909SnakesandLadders/" rel="prev" title="LC909 - Snakes and Ladders">
-      <i class="fa fa-chevron-left"></i> LC909 - Snakes and Ladders
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/07/17/LC565ArrayNesting/" rel="next" title="LC565 - Array Nesting">
-      LC565 - Array Nesting <i class="fa fa-chevron-right"></i>
+    <a href="/2022/07/20/LC909SnakesandLadders/" rel="next" title="LC909 - Snakes and Ladders">
+      LC909 - Snakes and Ladders <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -385,7 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solutions"><span class="nav-text">Solutions</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -563,7 +572,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : 'c8e3a43961a4c96abb3b15df3173d520',
+      id          : '4004bff736c5559e0516b28185e09145',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
