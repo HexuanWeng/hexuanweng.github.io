@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-21T02:49:41.198Z</updated>
+  <updated>2022-07-21T03:04:09.271Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC210CourseScheduleII</title>
+    <link href="http://hexuanweng.github.io/2022/07/21/LC210CourseScheduleII/"/>
+    <id>http://hexuanweng.github.io/2022/07/21/LC210CourseScheduleII/</id>
+    <published>2022-07-21T03:01:09.000Z</published>
+    <updated>2022-07-21T03:04:09.271Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.<br>For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.<br>Return the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.</p><p>Example 1:</p><pre class="line-numbers language-none"><code class="language-none">Input: numCourses &#x3D; 2, prerequisites &#x3D; [[1,0]]Output: [0,1]Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So the correct course order is [0,1].<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>Example 2:</p><pre class="line-numbers language-none"><code class="language-none">Input: numCourses &#x3D; 4, prerequisites &#x3D; [[1,0],[2,0],[3,1],[3,2]]Output: [0,2,1,3]Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both courses 1 and 2. Both courses 1 and 2 should be taken after you finished course 0.So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>Example 3:</p><pre class="line-numbers language-none"><code class="language-none">Input: numCourses &#x3D; 1, prerequisites &#x3D; []Output: [0]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>Constraints:<br>1 &lt;= numCourses &lt;= 2000<br>0 &lt;= prerequisites.length &lt;= numCourses * (numCourses - 1)<br>prerequisites[i].length == 2<br>0 &lt;= ai, bi &lt; numCourses<br>ai != bi<br>All the pairs [ai, bi] are distinct.</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul><li>Prerequesite is stored in courses: [following courses]</li><li>The number of pre-courses required for each course is stored in pre_nums</li><li>Traverse pre_nums, if the number of pre-courses of the current course is 0, append the course to the queue</li><li>After processing all pre_nums[nxt], enqueue all courses with an in-degree of 0 (meaning subjects without pre-course requirements), and run topological sorting. If the length ans of the sorted courses is equal to numCourses, return ans, otherwise return [].</li></ul><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(n+m) time | O(n+m) space</span><span class="token keyword">from</span> collections <span class="token keyword">import</span> deque<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">findOrder</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> numCourses<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> prerequisites<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>        courses <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>        pre_nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> numCourses        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token keyword">for</span> cur<span class="token punctuation">,</span> pre <span class="token keyword">in</span> prerequisites<span class="token punctuation">:</span>            courses<span class="token punctuation">[</span>pre<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>cur<span class="token punctuation">)</span>            pre_nums<span class="token punctuation">[</span>cur<span class="token punctuation">]</span> <span class="token operator">+=</span><span class="token number">1</span>                <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>numCourses<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> pre_nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>                ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>            cur <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>            ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cur<span class="token punctuation">)</span>            <span class="token keyword">for</span> nxt <span class="token keyword">in</span> courses<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">:</span>                pre_nums<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">-=</span><span class="token number">1</span>                <span class="token keyword">if</span> pre_nums<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nxt<span class="token punctuation">)</span>        <span class="token keyword">return</span> ans <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>ans<span class="token punctuation">)</span> <span class="token operator">==</span> numCourses <span class="token keyword">else</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/course-schedule/">207. Course Schedule</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/course-schedule-ii/">210. Course Schedule II</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Datastructure and Algorithm: DAY 51. Leedcode: 205/2710</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC200-299" scheme="http://hexuanweng.github.io/categories/Leetcode/LC200-299/"/>
+    
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Topological Sorting" scheme="http://hexuanweng.github.io/tags/Topological-Sorting/"/>
+    
+    <category term="Breath First Search" scheme="http://hexuanweng.github.io/tags/Breath-First-Search/"/>
+    
+  </entry>
   
   <entry>
     <title>LC207 - Course Schedule</title>
@@ -189,9 +216,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
     
   </entry>
   
@@ -325,9 +352,9 @@
     <category term="LC600-699" scheme="http://hexuanweng.github.io/categories/Leetcode/LC600-699/"/>
     
     
-    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
     
   </entry>
   
@@ -478,33 +505,6 @@
     <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
     
     <category term="Sorting" scheme="http://hexuanweng.github.io/tags/Sorting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC871 - Minimum Number of Refueling Stops</title>
-    <link href="http://hexuanweng.github.io/2022/07/03/LC871MinimumNumberofRefuelingStops/"/>
-    <id>http://hexuanweng.github.io/2022/07/03/LC871MinimumNumberofRefuelingStops/</id>
-    <published>2022-07-02T14:04:58.000Z</published>
-    <updated>2022-07-02T14:13:41.986Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A car travels from a starting position to a destination which is target miles east of the starting position.<br>There are gas stations along the way. The gas stations are represented as an array stations where stations[i] = [positioni, fueli] indicates that the ith gas station is positioni miles east of the starting position and has fueli liters of gas.<br>The car starts with an infinite tank of gas, which initially has startFuel liters of fuel in it. It uses one liter of gas per one mile that it drives. When the car reaches a gas station, it may stop and refuel, transferring all the gas from the station into the car.<br>Return the minimum number of refueling stops the car must make in order to reach its destination. If it cannot reach the destination, return -1.<br>Note that if the car reaches a gas station with 0 fuel left, the car can still refuel there. If the car reaches the destination with 0 fuel left, it is still considered to have arrived.</p><p>Example 1:<br>Input: target = 1, startFuel = 1, stations = []<br>Output: 0<br>Explanation: We can reach the target without refueling.</p><p>Example 2:<br>Input: target = 100, startFuel = 1, stations = [[10,100]]<br>Output: -1<br>Explanation: We can not reach the target (or even the first gas station).</p><p>Example 3:<br>Input: target = 100, startFuel = 10, stations = [[10,60],[20,30],[30,30],[60,40]]<br>Output: 2<br>Explanation: We start with 10 liters of fuel.<br>We drive to position 10, expending 10 liters of fuel.  We refuel from 0 liters to 60 liters of gas.<br>Then, we drive from position 10 to position 60 (expending 50 liters of fuel),<br>and refuel from 10 liters to 50 liters of gas.  We then drive to and reach the target.<br>We made 2 refueling stops along the way, so we return 2.</p><p>Constraints:<br>1 &lt;= target, startFuel &lt;= 109<br>0 &lt;= stations.length &lt;= 500<br>0 &lt;= positioni &lt;= positioni+1 &lt; target<br>1 &lt;= fueli &lt; 109</p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>You can think of passing the gas station equivalent as an opportunity to refuel at any time<br>The problem is transformed into when the gas in the car is 0, select the largest gas station (implemented with a large top stack) from the gas stations that have passed by to achieve the goal of passing the least gas station<br>Unreachable if oil is 0 and the big top stack is empty and the current position is not at the target point</p><p>Heapify in python is the smallest heap stored, so store negative numbers when storing, and then add a negative sign when fetching</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">minRefuelStops</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> startFuel<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> stations<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        ans <span class="token operator">=</span> <span class="token number">0</span>        curFuel <span class="token operator">=</span> startFuel        heap <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>        stations<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>target<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>                <span class="token keyword">for</span> distance<span class="token punctuation">,</span> fuel <span class="token keyword">in</span> stations<span class="token punctuation">:</span>            <span class="token keyword">while</span> curFuel <span class="token operator">&lt;</span> distance<span class="token punctuation">:</span>                <span class="token keyword">if</span> <span class="token keyword">not</span> heap<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>                curFuel <span class="token operator">+=</span> <span class="token operator">-</span>heappop<span class="token punctuation">(</span>heap<span class="token punctuation">)</span>                ans<span class="token operator">+=</span><span class="token number">1</span>            heappush<span class="token punctuation">(</span>heap<span class="token punctuation">,</span> <span class="token operator">-</span>fuel<span class="token punctuation">)</span>                    <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/minimum-number-of-refueling-stops/">871. Minimum Number of Refueling Stops</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 147/2658 (58+70+19)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC800-899" scheme="http://hexuanweng.github.io/categories/Leetcode/LC800-899/"/>
-    
-    
-    <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
-    
-    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
-    
-    <category term="Heap" scheme="http://hexuanweng.github.io/tags/Heap/"/>
     
   </entry>
   
