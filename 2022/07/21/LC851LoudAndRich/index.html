@@ -22,22 +22,24 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Leedcode: 114&#x2F;2658 (51+50+13)">
+  <meta name="description" content="Datastructure and Algorithm: DAY 51. Leedcode: 207&#x2F;2710">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC396 - Rorate Function">
-<meta property="og:url" content="http://hexuanweng.github.io/2022/06/05/LC396RorateFunction/index.html">
+<meta property="og:title" content="LC851 - Loud and Rich">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/07/21/LC851LoudAndRich/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Leedcode: 114&#x2F;2658 (51+50+13)">
+<meta property="og:description" content="Datastructure and Algorithm: DAY 51. Leedcode: 207&#x2F;2710">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-05T05:06:57.000Z">
-<meta property="article:modified_time" content="2022-06-06T13:20:37.805Z">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/07/21/LC851LoudAndRich/s1.png">
+<meta property="article:published_time" content="2022-07-21T08:07:33.000Z">
+<meta property="article:modified_time" content="2022-07-21T08:14:38.036Z">
 <meta property="article:author" content="Hexuan Weng">
-<meta property="article:tag" content="array">
-<meta property="article:tag" content="Prefix Sum">
 <meta property="article:tag" content="medium">
+<meta property="article:tag" content="Topological Sorting">
+<meta property="article:tag" content="Breath First Search">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hexuanweng.github.io/2022/07/21/LC851LoudAndRich/s1.png">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2022/06/05/LC396RorateFunction/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/07/21/LC851LoudAndRich/">
 
 
 <script id="page-configurations">
@@ -50,7 +52,7 @@
   };
 </script>
 
-  <title>LC396 - Rorate Function | Hex.*</title>
+  <title>LC851 - Loud and Rich | Hex.*</title>
   
 
 
@@ -191,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/05/LC396RorateFunction/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/07/21/LC851LoudAndRich/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -204,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC396 - Rorate Function
+          LC851 - Loud and Rich
         </h1>
 
         <div class="post-meta">
@@ -213,16 +215,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-06-05 15:06:57" itemprop="dateCreated datePublished" datetime="2022-06-05T15:06:57+10:00">2022-06-05</time>
+              <time title="Created: 2022-07-21 18:07:33 / Modified: 18:14:38" itemprop="dateCreated datePublished" datetime="2022-07-21T18:07:33+10:00">2022-07-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 23:20:37" itemprop="dateModified" datetime="2022-06-06T23:20:37+10:00">2022-06-06</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -233,12 +229,12 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/LC300-399/" itemprop="url" rel="index"><span itemprop="name">LC300-399</span></a>
+                  <a href="/categories/Leetcode/LC800-899/" itemprop="url" rel="index"><span itemprop="name">LC800-899</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Leedcode: 114/2658 (51+50+13)</div>
+            <div class="post-description">Datastructure and Algorithm: DAY 51. Leedcode: 207/2710</div>
 
         </div>
       </header>
@@ -249,51 +245,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an integer array nums of length n.</p>
-<p>Assume arrk to be an array obtained by rotating nums by k positions clock-wise. We define the rotation function F on nums as follow:</p>
-<p>F(k) = 0 * arrk[0] + 1 * arrk[1] + … + (n - 1) * arrk[n - 1].<br>Return the maximum value of F(0), F(1), …, F(n-1).</p>
-<p>The test cases are generated so that the answer fits in a 32-bit integer.</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There is a group of n people labeled from 0 to n - 1 where each person has a different amount of money and a different level of quietness.<br>You are given an array richer where richer[i] = [ai, bi] indicates that ai has more money than bi and an integer array quiet where quiet[i] is the quietness of the ith person. All the given data in richer are logically correct (i.e., the data will not lead you to a situation where x is richer than y and y is richer than x at the same time).<br>Return an integer array answer where answer[x] = y if y is the least quiet person (that is, the person y with the smallest value of quiet[y]) among all people who definitely have equal to or more money than the person x.</p>
 <p>Example 1:</p>
-<p>Input: nums = [4,3,2,6]<br>Output: 26<br>Explanation:<br>F(0) = (0 * 4) + (1 * 3) + (2 * 2) + (3 * 6) = 0 + 3 + 4 + 18 = 25<br>F(1) = (0 * 6) + (1 * 4) + (2 * 3) + (3 * 2) = 0 + 4 + 6 + 6 = 16<br>F(2) = (0 * 2) + (1 * 6) + (2 * 4) + (3 * 3) = 0 + 6 + 8 + 9 = 23<br>F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26<br>So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.<br>Example 2:</p>
-<p>Input: nums = [100]<br>Output: 0</p>
-<p>Constraints:</p>
-<p>n == nums.length<br>1 &lt;= n &lt;= 105<br>-100 &lt;= nums[i] &lt;= 100</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><pre class="line-numbers language-none"><code class="language-none">nums: [A0,A1,A2,A3]
+<pre class="line-numbers language-none"><code class="language-none">Input: richer &#x3D; [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet &#x3D; [3,2,5,4,6,1,7,0]
+Output: [5,5,2,5,4,5,6,7]
+Explanation: 
+answer[0] &#x3D; 5.
+Person 5 has more money than 3, which has more money than 1, which has more money than 0.
+The only person who is quieter (has lower quiet[x]) is person 7, but it is not clear if they have more money than person 0.
+answer[7] &#x3D; 7.
+Among all people that definitely have equal to or more money than person 7 (which could be persons 3, 4, 5, 6, or 7), the person who is the quietest (has lower quiet[x]) is person 7.
+The other answers can be filled out with similar reasoning.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
- F0 &#x3D; 0*A0 + 1*A1 + 2*A2 + 3*A3
+<p>Example 2:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: richer &#x3D; [], quiet &#x3D; [0]
+Output: [0]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
- F1 &#x3D; 0*A3 + 1*A0 + 2*A1 + 3*A2
-    &#x3D; F0 + A0 + A1 + A2 - 3*A3
-    &#x3D; F0 + sum-A3 - 3*A3
-    &#x3D; F0 + sum - 4*A3
+<p>Constraints:<br>n == quiet.length<br>1 &lt;= n &lt;= 500<br>0 &lt;= quiet[i] &lt; n<br>All the values of quiet are unique.<br>0 &lt;= richer.length &lt;= n * (n - 1) / 2<br>0 &lt;= ai, bi &lt; n<br>ai != bi<br>All the pairs of richer are unique.<br>The observations in richer are all logically consistent.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><img src="/2022/07/21/LC851LoudAndRich/s1.png" class="" title="s1">
 
- F2 &#x3D; 0*A2 + 1*A3 + 2*A0 + 3*A1
-    &#x3D; F1 + A3 + A0 + A1 - 3*A2
-    &#x3D; F1 + sum - 4*A2
-
- F3 &#x3D; 0*A1 + 1*A2 + 2*A3 + 3*A0
-    &#x3D; F2 + A2 + A3 + A0 - 3*A1
-    &#x3D; F2 + sum - 4*A1
-
-Formula：
-F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
+<ol>
+<li>Draw the graph as required</li>
+<li>Create a mapping table 【connect】: <ul>
+<li>key: the vertex of the in-degree</li>
+<li>value: which elements will this vertex of the in-degree point to</li>
+</ul>
+</li>
+<li>Create an in-degree table 【degree】 ：<ul>
+<li>key: the value of the vertex;<br>value: how many in-degree elements there are, for example, vertex 3 has 3 in-degree elements (if the vertex is an index, we only need to create an array/list)</li>
+</ul>
+</li>
+<li>Find the key/index that are 0 in the in-degree table, that is, 2, 3, 5, 6, and put these values in the queue</li>
+<li>Compare the quiet value of the current popleft value and the quiet value of the outdegree element, and update the element</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n+m) time | O(n+m) space</span>
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> deque
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxRotateFunction</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
-        summ <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
-        length <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
-        f_pre<span class="token operator">=</span><span class="token number">0</span>
-        <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            f_pre <span class="token operator">+=</span> i<span class="token operator">*</span>v
-
-        res <span class="token operator">=</span> f_pre
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            f_pre <span class="token operator">=</span> f_pre <span class="token operator">+</span> summ <span class="token operator">-</span> length <span class="token operator">*</span> nums<span class="token punctuation">[</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token punctuation">]</span>
-            res <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> f_pre<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> res<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/rotate-function/">396. Rotate Function</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/rotate-function/discuss/2112734/Hex-Python-O(n)-time-or-O(n)-space">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+    <span class="token keyword">def</span> <span class="token function">loudAndRich</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> richer<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> quiet<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        n <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>quiet<span class="token punctuation">)</span>
+        connect <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+        degree <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>n
+        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        
+        <span class="token keyword">for</span> cur<span class="token punctuation">,</span> nxt <span class="token keyword">in</span> richer<span class="token punctuation">:</span>
+            connect<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>nxt<span class="token punctuation">)</span>
+            degree<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">+=</span><span class="token number">1</span>
+        
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> degree<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        
+        ans <span class="token operator">=</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+            cur <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span> nxt <span class="token keyword">in</span> connect<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                degree<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span><span class="token operator">-=</span><span class="token number">1</span>
+                <span class="token keyword">if</span> degree<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>nxt<span class="token punctuation">)</span>
+                
+                <span class="token keyword">if</span> quiet<span class="token punctuation">[</span>ans<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> quiet<span class="token punctuation">[</span>ans<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    ans<span class="token punctuation">[</span>nxt<span class="token punctuation">]</span> <span class="token operator">=</span> ans<span class="token punctuation">[</span>cur<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     </div>
 
     
@@ -308,7 +320,7 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2022/06/05/LC396RorateFunction/" title="LC396 - Rorate Function">http://hexuanweng.github.io/2022/06/05/LC396RorateFunction/</a>
+    <a href="http://hexuanweng.github.io/2022/07/21/LC851LoudAndRich/" title="LC851 - Loud and Rich">http://hexuanweng.github.io/2022/07/21/LC851LoudAndRich/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -320,9 +332,9 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/array/" rel="tag"><i class="fa fa-tag"> array</i> </a>
-              <a href="/tags/Prefix-Sum/" rel="tag"><i class="fa fa-tag"> Prefix Sum</i> </a>
               <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
+              <a href="/tags/Topological-Sorting/" rel="tag"><i class="fa fa-tag"> Topological Sorting</i> </a>
+              <a href="/tags/Breath-First-Search/" rel="tag"><i class="fa fa-tag"> Breath First Search</i> </a>
           </div>
 
         
@@ -330,13 +342,10 @@ F(i) &#x3D; F(i-1) + sum - n * A(n-i)<span aria-hidden="true" class="line-number
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/06/05/LC478GenerateRandomPointinaCircle/" rel="prev" title="LC478 - Generate Random Point in a Circle">
-      <i class="fa fa-chevron-left"></i> LC478 - Generate Random Point in a Circle
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/04/LC929UniqueEmailAddress/" rel="next" title="LC929 - Unique Email Address">
-      LC929 - Unique Email Address <i class="fa fa-chevron-right"></i>
+    <a href="/2022/07/21/LC210CourseScheduleII/" rel="next" title="LC210 - Course Schedule II">
+      LC210 - Course Schedule II <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -575,7 +584,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : '6c9db438428396eaecba61e25255fbea',
+      id          : '88d93e1d0c6471ca46abd937ec5f43b9',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
