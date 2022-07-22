@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-07-21T08:17:03.497Z</updated>
+  <updated>2022-07-22T04:43:26.611Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC2049 - Count Nodes With the Highest Score</title>
+    <link href="http://hexuanweng.github.io/2022/07/22/LC2049CountNodesWiththeHighestScore/"/>
+    <id>http://hexuanweng.github.io/2022/07/22/LC2049CountNodesWiththeHighestScore/</id>
+    <published>2022-07-22T04:36:21.000Z</published>
+    <updated>2022-07-22T04:43:26.611Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There is a binary tree rooted at 0 consisting of n nodes. The nodes are labeled from 0 to n - 1. You are given a 0-indexed integer array parents representing the tree, where parents[i] is the parent of node i. Since node 0 is the root, parents[0] == -1.<br>Each node has a score. To find the score of a node, consider if the node and the edges connected to it were removed. The tree would become one or more non-empty subtrees. The size of a subtree is the number of the nodes in it. The score of the node is the product of the sizes of all those subtrees.<br>Return the number of nodes that have the highest score.</p><p>Example 1:</p><img src="/2022/07/22/LC2049CountNodesWiththeHighestScore/e1.png" class="" title="e1"><pre class="line-numbers language-none"><code class="language-none">Input: parents &#x3D; [-1,2,0,2,0]Output: 3Explanation:- The score of node 0 is: 3 * 1 &#x3D; 3- The score of node 1 is: 4 &#x3D; 4- The score of node 2 is: 1 * 1 * 2 &#x3D; 2- The score of node 3 is: 4 &#x3D; 4- The score of node 4 is: 4 &#x3D; 4The highest score is 4, and three nodes (node 1, node 3, and node 4) have the highest score.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>Example 2:</p><img src="/2022/07/22/LC2049CountNodesWiththeHighestScore/e2.png" class="" title="e2"><pre class="line-numbers language-none"><code class="language-none">Input: parents &#x3D; [-1,2,0]Output: 2Explanation:- The score of node 0 is: 2 &#x3D; 2- The score of node 1 is: 2 &#x3D; 2- The score of node 2 is: 1 * 1 &#x3D; 1The highest score is 2, and two nodes (node 0 and node 1) have the highest score.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>Constraints:<br>n == parents.length<br>2 &lt;= n &lt;= 105<br>parents[0] == -1<br>0 &lt;= parents[i] &lt;= n - 1 for i != 0<br>parents represents a valid binary tree.</p><h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><img src="/2022/07/22/LC2049CountNodesWiththeHighestScore/s.png" class="" title="s"><ol><li>Store the number of in-degree nodes for each node in degree</li><li>Store the parent node and child node of the current node in two hash tables respectively</li><li>The final answer is the product of the number of remaining nodes of the parent node to be deleted and the number of nodes of the self node.</li></ol><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> deque<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">countHighestScoreNodes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> parents<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>        n <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>parents<span class="token punctuation">)</span>        degree <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>n        fathers <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>        total <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>n        children <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>                <span class="token keyword">for</span> i<span class="token punctuation">,</span> v <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>parents<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            fathers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>v<span class="token punctuation">)</span>            children<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>            degree<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> degree<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>                <span class="token keyword">while</span> queue<span class="token punctuation">:</span>            cur <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>            <span class="token keyword">for</span> root <span class="token keyword">in</span> fathers<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">:</span>                total<span class="token punctuation">[</span>root<span class="token punctuation">]</span> <span class="token operator">+=</span> total<span class="token punctuation">[</span>cur<span class="token punctuation">]</span>                degree<span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token operator">-=</span><span class="token number">1</span>                <span class="token keyword">if</span> degree<span class="token punctuation">[</span>root<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>root<span class="token punctuation">)</span>        maxi<span class="token punctuation">,</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>            cur <span class="token operator">=</span> <span class="token number">1</span>            <span class="token keyword">for</span> c <span class="token keyword">in</span> children<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>                cur<span class="token operator">*=</span>total<span class="token punctuation">[</span>c<span class="token punctuation">]</span>            <span class="token keyword">if</span> i <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>                cur<span class="token operator">*=</span><span class="token punctuation">(</span>total<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> total<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>            <span class="token keyword">if</span> cur <span class="token operator">></span> maxi<span class="token punctuation">:</span>                maxi <span class="token operator">=</span> cur                ans <span class="token operator">=</span> <span class="token number">1</span>            <span class="token keyword">elif</span> cur <span class="token operator">==</span> maxi<span class="token punctuation">:</span>                ans <span class="token operator">+=</span><span class="token number">1</span>        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/count-nodes-with-the-highest-score/">2049. Count Nodes With the Highest Score</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Datastructure and Algorithm: DAY 52. Leedcode: 208/2710</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="LC2000+" scheme="http://hexuanweng.github.io/categories/Leetcode/LC2000/"/>
+    
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Topological Sorting" scheme="http://hexuanweng.github.io/tags/Topological-Sorting/"/>
+    
+    <category term="Breath First Search" scheme="http://hexuanweng.github.io/tags/Breath-First-Search/"/>
+    
+  </entry>
   
   <entry>
     <title>LC851 - Loud and Rich</title>
@@ -118,9 +145,9 @@
     
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
-    <category term="Recursion" scheme="http://hexuanweng.github.io/tags/Recursion/"/>
-    
     <category term="Depth First Search" scheme="http://hexuanweng.github.io/tags/Depth-First-Search/"/>
+    
+    <category term="Recursion" scheme="http://hexuanweng.github.io/tags/Recursion/"/>
     
   </entry>
   
@@ -168,9 +195,9 @@
     <category term="LC1000-1099" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1000-1099/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -193,9 +220,9 @@
     <category term="LC900-999" scheme="http://hexuanweng.github.io/categories/Leetcode/LC900-999/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
   </entry>
   
@@ -243,9 +270,9 @@
     <category term="LC500-599" scheme="http://hexuanweng.github.io/categories/Leetcode/LC500-599/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
@@ -379,9 +406,9 @@
     <category term="LC600-699" scheme="http://hexuanweng.github.io/categories/Leetcode/LC600-699/"/>
     
     
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
     <category term="Simulation" scheme="http://hexuanweng.github.io/tags/Simulation/"/>
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
@@ -429,9 +456,9 @@
     <category term="LC1200-1499" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1200-1499/"/>
     
     
-    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
-    
     <category term="easy" scheme="http://hexuanweng.github.io/tags/easy/"/>
+    
+    <category term="Greedy" scheme="http://hexuanweng.github.io/tags/Greedy/"/>
     
   </entry>
   
@@ -479,34 +506,9 @@
     <category term="LC1100-1199" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1100-1199/"/>
     
     
-    <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
-  </entry>
-  
-  <entry>
-    <title>LC1765 - Map of Highest Peak</title>
-    <link href="http://hexuanweng.github.io/2022/07/05/LC1765MapofHighestPeak/"/>
-    <id>http://hexuanweng.github.io/2022/07/05/LC1765MapofHighestPeak/</id>
-    <published>2022-07-05T10:21:34.000Z</published>
-    <updated>2022-07-05T10:36:56.025Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an integer matrix isWater of size m x n that represents a map of land and water cells.<br>If isWater[i][j] == 0, cell (i, j) is a land cell.<br>If isWater[i][j] == 1, cell (i, j) is a water cell.<br>You must assign each cell a height in a way that follows these rules:<br>The height of each cell must be non-negative.<br>If the cell is a water cell, its height must be 0.<br>Any two adjacent cells must have an absolute height difference of at most 1. A cell is adjacent to another cell if the former is directly north, east, south, or west of the latter (i.e., their sides are touching).<br>Find an assignment of heights such that the maximum height in the matrix is maximized.<br>Return an integer matrix height of size m x n where height[i][j] is cell (i, j)’s height. If there are multiple solutions, return any of them.</p><p>Example 1:</p><img src="/2022/07/05/LC1765MapofHighestPeak/example1.png" class="" title="example1"><p>Input: isWater = [[0,1],[0,0]]<br>Output: [[1,0],[2,1]]<br>Explanation: The image shows the assigned heights of each cell.<br>The blue cell is the water cell, and the green cells are the land cells.</p><p>Example 2:</p><img src="/2022/07/05/LC1765MapofHighestPeak/example2.png" class="" title="example2"><p>Input: isWater = [[0,0,1],[1,0,0],[0,0,0]]<br>Output: [[1,1,0],[0,1,1],[1,2,2]]<br>Explanation: A height of 2 is the maximum possible height of any assignment.<br>Any height assignment that has a maximum height of 2 while still meeting the rules will also be accepted.</p><p>Constraints:<br>m == isWater.length<br>n == isWater[i].length<br>1 &lt;= m, n &lt;= 1000<br>isWater[i][j] is 0 or 1.<br>There is at least one water cell.</p><h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ol><li>First store the iswater value of 1 (water area) in the queue</li><li>Perform a breadth-first search on the queue</li></ol><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(mn) time | O(mn) space</span><span class="token keyword">from</span> collections <span class="token keyword">import</span> deque<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">highestPeak</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> isWater<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>        m<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>isWater<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>isWater<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>val <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">for</span> val <span class="token keyword">in</span> row<span class="token punctuation">]</span> <span class="token keyword">for</span> row <span class="token keyword">in</span> isWater<span class="token punctuation">]</span>        queue <span class="token operator">=</span> deque<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token comment"># store all the water area into the queue</span>        <span class="token keyword">for</span> row <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">for</span> col <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token keyword">if</span> isWater<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>row<span class="token punctuation">,</span> col<span class="token punctuation">)</span><span class="token punctuation">)</span>                <span class="token comment"># bfs</span>        <span class="token keyword">while</span> queue<span class="token punctuation">:</span>            r<span class="token punctuation">,</span> c <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>            <span class="token keyword">for</span> dx<span class="token punctuation">,</span> dy <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                nx<span class="token punctuation">,</span> ny <span class="token operator">=</span> r<span class="token operator">+</span>dx<span class="token punctuation">,</span> c<span class="token operator">+</span>dy                <span class="token keyword">if</span> <span class="token number">0</span><span class="token operator">&lt;=</span> nx <span class="token operator">&lt;</span> m <span class="token keyword">and</span> <span class="token number">0</span> <span class="token operator">&lt;=</span> ny <span class="token operator">&lt;</span> n <span class="token keyword">and</span> ans<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>                    ans<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span> <span class="token operator">=</span> ans<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span>                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>nx<span class="token punctuation">,</span>ny<span class="token punctuation">)</span><span class="token punctuation">)</span>        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/map-of-highest-peak/">1765. Map of Highest Peak</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Leedcode: 149/2658 (59+71+19)</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC1600-1799" scheme="http://hexuanweng.github.io/categories/Leetcode/LC1600-1799/"/>
-    
-    
     <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
-    
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
     
   </entry>
   
