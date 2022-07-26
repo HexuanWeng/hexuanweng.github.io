@@ -22,30 +22,20 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="If I accidentally get Alzheimer&#39;s disease in the future, I hope I can learn from written records that I live a simple and ordinary life~">
+  <meta name="description" content="Lecture5 -- Bilibili: PyTorch Tutorial; Lecturer: Hongpu Liu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello, Notion!!">
-<meta property="og:url" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/index.html">
+<meta property="og:title" content="PyTorch Tutorial - Linear Regression With PyTorch">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/07/26/PyTorch-P5/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="If I accidentally get Alzheimer&#39;s disease in the future, I hope I can learn from written records that I live a simple and ordinary life~">
+<meta property="og:description" content="Lecture5 -- Bilibili: PyTorch Tutorial; Lecturer: Hongpu Liu">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/Kokuyo.jpg">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/hana-notion-home.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/my-life-page.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/year-2021.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/room-home-1.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/room-home-2.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/monthly-plan-1.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/monthly-plan-2.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/budget-page.png">
-<meta property="article:published_time" content="2020-12-24T11:18:11.000Z">
-<meta property="article:modified_time" content="2021-08-28T13:16:37.329Z">
+<meta property="article:published_time" content="2022-07-26T13:11:22.000Z">
+<meta property="article:modified_time" content="2022-07-26T13:13:34.019Z">
 <meta property="article:author" content="Hexuan Weng">
-<meta property="article:tag" content="Notion">
+<meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/Kokuyo.jpg">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/07/26/PyTorch-P5/">
 
 
 <script id="page-configurations">
@@ -58,7 +48,7 @@
   };
 </script>
 
-  <title>Hello, Notion!! | Hex.*</title>
+  <title>PyTorch Tutorial - Linear Regression With PyTorch | Hex.*</title>
   
 
 
@@ -199,7 +189,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/07/26/PyTorch-P5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -212,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello, Notion!!
+          PyTorch Tutorial - Linear Regression With PyTorch
         </h1>
 
         <div class="post-meta">
@@ -221,28 +211,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-12-24 22:18:11" itemprop="dateCreated datePublished" datetime="2020-12-24T22:18:11+11:00">2020-12-24</time>
+              <time title="Created: 2022-07-26 23:11:22 / Modified: 23:13:34" itemprop="dateCreated datePublished" datetime="2022-07-26T23:11:22+10:00">2022-07-26</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-08-28 23:16:37" itemprop="dateModified" datetime="2021-08-28T23:16:37+10:00">2021-08-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Simple-Life/" itemprop="url" rel="index"><span itemprop="name">Simple Life</span></a>
+                  <a href="/categories/Data-Science/" itemprop="url" rel="index"><span itemprop="name">Data Science</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">If I accidentally get Alzheimer's disease in the future, I hope I can learn from written records that I live a simple and ordinary life~</div>
+            <div class="post-description">Lecture5 -- Bilibili: PyTorch Tutorial; Lecturer: Hongpu Liu</div>
 
         </div>
       </header>
@@ -253,80 +237,82 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Techo"><a href="#Techo" class="headerlink" title="Techo"></a>Techo</h2><p>I am a big fan of kinds of notebooks and I am addicted to taking notes. In November 2019, I spend $50 on Kokuyo Jibun Techo. I got hooked on this type of way to record my daily life. I stick to it during the covid and somehow I gave up after this September. </p>
-<h3 id="Kokuyo-Jibun-Techo"><a href="#Kokuyo-Jibun-Techo" class="headerlink" title="Kokuyo Jibun Techo"></a>Kokuyo Jibun Techo</h3><p>A complete set of Kokuyo Jibun Techo includes three sub-books: <strong><em>Diary, Life and Idea</em></strong>. Diary is a daily account with a timeline as the main body. There are various lists in Life, such as life dreams, travel plans, etc., and Idea is a grid book for recording daily essays and inspirations.</p>
-<img src="/2020/12/24/Notion-2021-v1/Kokuyo.jpg" class="" title="Kokuyo">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> torch
 
-<h3 id="Notion"><a href="#Notion" class="headerlink" title="Notion"></a>Notion</h3><p>Notion is my currently favourite note-taking application. From my perspective, it beats Microsoft OneNote and any other note-taking applications. I can do customized design based on my own preference. Due to my previous experience on Kokuyo Jibun Techo, I do have some novel ideas to make an electronical techo for myself and for the coming 2021.</p>
-<h3 id="My-First-Notion"><a href="#My-First-Notion" class="headerlink" title="My First Notion"></a>My First Notion</h3><p>I don’t think I’m naturally intelligent, but I find that I don’t seem to know what renunciation is ~ I hope I never give up on the unknown future.</p>
-<h4 id="Homepage"><a href="#Homepage" class="headerlink" title="Homepage"></a>Homepage</h4><ul>
-<li><strong>HomePage</strong><ul>
-<li><strong>2021 Techo</strong><ul>
-<li>my plan for 2021</li>
-</ul>
-</li>
-<li><strong>Life</strong><ul>
-<li>important events</li>
-<li>yearly goals</li>
-</ul>
-</li>
-<li><strong>Lists</strong><ul>
-<li>reading list</li>
-<li>travel plans</li>
-<li>journeys</li>
-</ul>
-</li>
-<li><strong>Study</strong></li>
-<li><strong>Work</strong></li>
-</ul>
-</li>
-</ul>
-<img src="/2020/12/24/Notion-2021-v1/hana-notion-home.png" class="" title="Hana Homepage">
-<p><em><div align="center">Fig. 1: Hana Notion Homepage</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/my-life-page.png" class="" title="My Life">
-<p><em><div align="center">Fig. 2: Hana Notion My Life Page</div></em></p>
-<h4 id="2021-Techo"><a href="#2021-Techo" class="headerlink" title="2021 Techo"></a>2021 Techo</h4><ul>
-<li><strong>2021 Techo</strong><ul>
-<li><strong>Inbox</strong><ul>
-<li>inspirations</li>
-<li>mood</li>
-<li>favourite paragraphs picked up on a daily basis</li>
-</ul>
-</li>
-<li><strong>Roommate Home</strong></li>
-<li><strong>Motto</strong></li>
-<li><strong>2021 Time Management</strong><ul>
-<li>monthly plan from Jan to Dec</li>
-</ul>
-</li>
-<li><strong>2021 Budget</strong><ul>
-<li>monthly budget from Jan to Dec</li>
-</ul>
-</li>
-<li><strong>2021 Yearly</strong><ul>
-<li>yearly calendar</li>
-<li>my 2021 targets</li>
-<li>the way to hit the targets</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<img src="/2020/12/24/Notion-2021-v1/year-2021.png" class="" width="2021" title="Techo">
-<p><em><div align="center">Fig. 3: Hana Notion 2021 Techo</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/room-home-1.png" class="" title="Roommate Home Page1">
-<p><em><div align="center">Fig. 4: Hana Notion Roommate Home Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/room-home-2.png" class="" title="Roommate Home Page2">
-<p><em><div align="center">Fig. 5: Hana Notion Roommate Home Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/monthly-plan-1.png" class="" title="Monthly Plan Page1">
-<p><em><div align="center">Fig. 6: Hana Notion Monthly Plan Page1</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/monthly-plan-2.png" class="" title="Monthly Plan Page2">
-<p><em><div align="center">Fig. 7: Hana Notion Monthly Plan Page2</div></em></p>
-<img src="/2020/12/24/Notion-2021-v1/budget-page.png" class="" title="Budget Plan Page2">
-<p><em><div align="center">Fig. 8: Hana Notion Budget Plan Page</div></em></p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>My younger brother recommended this application to me yesterday and I started using this app after I woke up this morning. It is a little bit hard for me to find my own way to design my own notion. All the color match, layouts and design took me a long time. I suppose to do some study today but I was addicted to notion. I feel satisfied that I have something done at least. I like my current design and I may change all the design one day. Looking forward to my second version of Hana’s Notion~</p>
-<p>By the way, today is Christmas Eve. Julian’s family shouted me a yummy dinner tonight. I appreciate it. Merry Christmas 🎄</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCoSvlWS5XcwaSzIcbuJ-Ysg">Notion </a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://www.flaticon.com/packs/peru-48">Peru Icon Pack </a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<span class="token comment"># step 1: prepare the dataset</span>
+x_data <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">2.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3.0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y_data <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">2.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">4.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">6.0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># step2: design model</span>
+<span class="token triple-quoted-string string">"""
+Our model class should inherit from torch.nn.Module, which is the base class for all of the neural networks.
+__init__() and forward() have to be implemented.
+class nn.Linear contains two Tensor components: weight and bias
+class nn.Linear has implemented the magic method __call__(), which enable the instance of the class to be called like a function.
+therefore, model(data) can call the forward function
+"""</span>
+
+<span class="token keyword">class</span> <span class="token class-name">LinearModel</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span>LinearModel<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment"># (1, 1) is the sie of each input sample and output sample</span>
+        <span class="token comment"># parameters in this model: weights and bias</span>
+        <span class="token comment"># model: y = xm + b</span>
+        self<span class="token punctuation">.</span>linear <span class="token operator">=</span> torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>Linear<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        y_pred <span class="token operator">=</span> self<span class="token punctuation">.</span>linear<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> y_pred
+
+model <span class="token operator">=</span> LinearModel<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># step3: construct loss and optimizer</span>
+criterion <span class="token operator">=</span> torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>MSELoss<span class="token punctuation">(</span>size_average <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+optimizer <span class="token operator">=</span> torch<span class="token punctuation">.</span>optim<span class="token punctuation">.</span>SGD<span class="token punctuation">(</span>model<span class="token punctuation">.</span>parameters<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> lr <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">)</span> <span class="token comment">#iterable of parameters to optimizer. model.parameters() can get all the parameters in the model</span>
+
+<span class="token comment"># step4: training cycle - forward, backward, update</span>
+<span class="token keyword">for</span> epoch <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    y_pred <span class="token operator">=</span> model<span class="token punctuation">(</span>x_data<span class="token punctuation">)</span>
+    loss <span class="token operator">=</span> criterion<span class="token punctuation">(</span>y_pred<span class="token punctuation">,</span> y_data<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>epoch<span class="token punctuation">,</span> loss<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    optimizer<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># the grad will be accumulated, so before backward, we need to set the grad to zero</span>
+    loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># backward: autograd</span>
+    optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># update w, b</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'w='</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>linear<span class="token punctuation">.</span>weight<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'b='</span><span class="token punctuation">,</span> model<span class="token punctuation">.</span>linear<span class="token punctuation">.</span>weight<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># step5: test model</span>
+x_test <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4.0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+y_test <span class="token operator">=</span> model<span class="token punctuation">(</span>x_test<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'y_pred= '</span><span class="token punctuation">,</span> y_test<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+
+<span class="token comment"># 980 3.610836074585677e-10</span>
+<span class="token comment"># 981 3.6504843592410907e-10</span>
+<span class="token comment"># 982 3.5726088754017837e-10</span>
+<span class="token comment"># 983 3.4162894735345617e-10</span>
+<span class="token comment"># 984 3.445990159889334e-10</span>
+<span class="token comment"># 985 3.355609123900649e-10</span>
+<span class="token comment"># 986 3.370388412804459e-10</span>
+<span class="token comment"># 987 3.249738256272394e-10</span>
+<span class="token comment"># 988 3.1610625228495337e-10</span>
+<span class="token comment"># 989 3.1587887860951014e-10</span>
+<span class="token comment"># 990 3.1248248433257686e-10</span>
+<span class="token comment"># 991 3.1373303954751464e-10</span>
+<span class="token comment"># 992 3.1042191039887257e-10</span>
+<span class="token comment"># 993 3.0178171073202975e-10</span>
+<span class="token comment"># 994 3.0526337013725424e-10</span>
+<span class="token comment"># 995 2.9184832328610355e-10</span>
+<span class="token comment"># 996 2.9478997021215037e-10</span>
+<span class="token comment"># 997 2.864908310584724e-10</span>
+<span class="token comment"># 998 2.8178703814774053e-10</span>
+<span class="token comment"># 999 2.765574436125462e-10</span>
+<span class="token comment"># w= 2.0000112056732178</span>
+<span class="token comment"># b= 2.0000112056732178</span>
+<span class="token comment"># y_pred=  tensor([8.0000])</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Y7411d7Ys?p=5">PyTorch Tutorial - P5 Linear Regression with PyTorch</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -341,7 +327,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/" title="Hello, Notion!!">http://hexuanweng.github.io/2020/12/24/Notion-2021-v1/</a>
+    <a href="http://hexuanweng.github.io/2022/07/26/PyTorch-P5/" title="PyTorch Tutorial - Linear Regression With PyTorch">http://hexuanweng.github.io/2022/07/26/PyTorch-P5/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -353,7 +339,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Notion/" rel="tag"><i class="fa fa-tag"> Notion</i> </a>
+              <a href="/tags/PyTorch/" rel="tag"><i class="fa fa-tag"> PyTorch</i> </a>
           </div>
 
         
@@ -361,13 +347,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/01/28/Algo-MinRewards/" rel="prev" title="Algo-MinRewards">
-      <i class="fa fa-chevron-left"></i> Algo-MinRewards
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/12/23/SVM-Concept/" rel="next" title="Support Vector Machines Main Idea">
-      Support Vector Machines Main Idea <i class="fa fa-chevron-right"></i>
+    <a href="/2022/07/24/LC433MinimumGeneticMutation/" rel="next" title="LC433 - Minimum Genetic Mutation">
+      LC433 - Minimum Genetic Mutation <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -428,7 +411,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Techo"><span class="nav-text">Techo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kokuyo-Jibun-Techo"><span class="nav-text">Kokuyo Jibun Techo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notion"><span class="nav-text">Notion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-First-Notion"><span class="nav-text">My First Notion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Homepage"><span class="nav-text">Homepage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2021-Techo"><span class="nav-text">2021 Techo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-text">Summary</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -606,7 +588,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : 'd473699e6cf5732d1363ab2564e1a4fb',
+      id          : '9bfd6f6efcc1cdd3b2982e28a1522274',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
