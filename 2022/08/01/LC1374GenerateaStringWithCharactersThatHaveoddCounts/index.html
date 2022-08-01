@@ -22,15 +22,21 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hex.*">
-<meta property="og:url" content="http://hexuanweng.github.io/tags/Brute-Force/index.html">
+  <meta name="description" content="Datastructure and Algorithm: DAY 62. Leedcode: 227&#x2F;2726">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LC1374 - Generate a String With Characters That Have Odd Counts">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/08/01/LC1374GenerateaStringWithCharactersThatHaveoddCounts/index.html">
 <meta property="og:site_name" content="Hex.*">
+<meta property="og:description" content="Datastructure and Algorithm: DAY 62. Leedcode: 227&#x2F;2726">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-01T11:39:23.000Z">
+<meta property="article:modified_time" content="2022-08-01T11:47:06.812Z">
 <meta property="article:author" content="Hexuan Weng">
+<meta property="article:tag" content="easy">
+<meta property="article:tag" content="Simulation">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://hexuanweng.github.io/tags/Brute-Force/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/08/01/LC1374GenerateaStringWithCharactersThatHaveoddCounts/">
 
 
 <script id="page-configurations">
@@ -38,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: Brute Force | Hex.*</title>
+  <title>LC1374 - Generate a String With Characters That Have Odd Counts | Hex.*</title>
   
 
 
@@ -177,77 +183,148 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Brute Force
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/08/01/LC1374GenerateaStringWithCharactersThatHaveoddCounts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yourname.jpg">
+      <meta itemprop="name" content="Hexuan Weng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hex.*">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LC1374 - Generate a String With Characters That Have Odd Counts
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-08-01 21:39:23 / Modified: 21:47:06" itemprop="dateCreated datePublished" datetime="2022-08-01T21:39:23+10:00">2022-08-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/LC1200-1499/" itemprop="url" rel="index"><span itemprop="name">LC1200-1499</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Datastructure and Algorithm: DAY 62. Leedcode: 227/2726</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an integer n, return a string with n characters such that each character in such string occurs an odd number of times.<br>The returned string must contain only lowercase English letters. If there are multiples valid strings, return any of them.  </p>
+<p>Example 1:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: n &#x3D; 4
+Output: &quot;pppz&quot;
+Explanation: &quot;pppz&quot; is a valid string since the character &#39;p&#39; occurs three times and the character &#39;z&#39; occurs once. Note that there are many other valid strings such as &quot;ohhh&quot; and &quot;love&quot;.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>Example 2:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: n &#x3D; 2
+Output: &quot;xy&quot;
+Explanation: &quot;xy&quot; is a valid string since the characters &#39;x&#39; and &#39;y&#39; occur once. Note that there are many other valid strings such as &quot;ag&quot; and &quot;ur&quot;.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>Example 3:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: n &#x3D; 7
+Output: &quot;holasss&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>Constraints:</p>
+<pre class="line-numbers language-none"><code class="language-none">1 &lt;&#x3D; n &lt;&#x3D; 500<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
+<li>When n is an odd number, you can use one character, which itself is an odd number of times;</li>
+<li>Two characters can be used when n is even, odd+odd=even</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">generateTheString</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> n <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">"a"</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"b"</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">"a"</span><span class="token operator">*</span>n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/generate-a-string-with-characters-that-have-odd-counts/">1374. Generate a String With Characters That Have Odd Counts</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-25T20:13:36+10:00"
-              content="2022-06-25">
-          06-25
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Hexuan Weng
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://hexuanweng.github.io/2022/08/01/LC1374GenerateaStringWithCharactersThatHaveoddCounts/" title="LC1374 - Generate a String With Characters That Have Odd Counts">http://hexuanweng.github.io/2022/08/01/LC1374GenerateaStringWithCharactersThatHaveoddCounts/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/25/LC729MyCalendarI/" itemprop="url">
-            <span itemprop="name">LC729 - My Calendar I</span>
-          </a>
-      </div>
 
-    </header>
-  </article>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/easy/" rel="tag"><i class="fa fa-tag"> easy</i> </a>
+              <a href="/tags/Simulation/" rel="tag"><i class="fa fa-tag"> Simulation</i> </a>
+          </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-04T19:44:29+10:00"
-              content="2022-06-04">
-          06-04
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/04/LC929UniqueEmailAddress/" itemprop="url">
-            <span itemprop="name">LC929 - Unique Email Address</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/01/LC1161MaximumLevelSumofaBinaryTree/" rel="next" title="LC1161 - Maximum Level Sum of a Binary Tree">
+      LC1161 - Maximum Level Sum of a Binary Tree <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -294,6 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solutions"><span class="nav-text">Solutions</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -460,6 +538,25 @@ show_date_time();
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '65a63f39e8f0508fea1e',
+      clientSecret: '19813982f6f78a2d784ef86454a73a778af996fc',
+      repo        : 'hexuanweng.github.io',
+      owner       : 'HexuanWeng',
+      admin       : ['HexuanWeng'],
+      id          : '96fcb5ea01491981f2039772b6758633',
+        language: 'en,zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
