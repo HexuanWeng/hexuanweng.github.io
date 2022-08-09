@@ -541,6 +541,13 @@
   </url>
   
   <url>
+    <loc>http://hexuanweng.github.io/categories/index.html</loc>
+    
+    <lastmod>2021-08-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hexuanweng.github.io/about/index.html</loc>
     
     <lastmod>2021-08-23</lastmod>
@@ -549,13 +556,6 @@
   
   <url>
     <loc>http://hexuanweng.github.io/tags/index.html</loc>
-    
-    <lastmod>2021-08-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/index.html</loc>
     
     <lastmod>2021-08-23</lastmod>
     
@@ -606,14 +606,7 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Machine-Learning/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/video-course/</loc>
+    <loc>http://hexuanweng.github.io/tags/Notion/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -627,21 +620,14 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Daily-English/</loc>
+    <loc>http://hexuanweng.github.io/tags/video-course/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Support-Vector-Machine/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Notion/</loc>
+    <loc>http://hexuanweng.github.io/tags/Machine-Learning/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -662,105 +648,21 @@
   </url>
   
   <url>
+    <loc>http://hexuanweng.github.io/tags/Daily-English/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Support-Vector-Machine/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://hexuanweng.github.io/tags/Leetcode/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/AWS-Lambda/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Google-BigQuery/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Brute-Force/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Prefix-Sum/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/medium/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Rejection-Sampling/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Simulation/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Math/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Binary-Search/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Hashmap/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Difference-Array/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Sliding-Window/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Sorting/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Two-Pointers/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -774,14 +676,7 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Depth-First-Search/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/tags/Kotlin/</loc>
+    <loc>http://hexuanweng.github.io/tags/Heap/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -795,7 +690,21 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/tags/Heap/</loc>
+    <loc>http://hexuanweng.github.io/tags/medium/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Sorting/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Hashmap/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -803,6 +712,13 @@
   
   <url>
     <loc>http://hexuanweng.github.io/tags/PyTorch/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Simulation/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -843,6 +759,90 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Depth-First-Search/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Brute-Force/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Prefix-Sum/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Binary-Search/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Math/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Difference-Array/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Sliding-Window/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Rejection-Sampling/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Two-Pointers/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Kotlin/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/AWS-Lambda/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/tags/Google-BigQuery/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -874,133 +874,7 @@
   </url>
   
   <url>
-    <loc>http://hexuanweng.github.io/categories/AWS/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://hexuanweng.github.io/categories/Leetcode/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/AWS/GCP/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC400-499/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC900-999/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC800-899/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC300-399/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1100-1199/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC200-299/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC500-599/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1800-1899/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC700-799/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1500-1599/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1000-1099/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC2000/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Android-Development/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC00-99/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1200-1499/</loc>
-    <lastmod>2022-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1600-1799/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1014,7 +888,133 @@
   </url>
   
   <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC800-899/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC700-799/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1100-1199/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC2000/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1200-1499/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC500-599/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC200-299/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://hexuanweng.github.io/categories/Leetcode/LC100-199/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC400-499/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1600-1799/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC900-999/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1800-1899/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1000-1099/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC300-399/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC1500-1599/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Leetcode/LC00-99/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/Android-Development/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/AWS/</loc>
+    <lastmod>2022-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://hexuanweng.github.io/categories/AWS/GCP/</loc>
     <lastmod>2022-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
