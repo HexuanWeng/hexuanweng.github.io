@@ -22,24 +22,21 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Leedcode: 124&#x2F;2658 (52+59+13)">
+  <meta name="description" content="Datastructure and Algorithm: DAY 62. Leedcode: 227&#x2F;2726">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC1109 - Corporate Flight Bookings">
-<meta property="og:url" content="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/index.html">
+<meta property="og:title" content="LC1413 - Minimum Value to Get Positive Step by Step Sum">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/08/09/LC1413MinimumValuetoGetPositiveStepbyStepSum/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Leedcode: 124&#x2F;2658 (52+59+13)">
+<meta property="og:description" content="Datastructure and Algorithm: DAY 62. Leedcode: 227&#x2F;2726">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/prefixsum.png">
-<meta property="og:image" content="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/differencearray.png">
-<meta property="article:published_time" content="2022-06-10T11:41:20.000Z">
-<meta property="article:modified_time" content="2022-06-29T12:48:22.171Z">
+<meta property="article:published_time" content="2022-08-09T11:12:04.000Z">
+<meta property="article:modified_time" content="2022-08-09T11:16:18.627Z">
 <meta property="article:author" content="Hexuan Weng">
-<meta property="article:tag" content="medium">
-<meta property="article:tag" content="Difference Array">
+<meta property="article:tag" content="easy">
+<meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/prefixsum.png">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/08/09/LC1413MinimumValuetoGetPositiveStepbyStepSum/">
 
 
 <script id="page-configurations">
@@ -52,7 +49,7 @@
   };
 </script>
 
-  <title>LC1109 - Corporate Flight Bookings | Hex.*</title>
+  <title>LC1413 - Minimum Value to Get Positive Step by Step Sum | Hex.*</title>
   
 
 
@@ -193,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/08/09/LC1413MinimumValuetoGetPositiveStepbyStepSum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -206,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC1109 - Corporate Flight Bookings
+          LC1413 - Minimum Value to Get Positive Step by Step Sum
         </h1>
 
         <div class="post-meta">
@@ -215,16 +212,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-06-10 21:41:20" itemprop="dateCreated datePublished" datetime="2022-06-10T21:41:20+10:00">2022-06-10</time>
+              <time title="Created: 2022-08-09 21:12:04 / Modified: 21:16:18" itemprop="dateCreated datePublished" datetime="2022-08-09T21:12:04+10:00">2022-08-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-29 22:48:22" itemprop="dateModified" datetime="2022-06-29T22:48:22+10:00">2022-06-29</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -235,12 +226,12 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/LC1100-1199/" itemprop="url" rel="index"><span itemprop="name">LC1100-1199</span></a>
+                  <a href="/categories/Leetcode/LC1200-1499/" itemprop="url" rel="index"><span itemprop="name">LC1200-1499</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Leedcode: 124/2658 (52+59+13)</div>
+            <div class="post-description">Datastructure and Algorithm: DAY 62. Leedcode: 227/2726</div>
 
         </div>
       </header>
@@ -251,50 +242,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are n flights that are labeled from 1 to n.</p>
-<p>You are given an array of flight bookings bookings, where bookings[i] = [firsti, lasti, seatsi] represents a booking for flights firsti through lasti (inclusive) with seatsi seats reserved for each flight in the range.</p>
-<p>Return an array answer of length n, where answer[i] is the total number of seats reserved for flight i.</p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers nums, you start with an initial positive value startValue.<br>In each iteration, you calculate the step by step sum of startValue plus elements in nums (from left to right).<br>Return the minimum positive value of startValue such that the step by step sum is never less than 1.</p>
 <p>Example 1:</p>
-<p>Input: bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5<br>Output: [10,55,45,25,25]<br>Explanation:<br>Flight labels:        1   2   3   4   5<br>Booking 1 reserved:  10  10<br>Booking 2 reserved:      20  20<br>Booking 3 reserved:      25  25  25  25<br>Total seats:         10  55  45  25  25<br>Hence, answer = [10,55,45,25,25]<br>Example 2:</p>
-<p>Input: bookings = [[1,2,10],[2,2,15]], n = 2<br>Output: [10,25]<br>Explanation:<br>Flight labels:        1   2<br>Booking 1 reserved:  10  10<br>Booking 2 reserved:      15<br>Total seats:         10  25<br>Hence, answer = [10,25]</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: nums &#x3D; [-3,2,-3,4,2]
+Output: 5
+Explanation: If you choose startValue &#x3D; 4, in the third iteration your step by step sum is less than 1.
+step by step sum
+startValue &#x3D; 4 | startValue &#x3D; 5 | nums
+  (4 -3 ) &#x3D; 1  | (5 -3 ) &#x3D; 2    |  -3
+  (1 +2 ) &#x3D; 3  | (2 +2 ) &#x3D; 4    |   2
+  (3 -3 ) &#x3D; 0  | (4 -3 ) &#x3D; 1    |  -3
+  (0 +4 ) &#x3D; 4  | (1 +4 ) &#x3D; 5    |   4
+  (4 +2 ) &#x3D; 6  | (5 +2 ) &#x3D; 7    |   2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Example 2:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: nums &#x3D; [1,2]
+Output: 1
+Explanation: Minimum start value should be positive. <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>Example 3:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: nums &#x3D; [1,-2,-3]
+Output: 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>Constraints:</p>
-<p>1 &lt;= n &lt;= 2 * 104<br>1 &lt;= bookings.length &lt;= 2 * 104<br>bookings[i].length == 3<br>1 &lt;= firsti &lt;= lasti &lt;= n<br>1 &lt;= seatsi &lt;= 104</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><img src="/2022/06/10/LC1109CorporateFlightBookings/prefixsum.png" class="" title="prefixsum">
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#前缀和 O(n^2) time | O(1) space</span>
+<pre class="line-numbers language-none"><code class="language-none">1 &lt;&#x3D; nums.length &lt;&#x3D; 100
+-100 &lt;&#x3D; nums[i] &lt;&#x3D; 100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The smallest positive integer is required.<br>We can get the smallest negative sum, and the answer is the opposite of the negative number + 1</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(1) space</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">corpFlightBookings</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bookings<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> value <span class="token keyword">in</span> bookings<span class="token punctuation">:</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                answer<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> value
-        <span class="token keyword">return</span> answer<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">def</span> <span class="token function">minStartValue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        ans <span class="token operator">=</span> <span class="token number">0</span>
+        cur <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> nums<span class="token punctuation">:</span>
+            cur <span class="token operator">+=</span> i
+            <span class="token keyword">if</span> cur <span class="token operator">&lt;</span> ans<span class="token punctuation">:</span>
+                ans <span class="token operator">=</span> cur
+        <span class="token keyword">return</span> <span class="token operator">-</span>ans <span class="token operator">+</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>The idea of the difference method:</p>
-<ul>
-<li>Start index first, accumulate the number of seats</li>
-<li>At the end of index last+1, subtract the current number of seats</li>
-<li>Because the flight after the last, there is no current seat</li>
-<li>When subtracting first, and then adding prefixes, they will actually cancel each other out</li>
-<li>It is easy to understand how the idea of difference solves this problem by drawing an array.<img src="/2022/06/10/LC1109CorporateFlightBookings/differencearray.png" class="" title="differencearray">
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#O(n) time | O(n) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">corpFlightBookings</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bookings<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        diff <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">for</span> start<span class="token punctuation">,</span> end<span class="token punctuation">,</span> value <span class="token keyword">in</span> bookings<span class="token punctuation">:</span>
-            diff<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">+=</span> value
-            <span class="token keyword">if</span> end <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>
-                diff<span class="token punctuation">[</span>end<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-=</span> value
-
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            diff<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> diff<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> 
-        <span class="token keyword">return</span> diff<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-</li>
-</ul>
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/corporate-flight-bookings/">1109. Corporate Flight Bookings</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/corporate-flight-bookings/discuss/2134803/HexPython-Difference-Array">Hex Solution</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/">1413. Minimum Value to Get Positive Step by Step Sum</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -309,7 +295,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/" title="LC1109 - Corporate Flight Bookings">http://hexuanweng.github.io/2022/06/10/LC1109CorporateFlightBookings/</a>
+    <a href="http://hexuanweng.github.io/2022/08/09/LC1413MinimumValuetoGetPositiveStepbyStepSum/" title="LC1413 - Minimum Value to Get Positive Step by Step Sum">http://hexuanweng.github.io/2022/08/09/LC1413MinimumValuetoGetPositiveStepbyStepSum/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -321,8 +307,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
-              <a href="/tags/Difference-Array/" rel="tag"><i class="fa fa-tag"> Difference Array</i> </a>
+              <a href="/tags/easy/" rel="tag"><i class="fa fa-tag"> easy</i> </a>
+              <a href="/tags/Greedy/" rel="tag"><i class="fa fa-tag"> Greedy</i> </a>
           </div>
 
         
@@ -330,13 +316,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/06/10/LC798SmallestRotationwithHighestScore/" rel="prev" title="LC798 - Smallest Rotation With Highest Score">
-      <i class="fa fa-chevron-left"></i> LC798 - Smallest Rotation With Highest Score
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/10/LC560SubarraySumEqualsK/" rel="next" title="LC560 - Subarray Sum Equals K">
-      LC560 - Subarray Sum Equals K <i class="fa fa-chevron-right"></i>
+    <a href="/2022/08/01/LC1374GenerateaStringWithCharactersThatHaveoddCounts/" rel="next" title="LC1374 - Generate a String With Characters That Have Odd Counts">
+      LC1374 - Generate a String With Characters That Have Odd Counts <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -575,7 +558,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : '823ba73455f90bced8d96dcfb8344831',
+      id          : 'c3937dd7598dbd021ce2bd741b721b4f',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
