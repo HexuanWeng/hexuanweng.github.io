@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Leedcode: 155&#x2F;2658 (59+76+20)">
+  <meta name="description" content="Datastructure and Algorithm: DAY 71. Leedcode: 248&#x2F;2736">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC735 - Asteroid Collision">
-<meta property="og:url" content="http://hexuanweng.github.io/2022/07/13/LC735AsteroidCollision/index.html">
+<meta property="og:title" content="LC640 - Solve the Equation">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/08/10/LC640SolvetheEquation/index.html">
 <meta property="og:site_name" content="Hex.*">
-<meta property="og:description" content="Leedcode: 155&#x2F;2658 (59+76+20)">
+<meta property="og:description" content="Datastructure and Algorithm: DAY 71. Leedcode: 248&#x2F;2736">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-13T12:22:36.000Z">
-<meta property="article:modified_time" content="2022-07-14T13:00:25.722Z">
+<meta property="article:published_time" content="2022-08-10T12:47:12.000Z">
+<meta property="article:modified_time" content="2022-08-10T12:50:54.828Z">
 <meta property="article:author" content="Hexuan Weng">
 <meta property="article:tag" content="medium">
-<meta property="article:tag" content="Stack">
+<meta property="article:tag" content="Simulation">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://hexuanweng.github.io/2022/07/13/LC735AsteroidCollision/">
+<link rel="canonical" href="http://hexuanweng.github.io/2022/08/10/LC640SolvetheEquation/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>LC735 - Asteroid Collision | Hex.*</title>
+  <title>LC640 - Solve the Equation | Hex.*</title>
   
 
 
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/07/13/LC735AsteroidCollision/">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/08/10/LC640SolvetheEquation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/yourname.jpg">
@@ -203,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LC735 - Asteroid Collision
+          LC640 - Solve the Equation
         </h1>
 
         <div class="post-meta">
@@ -212,16 +212,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-07-13 22:22:36" itemprop="dateCreated datePublished" datetime="2022-07-13T22:22:36+10:00">2022-07-13</time>
+              <time title="Created: 2022-08-10 22:47:12 / Modified: 22:50:54" itemprop="dateCreated datePublished" datetime="2022-08-10T22:47:12+10:00">2022-08-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-14 23:00:25" itemprop="dateModified" datetime="2022-07-14T23:00:25+10:00">2022-07-14</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -232,12 +226,12 @@
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/LC700-799/" itemprop="url" rel="index"><span itemprop="name">LC700-799</span></a>
+                  <a href="/categories/Leetcode/LC600-699/" itemprop="url" rel="index"><span itemprop="name">LC600-699</span></a>
                 </span>
             </span>
 
           
-            <div class="post-description">Leedcode: 155/2658 (59+76+20)</div>
+            <div class="post-description">Datastructure and Algorithm: DAY 71. Leedcode: 248/2736</div>
 
         </div>
       </header>
@@ -248,29 +242,86 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>We are given an array asteroids of integers representing asteroids in a row.<br>For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.<br>Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.</p>
-<p>Example 1:<br>Input: asteroids = [5,10,-5]<br>Output: [5,10]<br>Explanation: The 10 and -5 collide resulting in 10. The 5 and 10 never collide.</p>
-<p>Example 2:<br>Input: asteroids = [8,-8]<br>Output: []<br>Explanation: The 8 and -8 collide exploding each other.</p>
-<p>Example 3:<br>Input: asteroids = [10,2,-5]<br>Output: [10]<br>Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10.</p>
-<p>Constraints:<br>2 &lt;= asteroids.length &lt;= 104<br>-1000 &lt;= asteroids[i] &lt;= 1000<br>asteroids[i] != 0</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Since collision cancellation always occurs between adjacent planets, we can use “stacks” to simulate this process.</p>
-<p>Process all the ats[i] from the front to the back, and use the stack to store the planets that are not currently offset. When the direction of the top element of the stack is to the right, and the current ats[i]ats[i] direction is to the left, the offset will occur. Operation, the offset process can be carried out according to the rules.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">asteroidCollision</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> asteroids<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> star <span class="token keyword">in</span> asteroids<span class="token punctuation">:</span>
-            <span class="token keyword">while</span> ans <span class="token keyword">and</span> ans<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">and</span> star <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                pre<span class="token punctuation">,</span> cur <span class="token operator">=</span> ans<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">-</span>star
-                <span class="token keyword">if</span> pre <span class="token operator">&lt;=</span> cur<span class="token punctuation">:</span>
-                    ans<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token keyword">if</span> pre <span class="token operator">>=</span> cur<span class="token punctuation">:</span>
-                    <span class="token keyword">break</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span>star<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Solve a given equation and return the value of ‘x’ in the form of a string “x=#value”. The equation contains only ‘+’, ‘-‘ operation, the variable ‘x’ and its coefficient. You should return “No solution” if there is no solution for the equation, or “Infinite solutions” if there are infinite solutions for the equation.<br>If there is exactly one solution for the equation, we ensure that the value of ‘x’ is an integer.</p>
+<p>Example 1:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: equation &#x3D; &quot;x+5-3+x&#x3D;6+x-2&quot;
+Output: &quot;x&#x3D;2&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/asteroid-collision/">735. Asteroid Collision</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
+<p>Example 2:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: equation &#x3D; &quot;x&#x3D;x&quot;
+Output: &quot;Infinite solutions&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>Example 3:</p>
+<pre class="line-numbers language-none"><code class="language-none">Input: equation &#x3D; &quot;2x&#x3D;x&quot;
+Output: &quot;x&#x3D;0&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>Constraints:</p>
+<pre class="line-numbers language-none"><code class="language-none">3 &lt;&#x3D; equation.length &lt;&#x3D; 1000
+equation has exactly one &#39;&#x3D;&#39;.
+equation consists of integers with an absolute value in the range [0, 100] without any leading zeros, and the variable &#39;x&#39;.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>Move all expressions to the left</li>
+<li>Then all minus signs are preceded by a plus sign as a prefix</li>
+<li>Divide the equation by plus sign</li>
+<li>Count the number of x and the operation result of the number</li>
+<li>Get results based on the requirements</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">solveEquation</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> equation<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        left<span class="token punctuation">,</span> right <span class="token operator">=</span> equation<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span>
+        new_left <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        new_right <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> right<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">"-"</span><span class="token punctuation">:</span>
+            right <span class="token operator">=</span> <span class="token string">"+"</span> <span class="token operator">+</span> right
+
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> left<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"-"</span><span class="token punctuation">:</span>
+                new_left<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"+-"</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                new_left<span class="token punctuation">.</span>append<span class="token punctuation">(</span>left<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> right<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"+"</span><span class="token punctuation">:</span>
+                new_right<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"+-"</span><span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> right<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"-"</span><span class="token punctuation">:</span>
+                new_right<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                new_right<span class="token punctuation">.</span>append<span class="token punctuation">(</span>right<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        e <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>new_left<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>new_right<span class="token punctuation">)</span>
+
+        <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        
+        letter <span class="token operator">=</span> <span class="token number">0</span>
+        num <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> cur <span class="token keyword">in</span> e<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            sign<span class="token punctuation">,</span> coe<span class="token punctuation">,</span> l <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span>
+            <span class="token keyword">if</span> cur<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> cur<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"-"</span><span class="token punctuation">:</span>
+                    sign <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+                    <span class="token keyword">if</span> cur<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"x"</span><span class="token punctuation">:</span>
+                        coe <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>cur<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">2</span> <span class="token keyword">else</span> <span class="token number">1</span>
+                        letter <span class="token operator">+=</span> sign <span class="token operator">*</span> coe
+                    <span class="token keyword">else</span><span class="token punctuation">:</span>
+                        num <span class="token operator">+=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> cur<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"x"</span><span class="token punctuation">:</span>
+                        coe <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>cur<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">1</span>
+                        letter <span class="token operator">+=</span> sign <span class="token operator">*</span> coe
+                    <span class="token keyword">else</span><span class="token punctuation">:</span>
+                        num <span class="token operator">+=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span>
+           
+        <span class="token keyword">if</span> letter <span class="token operator">==</span> num <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">"Infinite solutions"</span>
+        <span class="token keyword">elif</span> letter <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">and</span> num <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">"No solution"</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            v <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token operator">-</span>num <span class="token operator">/</span> letter<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token string">"x="</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a target="_blank" rel="noopener" href="https://leetcode.com/problems/solve-the-equation/">640. Solve the Equation</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
     </div>
 
     
@@ -285,7 +336,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://hexuanweng.github.io/2022/07/13/LC735AsteroidCollision/" title="LC735 - Asteroid Collision">http://hexuanweng.github.io/2022/07/13/LC735AsteroidCollision/</a>
+    <a href="http://hexuanweng.github.io/2022/08/10/LC640SolvetheEquation/" title="LC640 - Solve the Equation">http://hexuanweng.github.io/2022/08/10/LC640SolvetheEquation/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -298,7 +349,7 @@
           
           <div class="post-tags">
               <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
-              <a href="/tags/Stack/" rel="tag"><i class="fa fa-tag"> Stack</i> </a>
+              <a href="/tags/Simulation/" rel="tag"><i class="fa fa-tag"> Simulation</i> </a>
           </div>
 
         
@@ -306,13 +357,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/07/14/PyTorch-P3/" rel="prev" title="PyTorch Tutorial - Gradient Descent">
-      <i class="fa fa-chevron-left"></i> PyTorch Tutorial - Gradient Descent
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/07/12/PyTorch-P2/" rel="next" title="PyTorch Tutorial - Linear Model">
-      PyTorch Tutorial - Linear Model <i class="fa fa-chevron-right"></i>
+    <a href="/2022/08/09/LC1413MinimumValuetoGetPositiveStepbyStepSum/" rel="next" title="LC1413 - Minimum Value to Get Positive Step by Step Sum">
+      LC1413 - Minimum Value to Get Positive Step by Step Sum <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -551,7 +599,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'hexuanweng.github.io',
       owner       : 'HexuanWeng',
       admin       : ['HexuanWeng'],
-      id          : 'c82635dd205b6c129d32c6d1094b51d9',
+      id          : '29fb90f66bd6cc6fbfeed5507dc15b87',
         language: 'en,zh-CN',
       distractionFreeMode: false
     });
