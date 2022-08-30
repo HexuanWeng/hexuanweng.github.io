@@ -6,7 +6,7 @@
   <link href="http://hexuanweng.github.io/atom.xml" rel="self"/>
   
   <link href="http://hexuanweng.github.io/"/>
-  <updated>2022-08-30T01:52:17.127Z</updated>
+  <updated>2022-08-30T04:06:49.618Z</updated>
   <id>http://hexuanweng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LC998 - Maximum Binary Tree II</title>
+    <link href="http://hexuanweng.github.io/2022/08/30/LC998MaximumBinaryTreeII/"/>
+    <id>http://hexuanweng.github.io/2022/08/30/LC998MaximumBinaryTreeII/</id>
+    <published>2022-08-30T02:00:07.000Z</published>
+    <updated>2022-08-30T04:06:49.618Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>A maximum tree is a tree where every node has a value greater than any other value in its subtree.<br>You are given the root of a maximum binary tree and an integer val.<br>Just as in the previous problem, the given tree was constructed from a list a (root = Construct(a)) recursively with the following Construct(a) routine:<br>If a is empty, return null.<br>Otherwise, let a[i] be the largest element of a. Create a root node with the value a[i].<br>The left child of root will be Construct([a[0], a[1], …, a[i - 1]]).<br>The right child of root will be Construct([a[i + 1], a[i + 2], …, a[a.length - 1]]).<br>Return root.<br>Note that we were not given a directly, only a root node root = Construct(a).<br>Suppose b is a copy of a with the value val appended to it. It is guaranteed that b has unique values.<br>Return Construct(b).</p><p>Example 1:</p><img src="/2022/08/30/LC998MaximumBinaryTreeII/e1.jpg" class="" title="e1"><p>````<br>Input: root = [4,1,3,null,null,2], val = 5<br>Output: [5,4,null,1,3,null,null,2]<br>Explanation: a = [1,4,2,3], b = [1,4,2,3,5]</p><pre class="line-numbers language-none"><code class="language-none">Example 2:&#123;% asset_img e2.jpg e2%&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>Input: root = [5,2,4,null,1], val = 3<br>Output: [5,2,4,null,1,null,3]<br>Explanation: a = [2,1,5,4], b = [2,1,5,4,3]</p><pre class="line-numbers language-none"><code class="language-none">Example 3:&#123;% asset_img e3.jpg e3%&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>Input: root = [5,2,3,null,1], val = 4<br>Output: [5,2,4,null,1,3]<br>Explanation: a = [2,1,5,3], b = [2,1,5,3,4]</p><pre class="line-numbers language-none"><code class="language-none">Constraints:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>The number of nodes in the tree is in the range [1, 100].<br>1 &lt;= Node.val &lt;= 100<br>All the values of the tree are unique.<br>1 &lt;= val &lt;= 100</p><pre class="line-numbers language-none"><code class="language-none">## SolutionBecause the new val is added at the end of the array, we can compare with the root node,- If it is larger than the root, then val is the new root and the original root is its left subtree (since val is to the right of the original root&#39;s value in the array).- If it is smaller than the root node, it means that val must be recursively added to the right node of the original root. Note that recursion may change the root of the right subtree, so reassign the right node of the root node.Finally, if the recursive root is empty, a new leaf node can be returned directly.&#96;&#96;&#96;python# Definition for a binary tree node.# class TreeNode:#     def __init__(self, val&#x3D;0, left&#x3D;None, right&#x3D;None):#         self.val &#x3D; val#         self.left &#x3D; left#         self.right &#x3D; rightclass Solution:    def insertIntoMaxTree(self, root: Optional[TreeNode], val: int) -&gt; Optional[TreeNode]:        if not root:            return TreeNode(val)                if val &gt; root.val:            cur &#x3D; TreeNode(val)            cur.left &#x3D; root            return cur                root.right &#x3D; self.insertIntoMaxTree(root.right, val)        return root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/maximum-binary-tree-ii/">998. Maximum Binary Tree II</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    
+    <summary type="html">Datastructure and Algorithm: DAY 91. Leedcode: 288/2752</summary>
+    
+    
+    
+    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
+    
+    <category term="L900-999" scheme="http://hexuanweng.github.io/categories/Leetcode/L900-999/"/>
+    
+    
+    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Recursion" scheme="http://hexuanweng.github.io/tags/Recursion/"/>
+    
+  </entry>
   
   <entry>
     <title>LC654 - Maximum Binary Tree</title>
@@ -60,9 +85,9 @@
     <category term="L300-399" scheme="http://hexuanweng.github.io/categories/Leetcode/L300-399/"/>
     
     
-    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
-    
     <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
+    
+    <category term="Brute Force" scheme="http://hexuanweng.github.io/tags/Brute-Force/"/>
     
   </entry>
   
@@ -492,33 +517,6 @@
     <category term="Breadth First Search" scheme="http://hexuanweng.github.io/tags/Breadth-First-Search/"/>
     
     <category term="Topological Sorting" scheme="http://hexuanweng.github.io/tags/Topological-Sorting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LC814 - Binary Tree Prunting</title>
-    <link href="http://hexuanweng.github.io/2022/07/21/LC814BinaryTreePrunting/"/>
-    <id>http://hexuanweng.github.io/2022/07/21/LC814BinaryTreePrunting/</id>
-    <published>2022-07-21T01:47:46.000Z</published>
-    <updated>2022-07-21T08:14:41.613Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given the root of a binary tree, return the same tree where every subtree (of the given tree) not containing a 1 has been removed.<br>A subtree of a node node is node plus every node that is a descendant of node.</p><p>Example 1:</p><img src="/2022/07/21/LC814BinaryTreePrunting/e1.png" class="" title="e1"><pre class="line-numbers language-none"><code class="language-none">Input: root &#x3D; [1,null,0,0,1]Output: [1,null,0,null,1]Explanation: Only the red nodes satisfy the property &quot;every subtree not containing a 1&quot;.The diagram on the right represents the answer.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>Example 2:</p><img src="/2022/07/21/LC814BinaryTreePrunting/e2.png" class="" title="e2"><pre class="line-numbers language-none"><code class="language-none">Input: root &#x3D; [1,0,1,0,0,0,1]Output: [1,null,1,null,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>Example 3:</p><img src="/2022/07/21/LC814BinaryTreePrunting/e3.png" class="" title="e3"><pre class="line-numbers language-none"><code class="language-none">Input: root &#x3D; [1,1,0,1,1,0,1,0]Output: [1,1,0,1,1,null,1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>Constraints:<br>The number of nodes in the tree is in the range [1, 200].<br>Node.val is either 0 or 1.</p><h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><p>This is a <strong>post-order traversal</strong></p><p>If the following conditions are met, delete the current leaf node</p><ol><li>Left subtree is None</li><li>The right subtree is None</li><li>The current root value is 0</li></ol><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># O(n) time | O(n) space</span><span class="token comment"># Definition for a binary tree node.</span><span class="token comment"># class TreeNode:</span><span class="token comment">#     def __init__(self, val=0, left=None, right=None):</span><span class="token comment">#         self.val = val</span><span class="token comment">#         self.left = left</span><span class="token comment">#         self.right = right</span><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">pruneTree</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> root<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>TreeNode<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Optional<span class="token punctuation">[</span>TreeNode<span class="token punctuation">]</span><span class="token punctuation">:</span>        <span class="token keyword">if</span> root <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>            <span class="token keyword">return</span>                root<span class="token punctuation">.</span>left <span class="token operator">=</span> self<span class="token punctuation">.</span>pruneTree<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span>        root<span class="token punctuation">.</span>right <span class="token operator">=</span> self<span class="token punctuation">.</span>pruneTree<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>        <span class="token keyword">if</span> root<span class="token punctuation">.</span>left <span class="token keyword">is</span> <span class="token boolean">None</span> <span class="token keyword">and</span> root<span class="token punctuation">.</span>right <span class="token keyword">is</span> <span class="token boolean">None</span> <span class="token keyword">and</span> root<span class="token punctuation">.</span>val <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>            <span class="token keyword">return</span>        <span class="token keyword">return</span> root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://leetcode.com/problems/binary-tree-pruning/">814. Binary Tree Pruning</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
-    
-    
-    <summary type="html">Datastructure and Algorithm: DAY 51. Leedcode: 205/2710</summary>
-    
-    
-    
-    <category term="Leetcode" scheme="http://hexuanweng.github.io/categories/Leetcode/"/>
-    
-    <category term="LC800-899" scheme="http://hexuanweng.github.io/categories/Leetcode/LC800-899/"/>
-    
-    
-    <category term="medium" scheme="http://hexuanweng.github.io/tags/medium/"/>
-    
-    <category term="Depth First Search" scheme="http://hexuanweng.github.io/tags/Depth-First-Search/"/>
-    
-    <category term="Recursion" scheme="http://hexuanweng.github.io/tags/Recursion/"/>
     
   </entry>
   
