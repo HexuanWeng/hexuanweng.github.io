@@ -291,6 +291,9 @@
 <p>Add the flow action <em>Power Apps For Admins – Set App Owner</em> with the following parameters and fill in the environment name, Power App Name and New PowerApp Owner with the unique identifiers we gathered earlier.</p>
 <img src="/2024/08/03/PowerAppsOwnerChange/powerappsforadmin.png" class="">
 
+<p>In this step:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$EnvironmentName = Environment ID</span><br><span class="line">$AppName = App ID</span><br><span class="line">$NewAppOwner = Object ID</span><br></pre></td></tr></table></figure>
+
 <img src="/2024/08/03/PowerAppsOwnerChange/setappowner.png" class="">
 
 
@@ -306,17 +309,15 @@
 <img src="/2024/08/03/PowerAppsOwnerChange/powershell.png" class="">
 
 
-<p>Create a new script called <em>ChangeAppOwner.ps1</em>…</p>
+<p>Create a new script called <em>ChangeAppOwner.ps1</em></p>
 <img src="/2024/08/03/PowerAppsOwnerChange/powershellISE.png" class="">
 
-
+<p>Paste the following code into the text editor. Switch the environment name, app name and new app owner with your own information then press the green play button to execute the script.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$EnvironmentName</span> = <span class="string">&#x27;6955xxxx-fxxx-4xxx-axxx-2bxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="variable">$AppName</span> = <span class="string">&#x27;edxxxxxx-5xxx-4xxx-axxx-66xxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="variable">$NewAppOwner</span> = <span class="string">&#x27;dexxxxxx-fxxx-4xxx-8xxx-f1xxxxxxxxxx&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Set-AdminPowerAppOwner</span> –AppName <span class="variable">$AppName</span> <span class="literal">-AppOwner</span> <span class="variable">$NewAppOwner</span> –EnvironmentName <span class="variable">$EnvironmentName</span></span><br></pre></td></tr></table></figure>
 <img src="/2024/08/03/PowerAppsOwnerChange/powershellcommand.png" class="">
 
-
-<p>…and paste the following code into the text editor. Switch the environment name, app name and new app owner with your own information then press the green play button to execute the script.</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$EnvironmentName</span> = <span class="string">&#x27;6955xxxx-fxxx-4xxx-axxx-2bxxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="variable">$AppName</span> = <span class="string">&#x27;edxxxxxx-5xxx-4xxx-axxx-66xxxxxxxxxx&#x27;</span></span><br><span class="line"><span class="variable">$NewAppOwner</span> = <span class="string">&#x27;dexxxxxx-fxxx-4xxx-8xxx-f1xxxxxxxxxx&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Set-AdminPowerAppOwner</span> –AppName <span class="variable">$AppName</span> <span class="literal">-AppOwner</span> <span class="variable">$NewAppOwner</span> –EnvironmentName <span class="variable">$EnvironmentName</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><img src="/2024/08/03/PowerAppsOwnerChange/adminpermission.png" class="">
+<p><strong>Possible Error</strong></p>
+<img src="/2024/08/03/PowerAppsOwnerChange/adminpermission.png" class="">
 
 
 <p>There are a couple of possibilites</p>
@@ -424,7 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gathering-Information-Needed-To-Change-The-Power-Apps-App-Owner"><span class="nav-text">Gathering Information Needed To Change The Power Apps App Owner</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Obtain-The-Environment-ID"><span class="nav-text">Obtain The Environment ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-The-Power-Apps-App-ID"><span class="nav-text">Get The Power Apps App ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Find-The-New-Owner%E2%80%99s-User-Account-Object-ID"><span class="nav-text">Find The New Owner’s User Account Object ID</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-1-Change-Power-Apps-App-Owner-With-A-Flow"><span class="nav-text">Method 1: Change Power Apps App Owner With A Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-2-Change-Power-Apps-App-Owner-With-PowerShell"><span class="nav-text">Method 2: Change Power Apps App Owner With PowerShell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-text">Error</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-3-Change-Power-Apps-App-Owner-Using-The-Center-Of-Excellence-Starter-Kit"><span class="nav-text">Method 3: Change Power Apps App Owner Using The Center Of Excellence Starter Kit</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gathering-Information-Needed-To-Change-The-Power-Apps-App-Owner"><span class="nav-text">Gathering Information Needed To Change The Power Apps App Owner</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Obtain-The-Environment-ID"><span class="nav-text">Obtain The Environment ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-The-Power-Apps-App-ID"><span class="nav-text">Get The Power Apps App ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Find-The-New-Owner%E2%80%99s-User-Account-Object-ID"><span class="nav-text">Find The New Owner’s User Account Object ID</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-1-Change-Power-Apps-App-Owner-With-A-Flow"><span class="nav-text">Method 1: Change Power Apps App Owner With A Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-2-Change-Power-Apps-App-Owner-With-PowerShell"><span class="nav-text">Method 2: Change Power Apps App Owner With PowerShell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-3-Change-Power-Apps-App-Owner-Using-The-Center-Of-Excellence-Starter-Kit"><span class="nav-text">Method 3: Change Power Apps App Owner Using The Center Of Excellence Starter Kit</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
