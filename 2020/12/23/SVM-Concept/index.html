@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/weather@2x.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/weather.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Learned from StatQuest with Josh Starmer. Support Vector Machines are one of the most mysterious methods in Machine Learning. Support Vector Machines use kernel functions to do all the hard work">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Support Vector Machines Main Idea">
+<meta property="og:url" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/index.html">
+<meta property="og:site_name" content="Hex.*">
+<meta property="og:description" content="Learned from StatQuest with Josh Starmer. Support Vector Machines are one of the most mysterious methods in Machine Learning. Support Vector Machines use kernel functions to do all the hard work">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/kernel.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/SVM.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/the-radial-kernel-formula.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/taylor-series.jpeg">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/taylor-series-1.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/taylor-series-expension.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/polynomial-kernels-0.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/dot-product-taylor.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/radial-kernel-taylor.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/radial-kernel-root.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/dot-product-radial-kernel.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/maclaurin-expansion.png">
+<meta property="article:published_time" content="2020-12-23T03:36:14.000Z">
+<meta property="article:modified_time" content="2020-12-23T03:36:14.000Z">
+<meta property="article:author" content="Hexuan Weng">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="video course">
+<meta property="article:tag" content="Support Vector Machine">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hexuanweng.github.io/2020/12/23/SVM-Concept/kernel.jpg">
+
+<link rel="canonical" href="http://hexuanweng.github.io/2020/12/23/SVM-Concept/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Support Vector Machines Main Idea | Hex.*</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hex.*" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/HexuanWeng" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hex.*</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2020/12/23/SVM-Concept/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yourname.jpg">
+      <meta itemprop="name" content="Hexuan Weng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hex.*">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Support Vector Machines Main Idea
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-23 14:36:14" itemprop="dateCreated datePublished" datetime="2020-12-23T14:36:14+11:00">2020-12-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Science/" itemprop="url" rel="index"><span itemprop="name">Data Science</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Learned from StatQuest with Josh Starmer. Support Vector Machines are one of the most mysterious methods in Machine Learning. Support Vector Machines use kernel functions to do all the hard work</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="SVM-Support-Vector-Machines"><a href="#SVM-Support-Vector-Machines" class="headerlink" title="SVM - Support Vector Machines"></a>SVM - Support Vector Machines</h2><ul>
+<li>The shortest distance between the <strong>observations</strong> and the threshold is called the <strong>margin</strong>. The distances between the observations and the threshold are the same and both reflect the <strong>margin</strong>. When the threshold is halfway between the two observations, the <strong>margin</strong> is as large as it can be<ul>
+<li><strong>observation</strong>: records on the tables&#x2F;rows</li>
+</ul>
+</li>
+<li><strong>Maximal Margin Classifier</strong>: when we use the threshold that gives us the largest <strong>margin</strong> to make classifications<ul>
+<li><strong>Maximal Margin Classifiers</strong> are super sensitive to outliers in the training data and that makes them pretty lame</li>
+</ul>
+</li>
+<li><strong>Soft Margin</strong>: when we allow misclassifications, the distance between the observations and the threshold is called soft margin<ul>
+<li>To make a threshold that is not so sensitive to outliers we must <strong>allow misclassifications</strong></li>
+<li>choosing a threshold that allows a misclassifications is an example of the <strong>Bias&#x2F;Variance Tradeoff</strong>. </li>
+<li>In other words, before we alloed misclassifications, we picked a threshold that was very sensitive to the training data (low bias) and it performed poorly when we got new data (high variance)</li>
+<li>In contrast, when we picked a threshold that was less sensitive to the training data and allowed misclassifications (higher bias) but it performed better when we got new data (low variance)</li>
+</ul>
+</li>
+<li>How to determin which <strong>Soft Margin</strong><ul>
+<li>we use cross validation to determine how many classifications and observations to allow inside of the <strong>Soft Margin</strong> to get the best classification</li>
+</ul>
+</li>
+<li>when we use a <strong>Soft Margin</strong> to determine the location of a threshold, then we are using a <strong>Soft Margin Classifier</strong> aka a <strong>Support Vector Classifier</strong> to classify observations <ul>
+<li>the name <strong>Support Vector Classifier</strong> comes from the fact that the observations on the edge and within the <strong>Soft Margin</strong> are called <strong>Support Vectors</strong></li>
+<li>when the data are <strong>2-Dimentional</strong>, the <strong>Support Vector Classifier</strong> forms a line</li>
+<li>when the data are <strong>3-Dimentional</strong>, the <strong>Support Vector Classifier</strong> forms a plane instead of a line, and we classify new observations by determining which side of the plane they are on.</li>
+</ul>
+</li>
+<li>all flat affine subspaces are called <strong>hyperplanes</strong></li>
+<li><strong>Support Vector Classifier</strong> can <ul>
+<li>handle outliers</li>
+<li>allow misclassifications</li>
+<li>handle overlapping classifications</li>
+</ul>
+</li>
+<li><strong>Support Vector Machines</strong><ol>
+<li>start with data in a relatively low dimension</li>
+<li>move the data into a higher dimension</li>
+<li>find a <strong>Support Vector Classifier</strong> that separates the higher dimensional data into two groups</li>
+</ol>
+</li>
+<li>Question: How to transform data from low dimension to higher dimension?<ul>
+<li>In order to make the mathematics possible, <strong>Support Vector Machines</strong> use something called <strong>Kernel Functions</strong> to systemaically find <strong>Support Vector Classifiers</strong> in higher dimensions<img src="/2020/12/23/SVM-Concept/kernel.jpg" class="" title="Kernel">
+<ul>
+<li><strong>Polynomial Kernel</strong> <ul>
+<li>it systematically increases dimensions by setting <em>d</em>, the degree of the polynomial and the relationships between each pair of observations are used to find a <strong>Support Vector Classifier</strong> </li>
+<li>we can find a good value for <em>d</em> with <strong>Cross Validation</strong></li>
+</ul>
+</li>
+<li><strong>Radial Kernel</strong><ul>
+<li>aka <strong>Radial Basis Function (RBF) Kernel</strong></li>
+<li>it finds <strong>Support Vector Classifiers</strong> in infinite dimensions</li>
+<li>when using it on a new observation, the <strong>Radial Kernel</strong> behaves like a <strong>Weighted Nearest Neighbour</strong> model. The closest observations aka the nearest neighours have a lot of influence on how we classify the new observation and the observations that are further away have relatively little influence on the classification</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Kernel Functions</strong> only calculate the relationships between every pair of points as if they are in the higher dimensions; they don’t actually do the transformation. <ul>
+<li>This trick, calculating the high dimensional relationships without actually transforming the data to the higher dimensions, is called <strong>The Kernel Trick</strong></li>
+<li><strong>The Kernel Trick</strong> reduces the amount of computation required for <strong>Support Vector Machines</strong> by avoiding the math that transforms the data from low to high dimensions and it makes calculating relationships in the infinite dimensions used by the <strong>Radial Kernel</strong> possible</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="/2020/12/23/SVM-Concept/SVM.png" class="" title="SVM">
+
+<h3 id="The-Polynomial-Kernel"><a href="#The-Polynomial-Kernel" class="headerlink" title="The Polynomial Kernel"></a>The Polynomial Kernel</h3><ul>
+<li>Formula: <strong>(a*b+r)^d</strong><ul>
+<li><strong>a</strong> and <strong>b</strong> refer to two different observations in the dataset</li>
+<li><strong>r</strong> determines the coefficient of the polynomial</li>
+<li><strong>d</strong> sets the degree of the polynomial</li>
+<li>r and d are determined using <strong>Cross Validation</strong></li>
+</ul>
+</li>
+<li><strong>Dot Product</strong><ul>
+<li>the first terms multiplied together (x axis) + the second therms multiplied together (y axis) + the third terms multiplied together (z axis)</li>
+<li>the <strong>dot product</strong> gives us the high-dimensional coordinates for the data</li>
+</ul>
+</li>
+<li><strong>Polynomial Kernel</strong> computes relationships between pairs of observations<ul>
+<li>once we deicde on values for <strong>r</strong> and <strong>d</strong>, we just plug in the observations and do the math to get the high-dimensional relationships</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Radial-Kernel"><a href="#The-Radial-Kernel" class="headerlink" title="The Radial Kernel"></a>The Radial Kernel</h3><p>aka <strong>the Radial Basis Function, RBF</strong></p>
+<ul>
+<li>Formula: <img src="/2020/12/23/SVM-Concept/the-radial-kernel-formula.png" class="" title="Radial Kernel Formula"> <ul>
+<li>&#x3D; high-dimensional relationships</li>
+<li><strong>a</strong> and <strong>b</strong> refer to two different observations in the dataset</li>
+<li>the difference between the measurements is then squared, giving us the squared distance between the two observations</li>
+<li>the amount of influence one observation has on another is a function of the squared distance</li>
+<li><strong>gamma</strong>, which is determined by <strong>Cross Validation</strong>, scales the squared distance, and thus, it scales the influence<ul>
+<li>the further two observations are from each other, the less influence they have on each other</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Just like with the <strong>Polynomial Kernel</strong>, when we plug values into the Radial Kernel, we get the high-dimensional relationship</li>
+<li>Based on the <strong>Taylor Series Expansion</strong>, we can see when we plug numbers into the <strong>Radial Kernel</strong> and do the math. The value we get at the end is the relationship between the two points in <strong>infinite-dimensions</strong></li>
+</ul>
+<h4 id="Taylor-Series-Expansion-Based-on-The-Radial-Kernel"><a href="#Taylor-Series-Expansion-Based-on-The-Radial-Kernel" class="headerlink" title="Taylor Series Expansion Based on The Radial Kernel"></a>Taylor Series Expansion Based on The Radial Kernel</h4><p><strong>Taylor Series</strong>: f(x) can be split into an infinite sum</p>
+<ul>
+<li><p><strong>a</strong> can be any value as long as <strong>f(a)</strong> exists</p>
+<img src="/2020/12/23/SVM-Concept/taylor-series.jpeg" class="" title="Taylor Series">
+<p>set gamma as 1&#x2F;2, and let’s create the <strong>Taylor Series Expansion</strong> of this last term</p>
+<img src="/2020/12/23/SVM-Concept/taylor-series-1.png" class="" title="Taylor Series Expansion"></li>
+<li><p>the derivative of e^x &#x3D; e^x</p>
+</li>
+<li><p>set x0 &#x3D; 0</p>
+<img src="/2020/12/23/SVM-Concept/taylor-series-expension.png" class="" title="Taylor Series Expension">
+</li>
+<li><p>when we added up a bunch of <strong>Polynomial Kernels</strong> with r&#x3D;0 and <strong>d</strong> going from <strong>0</strong> to <strong>infinity</strong>, we got a <strong>Dot Product</strong> with coordinates for an infinite number of dimensions</p>
+<img src="/2020/12/23/SVM-Concept/polynomial-kernels-0.jpg" class="" title="Polynomial Kernel">
+</li>
+<li><p>Thus each term in this <strong>Taylor Series Expension</strong> contains a <strong>Polynomial Kernel</strong> with <strong>r&#x3D;0</strong> and <strong>d</strong> going from 0 to infinity</p>
+</li>
+<li><p><strong>Dot Product</strong> for <strong>e^ab</strong> is</p>
+<img src="/2020/12/23/SVM-Concept/dot-product-taylor.jpg" class="" title="Dot Product for e^ab">
+<ul>
+<li>we can verify that the <strong>Dot Product</strong> is correct by multiplying each term together</li>
+<li>add up the new terms to get the <strong>Taylor Series Expansion</strong> of <strong>e^ab</strong></li>
+</ul>
+</li>
+</ul>
+<img src="/2020/12/23/SVM-Concept/radial-kernel-taylor.jpg" class="" title="Radial Kernel Taylor Expension">
+<ul>
+<li>we just multiply both parts of the <strong>Dot Product</strong> by the square root of this term<img src="/2020/12/23/SVM-Concept/radial-kernel-root.jpg" class="" title="Radial Kernel Root"></li>
+<li>we see that the <strong>Radial Kernel</strong> is equal to a <strong>Dot Product</strong> that has coordinates for an infinite number of dimensions<img src="/2020/12/23/SVM-Concept/dot-product-radial-kernel.jpg" class="" title="Radial Kernel Dot Product"></li>
+</ul>
+<h4 id="Maclaurine’s-series"><a href="#Maclaurine’s-series" class="headerlink" title="Maclaurine’s series"></a>Maclaurine’s series</h4><p>A <strong>Maclaurin Series</strong> is a Taylor Series where <strong>a &#x3D; 0</strong></p>
+<img src="/2020/12/23/SVM-Concept/maclaurin-expansion.png" class="" title="Maclaurin Series Basics">
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=efR1C6CvhmE">Support Vector Machines, Main Ideas</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Toet3EiSFcM">Support Vector Machines Part 2: The Polynomial Kernel</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Qc5IyLW_hns">Support Vector Machines Part 3: The Radial (RBF) Kernel</a><a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Hexuan Weng
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://hexuanweng.github.io/2020/12/23/SVM-Concept/" title="Support Vector Machines Main Idea">http://hexuanweng.github.io/2020/12/23/SVM-Concept/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"> Machine Learning</i> </a>
+              <a href="/tags/video-course/" rel="tag"><i class="fa fa-tag"> video course</i> </a>
+              <a href="/tags/Support-Vector-Machine/" rel="tag"><i class="fa fa-tag"> Support Vector Machine</i> </a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/24/Notion-2021-v1/" rel="prev" title="Hello, Notion!!">
+      <i class="fa fa-chevron-left"></i> Hello, Notion!!
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/22/Machine-Learning/" rel="next" title="Machine Learning Foundation Concept">
+      Machine Learning Foundation Concept <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SVM-Support-Vector-Machines"><span class="nav-text">SVM - Support Vector Machines</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Polynomial-Kernel"><span class="nav-text">The Polynomial Kernel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Radial-Kernel"><span class="nav-text">The Radial Kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Taylor-Series-Expansion-Based-on-The-Radial-Kernel"><span class="nav-text">Taylor Series Expansion Based on The Radial Kernel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maclaurine%E2%80%99s-series"><span class="nav-text">Maclaurine’s series</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hexuan Weng"
+      src="/images/yourname.jpg">
+  <p class="site-author-name" itemprop="name">Hexuan Weng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HexuanWeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HexuanWeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hexuan.weng@gmail.com" title="E-Mail → mailto:hexuan.weng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fas fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hexuan Weng</span>
+</div>
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("10/25/2020 00:13:14");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="화이팅! "+daysold+" days "+hrsold+":"+minsold+":"+seconds+"🍬";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='180' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '65a63f39e8f0508fea1e',
+      clientSecret: '19813982f6f78a2d784ef86454a73a778af996fc',
+      repo        : 'hexuanweng.github.io',
+      owner       : 'HexuanWeng',
+      admin       : ['HexuanWeng'],
+      id          : '9cd5eff8b115b9d397c8752b0737e7ce',
+        language: 'en,zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

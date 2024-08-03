@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/weather@2x.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/weather.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Found an awesome Youtuber, StatQuest with Josh Starmer. This blog is basically the summary of his statistis foundation video summary episode 1 to 7 based on my own understanding. His video makes sever">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Statistics Foundation Concept">
+<meta property="og:url" content="http://hexuanweng.github.io/2020/12/21/Statistics-Fundation/index.html">
+<meta property="og:site_name" content="Hex.*">
+<meta property="og:description" content="Found an awesome Youtuber, StatQuest with Josh Starmer. This blog is basically the summary of his statistis foundation video summary episode 1 to 7 based on my own understanding. His video makes sever">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/21/Statistics-Fundation/normal_distribution.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2020/12/21/Statistics-Fundation/population-variance.png">
+<meta property="article:published_time" content="2020-12-21T08:20:11.000Z">
+<meta property="article:modified_time" content="2020-12-21T08:20:11.000Z">
+<meta property="article:author" content="Hexuan Weng">
+<meta property="article:tag" content="video course">
+<meta property="article:tag" content="Statistics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hexuanweng.github.io/2020/12/21/Statistics-Fundation/normal_distribution.jpg">
+
+<link rel="canonical" href="http://hexuanweng.github.io/2020/12/21/Statistics-Fundation/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Statistics Foundation Concept | Hex.*</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hex.*" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/HexuanWeng" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hex.*</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2020/12/21/Statistics-Fundation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yourname.jpg">
+      <meta itemprop="name" content="Hexuan Weng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hex.*">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Statistics Foundation Concept
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-21 19:20:11" itemprop="dateCreated datePublished" datetime="2020-12-21T19:20:11+11:00">2020-12-21</time>
+            </span>
+
+          
+            <div class="post-description">Found an awesome Youtuber, StatQuest with Josh Starmer. This blog is basically the summary of his statistis foundation video summary episode 1 to 7 based on my own understanding. His video makes several complex concepts easy to understand.</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Histogram"><a href="#Histogram" class="headerlink" title="Histogram"></a>Histogram</h2><p>Histograms are one of the most basic statistical tools that we have. </p>
+<ul>
+<li>divide into bins: the taller the stack within a bin, the more measurements we made that fall into that bin. (figure out how wide is the bin is a tricky)</li>
+<li>we can use histogram to predict the probability of getting future measurements</li>
+<li>If you want to use a <strong>“distribution”</strong> to approximate your data (or future measurements). Histograms are a good way to justify your decision. <ul>
+<li>normal distribution</li>
+<li>exponential distribution</li>
+</ul>
+</li>
+</ul>
+<h2 id="Distribution"><a href="#Distribution" class="headerlink" title="Distribution"></a>Distribution</h2><ul>
+<li>we can use a curve to approximate the histogram. The curve tells us the same thing that the histogram tells us. </li>
+<li>advantage over Histogram<ul>
+<li>we can use the curve to calculate the probability</li>
+<li>the curve is not limited by the width of the bins</li>
+<li>if we don’t have enough time or money to get a ton of measurements. The approximate curve (based on the mean and standard deviation of the data we were able to collect), is usually good enough</li>
+</ul>
+</li>
+<li>both the histogram and the curve are <strong>Distributions</strong><ul>
+<li>show us how the probabilities of measurements are distributed.</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Normal-Distribution"><a href="#The-Normal-Distribution" class="headerlink" title="The Normal Distribution"></a>The Normal Distribution</h3><ul>
+<li><strong>Normal&#x2F;Gaussian</strong> distribution: it is also called a “bell shaped curve” because it is a symmetrical curve<img src="/2020/12/21/Statistics-Fundation/normal_distribution.jpg" class="" title="Normal Distribution"></li>
+<li>To draw a normal distribution, you need to know:<ul>
+<li>The average measurement. This tells you where the center of the curve goes</li>
+<li>The standard deviation of the measurements, this tells you how wide the curve should be. And the width of the curve determines how tall it is. The wider the curve the shorter. The narror the curve, the taller.</li>
+</ul>
+</li>
+<li><strong>The Central Limit Theorem</strong><ul>
+<li>the normal distribution is kind of magical in that we see it a lot in nature. But there is a reason for that, and that reason makes it super useful for statistics as well.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Population-Parameters"><a href="#Population-Parameters" class="headerlink" title="Population Parameters"></a>Population Parameters</h2><ul>
+<li><strong>Population</strong>: whatever unit it is you are measuring something awesome</li>
+<li><strong>Population parameters</strong>: the parameters that determine how a distribution fits the population data</li>
+</ul>
+<p><strong>Normal distribution</strong></p>
+<ul>
+<li><p>The mean and standard deviation of the normal curve, which represents the population, are called <strong>Population parameters</strong></p>
+<ul>
+<li>population Mean</li>
+<li>population Standard Deviation<br><strong>Exponential Distribution</strong></li>
+</ul>
+</li>
+<li><p>we could use the exponential distribution to calculate probabilities and statistics just like when we had a Normal Distribution</p>
+<ul>
+<li>population rate<br><strong>Gamma Distribution</strong></li>
+</ul>
+</li>
+<li><p>two parameters:</p>
+<ul>
+<li>population shape</li>
+<li>population rate</li>
+</ul>
+</li>
+<li><p>the reason why we want to know the population parameters is to ensure that the results drawn from our experiment are <em>reproducible</em></p>
+</li>
+<li><p>the more data that we have, the more confidence we can have in the accuracy of the estimates. One of the main goals in statistics is quantifying how much confidence we can hsve in population estimates</p>
+<ul>
+<li>specially, statisticians often calculate <strong>p-values</strong> and <strong>confidence intervals</strong> to quantify the confidence in the estimated parameters</li>
+</ul>
+</li>
+</ul>
+<h3 id="Estimating-the-Mean-Variance-and-Standard-Deviation"><a href="#Estimating-the-Mean-Variance-and-Standard-Deviation" class="headerlink" title="Estimating the Mean, Variance and Standard Deviation"></a>Estimating the Mean, Variance and Standard Deviation</h3><ul>
+<li><strong>sample mean</strong>: statisticians often use the symbol x-bar to refer to the <strong>estimated mean</strong> &#x3D;&#x3D; <strong>sample mean</strong> and they use the Greek symbol U(mu) to refer to the <strong>population mean</strong></li>
+<li>The estimated mean is different from the population mean, but with more and more data, x-bar should get closer and closer</li>
+<li><strong>population variance</strong> and <strong>standard deviation</strong><ul>
+<li>determine how wide to make the curve</li>
+<li>we want to calculate how the data are spread around the <strong>population mean</strong><img src="/2020/12/21/Statistics-Fundation/population-variance.png" class="" title="Population Variance"></li>
+</ul>
+</li>
+<li>in the <strong>variance</strong> the unit is squared.<ul>
+<li>the population variance is the average of the squared differences between the data and the population mean U.</li>
+<li>we square these differences to prevent the ones on the left from canceling the ones on the right, and then take the average</li>
+</ul>
+</li>
+<li><strong>population standard deviation</strong>: <ul>
+<li>square root of <strong>population variance</strong></li>
+<li>the standard deviation is the original units that we measured, we can draw it on the graph.</li>
+</ul>
+</li>
+<li><strong>estimated population variance</strong><ul>
+<li>change population mean to estimated population mean</li>
+<li>change n to n-1: dividing by <strong>n-1</strong> compensates for the fact that we are calculating differences from the <strong>sample mean</strong> instead of the <strong>population mean</strong></li>
+</ul>
+</li>
+<li><strong>estimated population standard deviation</strong><ul>
+<li>square root of <strong>estimated population variance</strong></li>
+</ul>
+</li>
+<li>Summary<ul>
+<li>if we have all of the data from a population, we can calculate the <strong>population mean</strong>. when we don’t have the population data, we can <strong>estimate the population mean</strong> with the same formula</li>
+<li>when we have the population data, we can calculate the <strong>population variance</strong> and <strong>standard deviation</strong></li>
+<li>However, we almost never have the <strong>population data</strong> so chances are you should not use these formulas. Instead, we almost always estimate the <strong>variance</strong> and <strong>standard deviation</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="What-is-a-Model"><a href="#What-is-a-Model" class="headerlink" title="What is a Model"></a>What is a Model</h2><ol>
+<li>we use models to explore <strong>relationships</strong></li>
+<li>we use statistices to determine how useful and how reliable our model is.</li>
+</ol>
+<h3 id="Hypothesis-Testing-Null-Hypothesis-and-Alternative-Hypothesese"><a href="#Hypothesis-Testing-Null-Hypothesis-and-Alternative-Hypothesese" class="headerlink" title="Hypothesis Testing, Null Hypothesis and Alternative Hypothesese"></a>Hypothesis Testing, Null Hypothesis and Alternative Hypothesese</h3><p>We can create a hypothesis, and if data give us strong evidence that the hypothesis is wrong, then we can <strong>reject the hypothesis</strong>.<br>But when we have data that is similar to the hypothesis, but not exactly the same then the best we can do is <strong>fail to reject the hypothesis</strong></p>
+<ul>
+<li><p><strong>Null Hypothesis</strong>: the hypothesis that is no difference between things</p>
+<ul>
+<li>the Null Hypothesis does not require preliminary data, because the only value that represents no difference is 0.</li>
+</ul>
+</li>
+<li><p>in the statistical test, it needs three things</p>
+<ul>
+<li>it needs datas</li>
+<li>it needs a <strong>Null</strong> or <strong>Primary Hypothesis</strong> (i.e. it needs something to <strong>reject</strong> or <strong>fail to reject</strong>)</li>
+<li>it needs alternative hypothesis</li>
+</ul>
+</li>
+<li><p>When we only have two groups of data, the <strong>Alternative Hypothesis</strong> is pretty obvious because it is simply the opposite of the <strong>Null Hypothesis</strong></p>
+</li>
+</ul>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9">StatQuest with Josh Starmer</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Hexuan Weng
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://hexuanweng.github.io/2020/12/21/Statistics-Fundation/" title="Statistics Foundation Concept">http://hexuanweng.github.io/2020/12/21/Statistics-Fundation/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/video-course/" rel="tag"><i class="fa fa-tag"> video course</i> </a>
+              <a href="/tags/Statistics/" rel="tag"><i class="fa fa-tag"> Statistics</i> </a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/22/Machine-Learning/" rel="prev" title="Machine Learning Foundation Concept">
+      <i class="fa fa-chevron-left"></i> Machine Learning Foundation Concept
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/08/Get-Ahead/" rel="next" title="Google Get Ahead+ Program">
+      Google Get Ahead+ Program <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram"><span class="nav-text">Histogram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distribution"><span class="nav-text">Distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Normal-Distribution"><span class="nav-text">The Normal Distribution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Population-Parameters"><span class="nav-text">Population Parameters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Estimating-the-Mean-Variance-and-Standard-Deviation"><span class="nav-text">Estimating the Mean, Variance and Standard Deviation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-Model"><span class="nav-text">What is a Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hypothesis-Testing-Null-Hypothesis-and-Alternative-Hypothesese"><span class="nav-text">Hypothesis Testing, Null Hypothesis and Alternative Hypothesese</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hexuan Weng"
+      src="/images/yourname.jpg">
+  <p class="site-author-name" itemprop="name">Hexuan Weng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HexuanWeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HexuanWeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hexuan.weng@gmail.com" title="E-Mail → mailto:hexuan.weng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fas fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hexuan Weng</span>
+</div>
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("10/25/2020 00:13:14");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="화이팅! "+daysold+" days "+hrsold+":"+minsold+":"+seconds+"🍬";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='180' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '65a63f39e8f0508fea1e',
+      clientSecret: '19813982f6f78a2d784ef86454a73a778af996fc',
+      repo        : 'hexuanweng.github.io',
+      owner       : 'HexuanWeng',
+      admin       : ['HexuanWeng'],
+      id          : '855e621e5559e636b988d8d90a4851cc',
+        language: 'en,zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

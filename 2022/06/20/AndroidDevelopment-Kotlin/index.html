@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/weather@2x.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/weather.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="I still remember that one of my favourite lecturers at UTS was Ryan Heise. In 2018, I switched from an English literature major to a computer programming major. He made me realize that the difference">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Development（Kotlin）- First Android App">
+<meta property="og:url" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/index.html">
+<meta property="og:site_name" content="Hex.*">
+<meta property="og:description" content="I still remember that one of my favourite lecturers at UTS was Ryan Heise. In 2018, I switched from an English literature major to a computer programming major. He made me realize that the difference">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-1.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-2.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-3.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-4.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-5.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-6.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-7.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-8-1.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-8-2.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-9-1.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-9-2.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-10-1.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-10-2.png">
+<meta property="article:published_time" content="2022-06-20T13:07:15.000Z">
+<meta property="article:modified_time" content="2022-06-20T13:07:15.000Z">
+<meta property="article:author" content="Hexuan Weng">
+<meta property="article:tag" content="video course">
+<meta property="article:tag" content="Kotlin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/d1-1.png">
+
+<link rel="canonical" href="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Android Development（Kotlin）- First Android App | Hex.*</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hex.*" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/HexuanWeng" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hex.*</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yourname.jpg">
+      <meta itemprop="name" content="Hexuan Weng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hex.*">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android Development（Kotlin）- First Android App
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-06-20 23:07:15" itemprop="dateCreated datePublished" datetime="2022-06-20T23:07:15+10:00">2022-06-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Development/" itemprop="url" rel="index"><span itemprop="name">Android Development</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">I still remember that one of my favourite lecturers at UTS was Ryan Heise. In 2018, I switched from an English literature major to a computer programming major. He made me realize that the difference between programming and taking other courses is that learning computers is a constant problem-solving process. I took Ryan Heise's Android development and Linux programming courses. Now that I've been out of school for almost 2 years, I've restarted Android development (Java then, Kotlin now) and I still remember bits and pieces of that classroom. He is one of the few teachers I know who is passionate about programming.</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Day1-Build-Your-First-Android-App"><a href="#Day1-Build-Your-First-Android-App" class="headerlink" title="Day1: Build Your First Android App"></a>Day1: Build Your First Android App</h1><h2 id="Folder-Structure-of-an-Adroid-App"><a href="#Folder-Structure-of-an-Adroid-App" class="headerlink" title="Folder Structure of an Adroid App"></a>Folder Structure of an Adroid App</h2><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-1.png" class="" title="d1-1">
+
+<h3 id="AndroidMainfest-xml"><a href="#AndroidMainfest-xml" class="headerlink" title="AndroidMainfest.xml"></a><strong>AndroidMainfest.xml</strong></h3><ul>
+<li>Contains information that a device needs to run the app</li>
+<li>An intermediate between android os and our application</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// intent-filter: launch activity -&gt; Launch MainActivity activity first</span></span><br><span class="line">&lt;activity</span><br><span class="line">    android:name=<span class="string">&quot;.MainActivity&quot;</span></span><br><span class="line">    android:exported=<span class="string">&quot;true&quot;</span>&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;category android:name=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>contains the package details of the application: <code>package=&quot;com.example.kotlinexe1&quot;</code></li>
+<li>can add permissions<ul>
+<li>deal with the rest api: we need to provide permission to use the internet connection</li>
+</ul>
+</li>
+</ul>
+<h3 id="Java-folder"><a href="#Java-folder" class="headerlink" title="Java folder"></a><strong>Java folder</strong></h3><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-2.png" class="" title="d1-2">
+
+<ul>
+<li>contains all the source code files we created<ul>
+<li>source code</li>
+<li>test files</li>
+</ul>
+</li>
+</ul>
+<h3 id="Jave-generated"><a href="#Jave-generated" class="headerlink" title="Jave (generated)"></a><strong>Jave (generated)</strong></h3><p>android studio will generate lots of classes for us and they will be stored in this folder</p>
+<p>Kotlin language has created on top of Java language and Java library. Kotline is the more mordern version of Java, so that they haven’t changed the folder name to Kotlin</p>
+<h3 id="res-folder"><a href="#res-folder" class="headerlink" title="res folder"></a><strong>res folder</strong></h3><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-3.png" class="" title="d1-3">
+<p>contains all non-code resources, does not contain Kotlin files but all other resources</p>
+<ul>
+<li>drawable: contains all the images (all the format)</li>
+<li>layout: contains all the xml layout files<ul>
+<li>activity_main.xml is the view</li>
+<li>MainActivity.kt is the controller file of that view</li>
+</ul>
+</li>
+<li>mipmap: contains icon images with all different size</li>
+<li>values: contains xml files to hold different default values of the project<ul>
+<li>defined colors</li>
+<li>defined strings</li>
+<li>themes sub folder: contain details about the theme of the project<ul>
+<li>new themes xml files inside this themes folder</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a><strong>Gradle</strong></h3><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-4.png" class="" title="d1-4">
+<p>is a automated build system</p>
+<ul>
+<li><p>no need to worry about the different configurations, different libraries.</p>
+</li>
+<li><p>build.gradle:</p>
+<ul>
+<li>app level gradle file, whenever we add a new plugin to the project, we need to define it here</li>
+</ul>
+  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id <span class="string">&#x27;com.android.application&#x27;</span></span><br><span class="line">    id <span class="string">&#x27;org.jetbrains.kotlin.android&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>app level gradle filem, we need to add dependencies here</li>
+</ul>
+  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line"></span><br><span class="line">    implementation <span class="string">&#x27;androidx.core:core-ktx:1.7.0&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;androidx.appcompat:appcompat:1.3.0&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;com.google.android.material:material:1.4.0&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;androidx.constraintlayout:constraintlayout:2.0.4&#x27;</span></span><br><span class="line">    testImplementation <span class="string">&#x27;junit:junit:4.13.2&#x27;</span></span><br><span class="line">    androidTestImplementation <span class="string">&#x27;androidx.test.ext:junit:1.1.3&#x27;</span></span><br><span class="line">    androidTestImplementation <span class="string">&#x27;androidx.test.espresso:espresso-core:3.4.0&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-5.png" class="" title="d1-5">
+<h2 id="Build-Your-First-Android-App"><a href="#Build-Your-First-Android-App" class="headerlink" title="Build Your First Android App"></a>Build Your First Android App</h2><h3 id="activity-main-xml"><a href="#activity-main-xml" class="headerlink" title="activity_main.xml"></a>activity_main.xml</h3><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-6.png" class="" title="d1-6">
+
+<p><strong>activity_main.xml</strong></p>
+<ul>
+<li>code mode</li>
+<li>split mode</li>
+<li>design mode</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    xmlns:app=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span><br><span class="line">    xmlns:tools=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="line">    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    tools:context=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:layout_width=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">        android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">        android:text=<span class="string">&quot;Hello World!&quot;</span></span><br><span class="line">        app:layout_constraintBottom_toBottomOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">        app:layout_constraintLeft_toLeftOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">        app:layout_constraintRight_toRightOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">        app:layout_constraintTop_toTopOf=<span class="string">&quot;parent&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Layout type</strong> </p>
+<ul>
+<li>constraint layout</li>
+<li>linear layout</li>
+<li>box layout</li>
+</ul>
+<h3 id="UI-Layout-Validation"><a href="#UI-Layout-Validation" class="headerlink" title="UI Layout Validation"></a><strong>UI Layout Validation</strong></h3><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-7.png" class="" title="d1-7">
+
+
+<p>provided many different screen size</p>
+<h3 id="MainActivity-kt"><a href="#MainActivity-kt" class="headerlink" title="MainActivity.kt"></a>MainActivity.kt</h3><p>MainActivity.kt is the layout controller class of the activity_main.xml layout</p>
+<p>The activity_main.xml file has connected to the class through this <code>setContentView</code> function</p>
+<p>In Android, <code>onCreate</code> function is called when the activity is first created</p>
+<p><code>super.onCreate(savedInstanceState)</code> provides us the bundle containing the activities previously frozen state if there was one </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.kotlinexe1</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle</span><br><span class="line"><span class="keyword">import</span> android.widget.Button</span><br><span class="line"><span class="keyword">import</span> android.widget.EditText</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> greetingTextView = findViewById&lt;TextView&gt;(R.id.txt_hello)</span><br><span class="line">        <span class="keyword">val</span> inputField = findViewById&lt;EditText&gt;(R.id.txt_name)</span><br><span class="line">        <span class="keyword">val</span> submitButton = findViewById&lt;Button&gt;(R.id.btn_submit)</span><br><span class="line"></span><br><span class="line">        submitButton.setOnClickListener()&#123;</span><br><span class="line">            <span class="keyword">val</span> enteredName = inputField.text.toString()</span><br><span class="line">            <span class="keyword">val</span> message = <span class="string">&quot;Welcome <span class="variable">$enteredName</span>!&quot;</span></span><br><span class="line">            greetingTextView.text = message</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-8-1.png" class="" title="d1-8-1"></div><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-8-2.png" class="" title="d1-8-2"></div></div></div></div>
+
+
+<p><strong>Toast.makeText(context: Context!, text: CharSequence!)</strong></p>
+<p>for the context, we can provide either application context or activity context. </p>
+<ul>
+<li>applicaton context: <code>Toast.makeText(*applicationContext*)</code></li>
+<li>activity context: <code>Toast.makeText(this@MainActivity, &quot;Please enter your name!&quot;, Toast.*LENGTH_SHORT*).show()</code></li>
+</ul>
+<aside>
+💡 Difference: They are both instances of context class but the application context is tied to the life cycle of entire application, while the activity context is tied to the life cycle of an activity.
+
+</aside>
+
+<aside>
+💡 A parameter is the variable listed inside the parenthesis in the function definition 
+An argument is the value that is sent to the function when it is called
+
+</aside>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.kotlinexe1</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle</span><br><span class="line"><span class="keyword">import</span> android.view.View.VISIBLE</span><br><span class="line"><span class="keyword">import</span> android.widget.Button</span><br><span class="line"><span class="keyword">import</span> android.widget.EditText</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView</span><br><span class="line"><span class="keyword">import</span> android.widget.Toast</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> greetingTextView = findViewById&lt;TextView&gt;(R.id.txt_hello)</span><br><span class="line">        <span class="keyword">val</span> inputField = findViewById&lt;EditText&gt;(R.id.txt_name)</span><br><span class="line">        <span class="keyword">val</span> submitButton = findViewById&lt;Button&gt;(R.id.btn_submit)</span><br><span class="line">        <span class="keyword">val</span> offersButton = findViewById&lt;Button&gt;(R.id.btn_viewoffers)</span><br><span class="line"></span><br><span class="line">        submitButton.setOnClickListener()&#123;</span><br><span class="line">            <span class="keyword">val</span> enteredName = inputField.text.toString()</span><br><span class="line">            <span class="keyword">if</span> (enteredName == <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">                greetingTextView.text = <span class="string">&quot;Welcome!&quot;</span></span><br><span class="line">                offersButton</span><br><span class="line">                Toast.makeText(<span class="keyword">this</span><span class="symbol">@MainActivity</span>, <span class="string">&quot;Please enter your name!&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">val</span> message = <span class="string">&quot;Welcome <span class="variable">$enteredName</span>!&quot;</span></span><br><span class="line">                greetingTextView.text = message</span><br><span class="line">                inputField.text.clear()</span><br><span class="line">                offersButton.visibility = VISIBLE</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-9-1.png" class="" title="d1-9-1"></div><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-9-2.png" class="" title="d1-9-2"></div></div></div></div>
+
+<p>navigate to next activity</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">offersButton.setOnClickListener()&#123;</span><br><span class="line">  <span class="comment">// current activity, next activity</span></span><br><span class="line">  <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, MainActivity2::<span class="keyword">class</span>.java)</span><br><span class="line">  startActivity(intent)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>In general, intents are used to move between some android component like (activity, service, broadcast receivers …etc) some time you need to pass some value between these components so you need to use <strong>putextra</strong> in the sender component and <strong>getextra</strong> in the receiver for example :</p>
+<p>in the sender :</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, MainActivity2::<span class="keyword">class</span>.java)</span><br><span class="line">intent.putExtra(<span class="string">&quot;USER&quot;</span>, enteredName) <span class="comment">// name, value</span></span><br><span class="line">startActivity(intent)</span><br></pre></td></tr></table></figure>
+
+<p>in the reciver:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> userName = intent.getStringExtra(<span class="string">&quot;USER&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>note that you need to pass the same key to retrieve your value</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-10-1.png" class="" title="d1-10-1"></div><div class="group-picture-column" style="width: 50%;"><img src="/2022/06/20/AndroidDevelopment-Kotlin/d1-10-2.png" class="" title="d1-10-2"></div></div></div></div>
+
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=BCSlZIUj18Y">YouTube - Day 01: Build Your First Android App</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Hexuan Weng
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/" title="Android Development（Kotlin）- First Android App">http://hexuanweng.github.io/2022/06/20/AndroidDevelopment-Kotlin/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/video-course/" rel="tag"><i class="fa fa-tag"> video course</i> </a>
+              <a href="/tags/Kotlin/" rel="tag"><i class="fa fa-tag"> Kotlin</i> </a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/21/LC528RandomPickwithWeight/" rel="prev" title="LC528 - Random Pick With Weight">
+      <i class="fa fa-chevron-left"></i> LC528 - Random Pick With Weight
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/20/LC1893CheckifAlltheIntegersinaRangeAreCovered/" rel="next" title="LC1893 - Check if All the Integers in a Range Are Covered">
+      LC1893 - Check if All the Integers in a Range Are Covered <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day1-Build-Your-First-Android-App"><span class="nav-text">Day1: Build Your First Android App</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Folder-Structure-of-an-Adroid-App"><span class="nav-text">Folder Structure of an Adroid App</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidMainfest-xml"><span class="nav-text">AndroidMainfest.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-folder"><span class="nav-text">Java folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jave-generated"><span class="nav-text">Jave (generated)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-folder"><span class="nav-text">res folder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradle"><span class="nav-text">Gradle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Your-First-Android-App"><span class="nav-text">Build Your First Android App</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#activity-main-xml"><span class="nav-text">activity_main.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-Layout-Validation"><span class="nav-text">UI Layout Validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MainActivity-kt"><span class="nav-text">MainActivity.kt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent"><span class="nav-text">Intent</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hexuan Weng"
+      src="/images/yourname.jpg">
+  <p class="site-author-name" itemprop="name">Hexuan Weng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HexuanWeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HexuanWeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hexuan.weng@gmail.com" title="E-Mail → mailto:hexuan.weng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fas fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hexuan Weng</span>
+</div>
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("10/25/2020 00:13:14");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="화이팅! "+daysold+" days "+hrsold+":"+minsold+":"+seconds+"🍬";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='180' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '65a63f39e8f0508fea1e',
+      clientSecret: '19813982f6f78a2d784ef86454a73a778af996fc',
+      repo        : 'hexuanweng.github.io',
+      owner       : 'HexuanWeng',
+      admin       : ['HexuanWeng'],
+      id          : 'da7b1caf9898cc278daf29a81f9aefc5',
+        language: 'en,zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

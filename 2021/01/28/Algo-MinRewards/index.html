@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/weather@2x.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/weather.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="A hard question solved in 15 minutes. Use &#39;peaks and valley&#39; technique to solve this question. But there are still something to improve.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algo-MinRewards">
+<meta property="og:url" content="http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/index.html">
+<meta property="og:site_name" content="Hex.*">
+<meta property="og:description" content="A hard question solved in 15 minutes. Use &#39;peaks and valley&#39; technique to solve this question. But there are still something to improve.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-28T11:48:25.000Z">
+<meta property="article:modified_time" content="2021-01-28T11:48:25.000Z">
+<meta property="article:author" content="Hexuan Weng">
+<meta property="article:tag" content="array">
+<meta property="article:tag" content="hard">
+<meta property="article:tag" content="AlgoExpert">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Algo-MinRewards | Hex.*</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hex.*" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/HexuanWeng" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hex.*</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yourname.jpg">
+      <meta itemprop="name" content="Hexuan Weng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hex.*">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Algo-MinRewards
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-28 22:48:25" itemprop="dateCreated datePublished" datetime="2021-01-28T22:48:25+11:00">2021-01-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-Structure-and-Algorithm/" itemprop="url" rel="index"><span itemprop="name">Data Structure and Algorithm</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">A hard question solved in 15 minutes. Use 'peaks and valley' technique to solve this question. But there are still something to improve.</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><blockquote>
+<p>Imagine that you are a teacher who is just graded the final exam in a class. You have a list of student scores on the final exam in a particular order (not necessarily sorted), and you want to reward your students. You decide to do so fairly by giving them arbitrary rewards following two rules:</p>
+<ol>
+<li>All students must receive at least one reward</li>
+<li>Any given student must receive strictly more rewards than an adjacent student (a student immediately to the left or to the right) with a lower score and must receive strictly fewer rewards than an adjacent student with a higher score.<br>Write a function that takes in a list of scores and returns the minimum number of rewards that you must give out to students to satisfy the two rules.<br>You can assume that all students have different scores; in other words, the scores are all unique.</li>
+</ol>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#input</span></span><br><span class="line">scores = [<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">5</span>]</span><br><span class="line"><span class="comment">#output</span></span><br><span class="line"><span class="number">25</span> <span class="comment"># you would give out the following rewards: [4, 3, 2, 1, 2, 3, 4, 5, 1]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Ideas"><a href="#Ideas" class="headerlink" title="Ideas"></a>Ideas</h2><p>I am very happy to pass this question once in 15 minutes. The main personal ideas are as follows:</p>
+<ul>
+<li>For the first traverse, first find out the local minimum and local maximum. The local minimum is directly set to 1, and the local maximum is set to’x’ because I don’t know what it is.</li>
+<li>For the second traverse, expand left to right in the direction of 1, during the process of expanding to the left, if it exceeds the boundary and encounters’x’ and stops, during the process of expanding to the right, if it exceeds the boundary and encounters’x’ stop</li>
+<li>For the third traverse, it stops where it encounters ‘x’, compare the numbers on the left and right, the larger number + 1 is the value of x</li>
+<li>Return sum (rewards)</li>
+</ul>
+<h3 id="Several-key-points"><a href="#Several-key-points" class="headerlink" title="Several key points"></a>Several key points</h3><ul>
+<li>orders matter</li>
+<li>the scores are unique</li>
+<li>all numbers are positive</li>
+</ul>
+<h3 id="Several-methods-given-in-AlgoExpert"><a href="#Several-methods-given-in-AlgoExpert" class="headerlink" title="Several methods given in AlgoExpert:"></a>Several methods given in AlgoExpert:</h3><h4 id="1-naive-algorithm"><a href="#1-naive-algorithm" class="headerlink" title="1. naive algorithm"></a>1. naive algorithm</h4><ul>
+<li>Starting from the first number, the first number is set to 1, from left to right, if it is smaller than the previous number, it is currently changed to 1, and 1 is added to the front</li>
+<li><strong>Disadvantages</strong>: need back tracking&#x2F;iterate back to the previous one.<br>   Time: O(n^2), Space: O(n)</li>
+</ul>
+<h4 id="2-techniques-peaks-and-valleys-high-points-and-low-points-local-maxes-and-local-mins"><a href="#2-techniques-peaks-and-valleys-high-points-and-low-points-local-maxes-and-local-mins" class="headerlink" title="2. techniques: peaks and valleys&#x2F;high points and low points&#x2F; local maxes and local mins"></a>2. techniques: peaks and valleys&#x2F;high points and low points&#x2F; local maxes and local mins</h4><ul>
+<li>I use this method</li>
+<li>if I am at a local min, start expanding to the left and expanding to the right, until I reach the peaks and incrementing</li>
+<li>stop once I get a peak or boundary</li>
+<li>But unlike my method, I found peaks and valleys, but the video only needs valleys, not peaks</li>
+<li>Time: O(n), Space: O(n)</li>
+<li><strong>Disadvantages</strong>: The code is relatively long, so many edge cases need to be considered</li>
+</ul>
+<h4 id="3-The-best-way-cleverest-solution"><a href="#3-The-best-way-cleverest-solution" class="headerlink" title="3. The best way, cleverest solution"></a>3. The best way, cleverest solution</h4><ul>
+<li>the idea of ​​expanding to left and to right of local mins doesn’t actually have to happen by starting at the local mins</li>
+<li>Just go from left to right, then from right to left, traverse twice, and set all numbers at the beginning to be 1.</li>
+<li>From left to right: start from the second number, compare with the left, if the current number is smaller than the left, skip it, if it is larger, start adding 1</li>
+<li>From right to left: If the current number is smaller than the right, the right starts to add</li>
+<li><strong>Advantages</strong>: There is no need to consider many edge cases, and the code is clearer, but no faster than method two</li>
+<li>Time: O(n), Space: O(n)</li>
+</ul>
+<h2 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h2><h3 id="Peaks-and-Valleys"><a href="#Peaks-and-Valleys" class="headerlink" title="Peaks and Valleys"></a>Peaks and Valleys</h3><p>First solution</p>
+<ul>
+<li>peaks and valleys (original solution without refering to any materials)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">minRewards</span>(<span class="params">scores</span>):</span><br><span class="line">    <span class="comment"># Write your code here.</span></span><br><span class="line">	rewards = [<span class="number">0</span>] * <span class="built_in">len</span>(scores)</span><br><span class="line">	cur = <span class="number">0</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(scores) == <span class="number">1</span>:</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> scores[<span class="number">0</span>] &lt; scores[<span class="number">1</span>]:</span><br><span class="line">		rewards[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> scores[-<span class="number">1</span>] &lt; scores[-<span class="number">2</span>]:</span><br><span class="line">		rewards[-<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(scores)-<span class="number">1</span>):</span><br><span class="line">		<span class="keyword">if</span> scores[i] &lt; scores[i-<span class="number">1</span>] <span class="keyword">and</span> scores[i] &lt; scores[i+<span class="number">1</span>]:</span><br><span class="line">			rewards[i] = <span class="number">1</span></span><br><span class="line">		<span class="keyword">elif</span> scores[i] &gt; scores[i-<span class="number">1</span>] <span class="keyword">and</span> scores[i] &gt; scores[i+<span class="number">1</span>]:</span><br><span class="line">			rewards[i] = <span class="string">&quot;x&quot;</span></span><br><span class="line">		</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(rewards)):</span><br><span class="line">		<span class="keyword">if</span> rewards[j] == <span class="number">1</span>:</span><br><span class="line">			left = j-<span class="number">1</span></span><br><span class="line">			<span class="keyword">while</span> left &gt;= <span class="number">0</span> <span class="keyword">and</span> rewards[left] != <span class="string">&#x27;x&#x27;</span>:</span><br><span class="line">				rewards[left] += rewards[left+<span class="number">1</span>]+<span class="number">1</span></span><br><span class="line">				left-=<span class="number">1</span></span><br><span class="line">			right = j+<span class="number">1</span></span><br><span class="line">			<span class="keyword">while</span> right &lt; <span class="built_in">len</span>(rewards) <span class="keyword">and</span> rewards[right] !=<span class="string">&#x27;x&#x27;</span>:</span><br><span class="line">				rewards[right] = rewards[right-<span class="number">1</span>]+<span class="number">1</span></span><br><span class="line">				right+=<span class="number">1</span></span><br><span class="line">				</span><br><span class="line">	<span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(rewards)):</span><br><span class="line">		<span class="keyword">if</span> rewards[k] == <span class="string">&#x27;x&#x27;</span>:</span><br><span class="line">			rewards[k] = <span class="built_in">max</span>(rewards[k-<span class="number">1</span>], rewards[k+<span class="number">1</span>])+<span class="number">1</span>	</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sum</span>(rewards)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Best-Solution"><a href="#Best-Solution" class="headerlink" title="Best Solution"></a>Best Solution</h3><p>Clean and better solution</p>
+<ul>
+<li>Need to pay attation to researsed traverse.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#看了视频以后写的代码，比较绕的是reversed traverse</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">minRewards</span>(<span class="params">scores</span>):</span><br><span class="line">    <span class="comment"># Write your code here.</span></span><br><span class="line">    rewards = [<span class="number">1</span>] * <span class="built_in">len</span>(scores)</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(scores)):</span><br><span class="line">		<span class="keyword">if</span> scores[i-<span class="number">1</span>] &lt; scores[i]:</span><br><span class="line">			rewards[i] +=rewards[i-<span class="number">1</span>]</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(scores))):</span><br><span class="line">		<span class="keyword">if</span> scores[j-<span class="number">1</span>] &gt; scores[j]:</span><br><span class="line">			rewards[j-<span class="number">1</span>] = <span class="built_in">max</span>(rewards[j-<span class="number">1</span>], <span class="number">1</span>+rewards[j])</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sum</span>(rewards)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>my way:</p>
+<ul>
+<li>rewards &#x3D; [1]*len(scores)<br>better way:</li>
+<li>rewards &#x3D; [1 for _ in scores]</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Hexuan Weng
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/" title="Algo-MinRewards">http://hexuanweng.github.io/2021/01/28/Algo-MinRewards/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/array/" rel="tag"><i class="fa fa-tag"> array</i> </a>
+              <a href="/tags/hard/" rel="tag"><i class="fa fa-tag"> hard</i> </a>
+              <a href="/tags/AlgoExpert/" rel="tag"><i class="fa fa-tag"> AlgoExpert</i> </a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/29/Leetcode-Candy/" rel="prev" title="Leetcode-Candy">
+      <i class="fa fa-chevron-left"></i> Leetcode-Candy
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/24/Notion-2021-v1/" rel="next" title="Hello, Notion!!">
+      Hello, Notion!! <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Questions"><span class="nav-text">Questions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ideas"><span class="nav-text">Ideas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Several-key-points"><span class="nav-text">Several key points</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Several-methods-given-in-AlgoExpert"><span class="nav-text">Several methods given in AlgoExpert:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-naive-algorithm"><span class="nav-text">1. naive algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-techniques-peaks-and-valleys-high-points-and-low-points-local-maxes-and-local-mins"><span class="nav-text">2. techniques: peaks and valleys&#x2F;high points and low points&#x2F; local maxes and local mins</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-The-best-way-cleverest-solution"><span class="nav-text">3. The best way, cleverest solution</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#My-Solution"><span class="nav-text">My Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Peaks-and-Valleys"><span class="nav-text">Peaks and Valleys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Best-Solution"><span class="nav-text">Best Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-text">Tips</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hexuan Weng"
+      src="/images/yourname.jpg">
+  <p class="site-author-name" itemprop="name">Hexuan Weng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HexuanWeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HexuanWeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hexuan.weng@gmail.com" title="E-Mail → mailto:hexuan.weng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fas fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hexuan Weng</span>
+</div>
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("10/25/2020 00:13:14");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="화이팅! "+daysold+" days "+hrsold+":"+minsold+":"+seconds+"🍬";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='180' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '65a63f39e8f0508fea1e',
+      clientSecret: '19813982f6f78a2d784ef86454a73a778af996fc',
+      repo        : 'hexuanweng.github.io',
+      owner       : 'HexuanWeng',
+      admin       : ['HexuanWeng'],
+      id          : 'da507a2bc64b94ad377aa75083f53c40',
+        language: 'en,zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

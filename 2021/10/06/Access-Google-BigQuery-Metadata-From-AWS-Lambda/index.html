@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/weather@2x.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/weather.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hexuanweng.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="First of my AWS project at hand~ I feel so happy to work with a great team! Thanks Vicky, Kyle and Dishi~ During the whole process, my responsibility is to build a connection from AWS to Google Bigque">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Access-Google-BigQuery-Metadata-From-AWS-Lambda">
+<meta property="og:url" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/index.html">
+<meta property="og:site_name" content="Hex.*">
+<meta property="og:description" content="First of my AWS project at hand~ I feel so happy to work with a great team! Thanks Vicky, Kyle and Dishi~ During the whole process, my responsibility is to build a connection from AWS to Google Bigque">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/architecture.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/ec2.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/iam.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/session.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/gcp-zip.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/timeout.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/create-layer.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/add-layer.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/lambda-layer.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/gcp-service-account.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/service-account-key.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/bq-credentials.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/result.jpg">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/ssm.png">
+<meta property="og:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/var.png">
+<meta property="article:published_time" content="2021-10-06T10:18:11.000Z">
+<meta property="article:modified_time" content="2021-10-06T10:18:11.000Z">
+<meta property="article:author" content="Hexuan Weng">
+<meta property="article:tag" content="AWS Lambda">
+<meta property="article:tag" content="Google BigQuery">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/architecture.png">
+
+<link rel="canonical" href="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Access-Google-BigQuery-Metadata-From-AWS-Lambda | Hex.*</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Hex.*" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/HexuanWeng" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hex.*</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/yourname.jpg">
+      <meta itemprop="name" content="Hexuan Weng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hex.*">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Access-Google-BigQuery-Metadata-From-AWS-Lambda
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-06 21:18:11" itemprop="dateCreated datePublished" datetime="2021-10-06T21:18:11+11:00">2021-10-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AWS/" itemprop="url" rel="index"><span itemprop="name">AWS</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">First of my AWS project at hand~ I feel so happy to work with a great team! Thanks Vicky, Kyle and Dishi~ During the whole process, my responsibility is to build a connection from AWS to Google Bigquery. Here is my solution~</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements:"></a>Requirements:</h1><ul>
+<li>Try to get the Metadata from Google BigQuery by using AWS Lambda function</li>
+<li>Build connection between AWS Lambda and Google BigQuery</li>
+<li>Write Python code to get metadata from Google BigQuery</li>
+<li>format the metadata schema</li>
+</ul>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/architecture.png" class="" title="Solution Architecture">
+
+<h2 id="Get-google-cloud-bigquery-zip-Method-1"><a href="#Get-google-cloud-bigquery-zip-Method-1" class="headerlink" title="Get google-cloud-bigquery.zip Method 1"></a>Get google-cloud-bigquery.zip Method 1</h2><ul>
+<li>Instead of getting the GCP Layer via EC2 and Session, You can also download the zip file locally by running the following code</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install google-cloud-bigquery -t ./python/</span><br><span class="line"><span class="built_in">zip</span> -r google-cloud-bigquery.<span class="built_in">zip</span> python</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Add the zip file to Lambda function as a layer from your local device</li>
+</ul>
+<h2 id="Get-google-cloud-bigquery-zip-Method-2"><a href="#Get-google-cloud-bigquery-zip-Method-2" class="headerlink" title="Get google-cloud-bigquery.zip Method 2"></a>Get google-cloud-bigquery.zip Method 2</h2><h3 id="Create-EC2-in-AWS"><a href="#Create-EC2-in-AWS" class="headerlink" title="Create EC2 in AWS"></a>Create EC2 in AWS</h3><ul>
+<li>create an EC2</li>
+<li>Amazon Linux 2</li>
+<li>free tier is enough- instance type: t2.micro</li>
+<li>the IAM role grants only “<strong>Amazon EC2Role for SSM</strong>“ so that Session Manager of Systems Manager can connect to this EC2</li>
+<li>leave the other options as default</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/ec2.jpg" class="" title="EC2">
+
+<h3 id="Get-AWS-Access-Key-ID-and-Secret-Access-Key"><a href="#Get-AWS-Access-Key-ID-and-Secret-Access-Key" class="headerlink" title="Get AWS Access Key ID and Secret Access Key"></a>Get AWS Access Key ID and Secret Access Key</h3><ul>
+<li>Go to service “Identity and Access Management”</li>
+<li>click “Users” and find your user name</li>
+<li>click “Security credentials”</li>
+<li>create access key and please remember that you can only view the credential once.</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/iam.jpg" class="" title="IAM">
+
+<h3 id="Start-a-Session-in-AWS"><a href="#Start-a-Session-in-AWS" class="headerlink" title="Start a Session in AWS"></a>Start a Session in AWS</h3><ul>
+<li>go to service “AWS System Manager”</li>
+<li>click the tab “Session Manager”</li>
+<li>click “Start a Session”</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/session.jpg" class="" title="Start a Session">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ec2-Become a user</span></span><br><span class="line"><span class="built_in">sudo</span> su - ec2-user</span><br><span class="line"><span class="comment">#pip installation</span></span><br><span class="line"><span class="built_in">sudo</span> yum install python3 -y</span><br><span class="line">curl -O https://bootstrap.pypa.io/get-pip.py</span><br><span class="line"><span class="built_in">sudo</span> python3 get-pip.py</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/bin</span><br><span class="line"><span class="comment">#sdk installation&amp;Zip</span></span><br><span class="line">pip install google-cloud-bigquery -t ./python/</span><br><span class="line">zip -r google-cloud-bigquery.zip python</span><br><span class="line"><span class="comment">#Added because protobuf is required</span></span><br><span class="line">pip install protobuf --upgrade -t ./python/</span><br><span class="line">zip -r google-cloud-bigquery.zip ./python/google/protobuf</span><br><span class="line"></span><br><span class="line"><span class="comment">#aws cli settings</span></span><br><span class="line">aws configure</span><br><span class="line"><span class="comment">#Set the following:</span></span><br><span class="line">  AWS Access Key ID [None]: &lt;my-access-key&gt;</span><br><span class="line">  AWS Secret Access Key [None]: &lt;my-secret-key&gt;</span><br><span class="line">  Default region name [None]: ap-southeast-2</span><br><span class="line">  Default output format [None]: json</span><br><span class="line"></span><br><span class="line"><span class="comment">#Save to s3</span></span><br><span class="line">aws s3 mb s3://&lt;my-bucket&gt;</span><br><span class="line">aws s3 <span class="built_in">cp</span> google-cloud-bigquery.zip s3://&lt;my-bucket&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Check-S3-Bucket-in-AWS"><a href="#Check-S3-Bucket-in-AWS" class="headerlink" title="Check S3 Bucket in AWS"></a>Check S3 Bucket in AWS</h3><ul>
+<li>go to the s3 bucket you created just now by using Session Manager</li>
+<li>You should see google-cloud-bigquery.zip should be uploaded</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/gcp-zip.png" class="" title="Environment Layer Zip in S3">
+
+<h2 id="Other-Steps"><a href="#Other-Steps" class="headerlink" title="Other Steps"></a>Other Steps</h2><h3 id="create-a-lambda-function-and-register-the-created-library-in-the-lambda-layer-in-AWS"><a href="#create-a-lambda-function-and-register-the-created-library-in-the-lambda-layer-in-AWS" class="headerlink" title="create a lambda function and register the created library in the lambda layer in AWS"></a>create a lambda function and register the created library in the lambda layer in AWS</h3><ul>
+<li>go to Lambda service</li>
+<li>Click “Function” and “create function”</li>
+<li>changes settings:</li>
+<li>Timeout: 30 seconds</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/timeout.png" class="" title="Timeout Configuration">
+
+<ul>
+<li>create Layer</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/create-layer.png" class="" title="Create Layer">
+
+<ul>
+<li>add Layer: gcp-bigquery</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/add-layer.png" class="" title="Add Layer">
+
+<ul>
+<li>And you should see the data has been created successfully</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/lambda-layer.png" class="" title="Lambda Page">
+
+<h3 id="Get-GCP-certificate-file-in-Google-Cloud-Platform"><a href="#Get-GCP-certificate-file-in-Google-Cloud-Platform" class="headerlink" title="Get GCP certificate file in Google Cloud Platform"></a>Get GCP certificate file in Google Cloud Platform</h3><ul>
+<li>Log into Google Cloud Platform</li>
+<li>go to “IAM&amp;Admin” service and go to “Service Accounts”</li>
+<li>Click “Create Service Account”: please make sure that you choose “BigQuery Admin” as the Role</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/gcp-service-account.png" class="" title="Service Account">
+
+<ul>
+<li>Once you created the account, please click the account and “ADD KEY”</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/service-account-key.png" class="" title="Key">
+
+<ul>
+<li>You are able to download the JSON file in the following format</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;project_id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;private_key_id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;private_key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span>  </span><br><span class="line">  <span class="attr">&quot;client_email&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;client_id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;auth_uri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;token_uri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;auth_provider_x509_cert_url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;client_x509_cert_url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Add-functions-and-credential-file-in-AWS-Lambda-Function"><a href="#Add-functions-and-credential-file-in-AWS-Lambda-Function" class="headerlink" title="Add functions and credential file in AWS Lambda Function"></a>Add functions and credential file in AWS Lambda Function</h3><ul>
+<li>copy the JSON file into “bq.manager.json”</li>
+</ul>
+
+
+<ul>
+<li>copy the following codes into “lambda_function.py”</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> google.cloud <span class="keyword">import</span> bigquery</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lambda_handler</span>(<span class="params">event, context</span>):</span><br><span class="line">    client = bigquery.Client()</span><br><span class="line">    sql = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        SELECT *</span></span><br><span class="line"><span class="string">        FROM `&lt;project name&gt;.&lt;dataset name&gt;.&lt;table name&gt;`</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Run a Standard SQL query using the environment&#x27;s default project</span></span><br><span class="line">    results = client.query(sql).result()</span><br><span class="line">    metadata_objects = []</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> results:</span><br><span class="line">        id_dic = &#123;<span class="string">&quot;id&quot;</span>: <span class="built_in">list</span>(row)[<span class="number">0</span>]&#125;</span><br><span class="line">        other_dic = &#123;<span class="string">&quot;metadata&quot;</span>: <span class="built_in">list</span>(row)[<span class="number">1</span>]&#125;</span><br><span class="line">        metadata_objects.append(&#123;**id_dic, **other_dic&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> metadata_objects</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Add “GOOGLE_APPLICATION_CREDENTIALS: bq-manager.json” as Environment Variables</li>
+</ul>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/bq-credentials.png" class="" title="Credentials">
+
+<h1 id="Test-Result"><a href="#Test-Result" class="headerlink" title="Test Result"></a>Test Result</h1><p>You should be able to get the JSON result like the format in the BigQuery. </p>
+<p>By default, you should get a SQL table. You can modify the result baesd on your code.</p>
+<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/result.jpg" class="" title="Test Result">
+
+<h1 id="Updated-Solutions"><a href="#Updated-Solutions" class="headerlink" title="Updated Solutions"></a>Updated Solutions</h1><h2 id="AWS-SSM-Parameter-Store"><a href="#AWS-SSM-Parameter-Store" class="headerlink" title="AWS SSM - Parameter Store"></a>AWS SSM - Parameter Store</h2><ul>
+<li>Store the credential paths in the SSM Parameter Store like a Python Dictionary<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/ssm.png" class="" title="Parameter Store"></li>
+</ul>
+<h2 id="AWS-Lambda-Environment-Variable"><a href="#AWS-Lambda-Environment-Variable" class="headerlink" title="AWS Lambda - Environment Variable"></a>AWS Lambda - Environment Variable</h2><ul>
+<li>Set all the paths as an environment variables<img src="/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/var.png" class="" title="Environment Variable"></li>
+</ul>
+<h2 id="Updated-Lambda-code"><a href="#Updated-Lambda-code" class="headerlink" title="Updated Lambda code"></a>Updated Lambda code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.cloud <span class="keyword">import</span> bigquery</span><br><span class="line"><span class="keyword">from</span> google.oauth2 <span class="keyword">import</span> service_account</span><br><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">ssm = boto3.client(<span class="string">&#x27;ssm&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lambda_handler</span>(<span class="params">event, context</span>):</span><br><span class="line"></span><br><span class="line">		<span class="comment">#retrieve parameters from ssm/appconfig and prepare for connection with BigQuery</span></span><br><span class="line">		client_email_var = ssm.get_parameter(Name=os.getenv(<span class="string">&#x27;SSM_BQ_CLIENT_EMAIL&#x27;</span>))[<span class="string">&#x27;Parameter&#x27;</span>][<span class="string">&#x27;Value&#x27;</span>]</span><br><span class="line">		private_key_var = ssm.get_parameter(Name=os.getenv(<span class="string">&#x27;SSM_BQ_PRIVATE_KEY&#x27;</span>))[<span class="string">&#x27;Parameter&#x27;</span>][<span class="string">&#x27;Value&#x27;</span>].replace(<span class="string">&#x27;\\n&#x27;</span>, <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">		token_uri_var = os.getenv(<span class="string">&#x27;SSM_BQ_TOKEN_URI&#x27;</span>)</span><br><span class="line">		credentials = service_account.Credentials.from_service_account_info(</span><br><span class="line">		    &#123;</span><br><span class="line">		        <span class="string">&quot;client_email&quot;</span>: client_email_var,</span><br><span class="line">		        <span class="string">&quot;private_key&quot;</span>: private_key_var,</span><br><span class="line">		        <span class="string">&quot;token_uri&quot;</span>: token_uri_var</span><br><span class="line">		    &#125;</span><br><span class="line">		)</span><br><span class="line">		</span><br><span class="line">		project_id_var = os.getenv(<span class="string">&#x27;BQ_PROJECT_ID&#x27;</span>)</span><br><span class="line">		dataset_name_var = os.getenv(<span class="string">&#x27;BQ_DATASET_NAME&#x27;</span>)</span><br><span class="line">		table_name_var = os.getenv(<span class="string">&#x27;BQ_TABLE_NAME&#x27;</span>)</span><br><span class="line">		<span class="keyword">if</span> bigquery.Client(credentials = credentials,project=project_id_var):</span><br><span class="line">		    client = bigquery.Client(credentials = credentials,project=project_id_var)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">		    <span class="keyword">raise</span> GCPConnectionError</span><br><span class="line">		</span><br><span class="line">		sql = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">		    SELECT *</span></span><br><span class="line"><span class="string">		    FROM <span class="subst">&#123;project_id_var&#125;</span>.<span class="subst">&#123;dataset_name_var&#125;</span>.<span class="subst">&#123;table_name_var&#125;</span></span></span><br><span class="line"><span class="string">		&quot;&quot;&quot;</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment"># Run a Standard SQL query using the environment&#x27;s default project</span></span><br><span class="line">		<span class="comment">#retrieve metadata from Bigquery and transfer it to JSON</span></span><br><span class="line">		results = client.query(sql).result()</span><br><span class="line">		metadata_objects = []</span><br><span class="line">		<span class="keyword">for</span> row <span class="keyword">in</span> results:</span><br><span class="line">		    id_dic = &#123;<span class="string">&quot;id&quot;</span>: <span class="built_in">list</span>(row)[<span class="number">0</span>]&#125;</span><br><span class="line">		    other_dic = &#123;<span class="string">&quot;metadata&quot;</span>: <span class="built_in">list</span>(row)[<span class="number">1</span>]&#125;</span><br><span class="line">		    metadata_objects.append(&#123;**id_dic, **other_dic&#125;)</span><br><span class="line">    <span class="keyword">return</span> metadata_objects</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.client.Client.html">google-cloud-bigquery</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://cloud.google.com/docs/authentication#oauth-2.0-clients">Authentication overview | Google Cloud</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a target="_blank" rel="noopener" href="https://linuxtut.com/en/c99c2fba0ebf633cfb0b/">Run BigQuery from Lambda</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Hexuan Weng
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/" title="Access-Google-BigQuery-Metadata-From-AWS-Lambda">http://hexuanweng.github.io/2021/10/06/Access-Google-BigQuery-Metadata-From-AWS-Lambda/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/AWS-Lambda/" rel="tag"><i class="fa fa-tag"> AWS Lambda</i> </a>
+              <a href="/tags/Google-BigQuery/" rel="tag"><i class="fa fa-tag"> Google BigQuery</i> </a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/04/LC929UniqueEmailAddress/" rel="prev" title="LC929 - Unique Email Address">
+      <i class="fa fa-chevron-left"></i> LC929 - Unique Email Address
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/29/Leetcode-Candy/" rel="next" title="Leetcode-Candy">
+      Leetcode-Candy <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Requirements"><span class="nav-text">Requirements:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-google-cloud-bigquery-zip-Method-1"><span class="nav-text">Get google-cloud-bigquery.zip Method 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-google-cloud-bigquery-zip-Method-2"><span class="nav-text">Get google-cloud-bigquery.zip Method 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-EC2-in-AWS"><span class="nav-text">Create EC2 in AWS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-AWS-Access-Key-ID-and-Secret-Access-Key"><span class="nav-text">Get AWS Access Key ID and Secret Access Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Start-a-Session-in-AWS"><span class="nav-text">Start a Session in AWS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check-S3-Bucket-in-AWS"><span class="nav-text">Check S3 Bucket in AWS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Steps"><span class="nav-text">Other Steps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-a-lambda-function-and-register-the-created-library-in-the-lambda-layer-in-AWS"><span class="nav-text">create a lambda function and register the created library in the lambda layer in AWS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-GCP-certificate-file-in-Google-Cloud-Platform"><span class="nav-text">Get GCP certificate file in Google Cloud Platform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-functions-and-credential-file-in-AWS-Lambda-Function"><span class="nav-text">Add functions and credential file in AWS Lambda Function</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Test-Result"><span class="nav-text">Test Result</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Updated-Solutions"><span class="nav-text">Updated Solutions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-SSM-Parameter-Store"><span class="nav-text">AWS SSM - Parameter Store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWS-Lambda-Environment-Variable"><span class="nav-text">AWS Lambda - Environment Variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Updated-Lambda-code"><span class="nav-text">Updated Lambda code</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hexuan Weng"
+      src="/images/yourname.jpg">
+  <p class="site-author-name" itemprop="name">Hexuan Weng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HexuanWeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HexuanWeng" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hexuan.weng@gmail.com" title="E-Mail → mailto:hexuan.weng@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fas fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hexuan Weng</span>
+</div>
+
+<div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("10/25/2020 00:13:14");//修改为自己的blog建站时间
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="화이팅! "+daysold+" days "+hrsold+":"+minsold+":"+seconds+"🍬";
+}
+function setzero(i){
+    if (i<10)
+    {i="0" + i};
+    return i;
+}
+show_date_time();
+</script>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='180' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '65a63f39e8f0508fea1e',
+      clientSecret: '19813982f6f78a2d784ef86454a73a778af996fc',
+      repo        : 'hexuanweng.github.io',
+      owner       : 'HexuanWeng',
+      admin       : ['HexuanWeng'],
+      id          : '4efee4980aeb2062be32237ae2156839',
+        language: 'en,zh-CN',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
