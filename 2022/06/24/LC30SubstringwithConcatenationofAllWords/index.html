@@ -33,9 +33,9 @@
 <meta property="article:modified_time" content="2022-06-24T01:11:16.000Z">
 <meta property="article:author" content="Hannah Weng">
 <meta property="article:tag" content="hard">
+<meta property="article:tag" content="Sliding Window">
 <meta property="article:tag" content="Hashmap">
 <meta property="article:tag" content="Two Pointers">
-<meta property="article:tag" content="Sliding Window">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://hannahweng.xyz/2022/06/24/LC30SubstringwithConcatenationofAllWords/">
@@ -219,9 +219,10 @@ document.addEventListener('DOMContentLoaded', function () {
   controls.appendChild(darkBtn);
   controls.appendChild(langPill);
 
-  // Inject after the <ul> inside <nav class="site-nav">
-  var nav = document.querySelector('.site-nav');
-  if (nav) nav.appendChild(controls);
+  // Inject into .header-inner so controls sit at the far right of the header
+  // (site-nav has flex-grow:1 so controls naturally end up after it)
+  var header = document.querySelector('.header-inner');
+  if (header) header.appendChild(controls);
 
   // Apply saved state
   applyLang(curLang);
@@ -460,9 +461,9 @@ document.addEventListener('DOMContentLoaded', function () {
           
           <div class="post-tags">
               <a href="/tags/hard/" rel="tag"><i class="fa fa-tag"> hard</i> </a>
+              <a href="/tags/Sliding-Window/" rel="tag"><i class="fa fa-tag"> Sliding Window</i> </a>
               <a href="/tags/Hashmap/" rel="tag"><i class="fa fa-tag"> Hashmap</i> </a>
               <a href="/tags/Two-Pointers/" rel="tag"><i class="fa fa-tag"> Two Pointers</i> </a>
-              <a href="/tags/Sliding-Window/" rel="tag"><i class="fa fa-tag"> Sliding Window</i> </a>
           </div>
 
         

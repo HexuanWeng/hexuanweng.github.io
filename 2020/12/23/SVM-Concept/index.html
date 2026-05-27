@@ -231,9 +231,10 @@ document.addEventListener('DOMContentLoaded', function () {
   controls.appendChild(darkBtn);
   controls.appendChild(langPill);
 
-  // Inject after the <ul> inside <nav class="site-nav">
-  var nav = document.querySelector('.site-nav');
-  if (nav) nav.appendChild(controls);
+  // Inject into .header-inner so controls sit at the far right of the header
+  // (site-nav has flex-grow:1 so controls naturally end up after it)
+  var header = document.querySelector('.header-inner');
+  if (header) header.appendChild(controls);
 
   // Apply saved state
   applyLang(curLang);

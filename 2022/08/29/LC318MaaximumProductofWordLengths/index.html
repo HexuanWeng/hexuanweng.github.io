@@ -32,8 +32,8 @@
 <meta property="article:published_time" content="2022-08-28T20:34:19.000Z">
 <meta property="article:modified_time" content="2022-08-28T20:34:19.000Z">
 <meta property="article:author" content="Hannah Weng">
-<meta property="article:tag" content="Brute Force">
 <meta property="article:tag" content="medium">
+<meta property="article:tag" content="Brute Force">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://hannahweng.xyz/2022/08/29/LC318MaaximumProductofWordLengths/">
@@ -217,9 +217,10 @@ document.addEventListener('DOMContentLoaded', function () {
   controls.appendChild(darkBtn);
   controls.appendChild(langPill);
 
-  // Inject after the <ul> inside <nav class="site-nav">
-  var nav = document.querySelector('.site-nav');
-  if (nav) nav.appendChild(controls);
+  // Inject into .header-inner so controls sit at the far right of the header
+  // (site-nav has flex-grow:1 so controls naturally end up after it)
+  var header = document.querySelector('.header-inner');
+  if (header) header.appendChild(controls);
 
   // Apply saved state
   applyLang(curLang);
@@ -456,8 +457,8 @@ document.addEventListener('DOMContentLoaded', function () {
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Brute-Force/" rel="tag"><i class="fa fa-tag"> Brute Force</i> </a>
               <a href="/tags/medium/" rel="tag"><i class="fa fa-tag"> medium</i> </a>
+              <a href="/tags/Brute-Force/" rel="tag"><i class="fa fa-tag"> Brute Force</i> </a>
           </div>
 
         
