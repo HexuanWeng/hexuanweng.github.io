@@ -32,10 +32,10 @@
 <meta property="article:published_time" content="2022-06-24T01:11:16.000Z">
 <meta property="article:modified_time" content="2022-06-24T01:11:16.000Z">
 <meta property="article:author" content="Hannah Weng">
-<meta property="article:tag" content="hard">
-<meta property="article:tag" content="Two Pointers">
-<meta property="article:tag" content="Sliding Window">
 <meta property="article:tag" content="Hashmap">
+<meta property="article:tag" content="Sliding Window">
+<meta property="article:tag" content="Two Pointers">
+<meta property="article:tag" content="hard">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://hannahweng.xyz/2022/06/24/LC30SubstringwithConcatenationofAllWords/">
@@ -346,10 +346,10 @@ document.addEventListener('DOMContentLoaded', function () {
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/hard/" rel="tag"><i class="fa fa-tag"> hard</i> </a>
-              <a href="/tags/Two-Pointers/" rel="tag"><i class="fa fa-tag"> Two Pointers</i> </a>
-              <a href="/tags/Sliding-Window/" rel="tag"><i class="fa fa-tag"> Sliding Window</i> </a>
               <a href="/tags/Hashmap/" rel="tag"><i class="fa fa-tag"> Hashmap</i> </a>
+              <a href="/tags/Sliding-Window/" rel="tag"><i class="fa fa-tag"> Sliding Window</i> </a>
+              <a href="/tags/Two-Pointers/" rel="tag"><i class="fa fa-tag"> Two Pointers</i> </a>
+              <a href="/tags/hard/" rel="tag"><i class="fa fa-tag"> hard</i> </a>
           </div>
 
         
@@ -606,7 +606,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () =>
     perPage         : 100,
     // Oldest-first so the thread reads chronologically.
     pagerDirection  : 'first',
-      language: 'en,zh-CN',
+      language: window.navigator.language || window.navigator.userLanguage,
+    
     distractionFreeMode: false,
     proxy: 'https://cors-anywhere.azurewebsites.net/https://github.com/login/oauth/access_token'
   });

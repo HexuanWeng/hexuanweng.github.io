@@ -603,7 +603,8 @@ NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () =>
     perPage         : 100,
     // Oldest-first so the thread reads chronologically.
     pagerDirection  : 'first',
-      language: 'en,zh-CN',
+      language: window.navigator.language || window.navigator.userLanguage,
+    
     distractionFreeMode: false,
     proxy: 'https://cors-anywhere.azurewebsites.net/https://github.com/login/oauth/access_token'
   });
