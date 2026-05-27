@@ -1213,7 +1213,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #7dff5d;
+  background: #221ff9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2778,12 +2778,15 @@ pre,
   color: var(--hx-gold-deep);
   font-size: 0.85rem;
 }
+.site-nav {
+  display: flex !important;
+  align-items: center !important;
+}
 .hx-controls {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-left: 16px;
-  flex-shrink: 0;
+  margin-left: 10px;
 }
 .hx-dark-toggle {
   display: inline-flex;

@@ -35,8 +35,8 @@
 <meta property="article:modified_time" content="2022-06-23T11:11:15.000Z">
 <meta property="article:author" content="Hannah Weng">
 <meta property="article:tag" content="hard">
-<meta property="article:tag" content="Two Pointers">
 <meta property="article:tag" content="Greedy">
+<meta property="article:tag" content="Two Pointers">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hannahweng.xyz/2022/06/23/LC1537GettheMaximumScore/sample_1_1893.png">
 
@@ -221,10 +221,9 @@ document.addEventListener('DOMContentLoaded', function () {
   controls.appendChild(darkBtn);
   controls.appendChild(langPill);
 
-  // Inject into .header-inner so controls sit at the far right of the header
-  // (site-nav has flex-grow:1 so controls naturally end up after it)
-  var header = document.querySelector('.header-inner');
-  if (header) header.appendChild(controls);
+  // Inject after the <ul> inside <nav class="site-nav">
+  var nav = document.querySelector('.site-nav');
+  if (nav) nav.appendChild(controls);
 
   // Apply saved state
   applyLang(curLang);
@@ -473,8 +472,8 @@ document.addEventListener('DOMContentLoaded', function () {
           
           <div class="post-tags">
               <a href="/tags/hard/" rel="tag"><i class="fa fa-tag"> hard</i> </a>
-              <a href="/tags/Two-Pointers/" rel="tag"><i class="fa fa-tag"> Two Pointers</i> </a>
               <a href="/tags/Greedy/" rel="tag"><i class="fa fa-tag"> Greedy</i> </a>
+              <a href="/tags/Two-Pointers/" rel="tag"><i class="fa fa-tag"> Two Pointers</i> </a>
           </div>
 
         

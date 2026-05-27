@@ -33,8 +33,8 @@
 <meta property="article:published_time" content="2020-10-31T13:00:00.000Z">
 <meta property="article:modified_time" content="2020-10-31T13:00:00.000Z">
 <meta property="article:author" content="Hannah Weng">
-<meta property="article:tag" content="easy">
 <meta property="article:tag" content="array">
+<meta property="article:tag" content="easy">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hannahweng.xyz/2020/11/01/Binary-Gap/binarygap_codility.png">
 
@@ -219,10 +219,9 @@ document.addEventListener('DOMContentLoaded', function () {
   controls.appendChild(darkBtn);
   controls.appendChild(langPill);
 
-  // Inject into .header-inner so controls sit at the far right of the header
-  // (site-nav has flex-grow:1 so controls naturally end up after it)
-  var header = document.querySelector('.header-inner');
-  if (header) header.appendChild(controls);
+  // Inject after the <ul> inside <nav class="site-nav">
+  var nav = document.querySelector('.site-nav');
+  if (nav) nav.appendChild(controls);
 
   // Apply saved state
   applyLang(curLang);
@@ -451,8 +450,8 @@ document.addEventListener('DOMContentLoaded', function () {
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/easy/" rel="tag"><i class="fa fa-tag"> easy</i> </a>
               <a href="/tags/array/" rel="tag"><i class="fa fa-tag"> array</i> </a>
+              <a href="/tags/easy/" rel="tag"><i class="fa fa-tag"> easy</i> </a>
           </div>
 
         
