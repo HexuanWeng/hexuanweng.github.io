@@ -64,9 +64,18 @@
 <link rel="icon" type="image/jpeg" href="/images/hh.jpg">
 <link rel="apple-touch-icon" href="/images/hh.jpg">
 
+<!-- Apply saved theme before paint to prevent flash -->
 <script>
-// Lift the search popup out of the .header (whose backdrop-filter traps
-// position:fixed descendants, breaking the modal layout).
+(function () {
+  var t = localStorage.getItem('hx-theme');
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+
+<script>
+// ── Search popup fix ─────────────────────────────────────────────────────
+// Moves .search-pop-overlay to <body> so it escapes the header's
+// backdrop-filter stacking context (which traps position:fixed children).
 document.addEventListener('DOMContentLoaded', function () {
   var overlay = document.querySelector('.search-pop-overlay');
   if (overlay && overlay.parentElement !== document.body) {
@@ -74,8 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// Sage star cursor — only on mouse-equipped devices; touch users keep
-// the system pointer (which is invisible on touch anyway).
+// ── Red star cursor ───────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -112,9 +120,114 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!rafQueued) { rafQueued = true; requestAnimationFrame(flush); }
   }, { passive: true });
 
-  // Click pulse — deepen the red briefly so the click is visibly red
   document.addEventListener('mousedown', function () { star.classList.add('is-click'); });
   document.addEventListener('mouseup',   function () { setTimeout(function(){ star.classList.remove('is-click'); }, 220); });
+});
+
+// ── Dark mode + Language controls ─────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Nav label translations keyed by menu-item class suffix
+  var NAV_LABELS = {
+    'home':   { en: 'Home',   zh: '首页' },
+    'blog':   { en: 'Blog',   zh: '博客' },
+    'about':  { en: 'About',  zh: '关于' },
+    'search': { en: 'Search', zh: '搜索' }
+  };
+
+  // SVG paths for moon / sun icons
+  var MOON = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+  var SUN  = '<circle cx="12" cy="12" r="5"/>' +
+             '<line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>' +
+             '<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>' +
+             '<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>' +
+             '<line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>' +
+             '<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>' +
+             '<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+
+  // Replace the text node inside a nav <a> without disturbing the icon <i>
+  function setNavText(a, text) {
+    for (var i = 0; i < a.childNodes.length; i++) {
+      if (a.childNodes[i].nodeType === 3) {
+        a.childNodes[i].textContent = text;
+        return;
+      }
+    }
+  }
+
+  function applyLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    localStorage.setItem('hx-lang', lang);
+
+    // Update nav labels
+    Object.keys(NAV_LABELS).forEach(function (key) {
+      var li = document.querySelector('.menu-item-' + key);
+      if (li) {
+        var a = li.querySelector('a');
+        if (a) setNavText(a, NAV_LABELS[key][lang]);
+      }
+    });
+
+    // Sync pill button active state
+    document.querySelectorAll('.hx-lang-btn').forEach(function (btn) {
+      btn.classList.toggle('is-active', btn.dataset.lang === lang);
+    });
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem('hx-theme', theme);
+
+    var svg = document.querySelector('#hx-dark-toggle svg');
+    if (svg) svg.innerHTML = theme === 'dark' ? SUN : MOON;
+  }
+
+  // ── Build controls widget ────────────────────────────────────────────
+  var curTheme = localStorage.getItem('hx-theme') || 'light';
+  var curLang  = localStorage.getItem('hx-lang')  || 'en';
+
+  // Dark mode button
+  var darkBtn = document.createElement('button');
+  darkBtn.id = 'hx-dark-toggle';
+  darkBtn.className = 'hx-dark-toggle';
+  darkBtn.setAttribute('aria-label', 'Toggle dark mode');
+  darkBtn.innerHTML =
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
+      (curTheme === 'dark' ? SUN : MOON) +
+    '</svg>';
+  darkBtn.addEventListener('click', function () {
+    var next = (localStorage.getItem('hx-theme') || 'light') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+
+  // Language pill
+  var langPill = document.createElement('div');
+  langPill.className = 'hx-lang-toggle';
+  ['zh', 'en'].forEach(function (code) {
+    var btn = document.createElement('button');
+    btn.className = 'hx-lang-btn' + (curLang === code ? ' is-active' : '');
+    btn.dataset.lang = code;
+    btn.textContent = code === 'zh' ? '中文' : 'EN';
+    btn.addEventListener('click', function () { applyLang(code); });
+    langPill.appendChild(btn);
+  });
+
+  var controls = document.createElement('div');
+  controls.className = 'hx-controls';
+  controls.appendChild(darkBtn);
+  controls.appendChild(langPill);
+
+  // Inject after the <ul> inside <nav class="site-nav">
+  var nav = document.querySelector('.site-nav');
+  if (nav) nav.appendChild(controls);
+
+  // Apply saved state
+  applyLang(curLang);
+  if (curTheme === 'dark') applyTheme('dark');
 });
 </script>
 
@@ -155,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container">
     <div class="headband"></div>
-    <a target="_blank" rel="noopener" href="https://github.com/HexuanWeng" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar">
